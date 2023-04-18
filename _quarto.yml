@@ -3,23 +3,42 @@ project:
 
 website:
   page-navigation: true
-  title: "AMD Stats"
-  description: "Homepage für 02.132.6110 Seminar: Fortgeschrittene statistische Methoden II in WiSe 22/23 an der JGU."
-  site-url: "https://josealanis.github.io/stats-website-template/"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+  title: "AMDstats"
+  description: "Dies ist die Webseite für die Seminar der AMD an der JGU."
+  site-url: "https://github.com/JoseAlanis/amdstatsem"
+      
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022-2023, Autoren von AMD Stats"
+    left: "&copy; Copyright 2022-2023, authors of [AMDstats](https://github.com/JoseAlanis/amdstatsem)"
     background: "#C1002A"
+    
+  sidebar:
+    background: "#C1002A"
+    # logo: "images/logo.png"
+    pinned: true
+    align: center
+    tools:
+      - icon: github
+        href: https://github.com/JoseAlanis/amdstatsem
+        text: "Code auf GitHub"
+      - icon: journal-text
+        href: https://methoden.amd.psychologie.uni-mainz.de/lehre/
+        text: "AMD Lehre"
+      - icon: person-fill
+        href: https://methoden.amd.psychologie.uni-mainz.de/abteilungsmitglieder/
+        text: "Kontakt"
+        
+    style: "docked"
+    search: true
+    collapse-level: 1
+    contents:
+      - section: "Allgemeine Informationen"
 
 format:
   html:
-    theme: cosmo
-    css: styles.scss
+    theme:
+      light: [cosmo, theme.scss]
+      dark: [cosmo, theme-dark.scss]
     toc: true
     mainfont: "Atkinson Hyperlegible"
     code-copy: true
