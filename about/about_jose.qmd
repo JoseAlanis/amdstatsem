@@ -1,9 +1,22 @@
 ---
-title: "This is Jose's landing page"
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+subtitle: "Multi-Level Modelle"
 image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
 ---
 
-## Allgemeines zu Multi-Level Modelle
+Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen
+institut der Johannes Gutenberg Universität Mainz.
 
-Seminar intro: 
-- Add information
+# Leitung
+
+[José C. García Alanis](https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/)\
+[Abteilung für Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/)\
+Psychologisches Institut
+Johannes Gutenberg-Universität Mainz
+Wallstraße 3, Raum 06-255\
+D-55122 Mainz\
+[jose.alanis at uni-mainz.de](jose.alanis@uni-mainz.de)
