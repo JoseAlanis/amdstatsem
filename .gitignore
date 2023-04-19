@@ -4,3 +4,7 @@
 # ignore .html files
 _freeze
 _site
+.Rproj.user
+.Rhistory
+
+/.quarto/
