@@ -1,8 +1,9 @@
 ---
 title: "This is Jose's landing page"
-image: "https://raw.githubusercontent.com/MathiasHarrer/Doing-Meta-Analysis-in-R/master/images/multilevel-model.png"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
 ---
 
--   $Y_{i,~j}=\beta_{0,~j}+\varepsilon_{i,~j}$
-    -   $\beta_{0,~j}=\gamma_{0~{(\beta_{0})}}+u_{j ~(\beta_{0})}$
-    -   $\Longrightarrow Y_{i,~j}=\gamma_{0~{(\beta_{0})}}+u_{j~(\beta_{0})}+\varepsilon_{i,~j}$
+## Allgemeines zu Multi-Level Modelle
+
+Seminar intro: 
+- Add information
