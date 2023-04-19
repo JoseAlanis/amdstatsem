@@ -3,35 +3,36 @@ project:
 
 website:
   page-navigation: true
-  title: "Fortgeschrittene statistische Methoden II"
-  description: "Homepage für die Seminareder Arbeitsgruppe AMD an der JGU."
+  title: "AMDstats"
+  description: "Dies ist die Webseite für die Seminar der AMD an der JGU."
   site-url: "https://github.com/JoseAlanis/amdstatsem"
-  navbar:
-    left:
-      - href: index.qmd
-        text: Home
-      - about.qmd
+      
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022-2023, authors of [AMD-stat-sem](https://github.com/JoseAlanis/amdstatsem)"
+    left: "&copy; Copyright 2022-2023, authors of [AMDstats](https://github.com/JoseAlanis/amdstatsem)"
     background: "#C1002A"
-  
+    
   sidebar:
     background: "#C1002A"
-    # logo: "<add_logo>"
+    # logo: "images/logo.png"
     pinned: true
     align: center
     tools:
       - icon: github
         href: https://github.com/JoseAlanis/amdstatsem
-        text: "GitHub Repository"
+        text: "Code auf GitHub"
       - icon: journal-text
         href: https://methoden.amd.psychologie.uni-mainz.de/lehre/
-        text: "Lehre AMD"
+        text: "AMD Lehre"
+      - icon: person-fill
+        href: https://methoden.amd.psychologie.uni-mainz.de/abteilungsmitglieder/
+        text: "Kontakt"
         
     style: "docked"
     search: true
     collapse-level: 1
+    contents:
+      - section: "Allgemeine Informationen"
 
 format:
   html:

@@ -1,12 +1,13 @@
 ---
-title: "Homepage für die Seminare: Fortgeschrittene statistische Methoden II."
+title: "Homepage für die Seminare **Fortgeschrittene statistische Methoden II**."
+listing:
+  contents: about
+  type: grid
 ---
 
 This is a Quarto website.
 
 To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
-```{r}
-1 + 1
-```
 
+# Choose your poison:
