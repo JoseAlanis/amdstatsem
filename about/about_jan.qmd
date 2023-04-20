@@ -2,11 +2,11 @@
 title: "Seminar kognitive Modellierung"
 ---
 
-
 $$\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
 \frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
 \frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
 \beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)$$
+
 
 
 # Willkommen ! 
