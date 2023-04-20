@@ -1,5 +1,6 @@
 ---
 title: "Seminar kognitive Modellierung"
+image: "https://raw.githubusercontent.com/MathiasHarrer/Doing-Meta-Analysis-in-R/master/images/multilevel-model.png"
 ---
 
 $$\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
