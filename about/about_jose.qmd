@@ -1,8 +1,62 @@
 ---
-title: "This is Jose's landing page"
-image: "https://raw.githubusercontent.com/MathiasHarrer/Doing-Meta-Analysis-in-R/master/images/multilevel-model.png"
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+lang: de
+subtitle: "Multi-Level Modelle"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
 ---
 
--   $Y_{i,~j}=\beta_{0,~j}+\varepsilon_{i,~j}$
-    -   $\beta_{0,~j}=\gamma_{0~{(\beta_{0})}}+u_{j ~(\beta_{0})}$
-    -   $\Longrightarrow Y_{i,~j}=\gamma_{0~{(\beta_{0})}}+u_{j~(\beta_{0})}+\varepsilon_{i,~j}$
+::: callout-note
+# Achtung 🚧
+
+Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden.
+
+:::
+
+::: justifyni
+Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.
+:::
+
+# Seminarleitung
+
+[José C. García Alanis](https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/)\
+[Abteilung für Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/)\
+Psychologisches Institut\
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255\
+D-55122 Mainz\
+[jose.alanis at uni-mainz.de](jose.alanis@uni-mainz.de)
+
+# Organisatorisches und wichtige Infos
+
+## Allgemeine Materialien für das Seminar
+
+-   Wichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:
+    -   [Link zum Seminar](https://lms.uni-mainz.de/moodle/course/view.php?id=94239) auf LMS.
+        -   **Wann**: Montags von **12:15** - **13:45** Uhr (17.04.22 - Mo. 17.07.23).
+        -   **Wo**: Seminarraum 01-211 ([kleiner Hörsaal](https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-AKrBXm3do8z5K2wTf0xfMd9190A8Sml7RzhhAEvH8tg4abgngqC~SqtwbjDE7NDNC3vRkkWv2BFOtp7P3f5zXPJwAiHrbGGtMTG4~57XPUPli4r69ktjy47MyTBXTgmHT-ijhk11rWt7dg97spvSvz-9FdZZc6lpyzE~pwrGBXdGCsU0_)) im Psychologischen Institut (Binger Str.)
+
+## Inhalt des Seminars
+
+::: justify
+***Multi-Level Modelle*** (auch *Mehrebenen-Modelle* oder *hierarchische liniäre Modelle* genannt) ermöglichen es, Daten zu analysieren, die sich hierarchisch übergeordneten Einheiten zuordnen lassen. Hier wird häufig von *genesteten* oder *hierarchisch strukturierten/organisierten Daten* gesprochen. Beispiele dafür sind Kinder, die unterschiedlichen Familien angehören, Mitarbeiter:innen verschiedener Abteilungen oder Patient:innen von unterschiedlichen Therapeut:innen oder Kliniken. Diese Gruppen haben alle eine Gemeinsamkeit: Ihre Mitglieder:innen lassen sich eindeutig einer Gruppe (und nur einer Gruppe) zuordnen.
+
+Ein typisches Merkmal von hierarchisch strukturieren Daten ist, dass Daten innerhalb einer Gruppe ähnlicher zueinander sind als zu Daten anderer Gruppen. Dadurch ergeben sich häufig Unterschiede, die auf die Zugehörigkeit zu einer jeweiligen Gruppe zurückzuführen sind (z.B. unterschiedliche Therapieverläufe für unterschiedliche Störungsgruppen oder Performanzunterschiede zwischen Abteilungen).
+
+Ein Vorteil von Multi-Level Modelle ist, dass sie die obengenannten Ählichkeitsmuster in hierarchisch organisierten Daten berücksichtigen. Somit können sie dafür eingesetzt werden, genauere und realitätsnähere Aussagen über den Effekt einer Maßnahme oder über die Beziehung zwischen Prädiktoren und Outcomes zu treffen. Am Ende des Seminars sollten Sie folgende Fragen beantworten können: Was sind hierarchisch strukturierte Daten und wie können diese erkannt werden? Welche Konsequenzen (in Sinne einer Modellspezifikation) bringen hierarchisch strukturierte Daten mit sich? Wie können Multi-Level Modelle in R spezifiziert werden und welche Arten von Modellen gibt es? Wie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?
+:::
+
+## Begleitendes Tutorium
+
+::: justify
+Das Seminar wird von einem Softwaretutorium begleitet, in dem Sie die Grundlagen des Umgangs mit der **Statistiksoftware R** sowie die Datenaufbereitung im *tidyverse* erlernen und einüben sollen. Aufbauend auf diesen Grundkenntnissen werden im Tutorium die Inhalte dieses Seminars besprochen und vertieft. D.h. das Tutorium behandelt explizit, die Inhalte des Seminars und ist im Besonderen für dieses Seminar konzipiert. Bitte melden Sie sich daher auch für das begleitende Tutorium an! Der erste Termin des Tutoriums am ist am 17.04.22.
+
+Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
+:::
+
+::: customIndent
+- [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
+:::

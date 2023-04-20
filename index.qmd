@@ -1,13 +1,20 @@
 ---
-title: "Homepage für die Seminare **Fortgeschrittene statistische Methoden II**."
+title: "Lehre@AMD"
+lang: de
 listing:
-  contents: about
-  type: grid
+  - id: aktuell
+    type: grid
+    contents: about
+    fields: [image, title, subtitle, author]
 ---
 
-This is a Quarto website.
+# Willkommen!
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
+Herzlich Willkommen zur Lehre-Homepage der [Abteilung Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/) an der Johannes Gutenberg-universität Mainz.
 
+Aktuell finden Sie hier die Materialien für zwei Seminare zu **forgeschrittene statistische Methoden**.
 
-# Choose your poison:
+# Aktuelle Seminare
+
+::: {#aktuell}
+:::

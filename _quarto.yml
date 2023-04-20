@@ -3,13 +3,13 @@ project:
 
 website:
   page-navigation: true
-  title: "AMDstats"
-  description: "Dies ist die Webseite für die Seminar der AMD an der JGU."
+  title: "Lehre@AMD"
+  description: "Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der JGU."
   site-url: "https://github.com/JoseAlanis/amdstatsem"
       
   page-footer:
     right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; Copyright 2022-2023, authors of [AMDstats](https://github.com/JoseAlanis/amdstatsem)"
+    left: "&copy; Copyright 2022-2023, authors of [Lehre@AMD](https://github.com/JoseAlanis/amdstatsem)"
     background: "#C1002A"
     
   sidebar:
