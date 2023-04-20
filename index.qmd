@@ -1,5 +1,6 @@
 ---
 title: "Lehre@AMD"
+lang: de
 listing:
   - id: aktuell
     type: grid
@@ -15,5 +16,5 @@ Aktuell finden Sie hier die Materialien für zwei Seminare zu **forgeschrittene 
 
 # Aktuelle Seminare
 
-:::{#aktuell}
+::: {#aktuell}
 :::

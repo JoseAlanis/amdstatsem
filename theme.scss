@@ -29,3 +29,19 @@ $font-family: "Atkinson Hyperlegible", sans-serif;
   background-size: 1em;
   background-position: 1em 0.5em;
 }
+
+.justifyni {
+  margin-left: 10px;
+  text-align: justify !important
+}
+
+.justify {
+  margin-left: 10px;
+  text-indent: 50px;
+  text-align: justify !important
+  
+}
+
+.customIndent {
+  margin-left: 45px;
+}
