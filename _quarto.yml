@@ -32,7 +32,10 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - section: "Allgemeine Informationen"
+      - section: "Seminar Multi-Level Modelle"
+        contents:
+        - href: about/about_jose.qmd
+          text: Allgemeine Informationen
 
 format:
   html:
