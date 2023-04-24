@@ -1,0 +1,54 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+lang: de
+subtitle: "Termin 2: Hierarchisch strukturierte Daten"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
+---
+
+```{r, include=FALSE, warning=FALSE}
+require(countdown)
+```
+
+::: callout-note
+## Achtung 🚧
+
+Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach der Sitzung vorgenommen werden.
+
+:::
+
+In diesem Kapitel werden Multi-Level-Modelle vorgestellt, die in vielerlei Hinsicht Ähnlichkeiten mit einfachen Regressionsmodellen aufweisen. Grundsätzlich stellt ein Multi-Level-Modell eine besonderen Art Regressionsmodell dar, da es untersucht, ob Variation in einer Variable auf Variation in einer anderen Variable zurückgeführt werden können. Der Unterschied zwischen einem Multi-Level-Modell und einer herkömmlichen (einfachen) Regression besteht darin, dass Multi-Level-Modelle in der Lage sind, hierarchische Strukturen innerhalb eines Datensatzes zu berücksichtigen. Im Verlauf dieses Kapitels lernen Sie, was hierarchische Strukturen ausmacht und wie sie die Aussagekraft eines Modells beeinflussen können.
+
+# Hierarchische Daten
+
+Hierarchische Daten sind solche, die anhand mehrerer gestufter Beobachtungsebenen strukturiert werden können. Mit anderen Worten: Ein Hauptmerkmal von hierarchisch organisierten Daten besteht darin, dass sie Beobachtungen enthalten, welche sich in **hierarchisch übergeordneten Einheiten** gruppieren lassen. Diese hierarchische Organisation kann durch Baumdiagramme oder Netzwerke veranschaulicht werden. Üblicherweise wird die am niedrigsten angesiedelte Beobachtungsebene als *Level 1* bezeichnet. Die nächsthöhere Ebene, also die erste "Gruppenebene", wird häufig *Level 2* betitelt, gefolgt von Level 3 und so weiter.
+
+Ein gängiges Beispiel für hierarchisch organisierte Daten ist die Organisationsstruktur eines Unternehmens, in der die Geschäftsleitung an der Spitze der Hierarchie steht, gefolgt von Abteilungsleitern, Teamleitern und Mitarbeitern auf den unteren Ebenen. In einem solchen Fall spiegeln die verschiedenen Ebenen der Hierarchie die verschiedenen Autoritätsebenen innerhalb des Unternehmens wider. Hierarchisch organisierte Daten sind in vielen Bereichen (z.B. biologische und klinische Psychologie, aber auch Sozial- und Wirtschaftswissenschaften) von Bedeutung und ermöglichen es, komplexe Beziehungen und Zusammenhänge auf unterschiedliche Beocachtungsebenen zu untersuchen.
+
+Durch die Berücksichtigung der hierarchischen Struktur der Daten können Forscher:innen und Anwender:innen besser erkennen, wie Veränderungen auf einer Ebene der Hierarchie Auswirkungen auf andere Ebenen haben können. Dies kann bei der Entwicklung von spezifischen Inerventionen und Modellen unterstützen, die die besonderen Eigenschaften hierarchisch organisierter Daten berücksichtigen, um genauere und aussagekräftigere Ergebnisse zu erzielen.
+
+# Nun sind Sie dran:
+
+Als Nächstes möchten wir Sie dazu anregen, selbst über mögliche Beispiele für hierarchische Daten nachzudenken:
+
+## Ihre Aufgabe:
+
+Finden Sie sich in Ihren Gruppen zusammen und überlegen Sie sich ein passendes Beispiel.
+
+- Wo könnten hierarchische Daten in Ihrem Bereich vorkommen?
+- Wie würden diese aussehen?
+  - Wie viele Ebenen wären angemessen, um einen repräsentativen Eindruck der Variation zwischen den Beobachtungen zu erhalten?
+- Welche Probleme würden sich ergeben, wenn Sie eine oder mehrere Beobachtungsebenen außer Acht lassen würden?
+  - Auf welcher Ebene findet die meiste Variation statt?
+- Zeichnen Sie ein Bild der hierarchischen Datenstruktur.
+
+Nutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen Daten besser zu verstehen und auf Ihre spezifischen Anwendungsfälle anzuwenden. Diskutieren Sie die verschiedenen Aspekte und identifizieren Sie mögliche Herausforderungen, die sich aus der Verwendung hierarchischer Daten in Ihrem Kontext ergeben könnten.
+
+
+```{r, echo=FALSE}
+countdown(minutes = 20, seconds = 00)
+```
