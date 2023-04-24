@@ -4,14 +4,28 @@
     "href": "index.html",
     "title": "Lehre@AMD",
     "section": "",
-    "text": "Willkommen!\nHerzlich Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der Johannes Gutenberg-Universität Mainz.\nAktuell finden Sie hier die Materialien für zwei Seminare zu fortgeschrittene statistische Methoden II im Sommersemester 23.\n\n\nAktuelle Seminare\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (1)\n\n\nTermin 1: Allgemeine Informationen\n\n\n\nJosé C. García Alanis\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nThis is Jan’s landing page\n\n\n\n\n\n\n\n\n\n\n\n\nKeine Treffer"
+    "text": "Willkommen!\nHerzlich Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der Johannes Gutenberg-Universität Mainz.\nAktuell finden Sie hier die Materialien für zwei Seminare zu fortgeschrittene statistische Methoden II im Sommersemester 23.\n\n\nAktuelle Seminare\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (1)\n\n\nTermin 1: Allgemeine Informationen\n\n\n\nJosé C. García Alanis\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nSeminar Fortgeschrittene statistische Methoden II (3)\n\n\nKognitive Modellierung\n\n\n\nJan Göttmann\n\n\n\n\n\n\n\n\nKeine Treffer"
   },
   {
     "objectID": "about/about_jan.html",
     "href": "about/about_jan.html",
-    "title": "This is Jan’s landing page",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
     "section": "",
-    "text": "Add stuff here …"
+    "text": "\\[\\text{Wiener}(y|\\alpha, \\tau, \\beta, \\delta) =\n\\frac{\\alpha^3}{(y-\\tau)^{3/2}} \\exp \\! \\left(- \\delta \\alpha \\beta -\n\\frac{\\delta^2(y-\\tau)}{2}\\right) \\sum_{k = - \\infty}^{\\infty} (2k +\n\\beta) \\phi \\! \\left(\\frac{2k \\alpha + \\beta}{\\sqrt{y - \\tau}}\\right)\\]\nHier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software."
+  },
+  {
+    "objectID": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
+    "href": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "Allgemeine Materialien für das Seminar",
+    "text": "Allgemeine Materialien für das Seminar\n\nWichtige Informationen und Kursmaterialien werden auf dem Teams Channel des Seminars veröffentlicht:\n\nBeitrittslink zum Teams Channel\n\nWann: Montags von 16:15 - 17:45 Uhr (17.04.22 - Mo. 17.07.23).\nWo: Raum 01-236 (CIP Pool) im Psychologischen Institut (Binger Str.)"
+  },
+  {
+    "objectID": "about/about_jan.html#inhalt-des-seminars",
+    "href": "about/about_jan.html#inhalt-des-seminars",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "Inhalt des Seminars",
+    "text": "Inhalt des Seminars\n\nMathematische Modelle kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt."
   },
   {
     "objectID": "about/about_MLM_sose23.html",

@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Jan Göttmann">
+<meta name="dcterms.date" content="2023-04-24">
 
-<title>Lehre@AMD - This is Jan’s landing page</title>
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (3)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -48,18 +50,19 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
 }</script>
 
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -69,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">This is Jan’s landing page</h1>
+      <h1 class="quarto-secondary-nav-title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -123,21 +126,49 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen !</a></li>
+  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
+  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
+  <ul class="collapse">
+  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
+  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">This is Jan’s landing page</h1>
-</div>
+<h1 class="title d-none d-lg-block">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)</h1>
+<p class="subtitle lead">Kognitive Modellierung</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SoSe 2023</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jan Göttmann </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 April 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -145,9 +176,47 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Add stuff here …</p>
+<section id="willkommen" class="level1">
+<h1>Willkommen !</h1>
+<p><span class="math display">\[\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
+\frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
+\frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
+\beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)\]</span></p>
+<p>Hier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software.</p>
+</section>
+<section id="seminarleitung" class="level1">
+<h1>Seminarleitung</h1>
+<p><a href="https://methoden.amd.psychologie.uni-mainz.de/goettmann/">Jan Göttmann</a><br>
+<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
+Psychologisches Institut<br>
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
+D-55122 Mainz<br>
+<a href="jan.goettmann@uni-mainz.de">jan.goettmann at uni-mainz.de</a></p>
+</section>
+<section id="organisatorisches-und-wichtige-infos" class="level1">
+<h1>Organisatorisches und wichtige Infos</h1>
+<section id="allgemeine-materialien-für-das-seminar" class="level2">
+<h2 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h2>
+<ul>
+<li>Wichtige Informationen und Kursmaterialien werden auf dem Teams Channel des Seminars veröffentlicht:
+<ul>
+<li><a href="https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&amp;tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85">Beitrittslink zum Teams Channel</a>
+<ul>
+<li><strong>Wann</strong>: Montags von <strong>16:15</strong> - <strong>17:45</strong> Uhr (17.04.22 - Mo. 17.07.23).</li>
+<li><strong>Wo</strong>: Raum 01-236 (<a href="https://maps.uni-mainz.de/leaflets/room/2940B546-2165-4612-97F8-AAE392BF8181">CIP Pool</a>) im Psychologischen Institut (Binger Str.)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="inhalt-des-seminars" class="level2">
+<h2 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h2>
+<div class="justify">
+<p><strong>Mathematische Modelle</strong> kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.</p>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -305,12 +374,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
