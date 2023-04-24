@@ -119,4 +119,5 @@ for k in axd:
                       pos=[0.5, -0.30],
                       fontsize=20)
 
-fig.savefig(fname='../images/mlm_fig.png', dpi=300)
+fig.savefig(fname='../images/mlm_fig.png', dpi=300,
+            facecolor='white')
