@@ -1,7 +1,7 @@
 ---
 title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
 lang: de
-subtitle: "Multi-Level Modelle"
+subtitle: "Termin 1: Allgemeine Informationen"
 image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
 author: "José C. García Alanis"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
@@ -17,11 +17,12 @@ Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktuallisierung
 
 :::
 
+# Multi-Level Modelle
+
+
 ::: justifyni
 Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.
 :::
-
-
 
 ::: centerimg
 
