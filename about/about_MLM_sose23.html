@@ -1,13 +1,15 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
 <meta name="generator" content="quarto-1.2.475">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="José C. García Alanis">
+<meta name="dcterms.date" content="2023-04-24">
 
-<title>Lehre@AMD - This is Jan’s landing page</title>
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (1)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -29,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../mlm_seminar_sose_23/hierarchische_daten.html" rel="next">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -48,15 +51,15 @@ ul.task-list li input[type="checkbox"] {
   "type": "textbox",
   "limit": 20,
   "language": {
-    "search-no-results-text": "No results",
-    "search-matching-documents-text": "matching documents",
-    "search-copy-link-title": "Copy link to search",
-    "search-hide-matches-text": "Hide additional matches",
-    "search-more-match-text": "more match in this document",
-    "search-more-matches-text": "more matches in this document",
-    "search-clear-button-title": "Clear",
-    "search-detached-cancel-button-title": "Cancel",
-    "search-submit-button-title": "Submit"
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
   }
 }</script>
 
@@ -69,7 +72,7 @@ ul.task-list li input[type="checkbox"] {
   <header id="quarto-header" class="headroom fixed-top">
   <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
     <div class="container-fluid d-flex justify-content-between">
-      <h1 class="quarto-secondary-nav-title">This is Jan’s landing page</h1>
+      <h1 class="quarto-secondary-nav-title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
       <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
         <i class="bi bi-chevron-right"></i>
       </button>
@@ -100,15 +103,15 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">Seminar Multi-Level Modelle</a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Seminar Multi-Level Modelle</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">1. Allgemeine Informationen</a>
+  <a href="../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link active">1. Allgemeine Informationen</a>
   </div>
 </li>
           <li class="sidebar-item">
@@ -123,21 +126,53 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#multi-level-modelle" id="toc-multi-level-modelle" class="nav-link active" data-scroll-target="#multi-level-modelle">Multi-Level Modelle</a>
+  <ul class="collapse">
+  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
+  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
+  <ul class="collapse">
+  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
+  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a></li>
+  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
+  </ul></li>
+  <li><a href="#begleitendes-tutorium" id="toc-begleitendes-tutorium" class="nav-link" data-scroll-target="#begleitendes-tutorium">Begleitendes Tutorium</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title d-none d-lg-block">This is Jan’s landing page</h1>
-</div>
+<h1 class="title d-none d-lg-block">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
+<p class="subtitle lead">Termin 1: Allgemeine Informationen</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SoSe 2023</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>José C. García Alanis </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 April 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -145,9 +180,107 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<p>Add stuff here …</p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Achtung 🚧
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden.</p>
+</div>
+</div>
+<section id="multi-level-modelle" class="level1">
+<h1>Multi-Level Modelle</h1>
+<div class="justifyni">
+<p>Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.</p>
+</div>
+<div class="centerimg">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Grundidee eines Multi-Level Modells</figcaption><p></p>
+</figure>
+</div>
+</div>
+<section id="seminarleitung" class="level2">
+<h2 class="anchored" data-anchor-id="seminarleitung">Seminarleitung</h2>
+<p><a href="https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/">José C. García Alanis</a><br>
+<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
+Psychologisches Institut<br>
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
+D-55122 Mainz<br>
+<a href="jose.alanis@uni-mainz.de">jose.alanis at uni-mainz.de</a></p>
+</section>
+<section id="organisatorisches-und-wichtige-infos" class="level2">
+<h2 class="anchored" data-anchor-id="organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</h2>
+<section id="allgemeine-materialien-für-das-seminar" class="level3">
+<h3 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h3>
+<ul>
+<li>Wichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:
+<ul>
+<li><a href="https://lms.uni-mainz.de/moodle/course/view.php?id=94239">Link zum Seminar</a> auf LMS.
+<ul>
+<li><strong>Wann</strong>: Montags von <strong>12:15</strong> - <strong>13:45</strong> Uhr (17.04.22 - Mo. 17.07.23).</li>
+<li><strong>Wo</strong>: Seminarraum 01-211 (<a href="https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&amp;PRGNAME=ACTION&amp;ARGUMENTS=-AKrBXm3do8z5K2wTf0xfMd9190A8Sml7RzhhAEvH8tg4abgngqC~SqtwbjDE7NDNC3vRkkWv2BFOtp7P3f5zXPJwAiHrbGGtMTG4~57XPUPli4r69ktjy47MyTBXTgmHT-ijhk11rWt7dg97spvSvz-9FdZZc6lpyzE~pwrGBXdGCsU0_">kleiner Hörsaal</a>) im Psychologischen Institut (Binger Str.)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="inhalt-des-seminars" class="level3">
+<h3 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h3>
+<div class="justify">
+<p>Multi-Level Modelle haben viele Namen. Häufig werden sie Mehrebenen-Modelle, Mixed Effects Models oder Random Coefficient Models genannt. Eine weitere häufige Bezeichnung für Multi-Level Modelle lautet Hierarchische Lineare Modelle. Dies hat zum Grund, dass Multi-Level Modelle eine statische Methode darstellen, die zur Analyse von hierarchisch strukturierten Daten (auch genestete Daten genannt) eingesetzt werden kann. Was genau versteckt sich hinter dem Begriff „hierarchisch strukturierte Daten“ und warum sind Multi-Level Modelle ein nützliches „Tool“, um Erkenntnisse aus dieser Art von Daten zu gewinnen? Mit diesen Fragen werden wir uns im Laufe des Seminars beschäftigen.</p>
+</div>
+</section>
+<section id="lernziele" class="level3">
+<h3 class="anchored" data-anchor-id="lernziele">Lernziele</h3>
+<div class="justify">
+<p>In diesem Seminar werden Sie lernen, wie Sie Multi-Level Modelle zur Analyse von „hierarchisch organisierten Daten“ anwenden können. Ziel des Seminars ist es, Sie zu theoretisch-konzeptionellen Überlegungen zu motivieren und Ihnen die statistisch-methodologischen Grundlagen zu vermitteln, sodass Sie in der Lage sind zu entscheiden, wann ein Multi-Level Modell zu Beschreibung von Zusammenhängen, die überlegene statistische Methode darstellt. Des Weiteren werden Sie Kennwerte und Methoden kennenlernen, die eigensetzt werden können, um die Aussagekraft und (potenziell inkrementelle) Validität eines Multi-Level Modells einzuschätzen. Am Ende des Seminars werden Sie im Stande sein, ein eigenes Analyseprojekt durchzuführen, in dem Multi-Level Modelle zum Einsatz kommen. Diese Fragen werden Sie im Laufe des Seminars bearbeiten:</p>
+</div>
+<div class="customIndent">
+<ul>
+<li>Was versteht man unter „hierarchisch strukturierten/organisierten Daten“?
+<ul>
+<li>Wie können diese erkannt werden?</li>
+<li>Welche Konsequenzen (im Sinne statistisch-methodologischer Einschränkungen) bringen hierarchisch strukturierte Daten mit sich?</li>
+<li>Welche theoretisch-konzeptuelle Überlegungen müssen berücksichtigt werden?</li>
+</ul></li>
+<li>Wie unterschieden sich Multi-Level Modelle von anderen statistischen Analyseverfahren?
+<ul>
+<li>Was sind Gemeinsamkeiten?</li>
+</ul></li>
+<li>Wie werden Multi-Level Modelle geschätzt? (Was beschreiben sie?)
+<ul>
+<li>Welche Arten von Modellen gibt es?</li>
+</ul></li>
+<li>Wie können Multi-Level Modelle in der Programmiersprache R spezifiziert werden?</li>
+<li>Wie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?</li>
+<li>Wie sind die Ergebnisse eines Multilevel-Modells zu bewerten?
+<ul>
+<li>z.B. im Sinne ihrer Aussagekraft, Reliabilität und Validität.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="begleitendes-tutorium" class="level2">
+<h2 class="anchored" data-anchor-id="begleitendes-tutorium">Begleitendes Tutorium</h2>
+<div class="justify">
+<p>Das Seminar wird von einem Tutorium (<em>Softwarekurs</em>) begleitet. Im Tutorium werden Sie die Grundlagen des <strong>Statistiksoftware und Programmiersprache R</strong>. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet ein <em>vertiefendes Tutorium</em> statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. <strong>Sie müssen das Tutorium nicht wechseln</strong>. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:</p>
+</div>
+<div class="customIndent">
+<ul>
+<li><a href="https://amd-lab.github.io/R-Kurs-Buch/"><strong>R-Kurs-Buch</strong></a> von der Abteilung Analyse und Modellierung komplexer Daten.</li>
+</ul>
+</div>
 
 
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -305,12 +438,12 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // flash "checked"
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
-    button.setAttribute("title", "Copied!");
+    button.setAttribute("title", "Kopiert");
     let tooltip;
     if (window.bootstrap) {
       button.setAttribute("data-bs-toggle", "tooltip");
       button.setAttribute("data-bs-placement", "left");
-      button.setAttribute("data-bs-title", "Copied!");
+      button.setAttribute("data-bs-title", "Kopiert");
       tooltip = new bootstrap.Tooltip(button, 
         { trigger: "manual", 
           customClass: "code-copy-button-tooltip",
@@ -398,6 +531,15 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../mlm_seminar_sose_23/hierarchische_daten.html" class="pagination-link">
+        <span class="nav-page-text">2. Hierarchische Daten</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

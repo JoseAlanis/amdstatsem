@@ -31,6 +31,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../about/about_MLM_sose23.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -61,6 +62,8 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Abschicken"
   }
 }</script>
+<link href="../site_libs/countdown-0.4.0/countdown.css" rel="stylesheet">
+<script src="../site_libs/countdown-0.4.0/countdown.js"></script>
 
 
 </head>
@@ -110,7 +113,12 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/about_jose.html" class="sidebar-item-text sidebar-link active">Allgemeine Informationen</a>
+  <a href="../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">1. Allgemeine Informationen</a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mlm_seminar_sose_23/hierarchische_daten.html" class="sidebar-item-text sidebar-link active">2. Hierarchische Daten</a>
   </div>
 </li>
       </ul>
@@ -124,16 +132,10 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#multi-level-modelle" id="toc-multi-level-modelle" class="nav-link active" data-scroll-target="#multi-level-modelle">Multi-Level Modelle</a>
+  <li><a href="#hierarchische-daten" id="toc-hierarchische-daten" class="nav-link active" data-scroll-target="#hierarchische-daten">Hierarchische Daten</a></li>
+  <li><a href="#nun-sind-sie-dran" id="toc-nun-sind-sie-dran" class="nav-link" data-scroll-target="#nun-sind-sie-dran">Nun sind Sie dran:</a>
   <ul class="collapse">
-  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
-  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
-  <ul class="collapse">
-  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
-  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a></li>
-  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
-  </ul></li>
-  <li><a href="#begleitendes-tutorium" id="toc-begleitendes-tutorium" class="nav-link" data-scroll-target="#begleitendes-tutorium">Begleitendes Tutorium</a></li>
+  <li><a href="#ihre-aufgabe" id="toc-ihre-aufgabe" class="nav-link" data-scroll-target="#ihre-aufgabe">Ihre Aufgabe:</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -144,7 +146,7 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title d-none d-lg-block">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
-<p class="subtitle lead">Termin 1: Allgemeine Informationen</p>
+<p class="subtitle lead">Termin 2: Hierarchisch strukturierte Daten</p>
   <div class="quarto-categories">
     <div class="quarto-category">SoSe 2023</div>
   </div>
@@ -184,92 +186,42 @@ Achtung 🚧
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Dies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden.</p>
+<p>Dies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach der Sitzung vorgenommen werden.</p>
 </div>
 </div>
-<section id="multi-level-modelle" class="level1">
-<h1>Multi-Level Modelle</h1>
-<div class="justifyni">
-<p>Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.</p>
-</div>
-<div class="centerimg">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png" class="img-fluid figure-img"></p>
-<p></p><figcaption class="figure-caption">Grundidee eines Multi-Level Modells</figcaption><p></p>
-</figure>
-</div>
-</div>
-<section id="seminarleitung" class="level2">
-<h2 class="anchored" data-anchor-id="seminarleitung">Seminarleitung</h2>
-<p><a href="https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/">José C. García Alanis</a><br>
-<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
-Psychologisches Institut<br>
-Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
-D-55122 Mainz<br>
-<a href="jose.alanis@uni-mainz.de">jose.alanis at uni-mainz.de</a></p>
+<p>In diesem Kapitel werden Multi-Level-Modelle vorgestellt, die in vielerlei Hinsicht Ähnlichkeiten mit einfachen Regressionsmodellen aufweisen. Grundsätzlich stellt ein Multi-Level-Modell eine besonderen Art Regressionsmodell dar, da es untersucht, ob Variation in einer Variable auf Variation in einer anderen Variable zurückgeführt werden können. Der Unterschied zwischen einem Multi-Level-Modell und einer herkömmlichen (einfachen) Regression besteht darin, dass Multi-Level-Modelle in der Lage sind, hierarchische Strukturen innerhalb eines Datensatzes zu berücksichtigen. Im Verlauf dieses Kapitels lernen Sie, was hierarchische Strukturen ausmacht und wie sie die Aussagekraft eines Modells beeinflussen können.</p>
+<section id="hierarchische-daten" class="level1">
+<h1>Hierarchische Daten</h1>
+<p>Hierarchische Daten sind solche, die anhand mehrerer gestufter Beobachtungsebenen strukturiert werden können. Mit anderen Worten: Ein Hauptmerkmal von hierarchisch organisierten Daten besteht darin, dass sie Beobachtungen enthalten, welche sich in <strong>hierarchisch übergeordneten Einheiten</strong> gruppieren lassen. Diese hierarchische Organisation kann durch Baumdiagramme oder Netzwerke veranschaulicht werden. Üblicherweise wird die am niedrigsten angesiedelte Beobachtungsebene als <em>Level 1</em> bezeichnet. Die nächsthöhere Ebene, also die erste “Gruppenebene”, wird häufig <em>Level 2</em> betitelt, gefolgt von Level 3 und so weiter.</p>
+<p>Ein gängiges Beispiel für hierarchisch organisierte Daten ist die Organisationsstruktur eines Unternehmens, in der die Geschäftsleitung an der Spitze der Hierarchie steht, gefolgt von Abteilungsleitern, Teamleitern und Mitarbeitern auf den unteren Ebenen. In einem solchen Fall spiegeln die verschiedenen Ebenen der Hierarchie die verschiedenen Autoritätsebenen innerhalb des Unternehmens wider. Hierarchisch organisierte Daten sind in vielen Bereichen (z.B. biologische und klinische Psychologie, aber auch Sozial- und Wirtschaftswissenschaften) von Bedeutung und ermöglichen es, komplexe Beziehungen und Zusammenhänge auf unterschiedliche Beocachtungsebenen zu untersuchen.</p>
+<p>Durch die Berücksichtigung der hierarchischen Struktur der Daten können Forscher:innen und Anwender:innen besser erkennen, wie Veränderungen auf einer Ebene der Hierarchie Auswirkungen auf andere Ebenen haben können. Dies kann bei der Entwicklung von spezifischen Inerventionen und Modellen unterstützen, die die besonderen Eigenschaften hierarchisch organisierter Daten berücksichtigen, um genauere und aussagekräftigere Ergebnisse zu erzielen.</p>
 </section>
-<section id="organisatorisches-und-wichtige-infos" class="level2">
-<h2 class="anchored" data-anchor-id="organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</h2>
-<section id="allgemeine-materialien-für-das-seminar" class="level3">
-<h3 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h3>
+<section id="nun-sind-sie-dran" class="level1">
+<h1>Nun sind Sie dran:</h1>
+<p>Als Nächstes möchten wir Sie dazu anregen, selbst über mögliche Beispiele für hierarchische Daten nachzudenken:</p>
+<section id="ihre-aufgabe" class="level2">
+<h2 class="anchored" data-anchor-id="ihre-aufgabe">Ihre Aufgabe:</h2>
+<p>Finden Sie sich in Ihren Gruppen zusammen und überlegen Sie sich ein passendes Beispiel.</p>
 <ul>
-<li>Wichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:
+<li>Wo könnten hierarchische Daten in Ihrem Bereich vorkommen?</li>
+<li>Wie würden diese aussehen?
 <ul>
-<li><a href="https://lms.uni-mainz.de/moodle/course/view.php?id=94239">Link zum Seminar</a> auf LMS.
-<ul>
-<li><strong>Wann</strong>: Montags von <strong>12:15</strong> - <strong>13:45</strong> Uhr (17.04.22 - Mo. 17.07.23).</li>
-<li><strong>Wo</strong>: Seminarraum 01-211 (<a href="https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&amp;PRGNAME=ACTION&amp;ARGUMENTS=-AKrBXm3do8z5K2wTf0xfMd9190A8Sml7RzhhAEvH8tg4abgngqC~SqtwbjDE7NDNC3vRkkWv2BFOtp7P3f5zXPJwAiHrbGGtMTG4~57XPUPli4r69ktjy47MyTBXTgmHT-ijhk11rWt7dg97spvSvz-9FdZZc6lpyzE~pwrGBXdGCsU0_">kleiner Hörsaal</a>) im Psychologischen Institut (Binger Str.)</li>
+<li>Wie viele Ebenen wären angemessen, um einen repräsentativen Eindruck der Variation zwischen den Beobachtungen zu erhalten?</li>
 </ul></li>
+<li>Welche Probleme würden sich ergeben, wenn Sie eine oder mehrere Beobachtungsebenen außer Acht lassen würden?
+<ul>
+<li>Auf welcher Ebene findet die meiste Variation statt?</li>
 </ul></li>
+<li>Zeichnen Sie ein Bild der hierarchischen Datenstruktur.</li>
 </ul>
-</section>
-<section id="inhalt-des-seminars" class="level3">
-<h3 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h3>
-<div class="justify">
-<p>Multi-Level Modelle haben viele Namen. Häufig werden sie Mehrebenen-Modelle, Mixed Effects Models oder Random Coefficient Models genannt. Eine weitere häufige Bezeichnung für Multi-Level Modelle lautet Hierarchische Lineare Modelle. Dies hat zum Grund, dass Multi-Level Modelle eine statische Methode darstellen, die zur Analyse von hierarchisch strukturierten Daten (auch genestete Daten genannt) eingesetzt werden kann. Was genau versteckt sich hinter dem Begriff „hierarchisch strukturierte Daten“ und warum sind Multi-Level Modelle ein nützliches „Tool“, um Erkenntnisse aus dieser Art von Daten zu gewinnen? Mit diesen Fragen werden wir uns im Laufe des Seminars beschäftigen.</p>
+<p>Nutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen Daten besser zu verstehen und auf Ihre spezifischen Anwendungsfälle anzuwenden. Diskutieren Sie die verschiedenen Aspekte und identifizieren Sie mögliche Herausforderungen, die sich aus der Verwendung hierarchischer Daten in Ihrem Kontext ergeben könnten.</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="countdown" id="timer_65dac8a4" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown-controls"><button class="countdown-bump-down">−</button><button class="countdown-bump-up">+</button></div>
+<code class="countdown-time"><span class="countdown-digits minutes">20</span><span class="countdown-digits colon">:</span><span class="countdown-digits seconds">00</span></code>
 </div>
-</section>
-<section id="lernziele" class="level3">
-<h3 class="anchored" data-anchor-id="lernziele">Lernziele</h3>
-<div class="justify">
-<p>In diesem Seminar werden Sie lernen, wie Sie Multi-Level Modelle zur Analyse von „hierarchisch organisierten Daten“ anwenden können. Ziel des Seminars ist es, Sie zu theoretisch-konzeptionellen Überlegungen zu motivieren und Ihnen die statistisch-methodologischen Grundlagen zu vermitteln, sodass Sie in der Lage sind zu entscheiden, wann ein Multi-Level Modell zu Beschreibung von Zusammenhängen, die überlegene statistische Methode darstellt. Des Weiteren werden Sie Kennwerte und Methoden kennenlernen, die eigensetzt werden können, um die Aussagekraft und (potenziell inkrementelle) Validität eines Multi-Level Modells einzuschätzen. Am Ende des Seminars werden Sie im Stande sein, ein eigenes Analyseprojekt durchzuführen, in dem Multi-Level Modelle zum Einsatz kommen. Diese Fragen werden Sie im Laufe des Seminars bearbeiten:</p>
 </div>
-<div class="customIndent">
-<ul>
-<li>Was versteht man unter „hierarchisch strukturierten/organisierten Daten“?
-<ul>
-<li>Wie können diese erkannt werden?</li>
-<li>Welche Konsequenzen (im Sinne statistisch-methodologischer Einschränkungen) bringen hierarchisch strukturierte Daten mit sich?</li>
-<li>Welche theoretisch-konzeptuelle Überlegungen müssen berücksichtigt werden?</li>
-</ul></li>
-<li>Wie unterschieden sich Multi-Level Modelle von anderen statistischen Analyseverfahren?
-<ul>
-<li>Was sind Gemeinsamkeiten?</li>
-</ul></li>
-<li>Wie werden Multi-Level Modelle geschätzt? (Was beschreiben sie?)
-<ul>
-<li>Welche Arten von Modellen gibt es?</li>
-</ul></li>
-<li>Wie können Multi-Level Modelle in der Programmiersprache R spezifiziert werden?</li>
-<li>Wie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?</li>
-<li>Wie sind die Ergebnisse eines Multilevel-Modells zu bewerten?
-<ul>
-<li>z.B. im Sinne ihrer Aussagekraft, Reliabilität und Validität.</li>
-</ul></li>
-</ul>
-</div>
-</section>
-</section>
-<section id="begleitendes-tutorium" class="level2">
-<h2 class="anchored" data-anchor-id="begleitendes-tutorium">Begleitendes Tutorium</h2>
-<div class="justify">
-<p>Das Seminar wird von einem Tutorium (<em>Softwarekurs</em>) begleitet. Im Tutorium werden Sie die Grundlagen des <strong>Statistiksoftware und Programmiersprache R</strong>. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet ein <em>vertiefendes Tutorium</em> statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. <strong>Sie müssen das Tutorium nicht wechseln</strong>. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:</p>
-</div>
-<div class="customIndent">
-<ul>
-<li><a href="https://amd-lab.github.io/R-Kurs-Buch/"><strong>R-Kurs-Buch</strong></a> von der Abteilung Analyse und Modellierung komplexer Daten.</li>
-</ul>
 </div>
 
 
@@ -525,11 +477,20 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../about/about_MLM_sose23.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">1. Allgemeine Informationen</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
     <div class="nav-footer-left">© Copyright 2022-2023, authors of <a href="https://github.com/JoseAlanis/amdstatsem">Lehre@AMD</a></div>   
-    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+    <div class="nav-footer-right">This page is built with 💛️ and <a href="https://quarto.org/">Quarto</a>.</div>
   </div>
 </footer>
 
