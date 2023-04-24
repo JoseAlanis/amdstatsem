@@ -1,5 +1,46 @@
 ---
-title: "This is Jan's landing page"
+title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
+lang: de
+subtitle: "Kognitive Modellierung"
+author: "Jan Göttmann"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
 ---
 
-Add stuff here ...
+
+# Willkommen !
+
+
+$$\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
+\frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
+\frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
+\beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)$$
+
+
+Hier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software.
+
+# Seminarleitung
+
+[Jan Göttmann](https://methoden.amd.psychologie.uni-mainz.de/goettmann/)\
+[Abteilung für Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/)\
+Psychologisches Institut\
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255\
+D-55122 Mainz\
+[jan.goettmann at uni-mainz.de](jan.goettmann@uni-mainz.de)
+
+# Organisatorisches und wichtige Infos
+
+## Allgemeine Materialien für das Seminar
+
+-   Wichtige Informationen und Kursmaterialien werden auf dem Teams Channel des Seminars veröffentlicht:
+    -   [Beitrittslink zum Teams Channel](https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85) 
+        -   **Wann**: Montags von **16:15** - **17:45** Uhr (17.04.22 - Mo. 17.07.23).
+        -   **Wo**: Raum 01-236 ([CIP Pool](https://maps.uni-mainz.de/leaflets/room/2940B546-2165-4612-97F8-AAE392BF8181)) im Psychologischen Institut (Binger Str.)
+
+## Inhalt des Seminars
+
+::: justify
+**Mathematische Modelle** kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.
+:::
