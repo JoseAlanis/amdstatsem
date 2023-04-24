@@ -1,0 +1,1 @@
+Sitemap: https://github.com/JoseAlanis/amdstatsem/sitemap.xml

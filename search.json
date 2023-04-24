@@ -1,0 +1,44 @@
+[
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lehre@AMD",
+    "section": "",
+    "text": "Willkommen!\nHerzlich Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der Johannes Gutenberg-universität Mainz.\nAktuell finden Sie hier die Materialien für zwei Seminare zu forgeschrittene statistische Methoden.\n\n\nAktuelle Seminare\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (1)\n\n\nTermin 1: Allgemeine Informationen\n\n\n\nJosé C. García Alanis\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nThis is Jan’s landing page\n\n\n\n\n\n\n\n\n\n\n\n\nKeine Treffer"
+  },
+  {
+    "objectID": "about/about_jan.html",
+    "href": "about/about_jan.html",
+    "title": "This is Jan’s landing page",
+    "section": "",
+    "text": "Add stuff here …"
+  },
+  {
+    "objectID": "about/about_jose.html",
+    "href": "about/about_jose.html",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
+    "section": "",
+    "text": "Achtung 🚧\n\n\n\nDies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden."
+  },
+  {
+    "objectID": "about/about_jose.html#seminarleitung",
+    "href": "about/about_jose.html#seminarleitung",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
+    "section": "Seminarleitung",
+    "text": "Seminarleitung\nJosé C. García Alanis\nAbteilung für Analyse und Modellierung komplexer Daten\nPsychologisches Institut\nJohannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255\nD-55122 Mainz\njose.alanis at uni-mainz.de"
+  },
+  {
+    "objectID": "about/about_jose.html#organisatorisches-und-wichtige-infos",
+    "href": "about/about_jose.html#organisatorisches-und-wichtige-infos",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
+    "section": "Organisatorisches und wichtige Infos",
+    "text": "Organisatorisches und wichtige Infos\n\nAllgemeine Materialien für das Seminar\n\nWichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:\n\nLink zum Seminar auf LMS.\n\nWann: Montags von 12:15 - 13:45 Uhr (17.04.22 - Mo. 17.07.23).\nWo: Seminarraum 01-211 (kleiner Hörsaal) im Psychologischen Institut (Binger Str.)\n\n\n\n\n\nInhalt des Seminars\n\nMulti-Level Modelle haben viele Namen. Häufig werden sie Mehrebenen-Modelle, Mixed Effects Models oder Random Coefficient Models genannt. Eine weitere häufige Bezeichnung für Multi-Level Modelle lautet Hierarchische Lineare Modelle. Dies hat zum Grund, dass Multi-Level Modelle eine statische Methode darstellen, die zur Analyse von hierarchisch strukturierten Daten (auch genestete Daten genannt) eingesetzt werden kann. Was genau versteckt sich hinter dem Begriff „hierarchisch strukturierte Daten“ und warum sind Multi-Level Modelle ein nützliches „Tool“, um Erkenntnisse aus dieser Art von Daten zu gewinnen? Mit diesen Fragen werden wir uns im Laufe des Seminars beschäftigen.\n\n\n\nLernziele\n\nIn diesem Seminar werden Sie lernen, wie Sie Multi-Level Modelle zur Analyse von „hierarchisch organisierten Daten“ anwenden können. Ziel des Seminars ist es, Sie zu theoretisch-konzeptionellen Überlegungen zu motivieren und Ihnen die statistisch-methodologischen Grundlagen zu vermitteln, sodass Sie in der Lage sind zu entscheiden, wann ein Multi-Level Modell zu Beschreibung von Zusammenhängen, die überlegene statistische Methode darstellt. Des Weiteren werden Sie Kennwerte und Methoden kennenlernen, die eigensetzt werden können, um die Aussagekraft und (potenziell inkrementelle) Validität eines Multi-Level Modells einzuschätzen. Am Ende des Seminars werden Sie im Stande sein, ein eigenes Analyseprojekt durchzuführen, in dem Multi-Level Modelle zum Einsatz kommen. Diese Fragen werden Sie im Laufe des Seminars bearbeiten:\n\n\n\nWas versteht man unter „hierarchisch strukturierten/organisierten Daten“?\n\nWie können diese erkannt werden?\nWelche Konsequenzen (im Sinne statistisch-methodologischer Einschränkungen) bringen hierarchisch strukturierte Daten mit sich?\nWelche theoretisch-konzeptuelle Überlegungen müssen berücksichtigt werden?\n\nWie unterschieden sich Multi-Level Modelle von anderen statistischen Analyseverfahren?\n\nWas sind Gemeinsamkeiten?\n\nWie werden Multi-Level Modelle geschätzt? (Was beschreiben sie?)\n\nWelche Arten von Modellen gibt es?\n\nWie können Multi-Level Modelle in der Programmiersprache R spezifiziert werden?\nWie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?\nWie sind die Ergebnisse eines Multilevel-Modells zu bewerten?\n\nz.B. im Sinne ihrer Aussagekraft, Reliabilität und Validität."
+  },
+  {
+    "objectID": "about/about_jose.html#begleitendes-tutorium",
+    "href": "about/about_jose.html#begleitendes-tutorium",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
+    "section": "Begleitendes Tutorium",
+    "text": "Begleitendes Tutorium\n\nDas Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. Sie müssen das Tutorium nicht wechseln. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:\n\n\n\nR-Kurs-Buch von der Abteilung Analyse und Modellierung komplexer Daten."
+  }
+]

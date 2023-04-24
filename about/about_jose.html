@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.475">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="José C. García Alanis">
+<meta name="dcterms.date" content="2023-04-24">
+
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (1)</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../">Lehre@AMD</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/JoseAlanis/amdstatsem" title="Code auf GitHub" class="sidebar-tool px-1"><i class="bi bi-github"></i></a>
+    <a href="https://methoden.amd.psychologie.uni-mainz.de/lehre/" title="AMD Lehre" class="sidebar-tool px-1"><i class="bi bi-journal-text"></i></a>
+    <a href="https://methoden.amd.psychologie.uni-mainz.de/abteilungsmitglieder/" title="Kontakt" class="sidebar-tool px-1"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle sidebar-tool" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">Seminar Multi-Level Modelle</a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about/about_jose.html" class="sidebar-item-text sidebar-link active">Allgemeine Informationen</a>
+  </div>
+</li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#multi-level-modelle" id="toc-multi-level-modelle" class="nav-link active" data-scroll-target="#multi-level-modelle">Multi-Level Modelle</a>
+  <ul class="collapse">
+  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
+  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
+  <ul class="collapse">
+  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
+  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a></li>
+  <li><a href="#lernziele" id="toc-lernziele" class="nav-link" data-scroll-target="#lernziele">Lernziele</a></li>
+  </ul></li>
+  <li><a href="#begleitendes-tutorium" id="toc-begleitendes-tutorium" class="nav-link" data-scroll-target="#begleitendes-tutorium">Begleitendes Tutorium</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
+<p class="subtitle lead">Termin 1: Allgemeine Informationen</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SoSe 2023</div>
+  </div>
+  </div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>José C. García Alanis </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">24 April 2023</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+</header>
+
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Achtung 🚧
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden.</p>
+</div>
+</div>
+<section id="multi-level-modelle" class="level1">
+<h1>Multi-Level Modelle</h1>
+<div class="justifyni">
+<p>Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.</p>
+</div>
+<div class="centerimg">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png" class="img-fluid figure-img"></p>
+<p></p><figcaption class="figure-caption">Grundidee eines Multi-Level Modells</figcaption><p></p>
+</figure>
+</div>
+</div>
+<section id="seminarleitung" class="level2">
+<h2 class="anchored" data-anchor-id="seminarleitung">Seminarleitung</h2>
+<p><a href="https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/">José C. García Alanis</a><br>
+<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
+Psychologisches Institut<br>
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
+D-55122 Mainz<br>
+<a href="jose.alanis@uni-mainz.de">jose.alanis at uni-mainz.de</a></p>
+</section>
+<section id="organisatorisches-und-wichtige-infos" class="level2">
+<h2 class="anchored" data-anchor-id="organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</h2>
+<section id="allgemeine-materialien-für-das-seminar" class="level3">
+<h3 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h3>
+<ul>
+<li>Wichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:
+<ul>
+<li><a href="https://lms.uni-mainz.de/moodle/course/view.php?id=94239">Link zum Seminar</a> auf LMS.
+<ul>
+<li><strong>Wann</strong>: Montags von <strong>12:15</strong> - <strong>13:45</strong> Uhr (17.04.22 - Mo. 17.07.23).</li>
+<li><strong>Wo</strong>: Seminarraum 01-211 (<a href="https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&amp;PRGNAME=ACTION&amp;ARGUMENTS=-AKrBXm3do8z5K2wTf0xfMd9190A8Sml7RzhhAEvH8tg4abgngqC~SqtwbjDE7NDNC3vRkkWv2BFOtp7P3f5zXPJwAiHrbGGtMTG4~57XPUPli4r69ktjy47MyTBXTgmHT-ijhk11rWt7dg97spvSvz-9FdZZc6lpyzE~pwrGBXdGCsU0_">kleiner Hörsaal</a>) im Psychologischen Institut (Binger Str.)</li>
+</ul></li>
+</ul></li>
+</ul>
+</section>
+<section id="inhalt-des-seminars" class="level3">
+<h3 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h3>
+<div class="justify">
+<p>Multi-Level Modelle haben viele Namen. Häufig werden sie Mehrebenen-Modelle, Mixed Effects Models oder Random Coefficient Models genannt. Eine weitere häufige Bezeichnung für Multi-Level Modelle lautet Hierarchische Lineare Modelle. Dies hat zum Grund, dass Multi-Level Modelle eine statische Methode darstellen, die zur Analyse von hierarchisch strukturierten Daten (auch genestete Daten genannt) eingesetzt werden kann. Was genau versteckt sich hinter dem Begriff „hierarchisch strukturierte Daten“ und warum sind Multi-Level Modelle ein nützliches „Tool“, um Erkenntnisse aus dieser Art von Daten zu gewinnen? Mit diesen Fragen werden wir uns im Laufe des Seminars beschäftigen.</p>
+</div>
+</section>
+<section id="lernziele" class="level3">
+<h3 class="anchored" data-anchor-id="lernziele">Lernziele</h3>
+<div class="justify">
+<p>In diesem Seminar werden Sie lernen, wie Sie Multi-Level Modelle zur Analyse von „hierarchisch organisierten Daten“ anwenden können. Ziel des Seminars ist es, Sie zu theoretisch-konzeptionellen Überlegungen zu motivieren und Ihnen die statistisch-methodologischen Grundlagen zu vermitteln, sodass Sie in der Lage sind zu entscheiden, wann ein Multi-Level Modell zu Beschreibung von Zusammenhängen, die überlegene statistische Methode darstellt. Des Weiteren werden Sie Kennwerte und Methoden kennenlernen, die eigensetzt werden können, um die Aussagekraft und (potenziell inkrementelle) Validität eines Multi-Level Modells einzuschätzen. Am Ende des Seminars werden Sie im Stande sein, ein eigenes Analyseprojekt durchzuführen, in dem Multi-Level Modelle zum Einsatz kommen. Diese Fragen werden Sie im Laufe des Seminars bearbeiten:</p>
+</div>
+<div class="customIndent">
+<ul>
+<li>Was versteht man unter „hierarchisch strukturierten/organisierten Daten“?
+<ul>
+<li>Wie können diese erkannt werden?</li>
+<li>Welche Konsequenzen (im Sinne statistisch-methodologischer Einschränkungen) bringen hierarchisch strukturierte Daten mit sich?</li>
+<li>Welche theoretisch-konzeptuelle Überlegungen müssen berücksichtigt werden?</li>
+</ul></li>
+<li>Wie unterschieden sich Multi-Level Modelle von anderen statistischen Analyseverfahren?
+<ul>
+<li>Was sind Gemeinsamkeiten?</li>
+</ul></li>
+<li>Wie werden Multi-Level Modelle geschätzt? (Was beschreiben sie?)
+<ul>
+<li>Welche Arten von Modellen gibt es?</li>
+</ul></li>
+<li>Wie können Multi-Level Modelle in der Programmiersprache R spezifiziert werden?</li>
+<li>Wie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?</li>
+<li>Wie sind die Ergebnisse eines Multilevel-Modells zu bewerten?
+<ul>
+<li>z.B. im Sinne ihrer Aussagekraft, Reliabilität und Validität.</li>
+</ul></li>
+</ul>
+</div>
+</section>
+</section>
+<section id="begleitendes-tutorium" class="level2">
+<h2 class="anchored" data-anchor-id="begleitendes-tutorium">Begleitendes Tutorium</h2>
+<div class="justify">
+<p>Das Seminar wird von einem Tutorium (<em>Softwarekurs</em>) begleitet. Im Tutorium werden Sie die Grundlagen des <strong>Statistiksoftware und Programmiersprache R</strong>. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet ein <em>vertiefendes Tutorium</em> statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. <strong>Sie müssen das Tutorium nicht wechseln</strong>. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:</p>
+</div>
+<div class="customIndent">
+<ul>
+<li><a href="https://amd-lab.github.io/R-Kurs-Buch/"><strong>R-Kurs-Buch</strong></a> von der Abteilung Analyse und Modellierung komplexer Daten.</li>
+</ul>
+</div>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2022-2023, authors of <a href="https://github.com/JoseAlanis/amdstatsem">Lehre@AMD</a></div>   
+    <div class="nav-footer-right">This page is built with ❤️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
