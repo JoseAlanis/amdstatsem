@@ -38,7 +38,26 @@ website:
           text: "1. Allgemeine Informationen"
         - href: mlm_seminar_sose_23/hierarchische_daten.qmd
           text: "2. Hierarchische Daten"
-
+      - section: "Seminar kognitive Modellierung"
+        contents: 
+          - section: "Termin 1: Organisation"
+            contents: 
+            - href: https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P
+              text: "Slides"
+          - section: "Termin 2: Einführung I"
+            contents:
+            - href: cogmod_sem_sose23/Termin1.qmd
+              text: "Zusammenfassung"
+            - href: https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o
+              text: "Slides"
+            - href: 
+              text: "Weiterführende Literatur"
+            
+            
+          
+     
+        
+          
 format:
   html:
     theme:

@@ -2,6 +2,7 @@
 title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
 lang: de
 subtitle: "Kognitive Modellierung"
+image: images/equation.png
 author: "Jan Göttmann"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 date-format: "D MMMM YYYY"
