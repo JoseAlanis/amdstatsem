@@ -8,7 +8,7 @@ website:
   site-url: "https://github.com/JoseAlanis/amdstatsem"
       
   page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
+    right: "This page is built with 💛️ and [Quarto](https://quarto.org/)."
     left: "&copy; Copyright 2022-2023, authors of [Lehre@AMD](https://github.com/JoseAlanis/amdstatsem)"
     background: "#C1002A"
     
@@ -32,13 +32,18 @@ website:
     search: true
     collapse-level: 1
     contents:
-      - section: "Allgemeine Informationen"
+      - section: "Seminar Multi-Level Modelle"
+        contents:
+        - href: about/about_MLM_sose23.qmd
+          text: "1. Allgemeine Informationen"
+        - href: mlm_seminar_sose_23/hierarchische_daten.qmd
+          text: "2. Hierarchische Daten"
 
 format:
   html:
     theme:
       light: [cosmo, theme.scss]
-      dark: [cosmo, theme-dark.scss]
+      dark: [darkly, theme-dark.scss]
     toc: true
     mainfont: "Atkinson Hyperlegible"
     code-copy: true

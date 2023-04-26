@@ -10,9 +10,9 @@ listing:
 
 # Willkommen!
 
-Herzlich Willkommen zur Lehre-Homepage der [Abteilung Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/) an der Johannes Gutenberg-universität Mainz.
+Herzlich Willkommen zur Lehre-Homepage der [Abteilung Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/) an der Johannes Gutenberg-Universität Mainz.
 
-Aktuell finden Sie hier die Materialien für zwei Seminare zu **forgeschrittene statistische Methoden**.
+Aktuell finden Sie hier die Materialien für zwei Seminare zu **fortgeschrittene statistische Methoden II** im Sommersemester 23.
 
 # Aktuelle Seminare
 

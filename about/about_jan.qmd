@@ -43,6 +43,7 @@ D-55122 Mainz\
 
 ::: justify
 **Mathematische Modelle** kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.
+
 :::
 
 ## Begleitendes Tutorium
@@ -58,3 +59,5 @@ Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in 
 ::: customIndent
 - [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
 :::
+
+

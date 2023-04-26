@@ -4,6 +4,8 @@
 
 $font-family: "Atkinson Hyperlegible", sans-serif;
 
+$link-color: #C1002A;
+
 /*-- scss:rules --*/
 
 .render-commit-push {
@@ -45,3 +47,12 @@ $font-family: "Atkinson Hyperlegible", sans-serif;
 .customIndent {
   margin-left: 45px;
 }
+
+.centerimg {
+  display: block;
+  margin-top:10px;
+  margin-bottom:10px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 85%;
+  }

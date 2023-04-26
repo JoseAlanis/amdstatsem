@@ -1,0 +1,89 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+lang: de
+subtitle: "Termin 1: Allgemeine Informationen"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
+---
+
+::: callout-note
+## Achtung 🚧
+
+Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach dem ersten Seminar-Block vorgenommen werden.
+
+:::
+
+# Multi-Level Modelle
+
+
+::: justifyni
+Herzlich Willkommen zur Website des Seminars Multi-Level Modelle im Sommersemester 2023 am Psychologischen institut der Johannes Gutenberg Universität Mainz.
+:::
+
+::: centerimg
+
+![Grundidee eines Multi-Level Modells](https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png)
+
+:::
+
+## Seminarleitung
+
+[José C. García Alanis](https://methoden.amd.psychologie.uni-mainz.de/jose-c-garcia-alanis/)\
+[Abteilung für Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/)\
+Psychologisches Institut\
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255\
+D-55122 Mainz\
+[jose.alanis at uni-mainz.de](jose.alanis@uni-mainz.de)
+
+## Organisatorisches und wichtige Infos
+
+### Allgemeine Materialien für das Seminar
+
+-   Wichtige Informationen und Kursmaterialien werden auf die LMS/Moodle-Seite des Seminars veröffentlicht:
+    -   [Link zum Seminar](https://lms.uni-mainz.de/moodle/course/view.php?id=94239) auf LMS.
+        -   **Wann**: Montags von **12:15** - **13:45** Uhr (17.04.22 - Mo. 17.07.23).
+        -   **Wo**: Seminarraum 01-211 ([kleiner Hörsaal](https://jogustine.uni-mainz.de/scripts/mgrqispi.dll?APPNAME=CampusNet&PRGNAME=ACTION&ARGUMENTS=-AKrBXm3do8z5K2wTf0xfMd9190A8Sml7RzhhAEvH8tg4abgngqC~SqtwbjDE7NDNC3vRkkWv2BFOtp7P3f5zXPJwAiHrbGGtMTG4~57XPUPli4r69ktjy47MyTBXTgmHT-ijhk11rWt7dg97spvSvz-9FdZZc6lpyzE~pwrGBXdGCsU0_)) im Psychologischen Institut (Binger Str.)
+
+### Inhalt des Seminars
+
+::: justify
+Multi-Level Modelle haben viele Namen. Häufig werden sie Mehrebenen-Modelle, Mixed Effects Models oder Random Coefficient Models genannt. Eine weitere häufige Bezeichnung für Multi-Level Modelle lautet Hierarchische Lineare Modelle. Dies hat zum Grund, dass Multi-Level Modelle eine statische Methode darstellen, die zur Analyse von hierarchisch strukturierten Daten (auch genestete Daten genannt) eingesetzt werden kann. Was genau versteckt sich hinter dem Begriff „hierarchisch strukturierte Daten“ und warum sind Multi-Level Modelle ein nützliches „Tool“, um Erkenntnisse aus dieser Art von Daten zu gewinnen? Mit diesen Fragen werden wir uns im Laufe des Seminars beschäftigen.
+:::
+
+### Lernziele
+
+::: justify
+In diesem Seminar werden Sie lernen, wie Sie Multi-Level Modelle zur Analyse von „hierarchisch organisierten Daten“ anwenden können. Ziel des Seminars ist es, Sie zu theoretisch-konzeptionellen Überlegungen zu motivieren und Ihnen die statistisch-methodologischen Grundlagen zu vermitteln, sodass Sie in der Lage sind zu entscheiden, wann ein Multi-Level Modell zu Beschreibung von Zusammenhängen, die überlegene statistische Methode darstellt. Des Weiteren werden Sie Kennwerte und Methoden kennenlernen, die eigensetzt werden können, um die Aussagekraft und (potenziell inkrementelle) Validität eines Multi-Level Modells einzuschätzen. Am Ende des Seminars werden Sie im Stande sein, ein eigenes Analyseprojekt durchzuführen, in dem Multi-Level Modelle zum Einsatz kommen.
+Diese Fragen werden Sie im Laufe des Seminars bearbeiten:
+:::
+
+::: customIndent
+- Was versteht man unter „hierarchisch strukturierten/organisierten Daten“?
+  - Wie können diese erkannt werden? 
+  - Welche Konsequenzen (im Sinne statistisch-methodologischer Einschränkungen) bringen hierarchisch strukturierte Daten mit sich?
+  - Welche theoretisch-konzeptuelle Überlegungen müssen berücksichtigt werden?
+- Wie unterschieden sich Multi-Level Modelle von anderen statistischen Analyseverfahren?
+  - Was sind Gemeinsamkeiten?
+- Wie werden Multi-Level Modelle geschätzt? (Was beschreiben sie?)
+  - Welche Arten von Modellen gibt es?
+- Wie können Multi-Level Modelle in der Programmiersprache R spezifiziert werden?
+- Wie sind die Ergebnisse eines Multilevel-Modells zu interpretieren?
+- Wie sind die Ergebnisse eines Multilevel-Modells zu bewerten?
+  - z.B. im Sinne ihrer Aussagekraft, Reliabilität und Validität.
+:::
+
+## Begleitendes Tutorium
+
+::: justify
+Das Seminar wird von einem Tutorium (*Softwarekurs*) begleitet. Im Tutorium werden Sie die Grundlagen des **Statistiksoftware und Programmiersprache R**. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.
+Im zweiten Teil des Semesters findet ein *vertiefendes Tutorium* statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. **Sie müssen das Tutorium nicht wechseln**. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. 
+Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
+:::
+
+::: customIndent
+- [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
+:::
