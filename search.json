@@ -1,33 +1,5 @@
 [
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Lehre@AMD",
-    "section": "",
-    "text": "Willkommen!\nHerzlich Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der Johannes Gutenberg-Universität Mainz.\nAktuell finden Sie hier die Materialien für zwei Seminare zu fortgeschrittene statistische Methoden II im Sommersemester 23.\n\n\nAktuelle Seminare\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (1)\n\n\nTermin 1: Allgemeine Informationen\n\n\n\nJosé C. García Alanis\n\n\n\n\n\n\n\n\n\n\n \n\n\n\nSeminar Fortgeschrittene statistische Methoden II (3)\n\n\nKognitive Modellierung\n\n\n\nJan Göttmann\n\n\n\n\n\n\n\n\nKeine Treffer"
-  },
-  {
-    "objectID": "about/about_jan.html",
-    "href": "about/about_jan.html",
-    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
-    "section": "",
-    "text": "\\[\\text{Wiener}(y|\\alpha, \\tau, \\beta, \\delta) =\n\\frac{\\alpha^3}{(y-\\tau)^{3/2}} \\exp \\! \\left(- \\delta \\alpha \\beta -\n\\frac{\\delta^2(y-\\tau)}{2}\\right) \\sum_{k = - \\infty}^{\\infty} (2k +\n\\beta) \\phi \\! \\left(\\frac{2k \\alpha + \\beta}{\\sqrt{y - \\tau}}\\right)\\]\nHier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software."
-  },
-  {
-    "objectID": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
-    "href": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
-    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
-    "section": "Allgemeine Materialien für das Seminar",
-    "text": "Allgemeine Materialien für das Seminar\n\nWichtige Informationen und Kursmaterialien werden auf dem Teams Channel des Seminars veröffentlicht:\n\nBeitrittslink zum Teams Channel\n\nWann: Montags von 16:15 - 17:45 Uhr (17.04.22 - Mo. 17.07.23).\nWo: Raum 01-236 (CIP Pool) im Psychologischen Institut (Binger Str.)"
-  },
-  {
-    "objectID": "about/about_jan.html#inhalt-des-seminars",
-    "href": "about/about_jan.html#inhalt-des-seminars",
-    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
-    "section": "Inhalt des Seminars",
-    "text": "Inhalt des Seminars\n\nMathematische Modelle kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt."
-  },
-  {
     "objectID": "about/about_MLM_sose23.html",
     "href": "about/about_MLM_sose23.html",
     "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
@@ -56,6 +28,34 @@
     "text": "Begleitendes Tutorium\n\nDas Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten in eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium. Erfahrungsgemäß können viele Fragen und Start-Schwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieser baut auf die, Grundkenntnissen, die Sie im ersten Teil des Semersten erlernt haben werden. Im zweiten Teil des Semesters besuchen Sie das Tutorium bei mir. Die Termine für Tutorium bleiben wie gehabt. Sie müssen das Tutorium nicht wechseln. Bitte bleiben Sie in Ihren Gruppen, ich werde die Veranstaltung von den jeweiligen Kollegen:innen übernehmen und zur gewohnten Zeit anbieten. Wir eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:\n\n\n\nR-Kurs-Buch von der Abteilung Analyse und Modellierung komplexer Daten."
   },
   {
+    "objectID": "about/about_jan.html",
+    "href": "about/about_jan.html",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "",
+    "text": "\\[\\text{Wiener}(y|\\alpha, \\tau, \\beta, \\delta) =\n\\frac{\\alpha^3}{(y-\\tau)^{3/2}} \\exp \\! \\left(- \\delta \\alpha \\beta -\n\\frac{\\delta^2(y-\\tau)}{2}\\right) \\sum_{k = - \\infty}^{\\infty} (2k +\n\\beta) \\phi \\! \\left(\\frac{2k \\alpha + \\beta}{\\sqrt{y - \\tau}}\\right)\\]\nHier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software."
+  },
+  {
+    "objectID": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
+    "href": "about/about_jan.html#allgemeine-materialien-für-das-seminar",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "Allgemeine Materialien für das Seminar",
+    "text": "Allgemeine Materialien für das Seminar\n\nWichtige Informationen und Kursmaterialien werden auf dem Teams Channel des Seminars veröffentlicht:\n\nBeitrittslink zum Teams Channel\n\nWann: Montags von 16:15 - 17:45 Uhr (17.04.22 - Mo. 17.07.23).\nWo: Raum 01-236 (CIP Pool) im Psychologischen Institut (Binger Str.)"
+  },
+  {
+    "objectID": "about/about_jan.html#inhalt-des-seminars",
+    "href": "about/about_jan.html#inhalt-des-seminars",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "Inhalt des Seminars",
+    "text": "Inhalt des Seminars\n\nMathematische Modelle kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt."
+  },
+  {
+    "objectID": "about/about_jan.html#begleitendes-tutorium",
+    "href": "about/about_jan.html#begleitendes-tutorium",
+    "title": "Seminar Fortgeschrittene statistische Methoden II (3)",
+    "section": "Begleitendes Tutorium",
+    "text": "Begleitendes Tutorium\n\nDas Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.\nIm zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr. Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.\nWir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:\n\n\n\nR-Kurs-Buch von der Abteilung Analyse und Modellierung komplexer Daten."
+  },
+  {
     "objectID": "mlm_seminar_sose_23/hierarchische_daten.html",
     "href": "mlm_seminar_sose_23/hierarchische_daten.html",
     "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
@@ -68,5 +68,12 @@
     "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
     "section": "Ihre Aufgabe:",
     "text": "Ihre Aufgabe:\nFinden Sie sich in Ihren Gruppen zusammen und überlegen Sie sich ein passendes Beispiel.\n\nWo könnten hierarchische Daten in Ihrem Bereich vorkommen?\nWie würden diese aussehen?\n\nWie viele Ebenen wären angemessen, um einen repräsentativen Eindruck der Variation zwischen den Beobachtungen zu erhalten?\n\nWelche Probleme würden sich ergeben, wenn Sie eine oder mehrere Beobachtungsebenen außer Acht lassen würden?\n\nAuf welcher Ebene findet die meiste Variation statt?\n\nZeichnen Sie ein Bild der hierarchischen Datenstruktur.\n\nNutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen Daten besser zu verstehen und auf Ihre spezifischen Anwendungsfälle anzuwenden. Diskutieren Sie die verschiedenen Aspekte und identifizieren Sie mögliche Herausforderungen, die sich aus der Verwendung hierarchischer Daten in Ihrem Kontext ergeben könnten.\n\n\n\n−+\n20:00"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Lehre@AMD",
+    "section": "",
+    "text": "Willkommen!\nHerzlich Willkommen zur Lehre-Homepage der Abteilung Analyse und Modellierung komplexer Daten an der Johannes Gutenberg-Universität Mainz.\nAktuell finden Sie hier die Materialien für zwei Seminare zu fortgeschrittene statistische Methoden II im Sommersemester 23.\n\n\nAktuelle Seminare\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (1)\n\n\nTermin 1: Allgemeine Informationen\n\n\n\nJosé C. García Alanis\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nSeminar Fortgeschrittene statistische Methoden II (3)\n\n\nKognitive Modellierung\n\n\n\nJan Göttmann\n\n\n\n\n\n\n\n\nKeine Treffer"
   }
 ]
