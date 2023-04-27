@@ -2,6 +2,7 @@
 title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
 lang: de
 subtitle: "Kognitive Modellierung"
+image: images/equation.png
 author: "Jan Göttmann"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 date-format: "D MMMM YYYY"
@@ -43,4 +44,21 @@ D-55122 Mainz\
 
 ::: justify
 **Mathematische Modelle** kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.
+
 :::
+
+## Begleitendes Tutorium
+
+::: justify
+Das Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. 
+
+Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr. Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.
+
+Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
+:::
+
+::: customIndent
+- [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
+:::
+
+
