@@ -40,18 +40,24 @@ website:
           text: "2. Hierarchische Daten"
       - section: "Seminar kognitive Modellierung"
         contents: 
+          - section: "Allgemeine Informationen"
+            contents:
+              - href: about/about_jan.qmd
+                text: "Kursinhalt und Tutorium"
           - section: "Termin 1: Organisation"
             contents: 
-            - href: https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P
-              text: "Slides"
+              - href: cogmod_sem_sose23/Termin1.qmd
+                text: "Zusammenfassung"
+              - href: https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P
+                text: "Slides"
           - section: "Termin 2: Einführung I"
             contents:
-            - href: cogmod_sem_sose23/Termin1.qmd
-              text: "Zusammenfassung"
-            - href: https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o
-              text: "Slides"
-            - href: 
-              text: "Weiterführende Literatur"
+              - href: 
+                text: "Zusammenfassung"
+              - href: https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o
+                text: "Slides"
+              - href: 
+                text: "Weiterführende Literatur"
             
             
           
