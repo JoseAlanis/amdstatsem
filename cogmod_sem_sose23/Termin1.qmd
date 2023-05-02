@@ -1,0 +1,28 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
+lang: de
+subtitle: "Termin 1: Organisation"
+image: images/equation.png
+author: "Jan Göttmann"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
+---
+
+## Organisation
+
+### Anwesenheit
+
+Prinzipiell besteht keine Anwesenheitspflicht im Seminar, allerdings rate ich dringend zur regelmäßigen Teilnahme !  Für meine eigene Übersicht wird eine Anwesenheitsliste geführt!
+
+### Studienleistung
+
+Die Studienleistung für das Seminar besteht in der wöchentlichen Abgabe von Aufgaben, die sich auf den behandelten Stoff beziehen. Die Aufgaben werden über **Assignments** in Teams abgegeben und sind jeweils bis Montags 12:00 Uhr  vor dem jeweilig nächsten Seminar fällig. Am Ende des Semesters wird dann ein Portfolio mit allen Aufgaben abgegeben, was die Gesamtstudienleistung darstellt. Es müssen zum bestehen **alle** Aufgaben eingereicht werden !
+
+Die Aufgaben werden mit fortschreitendem Semester anspruchsvoller und können folgendes umfassen:
+
+- Fragen zum Stoff
+- Programmieraufgaben in R 
+- Datenanalyse und Modellierung mit R 
+
