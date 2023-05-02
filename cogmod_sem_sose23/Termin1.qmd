@@ -10,13 +10,12 @@ categories: ["SoSe 2023"]
 engine: knitr
 ---
 
-## Organisation
 
-### Anwesenheit
+## Anwesenheit
 
 Prinzipiell besteht keine Anwesenheitspflicht im Seminar, allerdings rate ich dringend zur regelmäßigen Teilnahme !  Für meine eigene Übersicht wird eine Anwesenheitsliste geführt!
 
-### Studienleistung
+## Studienleistung
 
 Die Studienleistung für das Seminar besteht in der wöchentlichen Abgabe von Aufgaben, die sich auf den behandelten Stoff beziehen. Die Aufgaben werden über **Assignments** in Teams abgegeben und sind jeweils bis Montags 12:00 Uhr  vor dem jeweilig nächsten Seminar fällig. Am Ende des Semesters wird dann ein Portfolio mit allen Aufgaben abgegeben, was die Gesamtstudienleistung darstellt. Es müssen zum bestehen **alle** Aufgaben eingereicht werden !
 
@@ -25,4 +24,33 @@ Die Aufgaben werden mit fortschreitendem Semester anspruchsvoller und können fo
 - Fragen zum Stoff
 - Programmieraufgaben in R 
 - Datenanalyse und Modellierung mit R 
+
+
+## Teams Channel
+
+Wir werden ausschließlich mit Teams und dieser Website arbeiten ! Alle wichtigen Ankündigungen werden im Teams Channel gemacht, daher ist es wichtig regelemäßig dort hineinzuschauen. Auf dieser Website werden kurze Zusammenfassungen und weitere Materialien (Slides, Literatur, Programme) für die Seminareinheiten zur Verfügung gestellt, sodass ihr alles aus einer Hand nachlesen könnt. 
+
+
+## Fahrplan 
+| KW  | Thema Seminar                                                  | Link                                              |
+|----------|----------------------------------------------------|------------------|
+| 16  | Organisation und Ablauf                                        | [Zusammenfassung](cogmod_sem_sose23 /Termin1.qmd) |
+| 17  | Einführung I: Grundlagen der Modellierung                      |                                                   |
+| 19  | Einführung II: Grundlagen der Modellierung                     |                                                   |
+| 20  | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen |                                                   |
+| 21  | Parameterschätzung II: Maximum Likelihood & Beyond             |                                                   |
+| 23  | Parameterschätzung III: Hands On in R Parameter Estimation     |                                                   |
+| 24  | Advanced R for Cognitive Modeling                              |                                                   |
+| 25  | Multinomial Processing Tree Models (Theorie)                   |                                                   |
+| 26  | Anwendung von MPT Modellen (R-Sitzung)                         |                                                   |
+| 27  | Drift Diffusion Models (Theory)                                |                                                   |
+| 28  | Memory Measurement Model (M3)                                  |                                                   |
+| 29  | Anwendung des M3 Modells                                       |                                                   |
+| 30  | Abgabe des kompletten Portfolios                               |                                                   |
+
+
+
+
+
+
 
