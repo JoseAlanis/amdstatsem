@@ -116,14 +116,14 @@
     "href": "mlm_seminar_sose_23/hierarchische_daten.html",
     "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
     "section": "",
-    "text": "Achtung 🚧\n\n\n\nDies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach der Sitzung vorgenommen werden.\nIn diesem Kapitel werden Multi-Level-Modelle vorgestellt, die in vielerlei Hinsicht Ähnlichkeiten mit einfachen Regressionsmodellen aufweisen. Grundsätzlich stellt ein Multi-Level-Modell eine besonderen Art Regressionsmodell dar, da es untersucht, ob Variation in einer Variable auf Variation in einer anderen Variable zurückgeführt werden können. Der Unterschied zwischen einem Multi-Level-Modell und einer herkömmlichen (einfachen) Regression besteht darin, dass Multi-Level-Modelle in der Lage sind, hierarchische Strukturen innerhalb eines Datensatzes zu berücksichtigen. Im Verlauf dieses Kapitels lernen Sie, was hierarchische Strukturen ausmacht und wie sie die Aussagekraft eines Modells beeinflussen können."
+    "text": "Achtung 🚧\n\n\n\nDies ist ein “lebendiges” Dokument. Es ist möglich, dass einige Aktualisierungen und Ergänzungen nach der Sitzung vorgenommen werden."
   },
   {
     "objectID": "mlm_seminar_sose_23/hierarchische_daten.html#ihre-aufgabe",
     "href": "mlm_seminar_sose_23/hierarchische_daten.html#ihre-aufgabe",
     "title": "Seminar Fortgeschrittene statistische Methoden II (1)",
-    "section": "Ihre Aufgabe:",
-    "text": "Ihre Aufgabe:\nFinden Sie sich in Ihren Gruppen zusammen und überlegen Sie sich ein passendes Beispiel.\n\nWo könnten hierarchische Daten in Ihrem Bereich vorkommen?\nWie würden diese aussehen?\n\nWie viele Ebenen wären angemessen, um einen repräsentativen Eindruck der Variation zwischen den Beobachtungen zu erhalten?\n\nWelche Probleme würden sich ergeben, wenn Sie eine oder mehrere Beobachtungsebenen außer Acht lassen würden?\n\nAuf welcher Ebene findet die meiste Variation statt?\n\nZeichnen Sie ein Bild der hierarchischen Datenstruktur.\n\nNutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen Daten besser zu verstehen und auf Ihre spezifischen Anwendungsfälle anzuwenden. Diskutieren Sie die verschiedenen Aspekte und identifizieren Sie mögliche Herausforderungen, die sich aus der Verwendung hierarchischer Daten in Ihrem Kontext ergeben könnten.\n\n\n\n−+\n20:00"
+    "section": "Ihre Aufgabe",
+    "text": "Ihre Aufgabe\n\nFinden Sie sich in Ihren Gruppen zusammen und überlegen Sie sich ein passendes Beispiel.\n\n\n\nWo könnten hierarchische Daten in Ihrem Bereich vorkommen?\nWie würden diese aussehen?\n\nWie viele Ebenen wären angemessen, um einen repräsentativen Eindruck der Variation zwischen den Beobachtungen zu erhalten?\n\nWelche Probleme würden sich ergeben, wenn Sie eine oder mehrere Beobachtungsebenen außer Acht lassen würden?\n\nAuf welcher Ebene findet die meiste Variation statt?\n\nZeichnen Sie ein Bild der hierarchischen Datenstruktur.\n\n\n\nNutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen Daten besser zu verstehen und auf Ihre spezifischen Anwendungsfälle anzuwenden. Diskutieren Sie die verschiedenen Aspekte und identifizieren Sie mögliche Herausforderungen, die sich aus der Verwendung hierarchischer Daten in Ihrem Kontext ergeben könnten.\n\n\n\n\n−+\n20:00"
   },
   {
     "objectID": "index.html",
