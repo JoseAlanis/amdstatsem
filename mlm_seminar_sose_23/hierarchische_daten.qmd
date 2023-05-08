@@ -17,22 +17,25 @@ require(countdown)
 ::: callout-note
 ## Achtung 🚧
 
-Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktuallisierungen und Ergänzungen nach der Sitzung vorgenommen werden.
+Dies ist ein "lebendiges" Dokument. Es ist möglich, dass einige Aktualisierungen und Ergänzungen nach der Sitzung vorgenommen werden.
 :::
 
 ::: justify
-In diesem Kapitel werden Multi-Level-Modelle vorgestellt, die in vielerlei Hinsicht Ähnlichkeiten mit einfachen Regressionsmodellen aufweisen. Grundsätzlich stellt ein Multi-Level-Modell eine besonderen Art Regressionsmodell dar, da es untersucht, ob Variation in einer Variable auf Variation in einer anderen Variable zurückgeführt werden können. Der Unterschied zwischen einem Multi-Level-Modell und einer herkömmlichen (einfachen) Regression besteht darin, dass Multi-Level-Modelle in der Lage sind, hierarchische Strukturen innerhalb eines Datensatzes zu berücksichtigen. Im Verlauf dieses Kapitels lernen Sie, was hierarchische Strukturen ausmacht und wie sie die Aussagekraft eines Modells beeinflussen können.
+In diesem Kapitel beschäftigen wir uns mit Multi-Level-Modellen. Multi-Level-Modelle haben viele Ähnlichkeiten mit herkömmlichen Regressionsmodellen (z.B. mit einer einfachen linearen Regression). Wie bei der einfachen linearen Regression (einfach im Sinne von: Eine unabhängige Variable sagt eine abhängige Variable vorher) untersuchen einfache lineare Multi-Level-Modelle den Zusammenhang zwischen einer unabhängigen Variable und einer abhängigen Variablen (auch Kriterium genannt). Somit können die Ergebnisse eines Multi-Level-Modells wie die Ergebnisse einer Regression interpretiert werden. Sie beschreiben, inwieweit Variation in einer Variable auf Variation in einer anderen Variable zurückgeführt werden können.
+
+Der Unterschied zwischen einem Multi-Level-Modell und einer herkömmlichen (einfachen) Regression besteht darin, dass Multi-Level-Modelle in der Lage sind, hierarchische Strukturen innerhalb eines Datensatzes zu berücksichtigen. Gewissermaßen stellen Multi-Level-Modelle nichts anderes als eine besondere Anwendung von Regressionsmodelle dar. Im Verlauf dieses Kapitels lernen wir, was hierarchische Strukturen ausmacht und wie sie die Aussagekraft eines Modells beeinflussen können.
+
 
 :::
 
 # Hierarchische Daten
 
 ::: justify
-Hierarchische Daten sind solche, die anhand mehrerer gestufter Beobachtungsebenen strukturiert werden können. Mit anderen Worten: Ein Hauptmerkmal von hierarchisch organisierten Daten besteht darin, dass sie Beobachtungen enthalten, welche sich in **hierarchisch übergeordneten Einheiten** gruppieren lassen. Diese hierarchische Organisation kann durch Baumdiagramme oder Netzwerke veranschaulicht werden. Üblicherweise wird die am niedrigsten angesiedelte Beobachtungsebene als *Level 1* bezeichnet. Die nächsthöhere Ebene, also die erste "Gruppenebene", wird häufig *Level 2* betitelt, gefolgt von Level 3 und so weiter.
+Hierarchische Daten sind solche, die anhand mehrerer gestufter Beobachtungsebenen strukturiert werden können. Mit anderen Worten: Ein Hauptmerkmal von hierarchisch organisierten Daten besteht darin, dass sie Beobachtungen enthalten, die sich in **hierarchisch übergeordneten Einheiten** gruppieren lassen. Diese hierarchische Organisation kann durch Baumdiagramme oder Netzwerke veranschaulicht werden. Üblicherweise wird die am niedrigsten angesiedelte Beobachtungsebene als *Level 1* bezeichnet. Die nächsthöhere Ebene, also die erste "Gruppenebene", wird häufig *Level 2* betitelt, gefolgt von Level 3 und so weiter.
 
-Ein gängiges Beispiel für hierarchisch organisierte Daten ist die Organisationsstruktur eines Unternehmens, in der die Geschäftsleitung an der Spitze der Hierarchie steht, gefolgt von Abteilungsleitern, Teamleitern und Mitarbeitern auf den unteren Ebenen. In einem solchen Fall spiegeln die verschiedenen Ebenen der Hierarchie die verschiedenen Autoritätsebenen innerhalb des Unternehmens wider. Hierarchisch organisierte Daten sind in vielen Bereichen (z.B. biologische und klinische Psychologie, aber auch Sozial- und Wirtschaftswissenschaften) von Bedeutung und ermöglichen es, komplexe Beziehungen und Zusammenhänge auf unterschiedliche Beocachtungsebenen zu untersuchen.
+Ein gängiges Beispiel für hierarchisch organisierte Daten ist die Organisationsstruktur eines Unternehmens, in der die Geschäftsleitung an der Spitze der Hierarchie steht, gefolgt von Abteilungsleiter:innen, Teamleitern:innen und Mitarbeiter:innen auf den unteren Ebenen. In einem solchen Fall spiegeln die verschiedenen Ebenen der Hierarchie die verschiedenen Autoritätsebenen innerhalb des Unternehmens wider. Hierarchisch organisierte Daten sind in vielen Bereichen (z.B. biologische und klinische Psychologie, aber auch Sozial- und Wirtschaftswissenschaften) von Bedeutung und ermöglichen es, komplexe Beziehungen und Zusammenhänge auf unterschiedliche Beobachtungsebenen zu untersuchen.
 
-Durch die Berücksichtigung der hierarchischen Struktur der Daten können Forscher:innen und Anwender:innen besser erkennen, wie Veränderungen auf einer Ebene der Hierarchie Auswirkungen auf andere Ebenen haben können. Dies kann bei der Entwicklung von spezifischen Inerventionen und Modellen unterstützen, die die besonderen Eigenschaften hierarchisch organisierter Daten berücksichtigen, um genauere und aussagekräftigere Ergebnisse zu erzielen.
+Durch die Berücksichtigung der hierarchischen Struktur der Daten können Forscher:innen und Anwender:innen besser erkennen, wie Veränderungen auf einer Ebene der Hierarchie Auswirkungen auf andere Ebenen haben können. Dies kann bei der Entwicklung von spezifischen Interventionen und Modellen unterstützen, die die besonderen Eigenschaften hierarchisch organisierter Daten berücksichtigen, um genauere und aussagekräftigere Ergebnisse zu erzielen.
 
 :::
 
@@ -65,5 +68,56 @@ Nutzen Sie diese Anregungen, um in Ihrer Gruppe das Konzept der hierarchischen D
 countdown(minutes = 20, seconds = 00,
           style = "position: relative; width: min-content;")
 ```
+
+# Konsequenzen hierarchischer Daten
+
+::: justify
+Ein weiteres häufig verwendetes Beispiel für hierarchische organisierte Daten sind Schüler:innen in Schulklassen. Stellen wir uns folgendes Szenario vor, Sie arbeiten als Psychologie in einer Schule. Viele Schülerinnen kommen zu Ihnen, weil sie mit den Anforderungen des Schulalltags nicht zurechtkommen. Manche Schülerinnen füllen sich durch den Schwierigkeitsgrad des Unterrichts überfordert und manche andere haben große Schwierigkeiten, die große Anzahl an Hausaufgaben rechtzeitig zu erledigen. Jedenfalls stellen Sie fest: Seit Corona findet eine Zunahme an Niedergeschlagen und Erschöpfung seitens der Schüler:innen statt. Sie machen sich auf der Suche nach möglichen Ursachen und bedingenden Faktoren.
+
+Ihre erste Vermutung ist, dass die während Corona entstandenen Lernrückstände möglicherweise für die subjektiv empfundene Überförderung seitens der Schüler:innen verantwortlich sein könnte. Sie beschließen zufällig Schüler:innen auf ihre Lernrückstände zu untersuchen und sie nach ihrer subjektiv empfundene Überförderung zu fragen. Sie erheben die entsprechenden Daten und achten darauf, Schüler:innen von mehreren Klassen zu untersuchen.
+
+Sie sind davon überzeugt: Wenn Sie den Zusammenhang zwischen Lernrückstände und Überforderung verstehen, können Sie Maßnahmen entwickeln, die alle Schüler:innen unabhängig von dem individuellen Lernrückstand helfen.
+
+:::
+
+::: customIndent
+- Wie mussten die Daten aussehen, damit diese Daten Ihre These (*höhere Lernrückstände gehen mit einer stärkeren subjektiv-empfundenen Überförderung einher*) stützen?
+- Welche Rolle könnten die Zugehörigkeit zu einer (besonderen) Schulklasse spielen?
+:::
+
+```{r, echo=FALSE}
+countdown(minutes = 5, seconds = 00,
+          style = "position: relative; width: min-content;")
+```
+
+::: justify
+Sie haben es richtig erkannt, bei dieser Übung handelt es sich, um einer “Zusammenhangshypothese”. Ähnlich wie bei einer Korrelation, gehen also davon aus, dass Veränderung in einer Variable, mit Veränderung in einer anderen Variable einhergeht. Allerdings enthält unser Beispiel einige Besonderheiten, die die Anwendung gängiger Analysemethoden (z.B. Korrelation) zur Beantwortung der Forschungsfrage (zumindest) erschweren.
+
+Bei traditioneller Analyse verfahren nehmen wir an, dass es sich bei den Untersuchungseinheiten in der Stichprobe, um zufällige “Ziehungen” aus einer Population handel. Zur Erinnerung: Wir “ziehen” zufällig aus einer Population, weil wir daran interessiert sind Aussagen über die Population zu treffen. An der jeweils gezogenen Beobachtung sind wir nicht (wirklich) interessiert. Eine Ziehung ist dann zufällig, wenn sie eine Beobachtung über eine Merkmalsausprägung liefert. Die Merkmalsausprägung schwankt über Einheiten in einer bestimmten Population und welche spezielle Einheit beobachtet wird, hängt vom Zufall ab. Wenn ein Effekt in einem statistischen Modell als zufällig modelliert wird, möchten wir daraus Schlüsse über die den Effekt in der Population ziehen, aus der die beobachteten Einheiten stammen, anstatt über diese speziellen Einheiten selbst.
+
+:::
+
+::: customIndent
+- Können wir davon ausgehen, dass es sich bei der Zusammenhang zwischen Lernrückstände und Überforderung in der Population der Schüler:innen zufällig verteilt ist?
+:::
+
+::: justify
+Wir können davon ausgehen, dass der Zusammenhang zwischen Lernrückstände und Überforderung in der Population der Schüler:innen in unserem Beispiel wahrscheinlich nicht zufällig verteilt ist.
+:::
+
+::: customIndent
+1. Vermutlich ist die empfundene Überförderung ähnlicher innerhalb der Klassen als zwischen den Klassen.
+
+2. Die Klassen unterschieden sich in vielerlei Hinsicht:
+  - In einigen Klassen ist das psychosoziale Klima freundliche und unterstützend, während in anderen Klassen, das Klima als rau und feindselig empfunden wird.
+:::
+
+::: justify
+An diesen Vermutungen ergibt sich folgende Konsequenzen:
+:::
+
+:::customIndent
+- Zieht man aus einer Klasse eine beliebige Person und misst ihren Lernrückstand (oder Überförderung), so ist es zu erwarten, dass dieser dem Wert einer beliebigen zweiten Person dann ähnlicher ist, wenn die zweite Person aus der gleichen Klasse stammt.
+:::
 
 ---
