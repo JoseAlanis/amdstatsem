@@ -56,8 +56,15 @@ website:
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o
                 text: "Slides"
+          - section: "Termin 2: Einführung I"
+            contents:
               - href: 
-                text: "Weiterführende Literatur"
+                text: "Zusammenfassung"
+              - href: https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF
+                text: "Slides"
+                   
+                
+            
             
             
           
