@@ -1,8 +1,7 @@
 ---
 title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
 lang: de
-subtitle: "Termin 1: Organisation"
-image: "images/equation.png"
+subtitle: "Termin 2: Einführung I"
 author: "Jan Göttmann"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 date-format: "D MMMM YYYY"
@@ -10,9 +9,19 @@ categories: ["SoSe 2023"]
 engine: knitr
 ---
 
-## Anwesenheit
+## Termin 2: Einführung I 
 
-Prinzipiell besteht keine Anwesenheitspflicht im Seminar, allerdings rate ich dringend zur regelmäßigen Teilnahme ! Für meine eigene Übersicht wird eine Anwesenheitsliste geführt!
+## Why Models?
+
+Als Psychologen wollen wir menschliches Verhalten ***beschreiben***, ***vorhersagen*** und letztendlich ***erklären.*** Wir unterscheiden uns damit nicht wesentlich von einem Physiker, der Phänomene der Welt erklären möchte. Allerdings möchten Psychologen kognitive Phänomene erklären wie zum Beispiel
+
+-   Gedächtnisprozesse
+
+-   Sprachverarbeitung
+
+-   Gedankenabschweifen
+
+und noch viele weitere kognitive Prozesse. Allerdings ist es schwierig nur anhand von Daten, wie zum Beispiel Reaktionszeiten und Fehlerraten, und verbalen Theorien kognitive Prozesse zu verstehen.
 
 ## Studienleistung
 
@@ -24,24 +33,24 @@ Die Aufgaben werden mit fortschreitendem Semester anspruchsvoller und können fo
 -   Programmieraufgaben in R
 -   Datenanalyse und Modellierung mit R
 
-## Teams Channel [![](../images/teams_logo.png){width=30, height=30}](https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85)
+## Teams Channel [![](../images/teams_logo.png){width="30," height="30"}](https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85)
 
 Wir werden ausschließlich mit Teams und dieser Website arbeiten ! Alle wichtigen Ankündigungen werden im Teams Channel gemacht, daher ist es wichtig regelemäßig dort hineinzuschauen. Auf dieser Website werden kurze Zusammenfassungen und weitere Materialien (Slides, Literatur, Skripte und Videos) für die Seminareinheiten zur Verfügung gestellt, sodass ihr alles aus einer Hand nacharbeiten könnt.
 
 ### Fahrplan
 
-| KW  | Thema Seminar                                                  | Link                                                | Materialien                                                                                                                    |
-|---------------|---------------|---------------|---------------|
-| 16  | Organisation und Ablauf                                        | [Zusammenfassung](../cogmod_sem_sose23/Termin1.qmd) | [![](../images/slides.png){width=30, height=30}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P) | 
-| 17  | Einführung I: Grundlagen der Modellierung                      |                                                     | [![](../images/slides.png){width=30, height=30}](https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o) [![](../images/paperpile.png){width=30, height=30}](https://paperpile.com/shared/lH0wBI)                                                                                                                              |
-| 19  | Einführung II: Grundlagen der Modellierung                     |                                                     |                                                                                                                                |
-| 20  | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen |                                                     |                                                                                                                                |
-| 21  | Parameterschätzung II: Maximum Likelihood & Beyond             |                                                     |                                                                                                                                |
-| 23  | Parameterschätzung III: Hands On in R Parameter Estimation     |                                                     |                                                                                                                                |
-| 24  | Advanced R for Cognitive Modeling                              |                                                     |                                                                                                                                |
-| 25  | Multinomial Processing Tree Models (Theorie)                   |                                                     |                                                                                                                                |
-| 26  | Anwendung von MPT Modellen (R-Sitzung)                         |                                                     |                                                                                                                                |
-| 27  | Drift Diffusion Models (Theory)                                |                                                     |                                                                                                                                |
-| 28  | Memory Measurement Model (M3)                                  |                                                     |                                                                                                                                |
-| 29  | Anwendung des M3 Modells                                       |                                                     |                                                                                                                                |
-| 30  | Abgabe des kompletten Portfolios                               |                                                     |                                                                                   
+| KW  | Thema Seminar                                                  | Link                                                | Materialien                                                                                                                                                                                                               |
+|------------------|------------------|------------------|------------------|
+| 16  | Organisation und Ablauf                                        | [Zusammenfassung](../cogmod_sem_sose23/Termin1.qmd) | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P)                                                                                            |
+| 17  | Einführung I: Grundlagen der Modellierung                      |                                                     | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o) [![](../images/paperpile.png){width="30," height="30"}](https://paperpile.com/shared/lH0wBI) |
+| 19  | Einführung II: Grundlagen der Modellierung                     |                                                     |                                                                                                                                                                                                                           |
+| 20  | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen |                                                     |                                                                                                                                                                                                                           |
+| 21  | Parameterschätzung II: Maximum Likelihood & Beyond             |                                                     |                                                                                                                                                                                                                           |
+| 23  | Parameterschätzung III: Hands On in R Parameter Estimation     |                                                     |                                                                                                                                                                                                                           |
+| 24  | Advanced R for Cognitive Modeling                              |                                                     |                                                                                                                                                                                                                           |
+| 25  | Multinomial Processing Tree Models (Theorie)                   |                                                     |                                                                                                                                                                                                                           |
+| 26  | Anwendung von MPT Modellen (R-Sitzung)                         |                                                     |                                                                                                                                                                                                                           |
+| 27  | Drift Diffusion Models (Theory)                                |                                                     |                                                                                                                                                                                                                           |
+| 28  | Memory Measurement Model (M3)                                  |                                                     |                                                                                                                                                                                                                           |
+| 29  | Anwendung des M3 Modells                                       |                                                     |                                                                                                                                                                                                                           |
+| 30  | Abgabe des kompletten Portfolios                               |                                                     |                                                                                                                                                                                                                           |
