@@ -6,9 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Jan Göttmann">
+<meta name="author" content="José C. García Alanis">
 
-<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (3)</title>
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (1)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -30,8 +30,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cogmod_sem_sose23/Termin1.html" rel="next">
-<link href="../mlm_seminar_sose_23/hierarchische_daten.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -77,7 +75,9 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item"><a href="../about/about_jan.html">Allgemeine Informationen</a></li><li class="breadcrumb-item"><a href="../about/about_jan.html">Kursinhalt und Tutorium</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
+      Lehre@AMD
+      </li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -133,25 +133,25 @@ ul.task-list li input[type="checkbox"] {
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
  <span class="menu-text">Seminar kognitive Modellierung</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
  <span class="menu-text">Allgemeine Informationen</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/about_jan.html" class="sidebar-item-text sidebar-link active">
+  <a href="../about/about_jan.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kursinhalt und Tutorium</span></a>
   </div>
 </li>
@@ -232,16 +232,13 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen !</a></li>
-  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
-  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
+  <li><a href="#lineare-regression" id="toc-lineare-regression" class="nav-link active" data-scroll-target="#lineare-regression">Lineare Regression</a>
   <ul class="collapse">
-  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
-  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a>
+  <li><a href="#beispiel-1-der-meeresspiegel-steigt" id="toc-beispiel-1-der-meeresspiegel-steigt" class="nav-link" data-scroll-target="#beispiel-1-der-meeresspiegel-steigt">Beispiel 1: Der Meeresspiegel steigt</a>
   <ul class="collapse">
-  <li><a href="#fahrplan" id="toc-fahrplan" class="nav-link" data-scroll-target="#fahrplan">Fahrplan</a></li>
+  <li><a href="#was-können-wir-aus-dieser-abbildung-lernen" id="toc-was-können-wir-aus-dieser-abbildung-lernen" class="nav-link" data-scroll-target="#was-können-wir-aus-dieser-abbildung-lernen">Was können wir aus dieser Abbildung lernen?</a></li>
   </ul></li>
-  <li><a href="#begleitendes-tutorium" id="toc-begleitendes-tutorium" class="nav-link" data-scroll-target="#begleitendes-tutorium">Begleitendes Tutorium</a></li>
+  <li><a href="#beispiel-2-more-patients-more-cash" id="toc-beispiel-2-more-patients-more-cash" class="nav-link" data-scroll-target="#beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -251,8 +248,8 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)</h1>
-<p class="subtitle lead">Kognitive Modellierung</p>
+<h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
+<p class="subtitle lead">Termin 3: Lineare Regression</p>
   <div class="quarto-categories">
     <div class="quarto-category">SoSe 2023</div>
   </div>
@@ -265,7 +262,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Autor:in</div>
     <div class="quarto-title-meta-contents">
-             <p>Jan Göttmann </p>
+             <p>José C. García Alanis </p>
           </div>
   </div>
     
@@ -282,148 +279,71 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="willkommen" class="level1">
-<h1>Willkommen !</h1>
-<p><span class="math display">\[\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
-\frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
-\frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
-\beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)\]</span></p>
-<p>Hier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software.</p>
-</section>
-<section id="seminarleitung" class="level1">
-<h1>Seminarleitung</h1>
-<p><a href="https://methoden.amd.psychologie.uni-mainz.de/goettmann/">Jan Göttmann</a><br>
-<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
-Psychologisches Institut<br>
-Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
-D-55122 Mainz<br>
-<a href="jan.goettmann@uni-mainz.de">jan.goettmann at uni-mainz.de</a></p>
-</section>
-<section id="organisatorisches-und-wichtige-infos" class="level1">
-<h1>Organisatorisches und wichtige Infos</h1>
-<section id="allgemeine-materialien-für-das-seminar" class="level2">
-<h2 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h2>
-<ul>
-<li>Wichtige Informationen werden auf dem Teams Channel des Seminars veröffentlicht:
-<ul>
-<li><a href="https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&amp;tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85">Beitrittslink zum Teams Channel</a></li>
-<li>Kursmaterialien wie Literatur, R-Skripte und Präsentationen finden Sie hier auf unserer <a href="https://josealanis.github.io/amdstatsem/">Website</a>
-<ul>
-<li><strong>Wann</strong>: Montags von <strong>16:15</strong> - <strong>17:45</strong> Uhr (17.04.22 - Mo. 17.07.23).</li>
-<li><strong>Wo</strong>: Raum 01-236 (<a href="https://maps.uni-mainz.de/leaflets/room/2940B546-2165-4612-97F8-AAE392BF8181">CIP Pool</a>) im Psychologischen Institut (Binger Str.)</li>
-</ul></li>
-</ul></li>
-</ul>
-</section>
-<section id="inhalt-des-seminars" class="level2">
-<h2 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h2>
+<section id="lineare-regression" class="level1">
+<h1>Lineare Regression</h1>
 <div class="justify">
-<p><strong>Mathematische Modelle</strong> kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R / STAN, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.</p>
+<p>Das Ziel einer Regression besteht darin, eine Variable durch eine oder mehrere andere Variablen vorherzusagen. An dieser Stelle können wir von einer Art Prognose sprechen. Wenn wir Regressionsmodelle benutzen, wollen wir den Verlauf einer Variable (die abhängige Variable) anhand anderer Variablen (unabhängige Variablen) prognostizieren.</p>
+<p>Die vorhergesagte Variable wird als Kriterium, Regressand oder auch abhängige Variable (AV) bezeichnet und üblicherweise mit <span class="math inline">\(y\)</span> symbolisiert. Die Variablen, die zur Vorhersage der abhängigen Variablen verwendet werden, werden als Prädiktoren, Regressoren oder unabhängige Variablen (UV) bezeichnet. Üblicherweise werden Prädiktoren mit <span class="math inline">\(x\)</span> symbolisiert. Sie erinnern sich wahrscheinlich an Statistik 1 und 2, wo wir meistens nur einen Prädiktor zur Vorhersage einer anderen Variable benutzt haben. In diesem Fall sprechen wir von einer einfachen Regression.</p>
+<p>Zur Wiederholung, schauen wir uns nun ein kleines Beispiel an.</p>
 </div>
-<section id="fahrplan" class="level3">
-<h3 class="anchored" data-anchor-id="fahrplan">Fahrplan</h3>
-<table class="table">
-<thead>
-<tr class="header">
-<th>KW</th>
-<th>Thema Seminar</th>
-<th>Link</th>
-<th>Materialien</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>16</td>
-<td>Organisation und Ablauf</td>
-<td><a href="../cogmod_sem_sose23/Termin1.html">Zusammenfassung</a></td>
-<td><a href="https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P"><img src="../images/slides.png" height="30"></a></td>
-</tr>
-<tr class="even">
-<td>17</td>
-<td>Einführung I: Grundlagen der Modellierung</td>
-<td></td>
-<td><a href="https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o"><img src="../images/slides.png" height="30"></a> <a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a></td>
-</tr>
-<tr class="odd">
-<td>19</td>
-<td>Einführung II: Grundlagen der Modellierung</td>
-<td></td>
-<td><a href="https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF"><img src="../images/slides.png" height="30"></a> <a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a> <a href="../cogmod_sem_sose23/R-Scripts/power_law.R"><img src="../images/r_logo.png" height="30"></a></td>
-</tr>
-<tr class="even">
-<td>20</td>
-<td>Parameterschätzung I: Diskrepanzfunktionen &amp; Schätzalgorithmen</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>21</td>
-<td>Parameterschätzung II: Maximum Likelihood &amp; Beyond</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>23</td>
-<td>Parameterschätzung III: Hands On in R Parameter Estimation</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>24</td>
-<td>Advanced R for Cognitive Modeling</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>25</td>
-<td>Multinomial Processing Tree Models (Theorie)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>26</td>
-<td>Anwendung von MPT Modellen (R-Sitzung)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>27</td>
-<td>Drift Diffusion Models (Theory)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>28</td>
-<td>Memory Measurement Model (M3)</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>29</td>
-<td>Anwendung des M3 Modells</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>30</td>
-<td>Abgabe des kompletten Portfolios</td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</section>
-</section>
-<section id="begleitendes-tutorium" class="level2">
-<h2 class="anchored" data-anchor-id="begleitendes-tutorium">Begleitendes Tutorium</h2>
+<section id="beispiel-1-der-meeresspiegel-steigt" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-1-der-meeresspiegel-steigt">Beispiel 1: Der Meeresspiegel steigt</h2>
+<p>Betrachten Sie die folgende Abbildung:</p>
+<p><img src="../images/ocean.png" class="img-fluid"></p>
 <div class="justify">
-<p>Das Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.</p>
-<p>Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr.&nbsp;Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.</p>
-<p>Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:</p>
+<p>NASA. (4. März, 2022). Anstieg des Meeresspiegels seit dem Jahr 1993 bis 2021 (Stand: September) (in Millimeter) [Graph]. In Statista. Zugriff am 15. Mai 2023, von https://de.statista.com/statistik/daten/studie/1056576/umfrage/hoehe-des-meeresspiegels/</p>
+</div>
+<section id="was-können-wir-aus-dieser-abbildung-lernen" class="level3">
+<h3 class="anchored" data-anchor-id="was-können-wir-aus-dieser-abbildung-lernen">Was können wir aus dieser Abbildung lernen?</h3>
+<div class="justify">
+<p>Die Abbildung zeigt, dass der Meeresspiegel <strong>kontinuierlich</strong> ansteigt. In der Tat steigt der Meeresspiegel aktuell schneller, als noch vor wenigen Jahren <strong>vorhergesagt</strong>. Im Jahr 1990 ging man von einem zukünftigen Anstieg um lediglich 1,9 mm pro Jahr. Tatsächlich steigt der Meeresspiegel seit 1993 um <strong>durchschnittlich 3,4 mm pro Jahr</strong>.</p>
 </div>
 <div class="customIndent">
 <ul>
-<li><a href="https://amd-lab.github.io/R-Kurs-Buch/"><strong>R-Kurs-Buch</strong></a> von der Abteilung Analyse und Modellierung komplexer Daten.</li>
+<li>Wie kommen diese Zahlen zustande?</li>
+<li>Wie können wir aus vergangenen Beobachtungen zukünftige Beobachtungen vorhersagen?</li>
+<li>Was ist eine gute Vorhersage, und warum sind Vorhersagen mehr oder weniger akkurat?</li>
+</ul>
+</div>
+<p>Schauen wir uns ein weiteres Beispiel an.</p>
+</section>
+</section>
+<section id="beispiel-2-more-patients-more-cash" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</h2>
+<div class="justify">
+<p>Stellen Sie sich vor, dass Sie als ambulante Psychotherapeut:in in einer Praxis arbeiten. Am Anfang eines jeden Quartals erstellen Sie eine Kostenplanung. Die erwartete Anzahl an Behandlungsstunden spielt dabei eine große Rolle, da Sie damit den <strong>erwarteten</strong> Wert Ihres Einkommens berechnen können. Gehen wir davon aus, dass Sie pro Patient:in ein Betrag von 66,6 Euro (nach Abzug aller laufenden Kosten) in der Quartalsabrechnung erwarten können.</p>
+</div>
+<p>Betrachten Sie die folgende Abbildung:</p>
+<p><img src="../images/patients.png" class="img-fluid"></p>
+<div class="justify">
+<p>Die Abbildung zeigt einen linearen Zusammenhang zwischen der Anzahl an Patienten und dem Betrag auf der Abrechnung. Wir können dieser Zusammenhang bildlich darstellen (wie in der Abbildung) aber auch mithilfe mit eines Modells.</p>
+</div>
+<p><span class="math display">\[Betrag = (wie~von~x~auf~y~kommen?) + Fehler\]</span></p>
+<div class="justify">
+<p>In unseren Beispiel, welche Funktion muss auf <span class="math inline">\(x\)</span> angewendet werden, um eine möglichst genaue Schätzung von <span class="math inline">\(y\)</span> zu bekommen?</p>
+<p>Wir können diese Fragen mithilfe einer mathematischen Formel ausdrucken.</p>
+</div>
+<p><span class="math display">\[y = f(x) + Fehler\]</span></p>
+<div class="justify">
+<p>Dies ist die Grundlage eines Regressionsmodells. Regressionsmodelle sind nichts anderes als eine Speziefietzierung dieser Frage. Mit einem Regressionsmodell, können wir die Funktion, die auf <span class="math inline">\(x\)</span> angewendet werden muss, genauer beschreiben.</p>
+<p>Dies ist die allgemeine Formel der Regression:</p>
+</div>
+<p><span class="math display">\[y_{i} = b_{0} + b_{1}~x_{1} + e_{i}\]</span></p>
+<div class="customIndent">
+<ul>
+<li><span class="math inline">\(b_{0} =\)</span> <span class="math inline">\(y\)</span>-Achsenabschnitt, Konstante, oder Interzept:
+<ul>
+<li>Der Wert von <span class="math inline">\(y\)</span> bei einer Ausprägung von 0 in <span class="math inline">\(x\)</span>.</li>
+</ul></li>
+<li><span class="math inline">\(b_{1} =\)</span> Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
+<ul>
+<li>Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten <span class="math inline">\(y\)</span> zunimmt, wenn <span class="math inline">\(x\)</span> um eine Einheit zunimmt</li>
+</ul></li>
+<li><span class="math inline">\(e_{i} =\)</span> Regressionsresiduum (kurz: Residuum), Residualwert oder Fehlerwert:
+<ul>
+<li>Die Differenz zwischen einem vorhergesagten (<span class="math inline">\(\hat{y}\)</span>) und beobachteten (<span class="math inline">\(y\)</span>) <span class="math inline">\(y\)</span>-Wert.</li>
+<li>Je größer die Fehlerwerte, umso größer ist die Abweichung eines beobachteten vom vorhergesagten Wert.</li>
+</ul></li>
 </ul>
 </div>
 
@@ -780,18 +700,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
-<nav class="page-navigation">
-  <div class="nav-page nav-page-previous">
-      <a href="../mlm_seminar_sose_23/hierarchische_daten.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Hierarchische Daten</span>
-      </a>          
-  </div>
-  <div class="nav-page nav-page-next">
-      <a href="../cogmod_sem_sose23/Termin1.html" class="pagination-link">
-        <span class="nav-page-text">Zusammenfassung</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
-  </div>
-</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
