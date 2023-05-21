@@ -56,12 +56,18 @@ website:
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o
                 text: "Slides"
-          - section: "Termin 2: Einführung II"
+          - section: "Termin 3: Einführung II"
             contents:
               - href: 
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF
                 text: "Slides"
+          - section: "Termin 4: Parameterschätzung I"
+            contents:
+              - href: 
+                text: "Zusammenfassung"
+              - href: https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8
+                text: "Slides"      
                    
                 
             
