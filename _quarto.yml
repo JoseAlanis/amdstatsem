@@ -36,8 +36,11 @@ website:
         contents:
         - href: about/about_MLM_sose23.qmd
           text: "1. Allgemeine Informationen"
-        - href: mlm_seminar_sose_23/hierarchische_daten.qmd
+        - href: mlm_seminar_sose23/hierarchische_daten.qmd
           text: "2. Hierarchische Daten"
+        - href: mlm_seminar_sose23/lineare_regression.qmd
+          text: "3. Linerare Regression"
+          
       - section: "Seminar kognitive Modellierung"
         contents: 
           - section: "Allgemeine Informationen"
@@ -68,15 +71,7 @@ website:
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8
                 text: "Slides"      
-                   
-                
-            
-            
-            
-          
-     
         
-          
 format:
   html:
     theme:
@@ -90,4 +85,3 @@ format:
 freeze: auto
 
 editor: visual
-
