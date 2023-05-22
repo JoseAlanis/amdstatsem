@@ -6,8 +6,9 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="José C. García Alanis">
 
-<title>Lehre@AMD</title>
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (1)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,25 +24,25 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<link href="../about/about_jan.html" rel="next">
+<link href="../mlm_seminar_sose23/hierarchische_daten.html" rel="prev">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -61,35 +62,6 @@ ul.task-list li input[type="checkbox"] {
     "search-submit-button-title": "Abschicken"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-aktuell .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-subtitle','listing-author',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-aktuell'] = new List('listing-aktuell', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -105,9 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Lehre@AMD
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/about_MLM_sose23.html">Seminar Multi-Level Modelle</a></li><li class="breadcrumb-item"><a href="../mlm_seminar_sose23/lineare_regression.html">3. Linerare Regression</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="Suchen" onclick="window.quartoOpenSearch();">
@@ -122,7 +92,7 @@ ul.task-list li input[type="checkbox"] {
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
     <div class="pt-lg-2 mt-2 text-center sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">Lehre@AMD</a> 
+      <a href="../">Lehre@AMD</a> 
         <div class="sidebar-tools-main tools-wide">
     <a href="https://github.com/JoseAlanis/amdstatsem" title="Code auf GitHub" class="quarto-navigation-tool px-1" aria-label="Code auf GitHub"><i class="bi bi-github"></i></a>
     <a href="https://methoden.amd.psychologie.uni-mainz.de/lehre/" title="AMD Lehre" class="quarto-navigation-tool px-1" aria-label="AMD Lehre"><i class="bi bi-journal-text"></i></a>
@@ -140,28 +110,28 @@ ul.task-list li input[type="checkbox"] {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Seminar Multi-Level Modelle</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">
+  <a href="../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">1. Allgemeine Informationen</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mlm_seminar_sose23/hierarchische_daten.html" class="sidebar-item-text sidebar-link">
+  <a href="../mlm_seminar_sose23/hierarchische_daten.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">2. Hierarchische Daten</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./mlm_seminar_sose23/lineare_regression.html" class="sidebar-item-text sidebar-link">
+  <a href="../mlm_seminar_sose23/lineare_regression.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">3. Linerare Regression</span></a>
   </div>
 </li>
@@ -187,7 +157,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./about/about_jan.html" class="sidebar-item-text sidebar-link">
+  <a href="../about/about_jan.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Kursinhalt und Tutorium</span></a>
   </div>
 </li>
@@ -204,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./cogmod_sem_sose23/Termin1.html" class="sidebar-item-text sidebar-link">
+  <a href="../cogmod_sem_sose23/Termin1.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Zusammenfassung</span></a>
   </div>
 </li>
@@ -288,8 +258,14 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen!</a></li>
-  <li><a href="#aktuelle-seminare" id="toc-aktuelle-seminare" class="nav-link" data-scroll-target="#aktuelle-seminare">Aktuelle Seminare</a></li>
+  <li><a href="#lineare-regression" id="toc-lineare-regression" class="nav-link active" data-scroll-target="#lineare-regression">Lineare Regression</a>
+  <ul class="collapse">
+  <li><a href="#beispiel-1-der-meeresspiegel-steigt" id="toc-beispiel-1-der-meeresspiegel-steigt" class="nav-link" data-scroll-target="#beispiel-1-der-meeresspiegel-steigt">Beispiel 1: Der Meeresspiegel steigt</a>
+  <ul class="collapse">
+  <li><a href="#was-können-wir-aus-dieser-abbildung-lernen" id="toc-was-können-wir-aus-dieser-abbildung-lernen" class="nav-link" data-scroll-target="#was-können-wir-aus-dieser-abbildung-lernen">Was können wir aus dieser Abbildung lernen?</a></li>
+  </ul></li>
+  <li><a href="#beispiel-2-more-patients-more-cash" id="toc-beispiel-2-more-patients-more-cash" class="nav-link" data-scroll-target="#beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -298,14 +274,30 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Lehre@AMD</h1>
-</div>
+<h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
+<p class="subtitle lead">Termin 3: Lineare Regression</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SoSe 2023</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>José C. García Alanis </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">22 Mai 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -313,67 +305,76 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="willkommen" class="level1">
-<h1>Willkommen!</h1>
-<p>Herzlich Willkommen zur Lehre-Homepage der <a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung Analyse und Modellierung komplexer Daten</a> an der Johannes Gutenberg-Universität Mainz.</p>
-<p>Aktuell finden Sie hier die Materialien für zwei Seminare zu <strong>fortgeschrittene statistische Methoden II</strong> im Sommersemester 23.</p>
+<section id="lineare-regression" class="level1">
+<h1>Lineare Regression</h1>
+<div class="justify">
+<p>Das Ziel einer Regression besteht darin, eine Variable durch eine oder mehrere andere Variablen vorherzusagen. An dieser Stelle können wir von einer Art Prognose sprechen. Wenn wir Regressionsmodelle benutzen, wollen wir den Verlauf einer Variable (die abhängige Variable) anhand anderer Variablen (unabhängige Variablen) prognostizieren.</p>
+<p>Die vorhergesagte Variable wird als Kriterium, Regressand oder auch abhängige Variable (AV) bezeichnet und üblicherweise mit <span class="math inline">\(y\)</span> symbolisiert. Die Variablen, die zur Vorhersage der abhängigen Variablen verwendet werden, werden als Prädiktoren, Regressoren oder unabhängige Variablen (UV) bezeichnet. Üblicherweise werden Prädiktoren mit <span class="math inline">\(x\)</span> symbolisiert. Sie erinnern sich wahrscheinlich an Statistik 1 und 2, wo wir meistens nur einen Prädiktor zur Vorhersage einer anderen Variable benutzt haben. In diesem Fall sprechen wir von einer einfachen Regression.</p>
+<p>Zur Wiederholung, schauen wir uns nun ein kleines Beispiel an.</p>
+</div>
+<section id="beispiel-1-der-meeresspiegel-steigt" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-1-der-meeresspiegel-steigt">Beispiel 1: Der Meeresspiegel steigt</h2>
+<p>Betrachten Sie die folgende Abbildung:</p>
+<p><img src="../images/ocean.png" class="img-fluid"></p>
+<div class="justify">
+<p>NASA. (4. März, 2022). Anstieg des Meeresspiegels seit dem Jahr 1993 bis 2021 (Stand: September) (in Millimeter) [Graph]. In Statista. Zugriff am 15. Mai 2023, von https://de.statista.com/statistik/daten/studie/1056576/umfrage/hoehe-des-meeresspiegels/</p>
+</div>
+<section id="was-können-wir-aus-dieser-abbildung-lernen" class="level3">
+<h3 class="anchored" data-anchor-id="was-können-wir-aus-dieser-abbildung-lernen">Was können wir aus dieser Abbildung lernen?</h3>
+<div class="justify">
+<p>Die Abbildung zeigt, dass der Meeresspiegel <strong>kontinuierlich</strong> ansteigt. In der Tat steigt der Meeresspiegel aktuell schneller, als noch vor wenigen Jahren <strong>vorhergesagt</strong>. Im Jahr 1990 ging man von einem zukünftigen Anstieg um lediglich 1,9 mm pro Jahr. Tatsächlich steigt der Meeresspiegel seit 1993 um <strong>durchschnittlich 3,4 mm pro Jahr</strong>.</p>
+</div>
+<div class="customIndent">
+<ul>
+<li>Wie kommen diese Zahlen zustande?</li>
+<li>Wie können wir aus vergangenen Beobachtungen zukünftige Beobachtungen vorhersagen?</li>
+<li>Was ist eine gute Vorhersage, und warum sind Vorhersagen mehr oder weniger akkurat?</li>
+</ul>
+</div>
+<p>Schauen wir uns ein weiteres Beispiel an.</p>
 </section>
-<section id="aktuelle-seminare" class="level1">
-<h1>Aktuelle Seminare</h1>
-<div id="listing-aktuell" class="quarto-listing quarto-listing-container-grid">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="SoSe 2023" data-listing-date-sort="NaN" data-listing-file-modified-sort="1684734526715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4">
-<a href="./about/about_MLM_sose23.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title" data-anchor-id="aktuelle-seminare">
-Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)
-</h5>
-<div class="card-subtitle listing-subtitle">
-Termin 1: Allgemeine Informationen
+</section>
+<section id="beispiel-2-more-patients-more-cash" class="level2">
+<h2 class="anchored" data-anchor-id="beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</h2>
+<div class="justify">
+<p>Stellen Sie sich vor, dass Sie als ambulante Psychotherapeut:in in einer Praxis arbeiten. Am Anfang eines jeden Quartals erstellen Sie eine Kostenplanung. Die erwartete Anzahl an Behandlungsstunden spielt dabei eine große Rolle, da Sie damit den <strong>erwarteten</strong> Wert Ihres Einkommens berechnen können. Gehen wir davon aus, dass Sie pro Patient:in ein Betrag von 66,6 Euro (nach Abzug aller laufenden Kosten) in der Quartalsabrechnung erwarten können.</p>
 </div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-José C. García Alanis
+<p>Betrachten Sie die folgende Abbildung:</p>
+<p><img src="../images/patients.png" class="img-fluid"></p>
+<div class="justify">
+<p>Die Abbildung zeigt einen linearen Zusammenhang zwischen der Anzahl an Patienten und dem Betrag auf der Abrechnung. Wir können dieser Zusammenhang bildlich darstellen (wie in der Abbildung) aber auch mithilfe mit eines Modells.</p>
 </div>
+<p><span class="math display">\[Betrag = (wie~von~x~auf~y~kommen?) + Fehler\]</span></p>
+<div class="justify">
+<p>In unseren Beispiel, welche Funktion muss auf <span class="math inline">\(x\)</span> angewendet werden, um eine möglichst genaue Schätzung von <span class="math inline">\(y\)</span> zu bekommen?</p>
+<p>Wir können diese Fragen mithilfe einer mathematischen Formel ausdrucken.</p>
 </div>
+<p><span class="math display">\[y = f(x) + Fehler\]</span></p>
+<div class="justify">
+<p>Dies ist die Grundlage eines Regressionsmodells. Regressionsmodelle sind nichts anderes als eine Speziefietzierung dieser Frage. Mit einem Regressionsmodell, können wir die Funktion, die auf <span class="math inline">\(x\)</span> angewendet werden muss, genauer beschreiben.</p>
+<p>Dies ist die allgemeine Formel der Regression:</p>
 </div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="SoSe 2023" data-listing-date-sort="NaN" data-listing-file-modified-sort="1684734526715" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="17">
-<a href="./about/about_jan.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img src="./images/logo_modeling.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)
-</h5>
-<div class="card-subtitle listing-subtitle">
-Kognitive Modellierung
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-Jan Göttmann
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-Keine Treffer
-</div>
+<p><span class="math display">\[y_{i} = b_{0} + b_{1}~x_{1} + e_{i}\]</span></p>
+<div class="customIndent">
+<ul>
+<li><span class="math inline">\(b_{0} =\)</span> <span class="math inline">\(y\)</span>-Achsenabschnitt, Konstante, oder Interzept:
+<ul>
+<li>Der Wert von <span class="math inline">\(y\)</span> bei einer Ausprägung von 0 in <span class="math inline">\(x\)</span>.</li>
+</ul></li>
+<li><span class="math inline">\(b_{1} =\)</span> Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
+<ul>
+<li>Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten <span class="math inline">\(y\)</span> zunimmt, wenn <span class="math inline">\(x\)</span> um eine Einheit zunimmt</li>
+</ul></li>
+<li><span class="math inline">\(e_{i} =\)</span> Regressionsresiduum (kurz: Residuum), Residualwert oder Fehlerwert:
+<ul>
+<li>Die Differenz zwischen einem vorhergesagten (<span class="math inline">\(\hat{y}\)</span>) und beobachteten (<span class="math inline">\(y\)</span>) <span class="math inline">\(y\)</span>-Wert.</li>
+<li>Je größer die Fehlerwerte, umso größer ist die Abweichung eines beobachteten vom vorhergesagten Wert.</li>
+</ul></li>
+</ul>
 </div>
 
 
-
+</section>
 </section>
 
 </main> <!-- /main -->
@@ -725,6 +726,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../mlm_seminar_sose23/hierarchische_daten.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">2. Hierarchische Daten</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../about/about_jan.html" class="pagination-link">
+        <span class="nav-page-text">Kursinhalt und Tutorium</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
