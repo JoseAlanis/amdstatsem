@@ -1,0 +1,95 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+lang: de
+subtitle: "Termin 3: Lineare Regression"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
+---
+
+# Lineare Regression
+
+::: justify
+Das Ziel einer Regression besteht darin, eine Variable durch eine oder mehrere andere Variablen vorherzusagen. An dieser Stelle können wir von einer Art Prognose sprechen. Wenn wir Regressionsmodelle benutzen, wollen wir den Verlauf einer Variable (die abhängige Variable) anhand anderer Variablen (unabhängige Variablen) prognostizieren.
+
+Die vorhergesagte Variable wird als Kriterium, Regressand oder auch abhängige Variable (AV) bezeichnet und üblicherweise mit $y$ symbolisiert. Die Variablen, die zur Vorhersage der abhängigen Variablen verwendet werden, werden als Prädiktoren, Regressoren oder unabhängige Variablen (UV) bezeichnet. Üblicherweise werden Prädiktoren mit $x$ symbolisiert. Sie erinnern sich wahrscheinlich an Statistik 1 und 2, wo wir meistens nur einen Prädiktor zur Vorhersage einer anderen Variable benutzt haben. In diesem Fall sprechen wir von einer einfachen Regression.
+
+Zur Wiederholung, schauen wir uns nun ein kleines Beispiel an.
+:::
+
+## Beispiel 1: Der Meeresspiegel steigt
+
+Betrachten Sie die folgende Abbildung:
+
+![](../images/ocean.png){width="80%}
+
+::: justify
+NASA. (4. März, 2022). Anstieg des Meeresspiegels seit dem Jahr 1993 bis 2021 (Stand: September) (in Millimeter) [Graph]. In Statista. Zugriff am 15. Mai 2023, von https://de.statista.com/statistik/daten/studie/1056576/umfrage/hoehe-des-meeresspiegels/
+:::
+
+### Was können wir aus dieser Abbildung lernen?
+
+::: justify
+Die Abbildung zeigt, dass der Meeresspiegel **kontinuierlich** ansteigt. In der Tat steigt der Meeresspiegel aktuell schneller, als noch vor wenigen Jahren **vorhergesagt**. Im Jahr 1990 ging man von einem zukünftigen Anstieg um lediglich 1,9 mm pro Jahr. Tatsächlich steigt der Meeresspiegel seit 1993 um **durchschnittlich 3,4 mm pro Jahr**. 
+:::
+
+::: customIndent
+- Wie kommen diese Zahlen zustande?
+- Wie können wir aus vergangenen Beobachtungen zukünftige Beobachtungen vorhersagen?
+- Was ist eine gute Vorhersage, und warum sind Vorhersagen mehr oder weniger akkurat?
+:::
+
+Schauen wir uns ein weiteres Beispiel an.
+
+## Beispiel 2: More patients, more cash!
+
+::: justify
+Stellen Sie sich vor, dass Sie als ambulante Psychotherapeut:in in einer Praxis arbeiten. Am Anfang eines jeden Quartals erstellen Sie eine Kostenplanung. Die erwartete Anzahl an Behandlungsstunden spielt dabei eine große Rolle, da Sie damit den **erwarteten** Wert Ihres Einkommens berechnen können. Gehen wir davon aus, dass Sie pro Patient:in ein Betrag von 66,6 Euro (nach Abzug aller laufenden Kosten) in der Quartalsabrechnung erwarten können.
+:::
+
+Betrachten Sie die folgende Abbildung:
+
+![](../images/patients.png){width="80%}
+
+::: justify
+Die Abbildung zeigt einen linearen Zusammenhang zwischen der Anzahl an Patienten und dem Betrag auf der Abrechnung. Wir können dieser Zusammenhang bildlich darstellen (wie in der Abbildung) aber auch mithilfe mit eines Modells. 
+
+:::
+
+
+$$Betrag = (wie~von~x~auf~y~kommen?) + Fehler$$
+
+::: justify
+In unseren Beispiel, welche Funktion muss auf $x$ angewendet werden, um eine möglichst genaue Schätzung von $y$ zu bekommen?
+
+Wir können diese Fragen mithilfe einer mathematischen Formel ausdrucken.
+
+:::
+
+$$y = f(x) + Fehler$$
+
+::: justify
+Dies ist die Grundlage eines Regressionsmodells. Regressionsmodelle sind nichts anderes als eine Speziefietzierung dieser Frage. Mit einem Regressionsmodell, können wir die Funktion, die auf $x$ angewendet werden muss, genauer beschreiben.
+
+Dies ist die allgemeine Formel der Regression:
+
+:::
+
+
+$$y_{i} = b_{0} + b_{1}~x_{1} + e_{i}$$
+
+::: customIndent
+- $b_{0} =$ $y$-Achsenabschnitt, Konstante, oder Interzept:
+  - Der Wert von $y$ bei einer Ausprägung von 0 in $x$.
+
+- $b_{1} =$ Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
+  - Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten $y$ zunimmt, wenn $x$ um eine Einheit zunimmt
+
+- $e_{i} =$ Regressionsresiduum (kurz: Residuum), Residualwert oder Fehlerwert:
+  - Die Differenz zwischen einem vorhergesagten ($\hat{y}$) und beobachteten ($y$) $y$-Wert.
+  - Je größer die Fehlerwerte, umso größer ist die Abweichung eines beobachteten vom vorhergesagten Wert.
+  
+:::

@@ -70,8 +70,19 @@ website:
               - href: 
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8
-                text: "Slides"      
-        
+                text: "Slides"  
+          - section: "Termin 5: Parameterschätzung II: Maximum Likelihood"
+            contents:
+              - href: 
+                text: "Zusammenfassung"
+              - href: https://slides.com/gman_science/lecture-4-parameter-estimation-ii?token=myvvodNZ
+                text: "Slides"
+                   
+                
+            
+            
+            
+          
 format:
   html:
     theme:
