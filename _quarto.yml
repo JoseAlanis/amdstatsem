@@ -40,6 +40,8 @@ website:
           text: "2. Hierarchische Daten"
         - href: mlm_seminar_sose23/lineare_regression.qmd
           text: "3. Linerare Regression"
+        - href: mlm_seminar_sose23/lineare_regression_parameters.qmd
+          text: "4. Parameterschätzung"
           
       - section: "Seminar kognitive Modellierung"
         contents: 
