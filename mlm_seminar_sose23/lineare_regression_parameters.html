@@ -21,40 +21,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -64,6 +30,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../about/about_jan.html" rel="next">
+<link href="../mlm_seminar_sose23/lineare_regression.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -110,9 +78,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">
-      Lehre@AMD
-      </li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../about/about_MLM_sose23.html">Seminar Multi-Level Modelle</a></li><li class="breadcrumb-item"><a href="../mlm_seminar_sose23/lineare_regression_parameters.html">4. Parameterschätzung</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -145,13 +111,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
  <span class="menu-text">Seminar Multi-Level Modelle</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">
@@ -168,6 +134,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <div class="sidebar-item-container"> 
   <a href="../mlm_seminar_sose23/lineare_regression.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">3. Linerare Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mlm_seminar_sose23/lineare_regression_parameters.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">4. Parameterschätzung</span></a>
   </div>
 </li>
       </ul>
@@ -313,18 +285,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#lineare-regression" id="toc-lineare-regression" class="nav-link active" data-scroll-target="#lineare-regression">Lineare Regression</a>
+  <li><a href="#parameterschätzung" id="toc-parameterschätzung" class="nav-link active" data-scroll-target="#parameterschätzung">Parameterschätzung</a>
   <ul class="collapse">
-  <li><a href="#beispiel-1-der-meeresspiegel-steigt-an" id="toc-beispiel-1-der-meeresspiegel-steigt-an" class="nav-link" data-scroll-target="#beispiel-1-der-meeresspiegel-steigt-an">Beispiel 1: Der Meeresspiegel steigt an</a>
-  <ul class="collapse">
-  <li><a href="#daten-meeresspiegel" id="toc-daten-meeresspiegel" class="nav-link" data-scroll-target="#daten-meeresspiegel">Daten: Meeresspiegel</a></li>
-  <li><a href="#berechnung-mittlere-abweichung-im-meeresspiegel-daten" id="toc-berechnung-mittlere-abweichung-im-meeresspiegel-daten" class="nav-link" data-scroll-target="#berechnung-mittlere-abweichung-im-meeresspiegel-daten">Berechnung: Mittlere Abweichung im Meeresspiegel Daten</a></li>
-  </ul></li>
-  <li><a href="#ist-die-mittlere-abweichung-ein-guter-schätzer" id="toc-ist-die-mittlere-abweichung-ein-guter-schätzer" class="nav-link" data-scroll-target="#ist-die-mittlere-abweichung-ein-guter-schätzer">Ist die mittlere Abweichung ein guter <em>Schätzer</em>?</a>
-  <ul class="collapse">
-  <li><a href="#berechnung-lineare-regression" id="toc-berechnung-lineare-regression" class="nav-link" data-scroll-target="#berechnung-lineare-regression">Berechnung: Lineare Regression</a></li>
-  </ul></li>
-  <li><a href="#beispiel-2-more-patients-more-cash" id="toc-beispiel-2-more-patients-more-cash" class="nav-link" data-scroll-target="#beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</a></li>
+  <li><a href="#bezug-zur-vorherigen-stunde" id="toc-bezug-zur-vorherigen-stunde" class="nav-link" data-scroll-target="#bezug-zur-vorherigen-stunde">Bezug zur vorherigen Stunde</a></li>
+  <li><a href="#berücksichtigung-von-subgruppen" id="toc-berücksichtigung-von-subgruppen" class="nav-link" data-scroll-target="#berücksichtigung-von-subgruppen">Berücksichtigung von Subgruppen</a></li>
+  <li><a href="#ergebnisse" id="toc-ergebnisse" class="nav-link" data-scroll-target="#ergebnisse">Ergebnisse</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -335,7 +300,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (1)</h1>
-<p class="subtitle lead">Termin 3: Lineare Regression</p>
+<p class="subtitle lead">Termin 4: Parameterschätzung Multi-Level Modelle</p>
   <div class="quarto-categories">
     <div class="quarto-category">SoSe 2023</div>
   </div>
@@ -365,162 +330,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="lineare-regression" class="level1">
-<h1>Lineare Regression</h1>
-<div class="justify">
-<p>Das Ziel einer Regression besteht darin, eine Variable durch eine oder mehrere andere Variablen vorherzusagen. An dieser Stelle können wir von einer Art Prognose sprechen. Wenn wir Regressionsmodelle benutzen, wollen wir den Verlauf einer Variable (die abhängige Variable) anhand anderer Variablen (unabhängige Variablen) prognostizieren.</p>
-<p>Die vorhergesagte Variable wird Kriterium, Regressand oder auch abhängige Variable (AV) genannt und wird üblicherweise mit <span class="math inline">\(y\)</span> symbolisiert. Die Variablen, die zur Vorhersage der abhängigen Variablen verwendet werden, werden Prädiktoren, Regressoren oder unabhängige Variablen (UV) genannt. Üblicherweise werden Prädiktoren mit <span class="math inline">\(x_{1},~x_{2},~x_{3},~\dots\)</span> (oder kurz, mit <span class="math inline">\(X\)</span>) symbolisiert.</p>
-<p>Sie erinnern sich wahrscheinlich an Statistik 1 und 2, wo wir meistens nur einen Prädiktor zur Vorhersage einer anderen Variable benutzt haben. In diesem Fall sprechen wir von einer einfachen Regression. In diesem Fall können wir eine Vorhersage von <span class="math inline">\(y\)</span> mit der Gleichung der einfachen linearen Regression formalisieren:</p>
+<section id="parameterschätzung" class="level1">
+<h1>Parameterschätzung</h1>
+<section id="bezug-zur-vorherigen-stunde" class="level2">
+<h2 class="anchored" data-anchor-id="bezug-zur-vorherigen-stunde">Bezug zur vorherigen Stunde</h2>
+<p>In den letzten Sitzungen haben wir uns mit der einfachen linearen Regression befasst. Dabei haben wir uns erst einmal dafür entschieden, eine Regression ohne Berücksichtigung der verschiedenen Subgruppen in den Daten zu berechnen.</p>
+<p>Mit einem Prädiktor (<span class="math inline">\(x_{1}\)</span> ), lautet die Formel der Regression:</p>
 <p><span id="eq-linreg"><span class="math display">\[
-y_{m} = b_{0} + b_{1} \cdot x_{m1} + b_{2} \cdot x_{m2} + \dots + e_{m}
+\widehat{y}_{m} = b_{0} + b_{1} \cdot x_{m1}
 \tag{1}\]</span></span></p>
-<p>Hier steht der Index <span class="math inline">\(\mathbf{m}\)</span> für die Untersuchungseinheit (z.B. für eine Person, oder eine einzelne Messung).</p>
-<p>Um die Grundidee eines Regressionsmodells besser zu verstehen, schauen wir uns nun ein kleines Beispiel an.</p>
-</div>
-<section id="beispiel-1-der-meeresspiegel-steigt-an" class="level2">
-<h2 class="anchored" data-anchor-id="beispiel-1-der-meeresspiegel-steigt-an">Beispiel 1: Der Meeresspiegel steigt an</h2>
-<p>Betrachten Sie die folgende Abbildung:</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="../images/ocean.png" class="img-fluid figure-img" style="width:80.0%"></p>
-<figcaption class="figure-caption">Anstieg des Meeresspiegels seit dem Jahr 1993 bis 2021 in Millimeter (Stand: September). In Statista. Zugriff am 15. Mai 2023, von https://de.statista.com/statistik/daten/studie/1056576/umfrage/hoehe-des-meeresspiegels/</figcaption>
-</figure>
-</div>
-<div class="callout callout-style-default callout-tip callout-titled">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Was können wir aus dieser Abbildung lernen?
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-1" class="callout-1-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Die Abbildung zeigt, dass der Meeresspiegel <strong>kontinuierlich</strong> ansteigt. Anhand der abgebildeten Zahlen lässt sich leicht erkennen, dass seit 1993 der Meeresspiegel pro Jahr um mehrere Millimeter angestiegen ist.</p>
-</div>
-</div>
-</div>
-<div class="justify">
-<p>Gehen wir davon aus, dass wir die Veränderung im Meeresspiegel, die durch die Abbildung angedeutet wird, möglichst prägnant zusammenfassen wollen. An dieser Stelle stehen uns unterschiedliche Methoden zur Verfügung. Wir könnten sagen:</p>
-</div>
-<div class="customIndent">
-<ul>
-<li><em>“Der Meeresspiegel ist seit 1993 gestiegen”</em>, oder <em>“Der Meeresspiegel steigt seit 1993 um mehrere Millimeter”</em>.</li>
-</ul>
-</div>
-<div class="justify">
-<p>Sobald wir aber eine Aussage über die Ausprägung dieser Veränderung treffen möchten, bräuchten wir eine Methode, die uns erlaubt all die kleinen Veränderungen, welche von Jahr zu Jahr gemessen wurden, zusammenzufassen. Eine Möglichkeit wäre, die gemessenen Abweichungen zu mitteln. Damit könnten wir feststellen, um wie viel der Meeresspiegel im Mittel pro Jahr angestiegen (oder abgefallen ist). Lasst uns diese Berechnung in R durchführen.</p>
-</div>
-<section id="daten-meeresspiegel" class="level3">
-<h3 class="anchored" data-anchor-id="daten-meeresspiegel">Daten: Meeresspiegel</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># die Daten können mit diesem Befehl geladen werden</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>meeresspiegel <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="at">file=</span><span class="st">"https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/meeresspiegel.csv"</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="berechnung-mittlere-abweichung-im-meeresspiegel-daten" class="level3">
-<h3 class="anchored" data-anchor-id="berechnung-mittlere-abweichung-im-meeresspiegel-daten">Berechnung: Mittlere Abweichung im Meeresspiegel Daten</h3>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># wir können `dplyr` benutzen </span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="co"># um die mittlere Abweichung zu berechnen</span></span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">require</span>(dplyr)</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>meeresspiegel <span class="sc">%&gt;%</span></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Differenz zwischen zwei aufeinaderefolgende Werte</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">Abweichung =</span> <span class="fu">lead</span>(Anstieg) <span class="sc">-</span> Anstieg) <span class="sc">%&gt;%</span></span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># bilde Mittelwert (schließ Fehlendewerte aus)</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">Mittlere_Abweichung =</span> <span class="fu">mean</span>(Abweichung, <span class="at">na.rm =</span> <span class="cn">TRUE</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Mittlere_Abweichung
-1            3.607143</code></pre>
-</div>
-</div>
-<div class="justify">
-<p>Nun können wir die Abweichung im Meeresspiegel genauer Beschreiben:</p>
-</div>
-<div class="customIndent">
-<ul>
-<li>Die Abbildung zeigt, dass der Meeresspiegel <strong>kontinuierlich</strong> ansteigt. Tatsächlich steigt der Meeresspiegel im Vergleich zu 1993 pro Jahr um <strong>durchschnittlich 3,6 mm</strong>.</li>
-</ul>
-</div>
-</section>
-</section>
-<section id="ist-die-mittlere-abweichung-ein-guter-schätzer" class="level2">
-<h2 class="anchored" data-anchor-id="ist-die-mittlere-abweichung-ein-guter-schätzer">Ist die mittlere Abweichung ein guter <em>Schätzer</em>?</h2>
-<p>Anhand dieser Zahlen liese sich gleich prognostizieren, wie der Meerespiegel in den komenden Jahren verändern wird. Wenn alles so bleibt wie bisher, können wir davon ausgehen, dass der Meeresspiegel weiteransteigen wird. Das sind keine gute Nachrichten.</p>
-<p>Eine gute Nachricht ist allerdings, dass lineare Regressionsmodelle, im Prinzip nichts anderes als die mittlere Abweichung zu berechnen, um eine Vorhersage von <span class="math inline">\(y\)</span> (in unser Beispiel die Abweichung im gemessenen Meeresspiegel) anhand von <span class="math inline">\(x\)</span> (in unser Beispiel, das Jahr der Messung) vorzunehmen. Die genauen Berechnungsschritte sind ein kleines bisschen komplexer, aber die Logik ist im Prinzip die gleiche.</p>
-<p>Wir können dies leicht mit einem linearen Regression in <code>R</code> überprüfen.</p>
-<section id="berechnung-lineare-regression" class="level3">
-<h3 class="anchored" data-anchor-id="berechnung-lineare-regression">Berechnung: Lineare Regression</h3>
-<p>Wir können eine lineare Regression mit der Funktion <code>lm()</code> in <code>R</code> berechnen.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># lm() nimmt mehrere Argumente. Heute brauchen wir `data` und `formula`</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="co"># `data = meeresspiegel` sagt der Funktion wo sich die Daten befinden</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>lin_reg <span class="ot">&lt;-</span> <span class="fu">lm</span>(</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="co"># `data = meeresspiegel` sagt der Funktion wo sich die Daten befinden</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> meeresspiegel, </span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="co"># `formula = 1 +  Anstieg ~ Jahr` sagt der Funktion wie die Formel unserer</span></span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Regression aussehen soll</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>              <span class="at">formula =</span> <span class="dv">1</span> <span class="sc">+</span>  Anstieg <span class="sc">~</span> Jahr)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<p>Mit <code>summary()</code> können wir uns die Ergebnisse der Regression anzeigen lassen:</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lin_reg)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Call:
-lm(formula = 1 + Anstieg ~ Jahr, data = meeresspiegel)
-
-Residuals:
-     Min       1Q   Median       3Q      Max 
--10.4157  -2.7138   0.3881   2.3164   7.7297 
-
-Coefficients:
-              Estimate Std. Error t value Pr(&gt;|t|)    
-(Intercept) -6.728e+03  1.882e+02  -35.75   &lt;2e-16 ***
-Jahr         3.375e+00  9.375e-02   36.00   &lt;2e-16 ***
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-
-Residual standard error: 4.224 on 27 degrees of freedom
-Multiple R-squared:  0.9796,    Adjusted R-squared:  0.9788 
-F-statistic:  1296 on 1 and 27 DF,  p-value: &lt; 2.2e-16</code></pre>
-</div>
-</div>
-<div class="customIndent">
-<ul>
-<li>Wie kommen diese Zahlen zustande?</li>
-<li>Wie können wir aus vergangenen Beobachtungen zukünftige Beobachtungen vorhersagen?</li>
-<li>Was ist eine gute Vorhersage, und warum sind Vorhersagen mehr oder weniger akkurat?</li>
-</ul>
-</div>
-<p>Schauen wir uns ein weiteres Beispiel an.</p>
-</section>
-</section>
-<section id="beispiel-2-more-patients-more-cash" class="level2">
-<h2 class="anchored" data-anchor-id="beispiel-2-more-patients-more-cash">Beispiel 2: More patients, more cash!</h2>
-<div class="justify">
-<p>Stellen Sie sich vor, dass Sie als ambulante Psychotherapeut:in in einer Praxis arbeiten. Am Anfang eines jeden Quartals erstellen Sie eine Kostenplanung. Die erwartete Anzahl an Behandlungsstunden spielt dabei eine große Rolle, da Sie damit den <strong>erwarteten</strong> Wert Ihres Einkommens berechnen können. Gehen wir davon aus, dass Sie pro Patient:in ein Betrag von 66,6 Euro (nach Abzug aller laufenden Kosten) in der Quartalsabrechnung erwarten können.</p>
-</div>
-<p>Betrachten Sie die folgende Abbildung:</p>
-<p><img src="../images/patients.png" class="img-fluid"></p>
-<div class="justify">
-<p>Die Abbildung zeigt einen linearen Zusammenhang zwischen der Anzahl an Patienten und dem Betrag auf der Abrechnung. Wir können dieser Zusammenhang bildlich darstellen (wie in der Abbildung) aber auch mithilfe mit eines Modells.</p>
-</div>
-<p><span class="math display">\[Betrag = (wie~von~x~auf~y~kommen?) + Fehler\]</span></p>
-<div class="justify">
-<p>In unseren Beispiel, welche Funktion muss auf <span class="math inline">\(x\)</span> angewendet werden, um eine möglichst genaue Schätzung von <span class="math inline">\(y\)</span> zu bekommen?</p>
-<p>Wir können diese Fragen mithilfe einer mathematischen Formel ausdrucken.</p>
-</div>
-<p><span class="math display">\[y = f(x) + Fehler\]</span></p>
-<div class="justify">
-<p>Dies ist die Grundlage eines Regressionsmodells. Regressionsmodelle sind nichts anderes als eine Speziefietzierung dieser Frage. Mit einem Regressionsmodell, können wir die Funktion, die auf <span class="math inline">\(x\)</span> angewendet werden muss, genauer beschreiben.</p>
-<p>Dies ist die allgemeine Formel der Regression:</p>
-</div>
-<p><span class="math display">\[y_{i} = b_{0} + b_{1}~x_{1} + e_{i}\]</span></p>
-<div class="customIndent">
+<p>Sie liefert uns zwei Parameter $b_{0} und <span class="math inline">\(b_{1}\)</span>.</p>
 <ul>
 <li><span class="math inline">\(b_{0} =\)</span> <span class="math inline">\(y\)</span>-Achsenabschnitt, Konstante, oder Interzept:
 <ul>
@@ -528,14 +347,56 @@ F-statistic:  1296 on 1 and 27 DF,  p-value: &lt; 2.2e-16</code></pre>
 </ul></li>
 <li><span class="math inline">\(b_{1} =\)</span> Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
 <ul>
-<li>Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten <span class="math inline">\(y\)</span> zunimmt, wenn <span class="math inline">\(x\)</span> um eine Einheit zunimmt</li>
-</ul></li>
-<li><span class="math inline">\(e_{i} =\)</span> Regressionsresiduum (kurz: Residuum), Residualwert oder Fehlerwert:
-<ul>
-<li>Die Differenz zwischen einem vorhergesagten (<span class="math inline">\(\hat{y}\)</span>) und beobachteten (<span class="math inline">\(y\)</span>) <span class="math inline">\(y\)</span>-Wert.</li>
-<li>Je größer die Fehlerwerte, umso größer ist die Abweichung eines beobachteten vom vorhergesagten Wert.</li>
+<li>Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten <span class="math inline">\(y\)</span> zunimmt, wenn <span class="math inline">\(x\)</span> um eine Einheit zunimmt.</li>
 </ul></li>
 </ul>
+<p>Um die “Interpretierbarkeit” der Parameter (vorallem die des Interzepts.</p>
+<p>Wir haben ebenfalls über “Zentrierung” gesprochen. Wenn wir eine Variable an ihren Mittelwert zentrieren, ziehen wir den Mittelwert der Variable von allen Werten (d.h. alle Beobachtungen) der Variable ab. Zentrierung definiert das Minimum und Maximum der Variable neu. Der Mittelwert einer am Mittelwert zentrierten Variable ist nun gleich Null. Wir können Zentrierung als eine “Daten-Vorverarbeitungsstrategie” betrachten, die die “Interpretierbarkeit” der Parameter (vor allem die des Intercepts) in einem linearen Modell steigert.</p>
+<p>Betrachten wir z.B. die folgende Abbildung:</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lineare_regression_parameters_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen <code>Schulunlust</code> und <code>Schulleistung</code>. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression ohne Zentrierung von <code>Schulunlust</code> und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich “zu holen”.</p>
+</section>
+<section id="berücksichtigung-von-subgruppen" class="level2">
+<h2 class="anchored" data-anchor-id="berücksichtigung-von-subgruppen">Berücksichtigung von Subgruppen</h2>
+<p>Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt. Dafür benötigen die folgenden Daten:</p>
+<p>Diese Daten sind identisch mit den Daten der obigen Abbildung.</p>
+<ul>
+<li>Erster Schritt:
+<ul>
+<li>Berechnen wir erst einmal eine Gesamt-Regression, ohne die Subgruppen (die einzelnen Klassen) in den Daten zu berücksichtigen.</li>
+<li>Zur Erinnerung: Der R-Befehl, um eine lineare Regression zu berechnen lautet <code>lm(fomula, data)</code></li>
+</ul></li>
+<li>Zweiter Schritt:
+<ul>
+<li>Berechnen wir 5 verschiedene Regressionen, eine für jede Klasse.</li>
+<li>Tipp: Sie können die Daten der einzelne Klassen mit <code>dplyr()</code> filtern.
+<ul>
+<li>z.B.: <code>klasse_1 &lt;- data_schulleistung %&gt;% filter(klasse_nr == 1)</code></li>
+<li>Danach können Sie die Regression mit <code>lm()</code> berechnen.</li>
+</ul></li>
+</ul></li>
+<li>Schreiben Sie <span class="math inline">\(b_{0}\)</span> und <span class="math inline">\(b_{1}\)</span> für alle Regressionen auf und vergleichen Sie.</li>
+</ul>
+</section>
+<section id="ergebnisse" class="level2">
+<h2 class="anchored" data-anchor-id="ergebnisse">Ergebnisse</h2>
+<p>Die Ergebnisse sollten mit der folgenden Abbildung kompatibel sein.</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="lineare_regression_parameters_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
 </div>
 
 
@@ -891,6 +752,18 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../mlm_seminar_sose23/lineare_regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">3. Linerare Regression</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="../about/about_jan.html" class="pagination-link">
+        <span class="nav-page-text">Kursinhalt und Tutorium</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
