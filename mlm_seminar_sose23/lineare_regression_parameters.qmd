@@ -1,7 +1,7 @@
 ---
 title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
 lang: de
-subtitle: "Termin 3: Lineare Regression"
+subtitle: "Termin 4: Parameterschätzung Multi-Level Modelle"
 image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
 author: "José C. García Alanis"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
@@ -10,153 +10,240 @@ categories: ["SoSe 2023"]
 engine: knitr
 ---
 
-# Lineare Regression
+# Parameterschätzung
 
-::: justify
-Das Ziel einer Regression besteht darin, eine Variable durch eine oder mehrere andere Variablen vorherzusagen. An dieser Stelle können wir von einer Art Prognose sprechen. Wenn wir Regressionsmodelle benutzen, wollen wir den Verlauf einer Variable (die abhängige Variable) anhand anderer Variablen (unabhängige Variablen) prognostizieren.
+## Bezug zur vorherigen Stunde
 
-Die vorhergesagte Variable wird Kriterium, Regressand oder auch abhängige Variable (AV) genannt und wird üblicherweise mit $y$ symbolisiert. Die Variablen, die zur Vorhersage der abhängigen Variablen verwendet werden, werden Prädiktoren, Regressoren oder unabhängige Variablen (UV) genannt. Üblicherweise werden Prädiktoren mit $x_{1},~x_{2},~x_{3},~\dots$ (oder kurz, mit $X$) symbolisiert.
+In den letzten Sitzungen haben wir uns mit der einfachen linearen Regression befasst. Dabei haben wir uns erst einmal dafür entschieden, eine Regression ohne Berücksichtigung der verschiedenen Subgruppen in den Daten zu berechnen.
 
-Sie erinnern sich wahrscheinlich an Statistik 1 und 2, wo wir meistens nur einen Prädiktor zur Vorhersage einer anderen Variable benutzt haben. In diesem Fall sprechen wir von einer einfachen Regression. In diesem Fall können wir eine Vorhersage von $y$ mit der Gleichung der einfachen linearen Regression formalisieren:
+Mit einem Prädiktor ($x_{1}$ ), lautet die Formel der Regression:
 
 $$
-y_{m} = b_{0} + b_{1} \cdot x_{m1} + b_{2} \cdot x_{m2} + \dots + e_{m}
+\widehat{y}_{m} = b_{0} + b_{1} \cdot x_{m1}
 $$ {#eq-linreg}
 
-Hier steht der Index $\mathbf{m}$ für die Untersuchungseinheit (z.B. für eine Person, oder eine einzelne Messung).
 
-Um die Grundidee eines Regressionsmodells besser zu verstehen, schauen wir uns nun ein kleines Beispiel an.
-:::
+Sie liefert uns zwei Parameter $b_{0} und $b_{1}$.
 
-## Beispiel 1: Der Meeresspiegel steigt an
-
-Betrachten Sie die folgende Abbildung:
-
-![Anstieg des Meeresspiegels seit dem Jahr 1993 bis 2021 in Millimeter (Stand: September). In Statista. Zugriff am 15. Mai 2023, von https://de.statista.com/statistik/daten/studie/1056576/umfrage/hoehe-des-meeresspiegels/](../images/ocean.png){fig-align="center" width="80%"}
-
-::: {.callout-tip collapse="true"}
-## Was können wir aus dieser Abbildung lernen?
-
-Die Abbildung zeigt, dass der Meeresspiegel **kontinuierlich** ansteigt. Anhand der abgebildeten Zahlen lässt sich leicht erkennen, dass seit 1993 der Meeresspiegel pro Jahr um mehrere Millimeter angestiegen ist.
-:::
-
-::: justify
-Gehen wir davon aus, dass wir die Veränderung im Meeresspiegel, die durch die Abbildung angedeutet wird, möglichst prägnant zusammenfassen wollen. An dieser Stelle stehen uns unterschiedliche Methoden zur Verfügung. Wir könnten sagen:
-:::
-
-::: customIndent
--   *"Der Meeresspiegel ist seit 1993 gestiegen"*, oder *"Der Meeresspiegel steigt seit 1993 um mehrere Millimeter"*.
-:::
-
-::: justify
-Sobald wir aber eine Aussage über die Ausprägung dieser Veränderung treffen möchten, bräuchten wir eine Methode, die uns erlaubt all die kleinen Veränderungen, welche von Jahr zu Jahr gemessen wurden, zusammenzufassen. Eine Möglichkeit wäre, die gemessenen Abweichungen zu mitteln. Damit könnten wir feststellen, um wie viel der Meeresspiegel im Mittel pro Jahr angestiegen (oder abgefallen ist). Lasst uns diese Berechnung in R durchführen.
-:::
-
-### Daten: Meeresspiegel
-
-```{r}
-# die Daten können mit diesem Befehl geladen werden
-meeresspiegel <- read.csv(file="https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/meeresspiegel.csv")
-```
-
-### Berechnung: Mittlere Abweichung im Meeresspiegel Daten
-
-```{r, message=FALSE}
-# wir können `dplyr` benutzen 
-# um die mittlere Abweichung zu berechnen
-require(dplyr)
-
-meeresspiegel %>%
-  # Differenz zwischen zwei aufeinaderefolgende Werte
-  mutate(Abweichung = lead(Anstieg) - Anstieg) %>%
-  # bilde Mittelwert (schließ Fehlendewerte aus)
-  summarize(Mittlere_Abweichung = mean(Abweichung, na.rm = TRUE))
-
-```
-
-::: justify
-Nun können wir die Abweichung im Meeresspiegel genauer Beschreiben:
-:::
-
-::: customIndent
--   Die Abbildung zeigt, dass der Meeresspiegel **kontinuierlich** ansteigt. Tatsächlich steigt der Meeresspiegel im Vergleich zu 1993 pro Jahr um **durchschnittlich 3,6 mm**.
-:::
-
-## Ist die mittlere Abweichung ein guter *Schätzer*?
-
-Anhand dieser Zahlen liese sich gleich prognostizieren, wie der Meerespiegel in den komenden Jahren verändern wird. Wenn alles so bleibt wie bisher, können wir davon ausgehen, dass der Meeresspiegel weiteransteigen wird. Das sind keine gute Nachrichten.
-
-Eine gute Nachricht ist allerdings, dass lineare Regressionsmodelle, im Prinzip nichts anderes als die mittlere Abweichung zu berechnen, um eine Vorhersage von $y$ (in unser Beispiel die Abweichung im gemessenen Meeresspiegel) anhand von $x$ (in unser Beispiel, das Jahr der Messung) vorzunehmen. Die genauen Berechnungsschritte sind ein kleines bisschen komplexer, aber die Logik ist im Prinzip die gleiche.
-
-Wir können dies leicht mit einem linearen Regression in `R` überprüfen.
-
-### Berechnung: Lineare Regression
-
-Wir können eine lineare Regression mit der Funktion `lm()` in `R` berechnen.
-
-```{r}
-# lm() nimmt mehrere Argumente. Heute brauchen wir `data` und `formula`
-# `data = meeresspiegel` sagt der Funktion wo sich die Daten befinden
-lin_reg <- lm(
-  # `data = meeresspiegel` sagt der Funktion wo sich die Daten befinden
-  data = meeresspiegel, 
-  # `formula = 1 +  Anstieg ~ Jahr` sagt der Funktion wie die Formel unserer
-  # Regression aussehen soll
-              formula = 1 +  Anstieg ~ Jahr)
-```
-
-Mit `summary()` können wir uns die Ergebnisse der Regression anzeigen lassen:
-
-```{r}
-summary(lin_reg)
-```
-
-::: customIndent
--   Wie kommen diese Zahlen zustande?
--   Wie können wir aus vergangenen Beobachtungen zukünftige Beobachtungen vorhersagen?
--   Was ist eine gute Vorhersage, und warum sind Vorhersagen mehr oder weniger akkurat?
-:::
-
-Schauen wir uns ein weiteres Beispiel an.
-
-## Beispiel 2: More patients, more cash!
-
-::: justify
-Stellen Sie sich vor, dass Sie als ambulante Psychotherapeut:in in einer Praxis arbeiten. Am Anfang eines jeden Quartals erstellen Sie eine Kostenplanung. Die erwartete Anzahl an Behandlungsstunden spielt dabei eine große Rolle, da Sie damit den **erwarteten** Wert Ihres Einkommens berechnen können. Gehen wir davon aus, dass Sie pro Patient:in ein Betrag von 66,6 Euro (nach Abzug aller laufenden Kosten) in der Quartalsabrechnung erwarten können.
-:::
-
-Betrachten Sie die folgende Abbildung:
-
-![](../images/patients.png){width="\"80%"}
-
-::: justify
-Die Abbildung zeigt einen linearen Zusammenhang zwischen der Anzahl an Patienten und dem Betrag auf der Abrechnung. Wir können dieser Zusammenhang bildlich darstellen (wie in der Abbildung) aber auch mithilfe mit eines Modells.
-:::
-
-$$Betrag = (wie~von~x~auf~y~kommen?) + Fehler$$
-
-::: justify
-In unseren Beispiel, welche Funktion muss auf $x$ angewendet werden, um eine möglichst genaue Schätzung von $y$ zu bekommen?
-
-Wir können diese Fragen mithilfe einer mathematischen Formel ausdrucken.
-:::
-
-$$y = f(x) + Fehler$$
-
-::: justify
-Dies ist die Grundlage eines Regressionsmodells. Regressionsmodelle sind nichts anderes als eine Speziefietzierung dieser Frage. Mit einem Regressionsmodell, können wir die Funktion, die auf $x$ angewendet werden muss, genauer beschreiben.
-
-Dies ist die allgemeine Formel der Regression:
-:::
-
-$$y_{i} = b_{0} + b_{1}~x_{1} + e_{i}$$
-
-::: customIndent
 -   $b_{0} =$ $y$-Achsenabschnitt, Konstante, oder Interzept:
     -   Der Wert von $y$ bei einer Ausprägung von 0 in $x$.
 -   $b_{1} =$ Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
-    -   Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten $y$ zunimmt, wenn $x$ um eine Einheit zunimmt
--   $e_{i} =$ Regressionsresiduum (kurz: Residuum), Residualwert oder Fehlerwert:
-    -   Die Differenz zwischen einem vorhergesagten ($\hat{y}$) und beobachteten ($y$) $y$-Wert.
-    -   Je größer die Fehlerwerte, umso größer ist die Abweichung eines beobachteten vom vorhergesagten Wert.
-:::
+    -   Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten $y$ zunimmt, wenn $x$ um eine Einheit zunimmt.
+    
+Um die "Interpretierbarkeit" der Parameter (vorallem die des Interzepts.
+
+Wir haben ebenfalls über “Zentrierung” gesprochen. Wenn wir eine Variable an ihren Mittelwert zentrieren, ziehen wir den Mittelwert der Variable von allen Werten (d.h. alle Beobachtungen) der Variable ab. Zentrierung definiert das Minimum und Maximum der Variable neu. Der Mittelwert einer am Mittelwert zentrierten Variable ist nun gleich Null. Wir können Zentrierung als eine “Daten-Vorverarbeitungsstrategie” betrachten, die die "Interpretierbarkeit" der Parameter (vor allem die des Intercepts) in einem linearen Modell steigert.
+
+Betrachten wir z.B. die folgende Abbildung:
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+# die Daten können mit diesem Befehl geladen werden
+schulunlust <- read.table(file='https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/schulunlust.txt',
+                          header = TRUE, dec = ',')
+
+# Helfer-Funktion
+lm_eqn <- function(df, formula){
+  m <- lm(formula = formula, data = df);
+  eq <- substitute(italic(y) == a +~~b %.% italic(x)*~~","~~italic(r)^2~"="~r2, 
+                   list(a = format(unname(coef(m)[1]), digits = 3),
+                        b = format(unname(coef(m)[2]), digits = 3),
+                        r2 = format(summary(m)$r.squared, digits = 3)))
+  as.character(as.expression(eq));
+}
+
+# legen wir das "Design" für ggplot fest
+require(ggplot2)
+theme_set(
+  theme_linedraw() +
+    theme(panel.grid = element_line(color = 'gray80'),
+          panel.border = element_blank(),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          axis.text.x = element_text(size = 12),
+          axis.text.y = element_text(size = 12),
+          strip.background = element_rect(fill = "white", color = NA),
+          strip.text =  element_text(color = 'black'))
+)
+```
+
+```{r, fig.width=10.0, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
+require(dplyr)
+data <- schulunlust %>%
+  filter(klasse_nr <= 5)
+
+df <- data.frame(x1 = 22, x2 = 15, y1 = 36, y2 = 40)
+
+require(ggplot2)
+plt <- ggplot(data = data, aes(x = unlust, y = leistung)) +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(15, 30)) +
+  labs(x = 'Schulunlust (nicht zentriert)', 
+       y = 'Schulische Leistung') +
+  geom_smooth(method = 'lm', formula = 'y ~ x',
+              se = FALSE, fullrange = TRUE) +
+  geom_curve(
+    aes(x = x1, y = y1, xend = x2, yend = y2),
+    data = df,
+    arrow = arrow(length = unit(0.03, "npc")),
+    curvature = -0.2
+  ) +
+  annotate(geom = 'label',
+           x = 25, y = 38, 
+           label = lm_eqn(data, 'leistung ~ unlust'),
+           parse = TRUE, fill = "white") +
+  annotate("rect", 
+           xmin = 23.7, xmax = 26.1,
+           ymin = 36, ymax = 40,
+           alpha = .2, color = 'blue')
+
+
+data_znt <- data %>%
+  mutate(ur_unlust = unlust,
+       unlust = unlust - mean(unlust))
+
+df <- data.frame(x1 = -2.8, x2 = 0, y1 = 7, y2 = 21)
+plt_znt <- ggplot(data = data_znt, aes(x = unlust, y = leistung)) +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust (zentriert)', 
+       y = 'Schulische Leistung') +
+  geom_smooth(method = 'lm', formula = 'y ~ x',
+              se = FALSE, fullrange = TRUE) +
+  geom_curve(
+    aes(x = x1, y = y1, xend = x2, yend = y2),
+    data = df,
+    arrow = arrow(length = unit(0.03, "npc")),
+    curvature = -0.2
+  ) +
+  geom_segment(aes(x =0, xend = 0, y = -Inf, yend = Inf),
+               color = 'black', alpha = 0.5,
+               linewidth = rel(0.25), linetype = 'dotted') +
+  annotate(geom = 'label', x = 0, y = 5, 
+           label = lm_eqn(data_znt, 'leistung ~ unlust'),
+           parse = TRUE, fill = "white") +
+  annotate("rect", 
+           xmin = -1.2, xmax = 1.12,
+           ymin = 3, ymax = 7,
+           alpha = .2, color = 'blue')
+
+require(patchwork)
+plt + plt_znt
+
+```
+
+
+Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression  ohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich “zu holen”. 
+
+
+## Berücksichtigung von Subgruppen
+
+Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt.
+Dafür benötigen die folgenden Daten:
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+# die Daten können mit diesem Befehl geladen werden
+data_schulleistung <- read.table(file='https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/schulunlust.txt',
+                          header = TRUE, dec = ',')
+
+# wir werden nur die ersten 5 klassen benutzen
+# wir können die Daten dieser Klassen mit
+# `dplyr`filtern
+require(dyplr)
+data_schulleistung <- data_schulleistung %>%
+  filter(klasse_nr <= 5) %>%
+  # ebenfalls werden wir die variable `unlust`
+  # zentrieren
+  mutate(unlust_c = unlust - mean(unlust))
+```
+
+Diese Daten sind identisch mit den Daten der obigen Abbildung.
+
+- Erster Schritt:
+  - Berechnen wir erst einmal eine Gesamt-Regression, ohne die Subgruppen (die einzelnen Klassen) in den Daten zu berücksichtigen.
+  - Zur Erinnerung: Der R-Befehl, um eine lineare Regression zu berechnen lautet `lm(fomula, data)`
+  
+- Zweiter Schritt:
+  - Berechnen wir 5 verschiedene Regressionen, eine für jede Klasse.
+  - Tipp: Sie können die Daten der einzelne Klassen mit `dplyr()` filtern.
+    - z.B.: `klasse_1 <- data_schulleistung %>% filter(klasse_nr == 1)`
+    - Danach können Sie die Regression mit `lm()` berechnen.
+    
+- Schreiben Sie $b_{0}$ und $b_{1}$ für alle Regressionen auf und vergleichen Sie.
+
+## Ergebnisse
+
+Die Ergebnisse sollten mit der folgenden Abbildung kompatibel sein. 
+
+```{r, fig.width = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
+klasse_1 <- data_znt %>%
+  filter(klasse_nr == 1)
+klasse_2 <- data_znt %>%
+  filter(klasse_nr == 2)
+klasse_3 <- data_znt %>%
+  filter(klasse_nr == 3)
+klasse_4 <- data_znt %>%
+  filter(klasse_nr == 4)
+klasse_5 <- data_znt %>%
+  filter(klasse_nr == 5)
+
+k1 <- ggplot(data = klasse_1, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'magenta') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_1$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_1, 'leistung ~ unlust'), parse = TRUE)
+
+k2 <- ggplot(data = klasse_2, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'cyan') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_2$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_2, 'leistung ~ unlust'), parse = TRUE)
+
+k3 <- ggplot(data = klasse_3, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'red') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_3$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_3, 'leistung ~ unlust'), parse = TRUE)
+
+k4 <- ggplot(data = klasse_4, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'green') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_4$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_4, 'leistung ~ unlust'), parse = TRUE)
+
+k5 <- ggplot(data = klasse_5, aes(x = unlust, y = leistung)) +
+geom_point(color = 'purple') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_5$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_5, 'leistung ~ unlust'), parse = TRUE)
+
+k1 + k2 + k3 + k4 + k5 +
+  plot_layout(ncol = 5)
+```
+
