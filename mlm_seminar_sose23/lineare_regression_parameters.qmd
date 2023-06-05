@@ -142,7 +142,7 @@ Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschrei
 Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt.
 Dafür benötigen die folgenden Daten:
 
-```{r, echo = FALSE, warning = FALSE, message = FALSE}
+```{r, warning = FALSE, message = FALSE}
 # die Daten können mit diesem Befehl geladen werden
 data_schulleistung <- read.table(file='https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/schulunlust.txt',
                           header = TRUE, dec = ',')
