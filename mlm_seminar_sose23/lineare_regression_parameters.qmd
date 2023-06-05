@@ -23,7 +23,7 @@ $$
 $$ {#eq-linreg}
 
 
-Sie liefert uns zwei Parameter $b_{0} und $b_{1}$.
+Sie liefert uns zwei Parameter $b_{0}$ und $b_{1}$.
 
 -   $b_{0} =$ $y$-Achsenabschnitt, Konstante, oder Interzept:
     -   Der Wert von $y$ bei einer Ausprägung von 0 in $x$.
@@ -56,7 +56,8 @@ require(ggplot2)
 theme_set(
   theme_linedraw() +
     theme(panel.grid = element_line(color = 'gray80'),
-          panel.border = element_blank(),
+          panel.border = element_rect(size = rel(1), 
+                                      color = 'gray'),
           axis.title.x = element_text(size = 14),
           axis.title.y = element_text(size = 14),
           axis.text.x = element_text(size = 12),
@@ -84,7 +85,7 @@ plt <- ggplot(data = data, aes(x = unlust, y = leistung)) +
               se = FALSE, fullrange = TRUE) +
   geom_curve(
     aes(x = x1, y = y1, xend = x2, yend = y2),
-    data = df,
+    data = df, color = 'red', linewidth = 1.0,
     arrow = arrow(length = unit(0.03, "npc")),
     curvature = -0.2
   ) +
@@ -95,14 +96,15 @@ plt <- ggplot(data = data, aes(x = unlust, y = leistung)) +
   annotate("rect", 
            xmin = 23.7, xmax = 26.1,
            ymin = 36, ymax = 40,
-           alpha = .2, color = 'blue')
+           alpha = .2, color = 'blue', fill = NA)
 
 
 data_znt <- data %>%
   mutate(ur_unlust = unlust,
        unlust = unlust - mean(unlust))
 
-df <- data.frame(x1 = -2.8, x2 = 0, y1 = 7, y2 = 21)
+df <- data.frame(x1 = -2.8, x2 = -0.2, y1 = 7, y2 = 21)
+df_2 <- data.frame(x1 = 1, x2 = 5, y1 = 7, y2 = 14)
 plt_znt <- ggplot(data = data_znt, aes(x = unlust, y = leistung)) +
   geom_point() +
   scale_y_continuous(limits = c(0, 40)) +
@@ -113,11 +115,17 @@ plt_znt <- ggplot(data = data_znt, aes(x = unlust, y = leistung)) +
               se = FALSE, fullrange = TRUE) +
   geom_curve(
     aes(x = x1, y = y1, xend = x2, yend = y2),
-    data = df,
+    data = df, color = 'red', linewidth = 1.0,
     arrow = arrow(length = unit(0.03, "npc")),
     curvature = -0.2
   ) +
-  geom_segment(aes(x =0, xend = 0, y = -Inf, yend = Inf),
+  geom_curve(
+    aes(x = x1, y = y1, xend = x2, yend = y2),
+    data = df_2, color = 'blue', linewidth = 1.0,
+    arrow = arrow(length = unit(0.03, "npc")),
+    curvature = 0.25
+  ) +
+  geom_segment(aes(x = 0, xend = 0, y = -Inf, yend = Inf),
                color = 'black', alpha = 0.5,
                linewidth = rel(0.25), linetype = 'dotted') +
   annotate(geom = 'label', x = 0, y = 5, 
@@ -126,7 +134,9 @@ plt_znt <- ggplot(data = data_znt, aes(x = unlust, y = leistung)) +
   annotate("rect", 
            xmin = -1.2, xmax = 1.12,
            ymin = 3, ymax = 7,
-           alpha = .2, color = 'blue')
+           alpha = .2, color = 'blue', fill = NA) +
+  geom_point(data = data.frame(leistung = 21.1, unlust = 0),
+             color = 'red', size = 2)
 
 require(patchwork)
 plt + plt_znt
@@ -134,7 +144,7 @@ plt + plt_znt
 ```
 
 
-Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression  ohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich “zu holen”. 
+Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regressionohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich “zu holen”. 
 
 
 ## Berücksichtigung von Subgruppen
@@ -150,7 +160,7 @@ data_schulleistung <- read.table(file='https://raw.githubusercontent.com/JoseAla
 # wir werden nur die ersten 5 klassen benutzen
 # wir können die Daten dieser Klassen mit
 # `dplyr`filtern
-require(dyplr)
+require(dplyr)
 data_schulleistung <- data_schulleistung %>%
   filter(klasse_nr <= 5) %>%
   # ebenfalls werden wir die variable `unlust`
@@ -246,4 +256,20 @@ geom_point(color = 'purple') +
 k1 + k2 + k3 + k4 + k5 +
   plot_layout(ncol = 5)
 ```
+
+
+```{r}
+require(lme4)
+require(lmerTest)
+
+mlm_1 <- lmer(data = data_schulleistung,
+              formula = leistung ~ unlust_c + (1 | klasse_nr) + (0 + unlust_c | klasse_nr))
+summary(mlm_1)
+ranef(mlm_1)
+
+mod_1 <- lm(data = data_schulleistung, formula = leistung ~ unlust_c)
+summary(mod_1)
+
+```
+
 
