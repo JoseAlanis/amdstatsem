@@ -1,0 +1,248 @@
+---
+title: "Hands on Maximum Likelihood Parameter Estimation"
+author: "Jan Göttmann"
+format: 
+  html:
+   code-fold: true
+   code-tools: true
+editor: visual
+lang: de
+toc: true
+number-sections: true
+number-depth: 3
+theme: simplex 
+---
+
+## Einführung
+
+Im letzten Seminar haben wir sehr ausführlich über Maximum Likelihood Estimation (MLE) gesprochen. Heute werden wir einige Übungen dazu in R programmieren, um ein besseres Verständnis für diese Methode zu entwickeln.
+
+Das Grundprinzip der Maximum-Likelihood-Schätzung besteht darin, die Parameter einer statistischen Verteilung so zu bestimmen, dass die Wahrscheinlichkeit, die beobachteten Daten gegeben bestimmter Parameterwerte, maximiert wird. Gegeben eine Verteilungsfunktion $f(x;\theta)$, wobei $x$ die beobachteten Daten und $\theta$ die unbekannten Parameter sind, wird die Likelihood-Funktion definiert als $$L(\theta|x)=\prod_{i=1}^{n} f(x_i;\theta)$$, wobei $n$ die Anzahl der Datenpunkte ist.
+
+Das Maximum-Likelihood-Schätzverfahren besteht darin, die Werte von $\theta$ zu finden, die die Likelihood-Funktion maximieren. Dies kann durch Maximierung des Logarithmus der Likelihood-Funktion mathematisch vereinfacht werden, daher wird oftmals die Log-Likelihood Funktion maximiert und anstelle des Produktes, die Summe über alle Funktionswerte gebildet:
+
+$$\arg\max_{\theta} \sum_{i=1}^{n} \log f(x_i;\theta)$$
+
+### Beispiel Normalverteilung
+
+Nehmen wir an, wir haben an einer Sttichprobe die Intelligenzẃerte erhoben und möchten nun den Mittelwert des IQs anhand der Daten mit MLE schätzen. Hierzu brauchen wir zunächst eine Dichtefunktion, über die wir die Likelihood berechnen können. Da der IQ in der Population normalverteilt ist können wir hierfür die Normaverteilung heranziehen um eine Likelihoodfunktion zu definieren:
+
+$$f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$
+
+also ist die Likelihoodfunktion gegeben als
+
+$$L(\mu, \sigma^2) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}
+$$ bzw. vereinfacht sich zu folgender Formel, wenn wir den Logarhitmus nehmen:
+
+$$ \ln[L(\mu,\sigma)] =  -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2$$
+
+## MLE in R
+
+### Übung 1: MLE by Hand in R
+
+Um in R mit der Likelihoodfunktion zu arbeiten, müssen wir zunächst Daten simulieren. Hierzu benutzen wir die Funktion `rnorm()`. Bitte nutzt zunächste die Hilfefunktion, um mit `rnorm()` eine Stichproben von 10000 Werten zu genieren (N = 100), mit dem Mittelwert $100$ und einer Standardabweichung von $15$. Speichert den Output in der Variable "iq" ab. Berechnet für die gezogene Stichprobe separat Mittelwert und Standardabweichung
+
+```{r}
+set.seed(666)
+# Stichprobe von Werten generieren
+iq <- rnorm(100,100,15)
+
+# Mittelwert und Standardabweichung berechnen
+
+mean(iq)
+sd(iq)
+
+```
+
+Zunächst wollen wir versuchen, die Likelihoodfunktion in R Code zu übertragen. Nehmt hierzu die Gleichung der Log-Likelihoodfunktion, die wir weiter oben definiert haben:
+
+$$ \ln[L(\mu,\sigma)] =  -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2$$
+
+und drückt sie in R-Code aus. Ihr benötigt dazu folgende mathematischen Funktionen:
+
+| Funktion     | Code                         |
+|--------------|------------------------------|
+| Summe Bilden | sum()                        |
+| Quadrieren   | x\^2                         |
+| Logarhitmus  | log()                        |
+| $\pi$        | Pi                           |
+| n            | Stichprobengröße (hier: 100) |
+
+Definiert zunächst zwei Variablen für unterschiedliche Parametervorschläge für den Mittelwert von $100$ (=`low_iq`) und $120$ (`high_iq`),die Standardabweichung (=`sigma`) ist für beide Samples gleich ($\sigma$ = 15). Als Daten nutzen wir die generierten IQ Werte `iq_low` und `iq_high`. In der Gleichung sind $x$ die Daten, also die IQ-Werte aus unserem `iq` Vektor, $\sigma$ ist die Standardabweichung und $\mu$ die unterschiedlichen Vorschläge für die Mittelwerte, als entweder `high_iq` oder `low_iq`. Stellt nun die Gleichung für beide Parametervorschläge (high vs. low) in R auf. Speichert die Ergebnisse unter den Variablen `ll_low` und `ll_high` ab.
+
+```{r}
+# Define sigma and mu
+high_iq <- 120
+low_iq <- 100
+N <- 100
+
+sigma <- 15
+
+
+# Define LL-Equation
+ll_low <- -N/2 * log(2*pi*sigma^2) - 1/(2*sigma^2) * sum((iq - low_iq)^2)
+ll_high <- -N/2 * log(2*pi*sigma^2) - 1/(2*sigma^2) * sum((iq - high_iq)^2)
+
+
+```
+
+Ihr habt nun für beide Parametervorschläge, also einmal für einen Mittelwert von 100 und einmal von einem Mittelwert von 120, die log-likelihood für die vorliegenden Daten berechnet. Welcher Mittelwert ist nach dieser Likelihood unter den gegebenen Daten wahrscheinlicher ?
+
+### Exkurs: Funktionen in R
+
+Funktionen sind in der Programmierung wichtige Bausteine, um Code wiederverwendbar zu machen und komplexe Aufgaben zu strukturieren. Eine nimmt in der Regel Eingabewerte (Argumente) entgegen, führt Operationen oder Berechnungen durch und gibt ein Ergebnis zurück. In R können Funktionen mit dem Schlüsselwort `function` definiert werden. Die Syntax besteht aus dem Funktionsnamen, den Eingabe-Parametern in Klammern, den auszuführenden Anweisungen innerhalb des Funktionskörpers und dem Rückgabewert mit `return()`. Funktionen in R können dann mit den angegebenen Argumenten aufgerufen werden, um den gewünschten Code auszuführen. Die Verwendung von Funktionen erleichtert das Schreiben, Lesen und Verstehen von Code, da Aufgaben in kleine, wiederverwendbare Einheiten aufgeteilt werden können.
+
+Hier ein einfaches Beispiel einer Funktion, die die Quadratzahl des Inputarguments ausgibt:
+
+```{r}
+# Funktion zur Berechnung der Quadratzahl
+square <- function(x) {
+  result <- x^2
+  return(result)
+}
+
+# Verwendung der Funktion
+num <- 5
+squared_num <- square(num)
+print(squared_num)
+
+```
+
+Innerhalb einer Funktion in R kann auf die Input-Argumente zugegriffen werden, indem man ihre Namen verwendet. Die Input-Argumente werden in der Funktion als Parameter definiert. Du kannst diese Parameter dann innerhalb der Funktion verwenden, um auf die übergebenen Werte zuzugreifen und damit Berechnungen oder Operationen durchzuführen.
+
+Zum Beispiel, wenn wir eine Funktion `addition()` definieren möchten, die zwei Zahlen addiert, könnten wir die Input-Argumente `a` und `b` verwenden:
+
+```{r}
+addition <- function(a, b) {
+  sum <- a + b
+  return(sum)
+}
+
+addition(2,2)
+```
+
+### Übung 2: MLE Using optim()
+
+#### Diskrepanzfunktion definieren
+
+Nun haben wir im Prinzip "by Hand" eine MLE Schätzung durchgeführt - zwar nicht iterativ, denn haben wir haben nur zwei mögliche Parameterwerte im Lichte der gegebenen Daten nach der MLE bewertet! R bietet aber auch die Möglichkeit, mit der Funktion `optim()`, eine SIMPLEX Optimierung nach einer gegebenen Diskrepanzfunktion durchzuführen. Dazu müssen wir der Funktion allerdings eine Funktion übergeben.
+
+Um nun die `optim()` zu nutzen im iterativ Parameter nach MLE zu schätzen und durch simplex zu minimieren, müssen wir die gleiche log-likelihood Funktion von Übung 1 in eine Funktion überführen. Das ist ganz einfach, denn wir können uns nun, da wir das Grundprinzip von MLE verstanden haben, das Leben mit der in R verfügbaren `dnorm()` Funktion erleichtern. Diese berechnet ebenfalls die Wahrscheinlichkeit (genauer die Dichte) für Datenpunkte, gegeben bestimmter Parameter:
+
+```{r}
+
+# Unsere Gleichung
+ll_low <- -100/2 * log(2*pi*sigma^2) - 1/(2*sigma^2) * sum((iq - low_iq)^2) 
+print(ll_low)
+# dnorm() aus R
+ll_dnorm <- sum(dnorm(iq,mean=low_iq,sd=sigma,T))
+print(ll_dnorm)
+```
+
+Eure Aufgabe ist es nun, eine Funktion zu definieren, die sie aufsummierte log-likelihood ausgibt, wenn Ihr Parameterwerte eingebt. Dazu nutzt ihr die folgende Funktionen aus R:
+
+| Funktion     | Code                               |
+|--------------|------------------------------------|
+| Summe Bilden | sum()                              |
+| Likelihood   | `dnorm(daten,mean=,sd=, log=TRUE)` |
+| Logarhitmus  | log()                              |
+
+Die Funktion soll folgende Input-Argumente besitzen:
+
+-   Einen Vektor `Daten` (unsere IQ Daten sind ein Vektor)
+
+-   Einen Vektor `theta`, der nur zwei Einträge enthält - `theta` ist der Argumentname, um innerhalb der Funktion auf den Input zuzugreifen. Was ihr letztendlich der Funktion als theta übergebt, muss nicht theta heißen !
+
+Weiterhin soll diese Funktion die aufsummierte log-Likelihood ausgeben. Definiert diese Funktion unter dem Namen `MLE`. Die Inputargumente müssen wie im oberen Beispiel einer einfachen Funktion nur mit Namen definiert werden, nicht mit Datentyp. Diesen habe ich nur zum Verständnis mit angegeben.
+
+2.) Müssen folgende Operationen innerhalb der Funktion ausgeführt werden
+
+-   Berechnung der Likelihood unter der verwendung von `dnorm()`. b.) Aufsummierung der berechneten Likelihood mit `sum()`
+
+-   Berechnung der Deviance - hierzu muss die aufsummierte Likelihood mal -2\
+    genommen werden.
+
+Wir können hierbei auf die Berechnung des Logarhitmus verzichten, da `dnorm()` schon den die log-Likelihood mit ausgibt. Hierzu muss allerdings das Argument `log = TRUE` gesetzt werden ! Zur Erinnerung, auf bestimmte Elemente eines Vektors greift ihr folgendermaßen zu (dies ist wichtig zu wissen, da Ihr mit den Inputwerten innerhalb der Funktion arbeiten müsst):
+
+```{r}
+# Vektor Definieren
+vektor <- c(1,2,3)
+
+# Erstes Element
+
+vektor[1]
+
+# Zweites Element
+
+vektor[2]
+
+# Drittes Element
+
+vektor[3]
+
+```
+
+3.) Es muss mit `return()` das Endprodukt zurückgeben, wie in den beiden einfachen Beispielen vorher !
+
+```{r}
+
+### YOUR CODE HERE 
+
+MLE <- function(Daten, theta) 
+{
+  mu <- theta[1]
+  sigma <- theta[2]
+  
+  LL <- -2*(sum(dnorm(Daten,mean=mu,sd=sigma,log = T)))
+  
+  return(LL)
+  
+}
+
+# Test your function with different values for theta
+theta <- c(80,20)
+MLE(iq,theta)
+
+
+```
+
+#### Optimieren der Parameter mit `optim()`
+
+Nun da unsere ML-Diskrepanzfunktion funktioniert, müssen wir diese natürlich minimieren - dazu können wir die Funktion `optim()` nutzen, die in R zur Verfügung steht. Mit `optim()` ist standardmäßig der SIMPLEX -Algorithmus eingestellt. Es können aber auch andere Algorhithmen genutzt werden. Es werden der Funktion drei Hauptargumente übergeben:
+
+1.  `par` - ein Vektor mit den Startwerten der Parameterschätzung. Die Startwerte sollten nicht übermäßig von den erwarteten Werten abweichen. Schätzt man also einen Mittelwert von IQ Daten, macht es keinen Sinn, den Startwert für den Mittelwert auf 1 zu setzen, da der "wahre Wert" vermutlich zwischen 75 und 150 liegen wird. Gleiches gilt für die Standardabweichung.
+
+2.  `fn=` - die Diskrepanzfunktion die es zu minimieren gilt. Hier die von uns definierte `MLE()` Funktion.
+
+3.  Die Daten - diese übergebt ihr mit dem Namen, den Ihr in eurer Funktion verwendet habt, also hier `Daten = iq`.
+
+Optimiert nun die definierte Funktion mit `optim()` und speichert die Ergebnisse im Objekt `fit`.
+
+```{r}
+# YOUR CODE HERE
+
+fit <- optim(par=c(mu=50,sigma=10), fn =MLE, Daten=iq)
+
+fit$par
+
+# Biased Fit Example 
+
+iq_pop <- rnorm(1000,mean=100,sd=15)
+iq_bias <- sample(iq_pop,25)
+
+mean(iq_bias)
+
+# Fitting Sample
+fit <- optim(par=c(mu=50,sigma=10), fn =MLE, Daten=iq_bias)
+
+fit$par
+
+```
+
+## Fazit
+
+In diesem Tutorial haben wir uns mit der Maximum-Likelihood-Schätzung (MLE) in R beschäftigt und die Funktion \`optim()\` verwendet, um die Schätzung durchzuführen. Zunächst haben wir die Likelihood-Funktion selbst definiert und verschiedene Parameterwerte getestet, um das Konzept der MLE besser zu verstehen.
+
+Durch die Verwendung von \`optim()\` konnten wir die MLE iterativ implementieren und die optimalen Parameterwerte finden, die die Likelihood-Funktion maximieren (oder die Deviance minimieren). Wir haben gesehen, dass \`optim()\` eine effiziente Methode zur numerischen Optimierung ist und verschiedene Algorithmen zur Verfügung stellt.
+
+Die Maximum-Likelihood-Schätzung ist ein leistungsstarkes Werkzeug, um Parameter in statistischen Modellen zu schätzen. Es ermöglicht uns, die Wahrscheinlichkeit der beobachteten Daten unter verschiedenen Annahmen zu maximieren und die besten Parameterwerte zu ermitteln.
