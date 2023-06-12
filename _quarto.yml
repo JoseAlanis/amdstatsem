@@ -77,7 +77,11 @@ website:
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/lecture-4-parameter-estimation-ii?token=myvvodNZ
                 text: "Slides"
-                   
+          - section: "Termin 6: Parameterschätzung III: Hands on MLE in R"
+            contents:
+              - href: cogmod_sem_sose23/ML_Workshop.qmd
+                text: "Skript"
+             
                 
             
             
