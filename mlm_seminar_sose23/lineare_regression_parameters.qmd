@@ -22,28 +22,31 @@ $$
 \widehat{y}_{m} = b_{0} + b_{1} \cdot x_{m1}
 $$ {#eq-linreg}
 
-
-Sie liefert uns zwei Parameter $b_{0} und $b_{1}$.
+Sie liefert uns zwei Parameter \$b\_{0} und $b_{1}$.
 
 -   $b_{0} =$ $y$-Achsenabschnitt, Konstante, oder Interzept:
     -   Der Wert von $y$ bei einer Ausprägung von 0 in $x$.
 -   $b_{1} =$ Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
     -   Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten $y$ zunimmt, wenn $x$ um eine Einheit zunimmt.
-    
+
 Um die "Interpretierbarkeit" der Parameter (vorallem die des Interzepts.
 
-Wir haben ebenfalls über “Zentrierung” gesprochen. Wenn wir eine Variable an ihren Mittelwert zentrieren, ziehen wir den Mittelwert der Variable von allen Werten (d.h. alle Beobachtungen) der Variable ab. Zentrierung definiert das Minimum und Maximum der Variable neu. Der Mittelwert einer am Mittelwert zentrierten Variable ist nun gleich Null. Wir können Zentrierung als eine “Daten-Vorverarbeitungsstrategie” betrachten, die die "Interpretierbarkeit" der Parameter (vor allem die des Intercepts) in einem linearen Modell steigert.
+Wir haben ebenfalls über "Zentrierung" gesprochen. Wenn wir eine Variable an ihren Mittelwert zentrieren, ziehen wir den Mittelwert der Variable von allen Werten (d.h. alle Beobachtungen) der Variable ab. Zentrierung definiert das Minimum und Maximum der Variable neu. Der Mittelwert einer am Mittelwert zentrierten Variable ist nun gleich Null. Wir können Zentrierung als eine "Daten-Vorverarbeitungsstrategie" betrachten, die die "Interpretierbarkeit" der Parameter (vor allem die des Intercepts) in einem linearen Modell steigert.
 
 Betrachten wir z.B. die folgende Abbildung:
 
 ```{r, echo = FALSE, warning = FALSE, message = FALSE}
+urlRemote <- 'https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main'
+fpathData <- '/data/schulunlust.txt'
 # die Daten können mit diesem Befehl geladen werden
-schulunlust <- read.table(file='https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/schulunlust.txt',
-                          header = TRUE, dec = ',')
+schulunlust <- read.table(
+  file=paste0(urlRemote, fpathData),
+  header = TRUE, 
+  dec = ',')
 
 # Helfer-Funktion
 lm_eqn <- function(df, formula){
-  m <- lm(formula = formula, data = df);
+  m <- lm(formula = formula, data = df)
   eq <- substitute(italic(y) == a +~~b %.% italic(x)*~~","~~italic(r)^2~"="~r2, 
                    list(a = format(unname(coef(m)[1]), digits = 3),
                         b = format(unname(coef(m)[2]), digits = 3),
@@ -133,24 +136,23 @@ plt + plt_znt
 
 ```
 
-
-Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression  ohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich “zu holen”. 
-
+Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression ohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich "zu holen".
 
 ## Berücksichtigung von Subgruppen
 
-Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt.
-Dafür benötigen die folgenden Daten:
+Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt. Dafür benötigen wir die folgenden Daten:
 
 ```{r, warning = FALSE, message = FALSE}
 # die Daten können mit diesem Befehl geladen werden
-data_schulleistung <- read.table(file='https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/data/schulunlust.txt',
+urlRemote <- 'https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main'
+fpathData <- '/data/schulunlust.txt'
+data_schulleistung <- read.table(paste0(urlRemote, fpathData),
                           header = TRUE, dec = ',')
 
 # wir werden nur die ersten 5 klassen benutzen
 # wir können die Daten dieser Klassen mit
 # `dplyr`filtern
-require(dyplr)
+require(dplyr)
 data_schulleistung <- data_schulleistung %>%
   filter(klasse_nr <= 5) %>%
   # ebenfalls werden wir die variable `unlust`
@@ -160,21 +162,21 @@ data_schulleistung <- data_schulleistung %>%
 
 Diese Daten sind identisch mit den Daten der obigen Abbildung.
 
-- Erster Schritt:
-  - Berechnen wir erst einmal eine Gesamt-Regression, ohne die Subgruppen (die einzelnen Klassen) in den Daten zu berücksichtigen.
-  - Zur Erinnerung: Der R-Befehl, um eine lineare Regression zu berechnen lautet `lm(fomula, data)`
-  
-- Zweiter Schritt:
-  - Berechnen wir 5 verschiedene Regressionen, eine für jede Klasse.
-  - Tipp: Sie können die Daten der einzelne Klassen mit `dplyr()` filtern.
-    - z.B.: `klasse_1 <- data_schulleistung %>% filter(klasse_nr == 1)`
-    - Danach können Sie die Regression mit `lm()` berechnen.
-    
-- Schreiben Sie $b_{0}$ und $b_{1}$ für alle Regressionen auf und vergleichen Sie.
+### Aufgabe 1
 
-## Ergebnisse
+-   Erster Schritt:
+    -   Berechnen wir erst einmal eine Gesamt-Regression, ohne die Subgruppen (die einzelnen Klassen) in den Daten zu berücksichtigen.
+    -   Zur Erinnerung: Der R-Befehl, um eine lineare Regression zu berechnen lautet `lm(fomula, data)`
+-   Zweiter Schritt:
+    -   Berechnen wir 5 verschiedene Regressionen, eine für jede Klasse.
+    -   Tipp: Sie können die Daten der einzelnen Klassen mit `dplyr()` filtern.
+        -   z.B.: `klasse_1 <- data_schulleistung %>% filter(klasse_nr == 1)`
+        -   Danach können Sie die Regression mit `lm()` berechnen.
+-   Schreiben Sie $b_{0}$ und $b_{1}$ für alle Regressionen auf und vergleichen Sie.
 
-Die Ergebnisse sollten mit der folgenden Abbildung kompatibel sein. 
+#### Ergebnisse
+
+Die Ergebnisse sollten mit der folgenden Abbildung kompatibel sein.
 
 ```{r, fig.width = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
 klasse_1 <- data_znt %>%
@@ -245,5 +247,55 @@ geom_point(color = 'purple') +
 
 k1 + k2 + k3 + k4 + k5 +
   plot_layout(ncol = 5)
+```
+
+```{r, echo=FALSE}
+klassen <- 1:5
+b0 <- NULL
+b1 <- NULL
+for (klasse in klassen) {
+  reg <- lm(data = filter(data_schulleistung, klasse_nr == klasse),
+            formula = leistung ~ unlust_c)
+  b0 <- c(b0, summary(reg)$coefficients[1])
+  b1 <- c(b1, summary(reg)$coefficients[2])
+}
+
+mod_all <- lm(data = data_schulleistung, formula = leistung ~ unlust_c)
+b0_all <- rep(summary(mod_all)$coefficients[1], 5)
+b1_all <- rep(summary(mod_all)$coefficients[2], 5)
+```
+
+```{r, echo=FALSE, message=FALSE}
+require(rempsyc)
+
+fun <- function(x) {
+  formatC(x, format = "f", digits = 3)
+}
+
+nice_table(data.frame(Model = 1:5, beta_0 = b0, beta_1 = b1),
+           col.format.custom = 2:3, format.custom = "fun",
+           title = 'Regressionsparameter für das jeweilige "Klassenmodell"',
+           note = "1 = Klasse 1; 2 = Klasse 2; etc.",
+           width = 0.5)
+```
+
+### Aufgabe 2
+
+Vergleichen Sie nun die Ergebnisse der einzelnen Regressionen mit den Ergebnissen eines "Gesamtregressionsmodells" (ein Modell über alle Klassen hinweg).
+
+Hier sind die Ergebnisse:
+
+```{r}
+ges_mod <- lm(data = data_schulleistung,
+              leistung ~  unlust_c)
+
+ges_df <- data.frame(model = 'gesamt',
+                     beta_0 = summary(ges_mod)$coefficients[1],
+                     beta_1 = summary(ges_mod)$coefficients[2])
+
+nice_table(ges_df,
+           col.format.custom = 2:3, format.custom = "fun",
+           title = 'Regressionsparameter für das "Gesamtmodell"',
+           width = 0.5)
 ```
 
