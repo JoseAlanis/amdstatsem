@@ -44,7 +44,7 @@ jobs:
 
       - name: Build site 🔧
         run: |
-          R -e 'install.packages("tidyverse"); install.packages("patchwork"); install.packages("quarto"); install.packages("countdown"); install.packages("rempsyc"); install.packages("flextable"); quarto::quarto_render(".", as_job = FALSE)'
+          R -e 'install.packages("tidyverse"); install.packages("patchwork");install.packages(c("MPTinR","effectsize"); install.packages("quarto"); install.packages("countdown"); install.packages("rempsyc"); install.packages("flextable"); quarto::quarto_render(".", as_job = FALSE)'
       - name: Deploy 🚀
         if: github.event_name != 'pull_request'
         uses: JamesIves/github-pages-deploy-action@4.1.7
