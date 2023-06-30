@@ -11,7 +11,6 @@ theme: simplex
 
 ```{r include =FALSE}
 library(tidyverse)
-library(learnr)
 
 
 Study_2_dm <- read_csv("Study_2_dm.csv", 
