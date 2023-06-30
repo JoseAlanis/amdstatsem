@@ -1,16 +1,13 @@
 ---
-title: "Hands on Maximum Likelihood Parameter Estimation"
-author: "Jan Göttmann"
-format: 
-  html:
-   code-fold: true
-   code-tools: true
-editor: visual
+title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
 lang: de
-toc: true
-number-sections: true
-number-depth: 3
-theme: simplex 
+subtitle: "Hands on Maximum Likelihood Parameter Estimation"
+image: "images/equation.png"
+author: "Jan Göttmann"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
 ---
 
 ## Einführung
@@ -246,3 +243,4 @@ In diesem Tutorial haben wir uns mit der Maximum-Likelihood-Schätzung (MLE) in 
 Durch die Verwendung von \`optim()\` konnten wir die MLE iterativ implementieren und die optimalen Parameterwerte finden, die die Likelihood-Funktion maximieren (oder die Deviance minimieren). Wir haben gesehen, dass \`optim()\` eine effiziente Methode zur numerischen Optimierung ist und verschiedene Algorithmen zur Verfügung stellt.
 
 Die Maximum-Likelihood-Schätzung ist ein leistungsstarkes Werkzeug, um Parameter in statistischen Modellen zu schätzen. Es ermöglicht uns, die Wahrscheinlichkeit der beobachteten Daten unter verschiedenen Annahmen zu maximieren und die besten Parameterwerte zu ermitteln.
+

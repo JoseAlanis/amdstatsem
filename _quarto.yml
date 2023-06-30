@@ -79,16 +79,21 @@ website:
                 text: "Zusammenfassung"
               - href: https://slides.com/gman_science/lecture-4-parameter-estimation-ii?token=myvvodNZ
                 text: "Slides"
-          - section: "Termin 6: Parameterschätzung III: Hands on MLE in R"
+          - section: "Termin 6: Hands on MLE in R"
             contents:
               - href: cogmod_sem_sose23/ML_Workshop.qmd
-                text: "Skript"
-             
-                
-            
-            
-            
-          
+                text: "ML Workshop"
+          - section: "Termin 7: Advanced R"
+            contents:
+              - href: cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.qmd
+                text: "Advanced Workshop for dplyr"      
+          - section: "Termin 8 & 9: Multinomial Processing Tree Models"
+            contents:
+              - href: 
+                text: "Slides"
+              - href: cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.qmd
+                text: "MPT Workshop"   
+               
 format:
   html:
     theme:
