@@ -2,13 +2,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.3.427">
+<meta name="generator" content="quarto-1.3.433">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Jan Göttmann">
 
-<title>Lehre@AMD - Hands on Maximum Likelihood Parameter Estimation</title>
+<title>Lehre@AMD - Seminar Fortgeschrittene statistische Methoden II (3)</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -64,6 +64,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
+<link href="../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" rel="next">
 <link href="../cogmod_sem_sose23/Termin1.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -111,7 +112,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/ML_Workshop.html">Termin 6: Parameterschätzung III: Hands on MLE in R</a></li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/ML_Workshop.html">Skript</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/ML_Workshop.html">Termin 6: Hands on MLE in R</a></li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/ML_Workshop.html">ML Workshop</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -309,7 +310,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
             <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true">
- <span class="menu-text">Termin 6: Parameterschätzung III: Hands on MLE in R</span></a>
+ <span class="menu-text">Termin 6: Hands on MLE in R</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -318,7 +319,44 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="../cogmod_sem_sose23/ML_Workshop.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Skript</span></a>
+ <span class="menu-text">ML Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Termin 7: Advanced R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Workshop for dplyr</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
+ <span class="menu-text">Termin 8 &amp; 9: Multinomial Processing Tree Models</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Slides</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">MPT Workshop</span></a>
   </div>
 </li>
       </ul>
@@ -335,17 +373,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung"><span class="header-section-number">1</span> Einführung</a>
+  <li><a href="#einführung" id="toc-einführung" class="nav-link active" data-scroll-target="#einführung">Einführung</a>
   <ul class="collapse">
-  <li><a href="#beispiel-normalverteilung" id="toc-beispiel-normalverteilung" class="nav-link" data-scroll-target="#beispiel-normalverteilung"><span class="header-section-number">1.1</span> Beispiel Normalverteilung</a></li>
+  <li><a href="#beispiel-normalverteilung" id="toc-beispiel-normalverteilung" class="nav-link" data-scroll-target="#beispiel-normalverteilung">Beispiel Normalverteilung</a></li>
   </ul></li>
-  <li><a href="#mle-in-r" id="toc-mle-in-r" class="nav-link" data-scroll-target="#mle-in-r"><span class="header-section-number">2</span> MLE in R</a>
+  <li><a href="#mle-in-r" id="toc-mle-in-r" class="nav-link" data-scroll-target="#mle-in-r">MLE in R</a>
   <ul class="collapse">
-  <li><a href="#übung-1-mle-by-hand-in-r" id="toc-übung-1-mle-by-hand-in-r" class="nav-link" data-scroll-target="#übung-1-mle-by-hand-in-r"><span class="header-section-number">2.1</span> Übung 1: MLE by Hand in R</a></li>
-  <li><a href="#exkurs-funktionen-in-r" id="toc-exkurs-funktionen-in-r" class="nav-link" data-scroll-target="#exkurs-funktionen-in-r"><span class="header-section-number">2.2</span> Exkurs: Funktionen in R</a></li>
-  <li><a href="#übung-2-mle-using-optim" id="toc-übung-2-mle-using-optim" class="nav-link" data-scroll-target="#übung-2-mle-using-optim"><span class="header-section-number">2.3</span> Übung 2: MLE Using optim()</a></li>
+  <li><a href="#übung-1-mle-by-hand-in-r" id="toc-übung-1-mle-by-hand-in-r" class="nav-link" data-scroll-target="#übung-1-mle-by-hand-in-r">Übung 1: MLE by Hand in R</a></li>
+  <li><a href="#exkurs-funktionen-in-r" id="toc-exkurs-funktionen-in-r" class="nav-link" data-scroll-target="#exkurs-funktionen-in-r">Exkurs: Funktionen in R</a></li>
+  <li><a href="#übung-2-mle-using-optim" id="toc-übung-2-mle-using-optim" class="nav-link" data-scroll-target="#übung-2-mle-using-optim">Übung 2: MLE Using optim()</a></li>
   </ul></li>
-  <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit"><span class="header-section-number">3</span> Fazit</a></li>
+  <li><a href="#fazit" id="toc-fazit" class="nav-link" data-scroll-target="#fazit">Fazit</a></li>
   </ul>
 </nav>
     </div>
@@ -354,8 +392,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<div class="quarto-title-block"><div><h1 class="title">Hands on Maximum Likelihood Parameter Estimation</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
-</div>
+<h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)</h1>
+<p class="subtitle lead">Hands on Maximum Likelihood Parameter Estimation</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">SoSe 2023</div>
+  </div>
+  </div>
 
 
 
@@ -368,6 +410,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           </div>
   </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">30 Juni 2023</p>
+    </div>
+  </div>
   
     
   </div>
@@ -375,14 +423,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<section id="einführung" class="level2" data-number="1">
-<h2 data-number="1" class="anchored" data-anchor-id="einführung"><span class="header-section-number">1</span> Einführung</h2>
+<section id="einführung" class="level2">
+<h2 class="anchored" data-anchor-id="einführung">Einführung</h2>
 <p>Im letzten Seminar haben wir sehr ausführlich über Maximum Likelihood Estimation (MLE) gesprochen. Heute werden wir einige Übungen dazu in R programmieren, um ein besseres Verständnis für diese Methode zu entwickeln.</p>
 <p>Das Grundprinzip der Maximum-Likelihood-Schätzung besteht darin, die Parameter einer statistischen Verteilung so zu bestimmen, dass die Wahrscheinlichkeit, die beobachteten Daten gegeben bestimmter Parameterwerte, maximiert wird. Gegeben eine Verteilungsfunktion <span class="math inline">\(f(x;\theta)\)</span>, wobei <span class="math inline">\(x\)</span> die beobachteten Daten und <span class="math inline">\(\theta\)</span> die unbekannten Parameter sind, wird die Likelihood-Funktion definiert als <span class="math display">\[L(\theta|x)=\prod_{i=1}^{n} f(x_i;\theta)\]</span>, wobei <span class="math inline">\(n\)</span> die Anzahl der Datenpunkte ist.</p>
 <p>Das Maximum-Likelihood-Schätzverfahren besteht darin, die Werte von <span class="math inline">\(\theta\)</span> zu finden, die die Likelihood-Funktion maximieren. Dies kann durch Maximierung des Logarithmus der Likelihood-Funktion mathematisch vereinfacht werden, daher wird oftmals die Log-Likelihood Funktion maximiert und anstelle des Produktes, die Summe über alle Funktionswerte gebildet:</p>
 <p><span class="math display">\[\arg\max_{\theta} \sum_{i=1}^{n} \log f(x_i;\theta)\]</span></p>
-<section id="beispiel-normalverteilung" class="level3" data-number="1.1">
-<h3 data-number="1.1" class="anchored" data-anchor-id="beispiel-normalverteilung"><span class="header-section-number">1.1</span> Beispiel Normalverteilung</h3>
+<section id="beispiel-normalverteilung" class="level3">
+<h3 class="anchored" data-anchor-id="beispiel-normalverteilung">Beispiel Normalverteilung</h3>
 <p>Nehmen wir an, wir haben an einer Sttichprobe die Intelligenzẃerte erhoben und möchten nun den Mittelwert des IQs anhand der Daten mit MLE schätzen. Hierzu brauchen wir zunächst eine Dichtefunktion, über die wir die Likelihood berechnen können. Da der IQ in der Population normalverteilt ist können wir hierfür die Normaverteilung heranziehen um eine Likelihoodfunktion zu definieren:</p>
 <p><span class="math display">\[f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}\]</span></p>
 <p>also ist die Likelihoodfunktion gegeben als</p>
@@ -391,14 +439,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><span class="math display">\[ \ln[L(\mu,\sigma)] =  -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2\]</span></p>
 </section>
 </section>
-<section id="mle-in-r" class="level2" data-number="2">
-<h2 data-number="2" class="anchored" data-anchor-id="mle-in-r"><span class="header-section-number">2</span> MLE in R</h2>
-<section id="übung-1-mle-by-hand-in-r" class="level3" data-number="2.1">
-<h3 data-number="2.1" class="anchored" data-anchor-id="übung-1-mle-by-hand-in-r"><span class="header-section-number">2.1</span> Übung 1: MLE by Hand in R</h3>
+<section id="mle-in-r" class="level2">
+<h2 class="anchored" data-anchor-id="mle-in-r">MLE in R</h2>
+<section id="übung-1-mle-by-hand-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="übung-1-mle-by-hand-in-r">Übung 1: MLE by Hand in R</h3>
 <p>Um in R mit der Likelihoodfunktion zu arbeiten, müssen wir zunächst Daten simulieren. Hierzu benutzen wir die Funktion <code>rnorm()</code>. Bitte nutzt zunächste die Hilfefunktion, um mit <code>rnorm()</code> eine Stichproben von 10000 Werten zu genieren (N = 100), mit dem Mittelwert <span class="math inline">\(100\)</span> und einer Standardabweichung von <span class="math inline">\(15\)</span>. Speichert den Output in der Variable “iq” ab. Berechnet für die gezogene Stichprobe separat Mittelwert und Standardabweichung</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">666</span>)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Stichprobe von Werten generieren</span></span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>iq <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">15</span>)</span>
@@ -406,14 +452,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Mittelwert und Standardabweichung berechnen</span></span>
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iq)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 98.99997</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(iq)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 15.44065</code></pre>
 </div>
@@ -453,8 +495,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Definiert zunächst zwei Variablen für unterschiedliche Parametervorschläge für den Mittelwert von <span class="math inline">\(100\)</span> (=<code>low_iq</code>) und <span class="math inline">\(120\)</span> (<code>high_iq</code>),die Standardabweichung (=<code>sigma</code>) ist für beide Samples gleich (<span class="math inline">\(\sigma\)</span> = 15). Als Daten nutzen wir die generierten IQ Werte <code>iq_low</code> und <code>iq_high</code>. In der Gleichung sind <span class="math inline">\(x\)</span> die Daten, also die IQ-Werte aus unserem <code>iq</code> Vektor, <span class="math inline">\(\sigma\)</span> ist die Standardabweichung und <span class="math inline">\(\mu\)</span> die unterschiedlichen Vorschläge für die Mittelwerte, als entweder <code>high_iq</code> oder <code>low_iq</code>. Stellt nun die Gleichung für beide Parametervorschläge (high vs.&nbsp;low) in R auf. Speichert die Ergebnisse unter den Variablen <code>ll_low</code> und <code>ll_high</code> ab.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define sigma and mu</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>high_iq <span class="ot">&lt;-</span> <span class="dv">120</span></span>
 <span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>low_iq <span class="ot">&lt;-</span> <span class="dv">100</span></span>
@@ -466,17 +506,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Define LL-Equation</span></span>
 <span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>ll_low <span class="ot">&lt;-</span> <span class="sc">-</span>N<span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> low_iq)<span class="sc">^</span><span class="dv">2</span>)</span>
 <span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>ll_high <span class="ot">&lt;-</span> <span class="sc">-</span>N<span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> high_iq)<span class="sc">^</span><span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 </div>
 <p>Ihr habt nun für beide Parametervorschläge, also einmal für einen Mittelwert von 100 und einmal von einem Mittelwert von 120, die log-likelihood für die vorliegenden Daten berechnet. Welcher Mittelwert ist nach dieser Likelihood unter den gegebenen Daten wahrscheinlicher ?</p>
 </section>
-<section id="exkurs-funktionen-in-r" class="level3" data-number="2.2">
-<h3 data-number="2.2" class="anchored" data-anchor-id="exkurs-funktionen-in-r"><span class="header-section-number">2.2</span> Exkurs: Funktionen in R</h3>
+<section id="exkurs-funktionen-in-r" class="level3">
+<h3 class="anchored" data-anchor-id="exkurs-funktionen-in-r">Exkurs: Funktionen in R</h3>
 <p>Funktionen sind in der Programmierung wichtige Bausteine, um Code wiederverwendbar zu machen und komplexe Aufgaben zu strukturieren. Eine nimmt in der Regel Eingabewerte (Argumente) entgegen, führt Operationen oder Berechnungen durch und gibt ein Ergebnis zurück. In R können Funktionen mit dem Schlüsselwort <code>function</code> definiert werden. Die Syntax besteht aus dem Funktionsnamen, den Eingabe-Parametern in Klammern, den auszuführenden Anweisungen innerhalb des Funktionskörpers und dem Rückgabewert mit <code>return()</code>. Funktionen in R können dann mit den angegebenen Argumenten aufgerufen werden, um den gewünschten Code auszuführen. Die Verwendung von Funktionen erleichtert das Schreiben, Lesen und Verstehen von Code, da Aufgaben in kleine, wiederverwendbare Einheiten aufgeteilt werden können.</p>
 <p>Hier ein einfaches Beispiel einer Funktion, die die Quadratzahl des Inputarguments ausgibt:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Funktion zur Berechnung der Quadratzahl</span></span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
@@ -487,7 +524,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">5</span></span>
 <span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>squared_num <span class="ot">&lt;-</span> <span class="fu">square</span>(num)</span>
 <span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(squared_num)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 25</code></pre>
 </div>
@@ -495,42 +531,33 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Innerhalb einer Funktion in R kann auf die Input-Argumente zugegriffen werden, indem man ihre Namen verwendet. Die Input-Argumente werden in der Funktion als Parameter definiert. Du kannst diese Parameter dann innerhalb der Funktion verwenden, um auf die übergebenen Werte zuzugreifen und damit Berechnungen oder Operationen durchzuführen.</p>
 <p>Zum Beispiel, wenn wir eine Funktion <code>addition()</code> definieren möchten, die zwei Zahlen addiert, könnten wir die Input-Argumente <code>a</code> und <code>b</code> verwenden:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>addition <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sum)</span>
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="fu">addition</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 4</code></pre>
 </div>
 </div>
 </section>
-<section id="übung-2-mle-using-optim" class="level3" data-number="2.3">
-<h3 data-number="2.3" class="anchored" data-anchor-id="übung-2-mle-using-optim"><span class="header-section-number">2.3</span> Übung 2: MLE Using optim()</h3>
+<section id="übung-2-mle-using-optim" class="level3">
+<h3 class="anchored" data-anchor-id="übung-2-mle-using-optim">Übung 2: MLE Using optim()</h3>
 <section id="diskrepanzfunktion-definieren" class="level4">
 <h4 class="anchored" data-anchor-id="diskrepanzfunktion-definieren">Diskrepanzfunktion definieren</h4>
 <p>Nun haben wir im Prinzip “by Hand” eine MLE Schätzung durchgeführt - zwar nicht iterativ, denn haben wir haben nur zwei mögliche Parameterwerte im Lichte der gegebenen Daten nach der MLE bewertet! R bietet aber auch die Möglichkeit, mit der Funktion <code>optim()</code>, eine SIMPLEX Optimierung nach einer gegebenen Diskrepanzfunktion durchzuführen. Dazu müssen wir der Funktion allerdings eine Funktion übergeben.</p>
 <p>Um nun die <code>optim()</code> zu nutzen im iterativ Parameter nach MLE zu schätzen und durch simplex zu minimieren, müssen wir die gleiche log-likelihood Funktion von Übung 1 in eine Funktion überführen. Das ist ganz einfach, denn wir können uns nun, da wir das Grundprinzip von MLE verstanden haben, das Leben mit der in R verfügbaren <code>dnorm()</code> Funktion erleichtern. Diese berechnet ebenfalls die Wahrscheinlichkeit (genauer die Dichte) für Datenpunkte, gegeben bestimmter Parameter:</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Unsere Gleichung</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>ll_low <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">100</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> low_iq)<span class="sc">^</span><span class="dv">2</span>) </span>
 <span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ll_low)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -415.3721</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># dnorm() aus R</span></span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>ll_dnorm <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(iq,<span class="at">mean=</span>low_iq,<span class="at">sd=</span>sigma,T))</span>
 <span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ll_dnorm)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] -415.3721</code></pre>
 </div>
@@ -572,41 +599,30 @@ genommen werden.</p></li>
 </ul>
 <p>Wir können hierbei auf die Berechnung des Logarhitmus verzichten, da <code>dnorm()</code> schon den die log-Likelihood mit ausgibt. Hierzu muss allerdings das Argument <code>log = TRUE</code> gesetzt werden ! Zur Erinnerung, auf bestimmte Elemente eines Vektors greift ihr folgendermaßen zu (dies ist wichtig zu wissen, da Ihr mit den Inputwerten innerhalb der Funktion arbeiten müsst):</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Vektor Definieren</span></span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstes Element</span></span>
 <span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">1</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Zweites Element</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">2</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 2</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Drittes Element</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">3</span>]</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 3</code></pre>
 </div>
 </div>
 <p>3.) Es muss mit <code>return()</code> das Endprodukt zurückgeben, wie in den beiden einfachen Beispielen vorher !</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="do">### YOUR CODE HERE </span></span>
 <span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(Daten, theta) </span>
@@ -623,7 +639,6 @@ genommen werden.</p></li>
 <span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Test your function with different values for theta</span></span>
 <span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">20</span>)</span>
 <span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a><span class="fu">MLE</span>(iq,theta)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 932.1913</code></pre>
 </div>
@@ -639,37 +654,28 @@ genommen werden.</p></li>
 </ol>
 <p>Optimiert nun die definierte Funktion mit <code>optim()</code> und speichert die Ergebnisse im Objekt <code>fit</code>.</p>
 <div class="cell">
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="at">mu=</span><span class="dv">50</span>,<span class="at">sigma=</span><span class="dv">10</span>), <span class="at">fn =</span>MLE, <span class="at">Daten=</span>iq)</span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>par</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>      mu    sigma 
 99.00413 15.36639 </code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Biased Fit Example </span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>iq_pop <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">15</span>)</span>
 <span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>iq_bias <span class="ot">&lt;-</span> <span class="fu">sample</span>(iq_pop,<span class="dv">25</span>)</span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iq_bias)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 103.8359</code></pre>
 </div>
-<details>
-<summary>Code</summary>
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting Sample</span></span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="at">mu=</span><span class="dv">50</span>,<span class="at">sigma=</span><span class="dv">10</span>), <span class="at">fn =</span>MLE, <span class="at">Daten=</span>iq_bias)</span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>par</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</details>
 <div class="cell-output cell-output-stdout">
 <pre><code>       mu     sigma 
 103.84127  13.60439 </code></pre>
@@ -678,14 +684,12 @@ genommen werden.</p></li>
 </section>
 </section>
 </section>
-<section id="fazit" class="level2" data-number="3">
-<h2 data-number="3" class="anchored" data-anchor-id="fazit"><span class="header-section-number">3</span> Fazit</h2>
+<section id="fazit" class="level2">
+<h2 class="anchored" data-anchor-id="fazit">Fazit</h2>
 <p>In diesem Tutorial haben wir uns mit der Maximum-Likelihood-Schätzung (MLE) in R beschäftigt und die Funktion `optim()` verwendet, um die Schätzung durchzuführen. Zunächst haben wir die Likelihood-Funktion selbst definiert und verschiedene Parameterwerte getestet, um das Konzept der MLE besser zu verstehen.</p>
 <p>Durch die Verwendung von `optim()` konnten wir die MLE iterativ implementieren und die optimalen Parameterwerte finden, die die Likelihood-Funktion maximieren (oder die Deviance minimieren). Wir haben gesehen, dass `optim()` eine effiziente Methode zur numerischen Optimierung ist und verschiedene Algorithmen zur Verfügung stellt.</p>
 <p>Die Maximum-Likelihood-Schätzung ist ein leistungsstarkes Werkzeug, um Parameter in statistischen Modellen zu schätzen. Es ermöglicht uns, die Wahrscheinlichkeit der beobachteten Daten unter verschiedenen Annahmen zu maximieren und die besten Parameterwerte zu ermitteln.</p>
 
-
-<!-- -->
 
 </section>
 
@@ -884,57 +888,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
-  const viewSource = window.document.getElementById('quarto-view-source') ||
-                     window.document.getElementById('quarto-code-tools-source');
-  if (viewSource) {
-    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
-    viewSource.addEventListener("click", function(e) {
-      if (sourceUrl) {
-        // rstudio viewer pane
-        if (/\bcapabilities=\b/.test(window.location)) {
-          window.open(sourceUrl);
-        } else {
-          window.location.href = sourceUrl;
-        }
-      } else {
-        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
-        modal.show();
-      }
-      return false;
-    });
-  }
-  function toggleCodeHandler(show) {
-    return function(e) {
-      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
-      for (let i=0; i<detailsSrc.length; i++) {
-        const details = detailsSrc[i].parentElement;
-        if (show) {
-          details.open = true;
-        } else {
-          details.removeAttribute("open");
-        }
-      }
-      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
-      const fromCls = show ? "hidden" : "unhidden";
-      const toCls = show ? "unhidden" : "hidden";
-      for (let i=0; i<cellCodeDivs.length; i++) {
-        const codeDiv = cellCodeDivs[i];
-        if (codeDiv.classList.contains(fromCls)) {
-          codeDiv.classList.remove(fromCls);
-          codeDiv.classList.add(toCls);
-        } 
-      }
-      return false;
-    }
-  }
-  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
-  if (hideAllCode) {
-    hideAllCode.addEventListener("click", toggleCodeHandler(false));
-  }
-  const showAllCode = window.document.getElementById("quarto-show-all-code");
-  if (showAllCode) {
-    showAllCode.addEventListener("click", toggleCodeHandler(true));
-  }
   function tippyHover(el, contentFn) {
     const config = {
       allowHTML: true,
@@ -1096,256 +1049,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" class="pagination-link">
+        <span class="nav-page-text">Advanced Workshop for dplyr</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
-</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb28" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Hands on Maximum Likelihood Parameter Estimation"</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Jan Göttmann"</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a><span class="co">   code-fold: true</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a><span class="co">   code-tools: true</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
-<span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> de</span></span>
-<span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
-<span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
-<span id="cb28-12"><a href="#cb28-12" aria-hidden="true" tabindex="-1"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
-<span id="cb28-13"><a href="#cb28-13" aria-hidden="true" tabindex="-1"></a><span class="an">theme:</span><span class="co"> simplex </span></span>
-<span id="cb28-14"><a href="#cb28-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb28-15"><a href="#cb28-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-16"><a href="#cb28-16" aria-hidden="true" tabindex="-1"></a><span class="fu">## Einführung</span></span>
-<span id="cb28-17"><a href="#cb28-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-18"><a href="#cb28-18" aria-hidden="true" tabindex="-1"></a>Im letzten Seminar haben wir sehr ausführlich über Maximum Likelihood Estimation (MLE) gesprochen. Heute werden wir einige Übungen dazu in R programmieren, um ein besseres Verständnis für diese Methode zu entwickeln.</span>
-<span id="cb28-19"><a href="#cb28-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-20"><a href="#cb28-20" aria-hidden="true" tabindex="-1"></a>Das Grundprinzip der Maximum-Likelihood-Schätzung besteht darin, die Parameter einer statistischen Verteilung so zu bestimmen, dass die Wahrscheinlichkeit, die beobachteten Daten gegeben bestimmter Parameterwerte, maximiert wird. Gegeben eine Verteilungsfunktion $f(x;\theta)$, wobei $x$ die beobachteten Daten und $\theta$ die unbekannten Parameter sind, wird die Likelihood-Funktion definiert als $$L(\theta|x)=\prod_{i=1}^{n} f(x_i;\theta)$$, wobei $n$ die Anzahl der Datenpunkte ist.</span>
-<span id="cb28-21"><a href="#cb28-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-22"><a href="#cb28-22" aria-hidden="true" tabindex="-1"></a>Das Maximum-Likelihood-Schätzverfahren besteht darin, die Werte von $\theta$ zu finden, die die Likelihood-Funktion maximieren. Dies kann durch Maximierung des Logarithmus der Likelihood-Funktion mathematisch vereinfacht werden, daher wird oftmals die Log-Likelihood Funktion maximiert und anstelle des Produktes, die Summe über alle Funktionswerte gebildet:</span>
-<span id="cb28-23"><a href="#cb28-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-24"><a href="#cb28-24" aria-hidden="true" tabindex="-1"></a>$$\arg\max_{\theta} \sum_{i=1}^{n} \log f(x_i;\theta)$$</span>
-<span id="cb28-25"><a href="#cb28-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-26"><a href="#cb28-26" aria-hidden="true" tabindex="-1"></a><span class="fu">### Beispiel Normalverteilung</span></span>
-<span id="cb28-27"><a href="#cb28-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-28"><a href="#cb28-28" aria-hidden="true" tabindex="-1"></a>Nehmen wir an, wir haben an einer Sttichprobe die Intelligenzẃerte erhoben und möchten nun den Mittelwert des IQs anhand der Daten mit MLE schätzen. Hierzu brauchen wir zunächst eine Dichtefunktion, über die wir die Likelihood berechnen können. Da der IQ in der Population normalverteilt ist können wir hierfür die Normaverteilung heranziehen um eine Likelihoodfunktion zu definieren:</span>
-<span id="cb28-29"><a href="#cb28-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-30"><a href="#cb28-30" aria-hidden="true" tabindex="-1"></a>$$f(x;\mu,\sigma^2) = \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x-\mu)^2}{2\sigma^2}}$$</span>
-<span id="cb28-31"><a href="#cb28-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-32"><a href="#cb28-32" aria-hidden="true" tabindex="-1"></a>also ist die Likelihoodfunktion gegeben als</span>
-<span id="cb28-33"><a href="#cb28-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-34"><a href="#cb28-34" aria-hidden="true" tabindex="-1"></a>$$L(\mu, \sigma^2) = \prod_{i=1}^{n} \frac{1}{\sqrt{2\pi\sigma^2}} e^{-\frac{(x_i-\mu)^2}{2\sigma^2}}</span>
-<span id="cb28-35"><a href="#cb28-35" aria-hidden="true" tabindex="-1"></a>$$ bzw. vereinfacht sich zu folgender Formel, wenn wir den Logarhitmus nehmen:</span>
-<span id="cb28-36"><a href="#cb28-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-37"><a href="#cb28-37" aria-hidden="true" tabindex="-1"></a>$$ \ln<span class="co">[</span><span class="ot">L(\mu,\sigma)</span><span class="co">]</span> =  -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2$$</span>
-<span id="cb28-38"><a href="#cb28-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-39"><a href="#cb28-39" aria-hidden="true" tabindex="-1"></a><span class="fu">## MLE in R</span></span>
-<span id="cb28-40"><a href="#cb28-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-41"><a href="#cb28-41" aria-hidden="true" tabindex="-1"></a><span class="fu">### Übung 1: MLE by Hand in R</span></span>
-<span id="cb28-42"><a href="#cb28-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-43"><a href="#cb28-43" aria-hidden="true" tabindex="-1"></a>Um in R mit der Likelihoodfunktion zu arbeiten, müssen wir zunächst Daten simulieren. Hierzu benutzen wir die Funktion <span class="in">`rnorm()`</span>. Bitte nutzt zunächste die Hilfefunktion, um mit <span class="in">`rnorm()`</span> eine Stichproben von 10000 Werten zu genieren (N = 100), mit dem Mittelwert $100$ und einer Standardabweichung von $15$. Speichert den Output in der Variable "iq" ab. Berechnet für die gezogene Stichprobe separat Mittelwert und Standardabweichung</span>
-<span id="cb28-44"><a href="#cb28-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-47"><a href="#cb28-47" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-48"><a href="#cb28-48" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">666</span>)</span>
-<span id="cb28-49"><a href="#cb28-49" aria-hidden="true" tabindex="-1"></a><span class="co"># Stichprobe von Werten generieren</span></span>
-<span id="cb28-50"><a href="#cb28-50" aria-hidden="true" tabindex="-1"></a>iq <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">100</span>,<span class="dv">100</span>,<span class="dv">15</span>)</span>
-<span id="cb28-51"><a href="#cb28-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-52"><a href="#cb28-52" aria-hidden="true" tabindex="-1"></a><span class="co"># Mittelwert und Standardabweichung berechnen</span></span>
-<span id="cb28-53"><a href="#cb28-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-54"><a href="#cb28-54" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iq)</span>
-<span id="cb28-55"><a href="#cb28-55" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(iq)</span>
-<span id="cb28-56"><a href="#cb28-56" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-57"><a href="#cb28-57" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-58"><a href="#cb28-58" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-59"><a href="#cb28-59" aria-hidden="true" tabindex="-1"></a>Zunächst wollen wir versuchen, die Likelihoodfunktion in R Code zu übertragen. Nehmt hierzu die Gleichung der Log-Likelihoodfunktion, die wir weiter oben definiert haben:</span>
-<span id="cb28-60"><a href="#cb28-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-61"><a href="#cb28-61" aria-hidden="true" tabindex="-1"></a>$$ \ln<span class="co">[</span><span class="ot">L(\mu,\sigma)</span><span class="co">]</span> =  -\frac{n}{2} \log(2\pi\sigma^2) - \frac{1}{2\sigma^2} \sum_{i=1}^{n} (x_i - \mu)^2$$</span>
-<span id="cb28-62"><a href="#cb28-62" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-63"><a href="#cb28-63" aria-hidden="true" tabindex="-1"></a>und drückt sie in R-Code aus. Ihr benötigt dazu folgende mathematischen Funktionen:</span>
-<span id="cb28-64"><a href="#cb28-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-65"><a href="#cb28-65" aria-hidden="true" tabindex="-1"></a>| Funktion     | Code                         |</span>
-<span id="cb28-66"><a href="#cb28-66" aria-hidden="true" tabindex="-1"></a>|--------------|------------------------------|</span>
-<span id="cb28-67"><a href="#cb28-67" aria-hidden="true" tabindex="-1"></a>| Summe Bilden | sum()                        |</span>
-<span id="cb28-68"><a href="#cb28-68" aria-hidden="true" tabindex="-1"></a>| Quadrieren   | x\^2                         |</span>
-<span id="cb28-69"><a href="#cb28-69" aria-hidden="true" tabindex="-1"></a>| Logarhitmus  | log()                        |</span>
-<span id="cb28-70"><a href="#cb28-70" aria-hidden="true" tabindex="-1"></a>| $\pi$        | Pi                           |</span>
-<span id="cb28-71"><a href="#cb28-71" aria-hidden="true" tabindex="-1"></a>| n            | Stichprobengröße (hier: 100) |</span>
-<span id="cb28-72"><a href="#cb28-72" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-73"><a href="#cb28-73" aria-hidden="true" tabindex="-1"></a>Definiert zunächst zwei Variablen für unterschiedliche Parametervorschläge für den Mittelwert von $100$ (=<span class="in">`low_iq`</span>) und $120$ (<span class="in">`high_iq`</span>),die Standardabweichung (=<span class="in">`sigma`</span>) ist für beide Samples gleich ($\sigma$ = 15). Als Daten nutzen wir die generierten IQ Werte <span class="in">`iq_low`</span> und <span class="in">`iq_high`</span>. In der Gleichung sind $x$ die Daten, also die IQ-Werte aus unserem <span class="in">`iq`</span> Vektor, $\sigma$ ist die Standardabweichung und $\mu$ die unterschiedlichen Vorschläge für die Mittelwerte, als entweder <span class="in">`high_iq`</span> oder <span class="in">`low_iq`</span>. Stellt nun die Gleichung für beide Parametervorschläge (high vs. low) in R auf. Speichert die Ergebnisse unter den Variablen <span class="in">`ll_low`</span> und <span class="in">`ll_high`</span> ab.</span>
-<span id="cb28-74"><a href="#cb28-74" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-77"><a href="#cb28-77" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-78"><a href="#cb28-78" aria-hidden="true" tabindex="-1"></a><span class="co"># Define sigma and mu</span></span>
-<span id="cb28-79"><a href="#cb28-79" aria-hidden="true" tabindex="-1"></a>high_iq <span class="ot">&lt;-</span> <span class="dv">120</span></span>
-<span id="cb28-80"><a href="#cb28-80" aria-hidden="true" tabindex="-1"></a>low_iq <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb28-81"><a href="#cb28-81" aria-hidden="true" tabindex="-1"></a>N <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb28-82"><a href="#cb28-82" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-83"><a href="#cb28-83" aria-hidden="true" tabindex="-1"></a>sigma <span class="ot">&lt;-</span> <span class="dv">15</span></span>
-<span id="cb28-84"><a href="#cb28-84" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-85"><a href="#cb28-85" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-86"><a href="#cb28-86" aria-hidden="true" tabindex="-1"></a><span class="co"># Define LL-Equation</span></span>
-<span id="cb28-87"><a href="#cb28-87" aria-hidden="true" tabindex="-1"></a>ll_low <span class="ot">&lt;-</span> <span class="sc">-</span>N<span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> low_iq)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb28-88"><a href="#cb28-88" aria-hidden="true" tabindex="-1"></a>ll_high <span class="ot">&lt;-</span> <span class="sc">-</span>N<span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> high_iq)<span class="sc">^</span><span class="dv">2</span>)</span>
-<span id="cb28-89"><a href="#cb28-89" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-90"><a href="#cb28-90" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-91"><a href="#cb28-91" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-92"><a href="#cb28-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-93"><a href="#cb28-93" aria-hidden="true" tabindex="-1"></a>Ihr habt nun für beide Parametervorschläge, also einmal für einen Mittelwert von 100 und einmal von einem Mittelwert von 120, die log-likelihood für die vorliegenden Daten berechnet. Welcher Mittelwert ist nach dieser Likelihood unter den gegebenen Daten wahrscheinlicher ?</span>
-<span id="cb28-94"><a href="#cb28-94" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-95"><a href="#cb28-95" aria-hidden="true" tabindex="-1"></a><span class="fu">### Exkurs: Funktionen in R</span></span>
-<span id="cb28-96"><a href="#cb28-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-97"><a href="#cb28-97" aria-hidden="true" tabindex="-1"></a>Funktionen sind in der Programmierung wichtige Bausteine, um Code wiederverwendbar zu machen und komplexe Aufgaben zu strukturieren. Eine nimmt in der Regel Eingabewerte (Argumente) entgegen, führt Operationen oder Berechnungen durch und gibt ein Ergebnis zurück. In R können Funktionen mit dem Schlüsselwort <span class="in">`function`</span> definiert werden. Die Syntax besteht aus dem Funktionsnamen, den Eingabe-Parametern in Klammern, den auszuführenden Anweisungen innerhalb des Funktionskörpers und dem Rückgabewert mit <span class="in">`return()`</span>. Funktionen in R können dann mit den angegebenen Argumenten aufgerufen werden, um den gewünschten Code auszuführen. Die Verwendung von Funktionen erleichtert das Schreiben, Lesen und Verstehen von Code, da Aufgaben in kleine, wiederverwendbare Einheiten aufgeteilt werden können.</span>
-<span id="cb28-98"><a href="#cb28-98" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-99"><a href="#cb28-99" aria-hidden="true" tabindex="-1"></a>Hier ein einfaches Beispiel einer Funktion, die die Quadratzahl des Inputarguments ausgibt:</span>
-<span id="cb28-100"><a href="#cb28-100" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-103"><a href="#cb28-103" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-104"><a href="#cb28-104" aria-hidden="true" tabindex="-1"></a><span class="co"># Funktion zur Berechnung der Quadratzahl</span></span>
-<span id="cb28-105"><a href="#cb28-105" aria-hidden="true" tabindex="-1"></a>square <span class="ot">&lt;-</span> <span class="cf">function</span>(x) {</span>
-<span id="cb28-106"><a href="#cb28-106" aria-hidden="true" tabindex="-1"></a>  result <span class="ot">&lt;-</span> x<span class="sc">^</span><span class="dv">2</span></span>
-<span id="cb28-107"><a href="#cb28-107" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(result)</span>
-<span id="cb28-108"><a href="#cb28-108" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-109"><a href="#cb28-109" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-110"><a href="#cb28-110" aria-hidden="true" tabindex="-1"></a><span class="co"># Verwendung der Funktion</span></span>
-<span id="cb28-111"><a href="#cb28-111" aria-hidden="true" tabindex="-1"></a>num <span class="ot">&lt;-</span> <span class="dv">5</span></span>
-<span id="cb28-112"><a href="#cb28-112" aria-hidden="true" tabindex="-1"></a>squared_num <span class="ot">&lt;-</span> <span class="fu">square</span>(num)</span>
-<span id="cb28-113"><a href="#cb28-113" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(squared_num)</span>
-<span id="cb28-114"><a href="#cb28-114" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-115"><a href="#cb28-115" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-116"><a href="#cb28-116" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-117"><a href="#cb28-117" aria-hidden="true" tabindex="-1"></a>Innerhalb einer Funktion in R kann auf die Input-Argumente zugegriffen werden, indem man ihre Namen verwendet. Die Input-Argumente werden in der Funktion als Parameter definiert. Du kannst diese Parameter dann innerhalb der Funktion verwenden, um auf die übergebenen Werte zuzugreifen und damit Berechnungen oder Operationen durchzuführen.</span>
-<span id="cb28-118"><a href="#cb28-118" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-119"><a href="#cb28-119" aria-hidden="true" tabindex="-1"></a>Zum Beispiel, wenn wir eine Funktion <span class="in">`addition()`</span> definieren möchten, die zwei Zahlen addiert, könnten wir die Input-Argumente <span class="in">`a`</span> und <span class="in">`b`</span> verwenden:</span>
-<span id="cb28-120"><a href="#cb28-120" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-123"><a href="#cb28-123" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-124"><a href="#cb28-124" aria-hidden="true" tabindex="-1"></a>addition <span class="ot">&lt;-</span> <span class="cf">function</span>(a, b) {</span>
-<span id="cb28-125"><a href="#cb28-125" aria-hidden="true" tabindex="-1"></a>  sum <span class="ot">&lt;-</span> a <span class="sc">+</span> b</span>
-<span id="cb28-126"><a href="#cb28-126" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(sum)</span>
-<span id="cb28-127"><a href="#cb28-127" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-128"><a href="#cb28-128" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-129"><a href="#cb28-129" aria-hidden="true" tabindex="-1"></a><span class="fu">addition</span>(<span class="dv">2</span>,<span class="dv">2</span>)</span>
-<span id="cb28-130"><a href="#cb28-130" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-131"><a href="#cb28-131" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-132"><a href="#cb28-132" aria-hidden="true" tabindex="-1"></a><span class="fu">### Übung 2: MLE Using optim()</span></span>
-<span id="cb28-133"><a href="#cb28-133" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-134"><a href="#cb28-134" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Diskrepanzfunktion definieren</span></span>
-<span id="cb28-135"><a href="#cb28-135" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-136"><a href="#cb28-136" aria-hidden="true" tabindex="-1"></a>Nun haben wir im Prinzip "by Hand" eine MLE Schätzung durchgeführt - zwar nicht iterativ, denn haben wir haben nur zwei mögliche Parameterwerte im Lichte der gegebenen Daten nach der MLE bewertet! R bietet aber auch die Möglichkeit, mit der Funktion <span class="in">`optim()`</span>, eine SIMPLEX Optimierung nach einer gegebenen Diskrepanzfunktion durchzuführen. Dazu müssen wir der Funktion allerdings eine Funktion übergeben.</span>
-<span id="cb28-137"><a href="#cb28-137" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-138"><a href="#cb28-138" aria-hidden="true" tabindex="-1"></a>Um nun die <span class="in">`optim()`</span> zu nutzen im iterativ Parameter nach MLE zu schätzen und durch simplex zu minimieren, müssen wir die gleiche log-likelihood Funktion von Übung 1 in eine Funktion überführen. Das ist ganz einfach, denn wir können uns nun, da wir das Grundprinzip von MLE verstanden haben, das Leben mit der in R verfügbaren <span class="in">`dnorm()`</span> Funktion erleichtern. Diese berechnet ebenfalls die Wahrscheinlichkeit (genauer die Dichte) für Datenpunkte, gegeben bestimmter Parameter:</span>
-<span id="cb28-139"><a href="#cb28-139" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-142"><a href="#cb28-142" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-143"><a href="#cb28-143" aria-hidden="true" tabindex="-1"></a><span class="co"># Unsere Gleichung</span></span>
-<span id="cb28-144"><a href="#cb28-144" aria-hidden="true" tabindex="-1"></a>ll_low <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">100</span><span class="sc">/</span><span class="dv">2</span> <span class="sc">*</span> <span class="fu">log</span>(<span class="dv">2</span><span class="sc">*</span>pi<span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">-</span> <span class="dv">1</span><span class="sc">/</span>(<span class="dv">2</span><span class="sc">*</span>sigma<span class="sc">^</span><span class="dv">2</span>) <span class="sc">*</span> <span class="fu">sum</span>((iq <span class="sc">-</span> low_iq)<span class="sc">^</span><span class="dv">2</span>) </span>
-<span id="cb28-145"><a href="#cb28-145" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ll_low)</span>
-<span id="cb28-146"><a href="#cb28-146" aria-hidden="true" tabindex="-1"></a><span class="co"># dnorm() aus R</span></span>
-<span id="cb28-147"><a href="#cb28-147" aria-hidden="true" tabindex="-1"></a>ll_dnorm <span class="ot">&lt;-</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(iq,<span class="at">mean=</span>low_iq,<span class="at">sd=</span>sigma,T))</span>
-<span id="cb28-148"><a href="#cb28-148" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(ll_dnorm)</span>
-<span id="cb28-149"><a href="#cb28-149" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-150"><a href="#cb28-150" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-151"><a href="#cb28-151" aria-hidden="true" tabindex="-1"></a>Eure Aufgabe ist es nun, eine Funktion zu definieren, die sie aufsummierte log-likelihood ausgibt, wenn Ihr Parameterwerte eingebt. Dazu nutzt ihr die folgende Funktionen aus R:</span>
-<span id="cb28-152"><a href="#cb28-152" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-153"><a href="#cb28-153" aria-hidden="true" tabindex="-1"></a>| Funktion     | Code                               |</span>
-<span id="cb28-154"><a href="#cb28-154" aria-hidden="true" tabindex="-1"></a>|--------------|------------------------------------|</span>
-<span id="cb28-155"><a href="#cb28-155" aria-hidden="true" tabindex="-1"></a>| Summe Bilden | sum()                              |</span>
-<span id="cb28-156"><a href="#cb28-156" aria-hidden="true" tabindex="-1"></a>| Likelihood   | <span class="in">`dnorm(daten,mean=,sd=, log=TRUE)`</span> |</span>
-<span id="cb28-157"><a href="#cb28-157" aria-hidden="true" tabindex="-1"></a>| Logarhitmus  | log()                              |</span>
-<span id="cb28-158"><a href="#cb28-158" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-159"><a href="#cb28-159" aria-hidden="true" tabindex="-1"></a>Die Funktion soll folgende Input-Argumente besitzen:</span>
-<span id="cb28-160"><a href="#cb28-160" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-161"><a href="#cb28-161" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Einen Vektor <span class="in">`Daten`</span> (unsere IQ Daten sind ein Vektor)</span>
-<span id="cb28-162"><a href="#cb28-162" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-163"><a href="#cb28-163" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Einen Vektor <span class="in">`theta`</span>, der nur zwei Einträge enthält - <span class="in">`theta`</span>&nbsp;ist der Argumentname, um innerhalb der Funktion auf den Input zuzugreifen. Was ihr letztendlich der Funktion als theta übergebt, muss nicht theta heißen !</span>
-<span id="cb28-164"><a href="#cb28-164" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-165"><a href="#cb28-165" aria-hidden="true" tabindex="-1"></a>Weiterhin soll diese Funktion die aufsummierte log-Likelihood ausgeben. Definiert diese Funktion unter dem Namen <span class="in">`MLE`</span>. Die Inputargumente müssen wie im oberen Beispiel einer einfachen Funktion nur mit Namen definiert werden, nicht mit Datentyp. Diesen habe ich nur zum Verständnis mit angegeben.</span>
-<span id="cb28-166"><a href="#cb28-166" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-167"><a href="#cb28-167" aria-hidden="true" tabindex="-1"></a>2.) Müssen folgende Operationen innerhalb der Funktion ausgeführt werden</span>
-<span id="cb28-168"><a href="#cb28-168" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-169"><a href="#cb28-169" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Berechnung der Likelihood unter der verwendung von <span class="in">`dnorm()`</span>. b.) Aufsummierung der berechneten Likelihood mit <span class="in">`sum()`</span></span>
-<span id="cb28-170"><a href="#cb28-170" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-171"><a href="#cb28-171" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>Berechnung der Deviance - hierzu muss die aufsummierte Likelihood mal -2\</span>
-<span id="cb28-172"><a href="#cb28-172" aria-hidden="true" tabindex="-1"></a>    genommen werden.</span>
-<span id="cb28-173"><a href="#cb28-173" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-174"><a href="#cb28-174" aria-hidden="true" tabindex="-1"></a>Wir können hierbei auf die Berechnung des Logarhitmus verzichten, da <span class="in">`dnorm()`</span> schon den die log-Likelihood mit ausgibt. Hierzu muss allerdings das Argument <span class="in">`log = TRUE`</span> gesetzt werden ! Zur Erinnerung, auf bestimmte Elemente eines Vektors greift ihr folgendermaßen zu (dies ist wichtig zu wissen, da Ihr mit den Inputwerten innerhalb der Funktion arbeiten müsst):</span>
-<span id="cb28-175"><a href="#cb28-175" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-178"><a href="#cb28-178" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-179"><a href="#cb28-179" aria-hidden="true" tabindex="-1"></a><span class="co"># Vektor Definieren</span></span>
-<span id="cb28-180"><a href="#cb28-180" aria-hidden="true" tabindex="-1"></a>vektor <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>,<span class="dv">3</span>)</span>
-<span id="cb28-181"><a href="#cb28-181" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-182"><a href="#cb28-182" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstes Element</span></span>
-<span id="cb28-183"><a href="#cb28-183" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-184"><a href="#cb28-184" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">1</span>]</span>
-<span id="cb28-185"><a href="#cb28-185" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-186"><a href="#cb28-186" aria-hidden="true" tabindex="-1"></a><span class="co"># Zweites Element</span></span>
-<span id="cb28-187"><a href="#cb28-187" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-188"><a href="#cb28-188" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">2</span>]</span>
-<span id="cb28-189"><a href="#cb28-189" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-190"><a href="#cb28-190" aria-hidden="true" tabindex="-1"></a><span class="co"># Drittes Element</span></span>
-<span id="cb28-191"><a href="#cb28-191" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-192"><a href="#cb28-192" aria-hidden="true" tabindex="-1"></a>vektor[<span class="dv">3</span>]</span>
-<span id="cb28-193"><a href="#cb28-193" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-194"><a href="#cb28-194" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-195"><a href="#cb28-195" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-196"><a href="#cb28-196" aria-hidden="true" tabindex="-1"></a>3.) Es muss mit <span class="in">`return()`</span> das Endprodukt zurückgeben, wie in den beiden einfachen Beispielen vorher !</span>
-<span id="cb28-197"><a href="#cb28-197" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-200"><a href="#cb28-200" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-201"><a href="#cb28-201" aria-hidden="true" tabindex="-1"></a><span class="do">### YOUR CODE HERE </span></span>
-<span id="cb28-202"><a href="#cb28-202" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-203"><a href="#cb28-203" aria-hidden="true" tabindex="-1"></a>MLE <span class="ot">&lt;-</span> <span class="cf">function</span>(Daten, theta) </span>
-<span id="cb28-204"><a href="#cb28-204" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb28-205"><a href="#cb28-205" aria-hidden="true" tabindex="-1"></a>  mu <span class="ot">&lt;-</span> theta[<span class="dv">1</span>]</span>
-<span id="cb28-206"><a href="#cb28-206" aria-hidden="true" tabindex="-1"></a>  sigma <span class="ot">&lt;-</span> theta[<span class="dv">2</span>]</span>
-<span id="cb28-207"><a href="#cb28-207" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-208"><a href="#cb28-208" aria-hidden="true" tabindex="-1"></a>  LL <span class="ot">&lt;-</span> <span class="sc">-</span><span class="dv">2</span><span class="sc">*</span>(<span class="fu">sum</span>(<span class="fu">dnorm</span>(Daten,<span class="at">mean=</span>mu,<span class="at">sd=</span>sigma,<span class="at">log =</span> T)))</span>
-<span id="cb28-209"><a href="#cb28-209" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-210"><a href="#cb28-210" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(LL)</span>
-<span id="cb28-211"><a href="#cb28-211" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb28-212"><a href="#cb28-212" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb28-213"><a href="#cb28-213" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-214"><a href="#cb28-214" aria-hidden="true" tabindex="-1"></a><span class="co"># Test your function with different values for theta</span></span>
-<span id="cb28-215"><a href="#cb28-215" aria-hidden="true" tabindex="-1"></a>theta <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">80</span>,<span class="dv">20</span>)</span>
-<span id="cb28-216"><a href="#cb28-216" aria-hidden="true" tabindex="-1"></a><span class="fu">MLE</span>(iq,theta)</span>
-<span id="cb28-217"><a href="#cb28-217" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-218"><a href="#cb28-218" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-219"><a href="#cb28-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-220"><a href="#cb28-220" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-221"><a href="#cb28-221" aria-hidden="true" tabindex="-1"></a><span class="fu">#### Optimieren der Parameter mit `optim()`</span></span>
-<span id="cb28-222"><a href="#cb28-222" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-223"><a href="#cb28-223" aria-hidden="true" tabindex="-1"></a>Nun da unsere ML-Diskrepanzfunktion funktioniert, müssen wir diese natürlich minimieren - dazu können wir die Funktion <span class="in">`optim()`</span> nutzen, die in R zur Verfügung steht. Mit <span class="in">`optim()`</span> ist standardmäßig der SIMPLEX -Algorithmus eingestellt. Es können aber auch andere Algorhithmen genutzt werden. Es werden der Funktion drei Hauptargumente übergeben:</span>
-<span id="cb28-224"><a href="#cb28-224" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-225"><a href="#cb28-225" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="in">`par`</span> - ein Vektor mit den Startwerten der Parameterschätzung. Die Startwerte sollten nicht übermäßig von den erwarteten Werten abweichen. Schätzt man also einen Mittelwert von IQ Daten, macht es keinen Sinn, den Startwert für den Mittelwert auf 1 zu setzen, da der "wahre Wert" vermutlich zwischen 75 und 150 liegen wird. Gleiches gilt für die Standardabweichung.</span>
-<span id="cb28-226"><a href="#cb28-226" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-227"><a href="#cb28-227" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`fn=`</span> - die Diskrepanzfunktion die es zu minimieren gilt. Hier die von uns definierte <span class="in">`MLE()`</span> Funktion.</span>
-<span id="cb28-228"><a href="#cb28-228" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-229"><a href="#cb28-229" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span>Die Daten - diese übergebt ihr mit dem Namen, den Ihr in eurer Funktion verwendet habt, also hier <span class="in">`Daten = iq`</span>.</span>
-<span id="cb28-230"><a href="#cb28-230" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-231"><a href="#cb28-231" aria-hidden="true" tabindex="-1"></a>Optimiert nun die definierte Funktion mit <span class="in">`optim()`</span> und speichert die Ergebnisse im Objekt <span class="in">`fit`</span>.</span>
-<span id="cb28-232"><a href="#cb28-232" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-235"><a href="#cb28-235" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
-<span id="cb28-236"><a href="#cb28-236" aria-hidden="true" tabindex="-1"></a><span class="co"># YOUR CODE HERE</span></span>
-<span id="cb28-237"><a href="#cb28-237" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-238"><a href="#cb28-238" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="at">mu=</span><span class="dv">50</span>,<span class="at">sigma=</span><span class="dv">10</span>), <span class="at">fn =</span>MLE, <span class="at">Daten=</span>iq)</span>
-<span id="cb28-239"><a href="#cb28-239" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-240"><a href="#cb28-240" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>par</span>
-<span id="cb28-241"><a href="#cb28-241" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-242"><a href="#cb28-242" aria-hidden="true" tabindex="-1"></a><span class="co"># Biased Fit Example </span></span>
-<span id="cb28-243"><a href="#cb28-243" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-244"><a href="#cb28-244" aria-hidden="true" tabindex="-1"></a>iq_pop <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">1000</span>,<span class="at">mean=</span><span class="dv">100</span>,<span class="at">sd=</span><span class="dv">15</span>)</span>
-<span id="cb28-245"><a href="#cb28-245" aria-hidden="true" tabindex="-1"></a>iq_bias <span class="ot">&lt;-</span> <span class="fu">sample</span>(iq_pop,<span class="dv">25</span>)</span>
-<span id="cb28-246"><a href="#cb28-246" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-247"><a href="#cb28-247" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(iq_bias)</span>
-<span id="cb28-248"><a href="#cb28-248" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-249"><a href="#cb28-249" aria-hidden="true" tabindex="-1"></a><span class="co"># Fitting Sample</span></span>
-<span id="cb28-250"><a href="#cb28-250" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par=</span><span class="fu">c</span>(<span class="at">mu=</span><span class="dv">50</span>,<span class="at">sigma=</span><span class="dv">10</span>), <span class="at">fn =</span>MLE, <span class="at">Daten=</span>iq_bias)</span>
-<span id="cb28-251"><a href="#cb28-251" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-252"><a href="#cb28-252" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>par</span>
-<span id="cb28-253"><a href="#cb28-253" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-254"><a href="#cb28-254" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb28-255"><a href="#cb28-255" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-256"><a href="#cb28-256" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fazit</span></span>
-<span id="cb28-257"><a href="#cb28-257" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-258"><a href="#cb28-258" aria-hidden="true" tabindex="-1"></a>In diesem Tutorial haben wir uns mit der Maximum-Likelihood-Schätzung (MLE) in R beschäftigt und die Funktion <span class="sc">\`</span>optim()<span class="sc">\`</span> verwendet, um die Schätzung durchzuführen. Zunächst haben wir die Likelihood-Funktion selbst definiert und verschiedene Parameterwerte getestet, um das Konzept der MLE besser zu verstehen.</span>
-<span id="cb28-259"><a href="#cb28-259" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-260"><a href="#cb28-260" aria-hidden="true" tabindex="-1"></a>Durch die Verwendung von <span class="sc">\`</span>optim()<span class="sc">\`</span> konnten wir die MLE iterativ implementieren und die optimalen Parameterwerte finden, die die Likelihood-Funktion maximieren (oder die Deviance minimieren). Wir haben gesehen, dass <span class="sc">\`</span>optim()<span class="sc">\`</span> eine effiziente Methode zur numerischen Optimierung ist und verschiedene Algorithmen zur Verfügung stellt.</span>
-<span id="cb28-261"><a href="#cb28-261" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb28-262"><a href="#cb28-262" aria-hidden="true" tabindex="-1"></a>Die Maximum-Likelihood-Schätzung ist ein leistungsstarkes Werkzeug, um Parameter in statistischen Modellen zu schätzen. Es ermöglicht uns, die Wahrscheinlichkeit der beobachteten Daten unter verschiedenen Annahmen zu maximieren und die besten Parameterwerte zu ermitteln.</span>
-</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div></div></div></div></div>
+</nav>
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">

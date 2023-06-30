@@ -1,0 +1,1653 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.3.433">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Jan Göttmann">
+
+<title>Lehre@AMD - Workshop Multinomial Processing Tree Models</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" rel="prev">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "Keine Treffer",
+    "search-matching-documents-text": "Treffer",
+    "search-copy-link-title": "Link in die Suche kopieren",
+    "search-hide-matches-text": "Zusätzliche Treffer verbergen",
+    "search-more-match-text": "weitere Treffer in diesem Dokument",
+    "search-more-matches-text": "weitere Treffer in diesem Dokument",
+    "search-clear-button-title": "Zurücksetzen",
+    "search-detached-cancel-button-title": "Abbrechen",
+    "search-submit-button-title": "Abschicken",
+    "search-label": "Suchen"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item">Termin 8 &amp; 9: Multinomial Processing Tree Models</li><li class="breadcrumb-item"><a href="../../cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.html">MPT Workshop</a></li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-center sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="../../">Lehre@AMD</a> 
+        <div class="sidebar-tools-main tools-wide">
+    <a href="https://github.com/JoseAlanis/amdstatsem" rel="" title="Code auf GitHub" class="quarto-navigation-tool px-1" aria-label="Code auf GitHub"><i class="bi bi-github"></i></a>
+    <a href="https://methoden.amd.psychologie.uni-mainz.de/lehre/" rel="" title="AMD Lehre" class="quarto-navigation-tool px-1" aria-label="AMD Lehre"><i class="bi bi-journal-text"></i></a>
+    <a href="https://methoden.amd.psychologie.uni-mainz.de/abteilungsmitglieder/" rel="" title="Kontakt" class="quarto-navigation-tool px-1" aria-label="Kontakt"><i class="bi bi-person-fill"></i></a>
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Dunkelmodus umschalten"><i class="bi"></i></a>
+</div>
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Suchen"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false">
+ <span class="menu-text">Seminar Multi-Level Modelle</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about/about_MLM_sose23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">1. Allgemeine Informationen</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../mlm_seminar_sose23/hierarchische_daten.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Hierarchische Daten</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../mlm_seminar_sose23/lineare_regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">3. Linerare Regression</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../mlm_seminar_sose23/lineare_regression_parameters.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">4. Parameterschätzung</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true">
+ <span class="menu-text">Seminar kognitive Modellierung</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">Allgemeine Informationen</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../about/about_jan.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kursinhalt und Tutorium</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false">
+ <span class="menu-text">Termin 1: Organisation</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cogmod_sem_sose23/Termin1.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Zusammenfassung</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">Termin 2: Einführung I</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Zusammenfassung</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">Termin 3: Einführung II</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Zusammenfassung</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">Termin 4: Parameterschätzung I</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Zusammenfassung</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">Termin 5: Parameterschätzung II: Maximum Likelihood</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+ <span class="menu-text">Zusammenfassung</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="https://slides.com/gman_science/lecture-4-parameter-estimation-ii?token=myvvodNZ" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Slides</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">Termin 6: Hands on MLE in R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cogmod_sem_sose23/ML_Workshop.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ML Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">Termin 7: Advanced R</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced Workshop for dplyr</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+ <span class="menu-text">Termin 8 &amp; 9: Multinomial Processing Tree Models</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Abschnitt umschalten">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 show">  
+          <li class="sidebar-item">
+ <span class="menu-text">Slides</span>
+  </li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../../cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">MPT Workshop</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Auf dieser Seite</h2>
+   
+  <ul>
+  <li><a href="#workshop-mpt-modelle" id="toc-workshop-mpt-modelle" class="nav-link active" data-scroll-target="#workshop-mpt-modelle"><span class="header-section-number">1</span> Workshop MPT-Modelle</a>
+  <ul class="collapse">
+  <li><a href="#einführung" id="toc-einführung" class="nav-link" data-scroll-target="#einführung"><span class="header-section-number">1.1</span> Einführung</a></li>
+  <li><a href="#der-shooter---bias" id="toc-der-shooter---bias" class="nav-link" data-scroll-target="#der-shooter---bias"><span class="header-section-number">1.2</span> Der Shooter - Bias</a></li>
+  <li><a href="#model-definition" id="toc-model-definition" class="nav-link" data-scroll-target="#model-definition"><span class="header-section-number">1.3</span> Model Definition</a></li>
+  <li><a href="#data-dredging" id="toc-data-dredging" class="nav-link" data-scroll-target="#data-dredging"><span class="header-section-number">1.4</span> Data Dredging</a></li>
+  <li><a href="#fit-the-model" id="toc-fit-the-model" class="nav-link" data-scroll-target="#fit-the-model"><span class="header-section-number">1.5</span> Fit the Model</a></li>
+  <li><a href="#analyse" id="toc-analyse" class="nav-link" data-scroll-target="#analyse"><span class="header-section-number">1.6</span> Analyse</a></li>
+  <li><a href="#modelfit-und-identifizierbarkeit" id="toc-modelfit-und-identifizierbarkeit" class="nav-link" data-scroll-target="#modelfit-und-identifizierbarkeit"><span class="header-section-number">1.7</span> Modelfit und Identifizierbarkeit</a></li>
+  <li><a href="#grafische-darstellung-des-modelfits" id="toc-grafische-darstellung-des-modelfits" class="nav-link" data-scroll-target="#grafische-darstellung-des-modelfits"><span class="header-section-number">1.8</span> Grafische Darstellung des Modelfits</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<div class="quarto-title-block"><div><h1 class="title">Workshop Multinomial Processing Tree Models</h1><button type="button" class="btn code-tools-button dropdown-toggle" id="quarto-code-tools-menu" data-bs-toggle="dropdown" aria-expanded="false"><i class="bi"></i> Code</button><ul class="dropdown-menu dropdown-menu-end" aria-labelelledby="quarto-code-tools-menu"><li><a id="quarto-show-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code zeigen</a></li><li><a id="quarto-hide-all-code" class="dropdown-item" href="javascript:void(0)" role="button">Gesamten Code verbergen</a></li><li><hr class="dropdown-divider"></li><li><a id="quarto-view-source" class="dropdown-item" href="javascript:void(0)" role="button">Quellcode anzeigen</a></li></ul></div></div>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Autor:in</div>
+    <div class="quarto-title-meta-contents">
+             <p>Jan Göttmann </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+</header>
+
+<section id="workshop-mpt-modelle" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> Workshop MPT-Modelle</h1>
+<p>Auf der nachfolgenden Seite findet ihr den kompletten Workshop zur MPT Modellierung. Zudem das Tutorial als Video in dem alles Schritt für Schritt durchgegangen wird! Da das Video aus dem letzten Semester ist, es kann kleinere Abweichungen geben !</p>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/mfmueqgQN4s" title="MPT Modellierung in R" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
+<section id="einführung" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="einführung"><span class="header-section-number">1.1</span> Einführung</h2>
+<p>Heute Beschäftigen wir uns mit der Anwendung von MPT Modellen in R. Hierzu nutzen wir einen Datensatz von Frenken et al.&nbsp;(2022), der sich mit der Verarbeitung von Stereotypen befasst. Zunächst müssen wir aber die entsprechenden Packages installieren. Wir nutzen das Package (<code>MPTinR</code>), das viele Funktionalitäten für das MPT Modelling mit sich bringt ! Zusätzlich installieren wir noch <code>ggpubr</code> und <code>effectsize</code> um später einige nette Features beim Plotten und Analysieren der Ergebnisse zu haben:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install MPT Package</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("MPTinR")</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggpubr")</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("effectsize")</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p>Nun laden wir die Pakete die wir für den weiteren Verlauf brauchen werden sowie unseren Datensatz ein:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MPTinR)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Study_2_dm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/Study_2_dm.csv"</span>, </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">...1 =</span> <span class="fu">col_skip</span>(), </span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">stimulus =</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"gun"</span>,<span class="st">"phone"</span>)), </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">response =</span> <span class="fu">col_integer</span>(), </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">condition =</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"white"</span>))))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="der-shooter---bias" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="der-shooter---bias"><span class="header-section-number">1.2</span> Der Shooter - Bias</h2>
+<p>Wie schon in der letzten Sitzung vorgestellt handelt es sich beim beim First Person Shooter Task (FPST) um ein Paradigma, mit dem Stereotype und deren Auswirkungen auf Entscheidungen untersucht werden können. Hierbei werden üblicherweise verschiedene Ethnien (z.B. schwarze oder weiße Personen), entweder mit einer Waffe (threat) oder einem ungefährlichem Objekt (z.B. Telefon, harmless) gezeigt. Die Versuchspersonen werden instruiert unabhängig von der Hautdfarbe so schnell und korrekt wie möglich auf bewaffnete Ziele zu schiessen. Im Gegensatz dazu soll nicht auf unbewaffnete Ziele geschossen werden.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/image-1891641700.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Verschiedene Paradigmen des FPST</figcaption>
+</figure>
+</div>
+</section>
+<section id="model-definition" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="model-definition"><span class="header-section-number">1.3</span> Model Definition</h2>
+<p>Wir werden heute versuchen, die Daten von <em>Frenken et al</em>. mit dem <strong><em>Process Dissociation Model</em></strong> zu fitten. Dieses müssen wir aber zunächst in R definieren. Die Modellgleichungen leiten sich aus folgendem zugrundeliegendem Wahrscheinlichkeitsbaum ab:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="PD_Payne2001.png" class="img-fluid figure-img"></p>
+<figcaption class="figure-caption">Process Dissociation Model (Payne,2001)</figcaption>
+</figure>
+</div>
+<p>Das Modell hat nur zwei freie Parameter, zum einen <em>c</em> , der die Wahrscheinlichkeit angibt das kontrollierte Verarbeitungsprozesse aktiviert werden und zum anderen <em>a</em> der die Wahrscheinlichkeit angibt, dass diese Kontrolle fehlschlägt und eine stereotype Verarbeitung aktiviert wird.<br>
+<br>
+Zur Erinnerung: das experimentelle Paradigma in Payne et al.&nbsp;ist ein <em>Sequential Priming Task</em>, bei dem die Versuchspersonen ein schwarzes oder weißes Gesicht gesehen haben und dann entscheiden sollten, ob es sich bei dem anschließend gezeigten Objekt um einen Waffe oder ein Werkzeug handelt:<br>
+<br>
+<img src="Payne2001_paradigm.png" class="img-fluid" alt="Sequential Priming Task Payne (2001)"></p>
+<p>In unserem Fall ist das Paradigma also ähnlich, die Versuchspersonen sehen entweder einen Schwarzen oder einen Weißen (unbewaffnet vs.&nbsp;bewaffnet) und sollen dann entscheiden, ob geschossen werden soll oder nicht. Das heisst, wir können das Modell im Prinzip ekaxt so wie es ist, auf die Daten von <em>Frenken et al.</em> übertragen.<br>
+<br>
+Nun müssen wir das Modell allerdings definieren. Hierzu müssen die Gleichungen für jeden Wahrscheinlichkeitsbaum aufgestellt werden. Jeder Baum repräsentiert eine Zielkategorie:<br>
+</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>Hautfarbe</th>
+<th>Objekt</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Schwarz</td>
+<td>Waffe</td>
+</tr>
+<tr class="even">
+<td>Weiß</td>
+<td>Waffe</td>
+</tr>
+<tr class="odd">
+<td>Schwarz</td>
+<td>Telefon</td>
+</tr>
+<tr class="even">
+<td>Weiß</td>
+<td>Telefon</td>
+</tr>
+</tbody>
+</table>
+<p>Es müssen nun für jede dieser Outcome Kategorien Gleichungen für die unterschiedlichen Pfade definiert werden, welche zu den jeweiligen “Hits” und “Misses” führen (“+” bzw. “-”auf der Abbildung). Zusätzlichmüssen insgesamt 4 Parameter definiert werden. A und C jeweils für schwarze und weiße Hautfarbe, um Unterschiede in den Parametern, die auf die Hautfarbe zurückgehen, identifizieren zu können:<br>
+<br>
+<img src="PD_Payne2001.png" class="img-fluid"></p>
+<p>Für <code>MPTinR</code> können die Gleichungen in einem einfachen “String” definiert werden. Hier ist die erste Gleichung für die Kategorie “White/ Phone” bereits eingetragen. In der Kategorie “White/Phone” führt der Pfad <span class="math display">\[c\]</span> und der Pfad <span class="math display">\[(1-c) \cdot a\]</span> zu einem “Hit”.</p>
+<p>Im Gegensatz dazu führt <span class="math display">\[(1-c) \cdot (1-a)\]</span> zu einem Miss. Tragt immer zunüchst die Gleichung für einen Hit und dann die Gleichungen für einen Miss ein. Da zwischen Pfaden die Wahrscheinlichkeiten addiert werden können, ist also die Gesamtgleichung eines “Hits” für die Kategorie “White/Phone”:</p>
+<p><span class="math display">\[c + (1-c) \cdot a\]</span> und für einen Miss</p>
+<p><span class="math display">\[ (1-c) \cdot (1-a)\]</span></p>
+<p>da es nur einen Pfad zu einem “Miss” gibt ! Vervollständigt nun die Gleichungen für die restlichen Kategorien. Denkt daran das Ihr die Parameter für die schwarze und weiße Hautfarbe unterschiedlich benennt!<br>
+</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters for Black and White Skin Color! </span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># c_w = c white, a_w = a white c_b = black, a_b = a black</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="st"># WT</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="st">c_w+(1-c_w)*a_w</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_w)*(1-a_w)</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="st"># WG</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="st">c_w + (1-c_w)*(1-a_w)</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_w) * a_w</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="st"># BT</span></span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="st">c_b + (1-c_b)*(1-a_b)</span></span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_b) * a_b</span></span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a><span class="st"># BG</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a><span class="st">c_b+(1-c_b)*a_b</span></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_b)*(1-a_b)</span></span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<p><br>
+Wenn ihr die Gleichungen alle definiert habt, könnt ihr das Modell mit <code>MPTinR</code> auf Korrektheit überprüfen lassen:<br>
+</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">check.mpt</span>(<span class="fu">textConnection</span>(pd))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>$probabilities.eq.1
+[1] TRUE
+
+$n.trees
+[1] 4
+
+$n.model.categories
+[1] 8
+
+$n.independent.categories
+[1] 4
+
+$n.params
+[1] 4
+
+$parameters
+[1] "a_b" "a_w" "c_b" "c_w"</code></pre>
+</div>
+</div>
+<p>Wir sehen hier einen Test ob alle Wahrscheinlichkeiten sich zu 1 addieren, die Anzahl der Bäume, der gesamten und unabhängigen Kategorien, sowie der Parameter. In den Daten müssen immer exakt so viele Kategorien vorhanden sein, wie im Modell definiert ! Zusätzlich darf die Anzahl Parameter nicht größer sein, als die Anzahl der unabhängigen Kategorien - ansonsten ist das Modell nicht identifizierbar - das beudeut das mehr unbekannte als bekannte Größen vorhanden sind - die Gleichungen sind nicht lösbar.</p>
+</section>
+<section id="data-dredging" class="level2" data-number="1.4">
+<h2 data-number="1.4" class="anchored" data-anchor-id="data-dredging"><span class="header-section-number">1.4</span> Data Dredging</h2>
+<p>Um die Daten von Frenken et al.&nbsp;zu Modellieren, müssen die Daten zunächst in ein anderes Format gebracht und umkodiert werden - in “Hit” und “Miss” für jede Kategorie. Dies kann wie folgt mit <code>mutate()</code>,<code>case_when()</code> und <code>pivot_wider()</code> getan werden:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Edge Correction function</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>edge_correct <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">=</span> <span class="fu">ifelse</span>(x<span class="sc">==</span><span class="dv">0</span>, x<span class="sc">+</span><span class="dv">1</span>,x)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode Data from Frenken et al.</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Umkodieren der Daten hin zu Accuracy </span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co"># In den Daten sind die Antworten nicht nach Accuracy, sondern nach response codiert (response coding). Daher müssen wir die Daten vorher umkodieren, damit die Accuracy codiert wird. Dies können wir mit case_when tun. Kodiert nun den Datensatz wie folgt neu in dem ihr einen neue Spalte "ACC" erzeugt, die in Abhängigkeit von "stimulus" erzeugt wird:</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Wenn Stimulus = gun ist, dann ist response 0 korrekt - also 1 </span></span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Wenn Stimulus = gun ist, dann ist response 1 inkorrekt - also 0</span></span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Bei Phone stimmt die zuordnung zufällig, da 1 bedeutet nicht zu schiessen. Ist aber nicht immer der Fall ! Trotzdem müssen wir die Zuordnung eintragen, damit für alle elemente in der Spalte ACC ein Wert steht!</span></span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> Study_2_dm <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ACC=</span> <span class="fu">case_when</span>(stimulus <span class="sc">==</span> <span class="st">"gun"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"gun"</span> <span class="sc">&amp;</span> response <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"phone"</span> <span class="sc">&amp;</span> response <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"phone"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Berechnung der hits und misses und Auszählen der Trials jeder VP den jeweiligen Bedingungen </span></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(subj_idx,stim) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">hits =</span> <span class="fu">sum</span>(ACC), <span class="at">ntrials=</span><span class="fu">n</span>(), <span class="at">miss=</span>ntrials<span class="sc">-</span>hits)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'subj_idx'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformieren zum Wide Format für MPTinR</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(.,<span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"stim"</span>),<span class="at">values_from =</span> <span class="fu">c</span>(<span class="st">"hits"</span>,<span class="st">"miss"</span>),<span class="at">values_fill =</span> F,<span class="at">id_cols=</span><span class="st">"subj_idx"</span>) </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Anpassung der Reihenfolge der Daten analog zu den Modellgleichungen.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(subj_idx,hits_wp,miss_wp,hits_wg,miss_wg,hits_bp,miss_bp,hits_bg,miss_bg) </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Anwenden einer Edge-Correction, um die Nullbeobactungen in der "miss" Kategorie zu eleminieren</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"miss"</span>), <span class="sc">~</span> <span class="fu">edge_correct</span>(.)))</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(freq_dat)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 9
+# Groups:   subj_idx [6]
+  subj_idx hits_wp miss_wp hits_wg miss_wg hits_bp miss_bp hits_bg miss_bg
+     &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;   &lt;dbl&gt;
+1        0      28       5      23       4      28       1      30       1
+2        1      11       1      27       2      16       2      28       2
+3        3      23       1      33       1      10       1      25       1
+4        4      33       1      27       1      24       1      35       1
+5        5      23       4      25       4      28       2      31       1
+6        6      31       1      18       5      26       1      34       1</code></pre>
+</div>
+</div>
+<p><br>
+</p>
+</section>
+<section id="fit-the-model" class="level2" data-number="1.5">
+<h2 data-number="1.5" class="anchored" data-anchor-id="fit-the-model"><span class="header-section-number">1.5</span> Fit the Model</h2>
+<p>Zum fitten des Modells müssen die Daten für <code>MPTinR</code> in der gleichen Reihenfolge angeordnet sein, wie auch die Gleichungen definiert sind! <strong><em>Dies solltet ihr immer überprüfen, bevor ein Modell gefittet wird.</em></strong></p>
+<p>Nun kann das Modell mit dem Befehl <code>fit.mpt</code> geschätzt werden. Dabei müssen wir die genauen Spalten unseres Dataframes <code>freq_dat</code> angeben, da eine Spalte <code>subj_idx</code> im Dataframe enthalten ist, die keine Häufigkeiten enthält. Die <code>fit.mpt</code> Funktion nimmt allerdings nur Daten an, die die gleiche Anzahl an Spalten aufweisen, wie im Modell definierten gesamten Kategorien vorhanden sind. Andernfalls wird eine Fehlermeldung ausgegeben. Da im Dataframe insgesamt 9 Spalten vorhanden sind, muss also die erste Spalte ausgelassen werden. Dies kann einfach mit der Auswahl der Spalten mit dem Zugriff <code>[Zeilen,Spalten]</code> geschehen. Als <code>model.filename</code> wird der String übergeben in dem die Gleichungen definiert wurden. Dazu wird erneut <code>textConnection()</code> verwendet. Das Argument <code>n.optim</code> definiert die Anzahl der Optimierungsdurchläufe, wird dieses Argument nicht abgegeben, werden standardmäßig 5 Optimierungsdurchläufe durchgeführt.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit Process Disassociaton Model </span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">fit.mpt</span>(freq_dat[,<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>],<span class="at">model.filename =</span> <span class="fu">textConnection</span>(pd),<span class="at">n.optim =</span> <span class="dv">10</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Presenting the best result out of 10 minimization runs.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Model fitting begins at 2023-06-30 14:10:53.815274"
+[1] "Model fitting stopped at 2023-06-30 14:11:00.164152"
+Time difference of 6.348878 secs</code></pre>
+</div>
+</div>
+<p>Nun können verschiedene Informationen mit Hilfe des <code>$</code> Operator aus dem <code>fit</code> Objekt ausgegeben werden, hierzu benutzen wir den <code>$</code> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):<br>
+</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Speichern der Parameter in einen neuen Dataframe</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>theta_mean <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>mean[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>theta_aggregated <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>aggregated</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_aggregated)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>    estimates lower.conf upper.conf
+a_b 0.5624551  0.5191306  0.6057796
+a_w 0.5048275  0.4670972  0.5425577
+c_b 0.8738353  0.8626938  0.8849767
+c_w 0.8388067  0.8266458  0.8509677</code></pre>
+</div>
+</div>
+<p>Wir sehen das es wohl einen signifikanten Unterschied zwischen der Hautfarbe bei dem Control Parameter <strong><em>c</em></strong> auf aggregierter Ebene geben könnte. Auf dem Parameter <strong><em>a</em></strong>, welcher automatisierte, von Stereotypen getriebenen Prozesse abbildet, zeigt sich hingegen eine Überlappung der Konfidenzintervalle. Um zu prüfen ob es einen signifikanten Unterschied auf individuellem Level gibt, müssen wir die individuellen Parameter der einzelnen Versuchspersonen heranziehen. Zünachst müssen diese aus dem <code>fit</code> Objekt in einen Dataframe überführt werden:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen einer Matrix für die Parameter</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>theta_subj <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span><span class="fu">nrow</span>(freq_dat),<span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(theta_subj) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a_b"</span>,<span class="st">"a_w"</span>,<span class="st">"c_b"</span>,<span class="st">"c_w"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Loopen über alle individuellen Parameter, nur die Punktschätzer werden gespeichert</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(freq_dat)){</span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  theta_subj[i,] <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>individual[,<span class="dv">1</span>,i]</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Nun lassen wir uns die ersten 10 Zeilen ausgeben, um uns das Ergebnis anzusehen</span></span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(theta_subj,<span class="dv">10</span>)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>            a_b       a_w       c_b       c_w
+ [1,] 0.5166667 0.4943820 0.9332592 0.7003367
+ [2,] 0.6250000 0.4528302 0.8222222 0.8477011
+ [3,] 0.7027027 0.4137931 0.8706294 0.9289216
+ [4,] 0.5901639 0.5483871 0.9322222 0.9348739
+ [5,] 0.6808511 0.4821429 0.9020833 0.7139208
+ [6,] 0.5645161 0.8743169 0.9343915 0.7513587
+ [7,] 0.3827160 0.6271186 0.8954839 0.9275184
+ [8,] 0.5974026 0.8108108 0.8920056 0.6476190
+ [9,] 0.3846154 0.6571429 0.8916667 0.8731884
+[10,] 0.1724138 0.2571429 0.8388889 0.8504274</code></pre>
+</div>
+</div>
+</section>
+<section id="analyse" class="level2" data-number="1.6">
+<h2 data-number="1.6" class="anchored" data-anchor-id="analyse"><span class="header-section-number">1.6</span> Analyse</h2>
+<p>Jetzt können wir mit Hilfe eines paired t-tests und der <code>t.test()</code> Funktion (wir vergleichen die Parameter innerhalb von Personen zwischen den experimentellen Bedinungen) analysieren, ob es einen signifikanten Unterschied auf individueller ebene gibt. Die <code>t-test()</code> Funktion nimmt als Argument jeweils die zwei Spalten, die verglichen werden sollen. Wir müssen also für die beiden Parameter <span class="math inline">\(a\)</span> und <span class="math inline">\(c\)</span> jeweils einen t-test rechnen, der beide Gruppen vergleicht. Wir setzen zusätzlich das Argument <code>paired=TRUE</code>, da es sich um einen paired t-test handelt und das Argument <code>var.equal=T</code>, da wir annehmen das die Varianz in beiden Gruppen gleich ist:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test für beide Parameter </span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>theta_a_comp <span class="ot">&lt;-</span><span class="fu">t.test</span>(theta_subj[,<span class="st">"a_b"</span>],theta_subj[,<span class="st">"a_w"</span>],</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> T,</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> T)</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>theta_c_comp <span class="ot">&lt;-</span><span class="fu">t.test</span>(theta_subj[,<span class="st">"c_b"</span>],theta_subj[,<span class="st">"c_w"</span>],</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> T,</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> T)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Ergebnis ausgeben</span></span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_a_comp)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  theta_subj[, "a_b"] and theta_subj[, "a_w"]
+t = 3.1394, df = 136, p-value = 0.002077
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.0233750 0.1029489
+sample estimates:
+mean difference 
+     0.06316194 </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_c_comp)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  theta_subj[, "c_b"] and theta_subj[, "c_w"]
+t = 2.2045, df = 136, p-value = 0.02917
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ 0.002388014 0.044009140
+sample estimates:
+mean difference 
+     0.02319858 </code></pre>
+</div>
+</div>
+<p>Wir sehen auf beiden Parametern einen signifikanten Unterschied ! Nun können wir mit dem Package <code>effectsize</code> <code>Cohen's d</code> berechnen, um die Größe des Effekts zu interpretieren. Dazu nutzen wir den Befehl <code>cohens_d()</code> und übergeben dem Befehl als Argument lediglich das Objekt <code>theta_a_comp</code> und <code>theta_c_comp</code>, in dem wir die Test gespeichert haben, sowie die Information das es sich um einen gepaarten t-test handelt:<br>
+<br>
+</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># verbose = F bedeutet nur, dass wir uns keine Warnungen etc. ausgeben lassen. </span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(theta_a_comp,<span class="at">paired =</span> T,<span class="at">verbose =</span> F)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>d    |       95% CI
+-------------------
+0.27 | [0.10, 0.44]</code></pre>
+</div>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(theta_c_comp,<span class="at">paired =</span> T,<span class="at">verbose =</span> F)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>d    |       95% CI
+-------------------
+0.19 | [0.02, 0.36]</code></pre>
+</div>
+</div>
+<p>Wir sehen hier, das der Effekt auf den Parameter <span class="math inline">\(a\)</span>, welcher die automatisierte, stereotypische Verarbeitung abbildet, zwischen den Gruppen substanziell ist und einem kleinen bis mittleren Effekt entspricht. Für den <span class="math inline">\(c\)</span> Parameter, welcher die kontrollierte Verarbeitung abbildet, ist dieser Effekt kleiner und entspricht einem kleinen Effekt nach Cohen.</p>
+<p>Dies entspricht unseren Überlegungen und auch den Ergebnissen des Diffusionsmodells, dass es bei stereotyp-beladenen Entscheidungen in diesem Fall zum einen eine höhere kontrollierte Verarbeitung gibt (Personen wissen, dass es Stereotype gibt und versuchen sie zu vermeiden) und zum anderen, dass es jedoch häufiger passiert, das diese Prozesse scheitern und die automatisierte stereotype Verarbeitung einsetzt.<br>
+</p>
+</section>
+<section id="modelfit-und-identifizierbarkeit" class="level2" data-number="1.7">
+<h2 data-number="1.7" class="anchored" data-anchor-id="modelfit-und-identifizierbarkeit"><span class="header-section-number">1.7</span> Modelfit und Identifizierbarkeit</h2>
+<p><code>MPTinR</code> gibt uns auch eine Reihe von Indikatoren zur Bestimmung des Modelfits aus. Auf diese kann wie folgt zugegriffen werden</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> fit<span class="sc">$</span>goodness.of.fit<span class="sc">$</span>aggregated</span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Log.Likelihood G.Squared df p.value
+1      -3895.856         0  0       1</code></pre>
+</div>
+</div>
+<p>Die für den Modelfit wichtige Statistik ist die G²-Statistik. G² wird in der Schätzung der MPT Modelle als Diskrepanzfunktion minimiert und bildet das Äquivalent zur Maximierung der Likelihood-Funktion bei kontinuierlichen Daten:</p>
+<p><span class="math display">\[G^2(\theta)=-2 \sum_{i=1}^J n_j \ln \left(\frac{n_j}{N \cdot p_j(\theta)}\right)\]</span></p>
+<p>Es wird hier die Abweichung zwischen beobachteten (<span class="math inline">\(n_j\)</span>) und reproduzierten Häufigkeiten gegeben der geschätzten Parameter (<span class="math inline">\(N \cdot p_j(\theta)\)</span>) berechnet. G² kann zur Berechnung des Modelfits herangezogen werden, als auch zum Modellvergleich. Es kann die Nullhypothese geprüft werden, ob die beobachteten Daten gegeben der geschätzten Wahrscheinlichkeiten plausibel sind, da G² <span class="math inline">\(\chi^2\)</span> verteilt mit den Freiheitsgraden</p>
+<p><span class="math display">\[d f=\sum_{k=1}^K\left(J_k-1\right)-S \]</span> ist. Hierbei ist <span class="math inline">\(K\)</span> die Anzahl der unterschiedlichen Kategorien (hier 4, Hautfarbe x Objekt) und <span class="math inline">\(J_k\)</span> die Möglichen Outcomes für die jeweilige Kategorie <span class="math inline">\(k\)</span> (hier jeweils 2, Hits und Misses). <span class="math inline">\(S\)</span> bezeichnet die Anzahl der Parameter die wir frei schätzen (hier 4). Laut Formel ergeben sich also folgende Freiheitsgrade</p>
+<p><span class="math display">\[\sum_{k=1}^4\left(2-1\right)-4 = 0 \]</span> Dies bedeutet, das unsere Modell perfekt identifiziert ist ! Ein Modell muss immer die Bedingung erfüllen, dass es mindestens soviele Freiheitsgerade wie Parameter besitzt:</p>
+<p><span class="math display">\[S \leq \sum_{k=1}^K\left(J_k-1\right)\]</span> Ansonsten ist nicht identifiziert und kann nicht geschätzt werden. In unserem Fall ist das Modell also perfekt identifiziert, daher wird genaugenommen nichts geschätzt, sondern die Wahrscheinlichkeiten berechnet. Ist ein Modell nicht identifiziert, können Parameter fixiert oder gleichgesetzt werden, um die Anzahl der Freiheitsgerade zu erhöhen.</p>
+<p>In unserem Fall ergibt sich also eine nicht-signifikante Teststatistik für G², mit einem p-Wert von 1 und einem G² von faktisch 0. Daher können wir die Nullhypothese, dass die Daten unter den geschätzten Wahrscheinlichkeiten plausibel sind, nicht ablehnen.</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>model_fit</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Log.Likelihood G.Squared df p.value
+1      -3895.856         0  0       1</code></pre>
+</div>
+</div>
+<p>Dies bedeutet das Modell fittet perfekt, was an der eindeutigen Identifizierung des Modells liegt, da</p>
+<p><span class="math display">\[df = S\]</span> gilt.</p>
+</section>
+<section id="grafische-darstellung-des-modelfits" class="level2" data-number="1.8">
+<h2 data-number="1.8" class="anchored" data-anchor-id="grafische-darstellung-des-modelfits"><span class="header-section-number">1.8</span> Grafische Darstellung des Modelfits</h2>
+<p>Der Modelfit kann auch grafisch dargestellt werden. Entweder mit der Funktion <code>prediction.plot()</code>, dieser stellt die Abweichung zwsichen beobachten und geschätzten Häufigkeiten dar. Ich habe hier ein limit von -1 eins bis 1 gesetzt, dar die Abweichengen in den Bäumen 3 und 4 so gering sind, das sie auf der 14 Potenz dargestellt wurden. Eine Abweichung von 0 bedeutet, es liegt ein perfekter Fit für diese Kategorien vor, in unserem Fall jeweils die Outcomes Hits (1) und Misses (2).</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>MPTinR<span class="sc">::</span><span class="fu">prediction.plot</span>(fit,<span class="at">model.filename =</span> <span class="fu">textConnection</span>(pd),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>))</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="MPT-Workshop_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Eine weitere Möglichkeit den Modelfit grafisch darzustellen ist, die beobachteten und die durch das Model reproduzierten Daten in einem Scatterplot gegeneinander zu plotten und die Korrelation zu berechnen. Dies haben wir bereits in der Übung zu <code>ggplot</code> getan. <code>MPTinR</code> gibt uns praktischerweise direkt die beobachteten und reproduzierten Daten im fit-Objekt mit aus, sodass wir diese direkt in <code>ggplot</code> angeben können. Diese können folgendermaßen abgerufen werden:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>observed<span class="ot">&lt;-</span> fit<span class="sc">$</span>data<span class="sc">$</span>observed<span class="sc">$</span>individual </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>predicted <span class="ot">&lt;-</span>fit<span class="sc">$</span>data<span class="sc">$</span>predicted<span class="sc">$</span>individual </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping=</span> <span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted)) <span class="sc">+</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="dv">1</span>,<span class="at">height =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span>  </span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>,<span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>,<span class="at">cor.coef.name =</span> <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Observed Data"</span>, <span class="at">x=</span><span class="st">"Predicted Data"</span>,<span class="at">title =</span> <span class="st">"Fit of Process Disassociation Model"</span>) <span class="sc">+</span> </span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="MPT-Workshop_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p>Schritt für Schritt:</p>
+<ol type="1">
+<li><p><code>ggplot(mapping = aes(x=observed, y=predicted))</code> Hier geben wir an, was auf der x und auf der y Achse geplottet werden soll</p></li>
+<li><p><code>geom_jitter(width = 2,height = 2, color="red", alpha=0.2)</code> In diesem Fall nehme ich statt geom_point(), geom_jitter() da ansonsten die Punkte alle auf einer Linie liegen würden!</p></li>
+<li><p><code>geom_abline(slope = 1,intercept = 0)</code> Hier füge ich eine Linie ein, die den Ursprung 0 und die Steigung 1 hat - das entspricht dem theoretische perfekten Fit</p></li>
+<li><p><code>stat_cor(method = "pearson", label.x = 3, label.y = 30,cor.coef.name = "r")</code> Dies ist aus dem Paket ggpubR das wir bereits in der ggplot Übung angesprochen hatten. <code>stat_cor</code> fügt die Korrelation zwischen den geplotteten Variablen ein. Dabei sind die <code>label.</code> Befehle die<br>
+Koordinaten, wo genau die Korrelation stehen muss.</p></li>
+<li><p><code>labs(y="Observed Data", x="Predicted Data",title = "Fit of Process Disassociation Model")</code> Einfügen der Achsenbeschriftung und des Titels</p></li>
+<li><p><code>theme_bw()</code> schöner Theme für den Plot.</p></li>
+</ol>
+<p>Zum Verständnis, würden wir <code>geom_point</code> in diesem Fall verwenden, sähe der Plot folgendermaßen aus:</p>
+<div class="cell">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted)) <span class="sc">+</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"red"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span>  </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>,<span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>,<span class="at">cor.coef.name =</span> <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Observed Data"</span>, <span class="at">x=</span><span class="st">"Predicted Data"</span>,<span class="at">title =</span> <span class="st">"Fit of Process Disassociation Model"</span>) <span class="sc">+</span> </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<p><img src="MPT-Workshop_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+
+
+<!-- -->
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } else {
+    toggleColorMode(false);
+  }
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Kopiert");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Kopiert");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  const viewSource = window.document.getElementById('quarto-view-source') ||
+                     window.document.getElementById('quarto-code-tools-source');
+  if (viewSource) {
+    const sourceUrl = viewSource.getAttribute("data-quarto-source-url");
+    viewSource.addEventListener("click", function(e) {
+      if (sourceUrl) {
+        // rstudio viewer pane
+        if (/\bcapabilities=\b/.test(window.location)) {
+          window.open(sourceUrl);
+        } else {
+          window.location.href = sourceUrl;
+        }
+      } else {
+        const modal = new bootstrap.Modal(document.getElementById('quarto-embedded-source-code-modal'));
+        modal.show();
+      }
+      return false;
+    });
+  }
+  function toggleCodeHandler(show) {
+    return function(e) {
+      const detailsSrc = window.document.querySelectorAll(".cell > details > .sourceCode");
+      for (let i=0; i<detailsSrc.length; i++) {
+        const details = detailsSrc[i].parentElement;
+        if (show) {
+          details.open = true;
+        } else {
+          details.removeAttribute("open");
+        }
+      }
+      const cellCodeDivs = window.document.querySelectorAll(".cell > .sourceCode");
+      const fromCls = show ? "hidden" : "unhidden";
+      const toCls = show ? "unhidden" : "hidden";
+      for (let i=0; i<cellCodeDivs.length; i++) {
+        const codeDiv = cellCodeDivs[i];
+        if (codeDiv.classList.contains(fromCls)) {
+          codeDiv.classList.remove(fromCls);
+          codeDiv.classList.add(toCls);
+        } 
+      }
+      return false;
+    }
+  }
+  const hideAllCode = window.document.getElementById("quarto-hide-all-code");
+  if (hideAllCode) {
+    hideAllCode.addEventListener("click", toggleCodeHandler(false));
+  }
+  const showAllCode = window.document.getElementById("quarto-show-all-code");
+  if (showAllCode) {
+    showAllCode.addEventListener("click", toggleCodeHandler(true));
+  }
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="../../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Advanced Workshop for dplyr</span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+  </div>
+</nav><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Quellcode</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
+<div class="sourceCode" id="cb33" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Workshop Multinomial Processing Tree Models"</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a><span class="an">author:</span><span class="co"> "Jan Göttmann"</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span><span class="co"> </span></span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a><span class="co">   code-fold: true</span></span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a><span class="co">   code-tools: true</span></span>
+<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a><span class="an">editor:</span><span class="co"> visual</span></span>
+<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a><span class="an">lang:</span><span class="co"> de</span></span>
+<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="an">toc:</span><span class="co"> true</span></span>
+<span id="cb33-11"><a href="#cb33-11" aria-hidden="true" tabindex="-1"></a><span class="an">number-sections:</span><span class="co"> true</span></span>
+<span id="cb33-12"><a href="#cb33-12" aria-hidden="true" tabindex="-1"></a><span class="an">number-depth:</span><span class="co"> 3</span></span>
+<span id="cb33-13"><a href="#cb33-13" aria-hidden="true" tabindex="-1"></a><span class="an">theme:</span><span class="co"> simplex </span></span>
+<span id="cb33-14"><a href="#cb33-14" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb33-15"><a href="#cb33-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-16"><a href="#cb33-16" aria-hidden="true" tabindex="-1"></a><span class="fu"># Workshop MPT-Modelle</span></span>
+<span id="cb33-17"><a href="#cb33-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-18"><a href="#cb33-18" aria-hidden="true" tabindex="-1"></a>Auf der nachfolgenden Seite findet ihr den kompletten Workshop zur MPT Modellierung. Zudem das Tutorial als Video in dem alles Schritt für Schritt durchgegangen wird! Da das Video aus dem letzten Semester ist, es kann kleinere Abweichungen geben !</span>
+<span id="cb33-19"><a href="#cb33-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-20"><a href="#cb33-20" aria-hidden="true" tabindex="-1"></a>{{&lt; video https://www.youtube.com/watch?v=mfmueqgQN4s&amp;ab_channel=JanG%C3%B6ttmann title="MPT Modellierung in R" &gt;}}</span>
+<span id="cb33-21"><a href="#cb33-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-22"><a href="#cb33-22" aria-hidden="true" tabindex="-1"></a><span class="fu">## Einführung</span></span>
+<span id="cb33-23"><a href="#cb33-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-24"><a href="#cb33-24" aria-hidden="true" tabindex="-1"></a>Heute Beschäftigen wir uns mit der Anwendung von MPT Modellen in R. Hierzu nutzen wir einen Datensatz von Frenken et al. (2022), der sich mit der Verarbeitung von Stereotypen befasst. Zunächst müssen wir aber die entsprechenden Packages installieren. Wir nutzen das Package (<span class="in">`MPTinR`</span>), das viele Funktionalitäten für das MPT Modelling mit sich bringt ! Zusätzlich installieren wir noch <span class="in">`ggpubr`</span> und <span class="in">`effectsize`</span> um später einige nette Features beim Plotten und Analysieren der Ergebnisse zu haben:</span>
+<span id="cb33-25"><a href="#cb33-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-28"><a href="#cb33-28" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-29"><a href="#cb33-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Install MPT Package</span></span>
+<span id="cb33-30"><a href="#cb33-30" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("MPTinR")</span></span>
+<span id="cb33-31"><a href="#cb33-31" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("ggpubr")</span></span>
+<span id="cb33-32"><a href="#cb33-32" aria-hidden="true" tabindex="-1"></a><span class="co"># install.packages("effectsize")</span></span>
+<span id="cb33-33"><a href="#cb33-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-34"><a href="#cb33-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-35"><a href="#cb33-35" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-36"><a href="#cb33-36" aria-hidden="true" tabindex="-1"></a>Nun laden wir die Pakete die wir für den weiteren Verlauf brauchen werden sowie unseren Datensatz ein:</span>
+<span id="cb33-37"><a href="#cb33-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-40"><a href="#cb33-40" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-41"><a href="#cb33-41" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb33-42"><a href="#cb33-42" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: false</span></span>
+<span id="cb33-43"><a href="#cb33-43" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb33-44"><a href="#cb33-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-45"><a href="#cb33-45" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-46"><a href="#cb33-46" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(MPTinR)</span>
+<span id="cb33-47"><a href="#cb33-47" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb33-48"><a href="#cb33-48" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggpubr)</span>
+<span id="cb33-49"><a href="#cb33-49" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(effectsize)</span>
+<span id="cb33-50"><a href="#cb33-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-51"><a href="#cb33-51" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-52"><a href="#cb33-52" aria-hidden="true" tabindex="-1"></a>Study_2_dm <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"Data/Study_2_dm.csv"</span>, </span>
+<span id="cb33-53"><a href="#cb33-53" aria-hidden="true" tabindex="-1"></a>                       <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">...1 =</span> <span class="fu">col_skip</span>(), </span>
+<span id="cb33-54"><a href="#cb33-54" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">stimulus =</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"gun"</span>,<span class="st">"phone"</span>)), </span>
+<span id="cb33-55"><a href="#cb33-55" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">response =</span> <span class="fu">col_integer</span>(), </span>
+<span id="cb33-56"><a href="#cb33-56" aria-hidden="true" tabindex="-1"></a>                                        <span class="at">condition =</span> <span class="fu">col_factor</span>(<span class="at">levels =</span> <span class="fu">c</span>(<span class="st">"black"</span>,<span class="st">"white"</span>))))</span>
+<span id="cb33-57"><a href="#cb33-57" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-58"><a href="#cb33-58" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-59"><a href="#cb33-59" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-60"><a href="#cb33-60" aria-hidden="true" tabindex="-1"></a><span class="fu">## Der Shooter - Bias</span></span>
+<span id="cb33-61"><a href="#cb33-61" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-62"><a href="#cb33-62" aria-hidden="true" tabindex="-1"></a>Wie schon in der letzten Sitzung vorgestellt handelt es sich beim beim First Person Shooter Task (FPST) um ein Paradigma, mit dem Stereotype und deren Auswirkungen auf Entscheidungen untersucht werden können. Hierbei werden üblicherweise verschiedene Ethnien (z.B. schwarze oder weiße Personen), entweder mit einer Waffe (threat) oder einem ungefährlichem Objekt (z.B. Telefon, harmless) gezeigt. Die Versuchspersonen werden instruiert unabhängig von der Hautdfarbe so schnell und korrekt wie möglich auf bewaffnete Ziele zu schiessen. Im Gegensatz dazu soll nicht auf unbewaffnete Ziele geschossen werden.</span>
+<span id="cb33-63"><a href="#cb33-63" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-64"><a href="#cb33-64" aria-hidden="true" tabindex="-1"></a><span class="al">![Verschiedene Paradigmen des FPST](images/image-1891641700.png)</span>{fig-align="center"}</span>
+<span id="cb33-65"><a href="#cb33-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-66"><a href="#cb33-66" aria-hidden="true" tabindex="-1"></a><span class="fu">## Model Definition</span></span>
+<span id="cb33-67"><a href="#cb33-67" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-68"><a href="#cb33-68" aria-hidden="true" tabindex="-1"></a>Wir werden heute versuchen, die Daten von *Frenken et al*. mit dem ***Process Dissociation Model*** zu fitten. Dieses müssen wir aber zunächst in R definieren. Die Modellgleichungen leiten sich aus folgendem zugrundeliegendem Wahrscheinlichkeitsbaum ab:</span>
+<span id="cb33-69"><a href="#cb33-69" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-70"><a href="#cb33-70" aria-hidden="true" tabindex="-1"></a><span class="al">![Process Dissociation Model (Payne,2001)](PD_Payne2001.png)</span></span>
+<span id="cb33-71"><a href="#cb33-71" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-72"><a href="#cb33-72" aria-hidden="true" tabindex="-1"></a>Das Modell hat nur zwei freie Parameter, zum einen *c* , der die Wahrscheinlichkeit angibt das kontrollierte Verarbeitungsprozesse aktiviert werden und zum anderen *a* der die Wahrscheinlichkeit angibt, dass diese Kontrolle fehlschlägt und eine stereotype Verarbeitung aktiviert wird.\</span>
+<span id="cb33-73"><a href="#cb33-73" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-74"><a href="#cb33-74" aria-hidden="true" tabindex="-1"></a>Zur Erinnerung: das experimentelle Paradigma in Payne et al. ist ein *Sequential Priming Task*, bei dem die Versuchspersonen ein schwarzes oder weißes Gesicht gesehen haben und dann entscheiden sollten, ob es sich bei dem anschließend gezeigten Objekt um einen Waffe oder ein Werkzeug handelt:\</span>
+<span id="cb33-75"><a href="#cb33-75" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-76"><a href="#cb33-76" aria-hidden="true" tabindex="-1"></a><span class="al">![Sequential Priming Task Payne (2001)](Payne2001_paradigm.png)</span></span>
+<span id="cb33-77"><a href="#cb33-77" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-78"><a href="#cb33-78" aria-hidden="true" tabindex="-1"></a>In unserem Fall ist das Paradigma also ähnlich, die Versuchspersonen sehen entweder einen Schwarzen oder einen Weißen (unbewaffnet vs. bewaffnet) und sollen dann entscheiden, ob geschossen werden soll oder nicht. Das heisst, wir können das Modell im Prinzip ekaxt so wie es ist, auf die Daten von *Frenken et al.* übertragen.\</span>
+<span id="cb33-79"><a href="#cb33-79" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-80"><a href="#cb33-80" aria-hidden="true" tabindex="-1"></a>Nun müssen wir das Modell allerdings definieren. Hierzu müssen die Gleichungen für jeden Wahrscheinlichkeitsbaum aufgestellt werden. Jeder Baum repräsentiert eine Zielkategorie:\</span>
+<span id="cb33-81"><a href="#cb33-81" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-82"><a href="#cb33-82" aria-hidden="true" tabindex="-1"></a>| Hautfarbe | Objekt  |</span>
+<span id="cb33-83"><a href="#cb33-83" aria-hidden="true" tabindex="-1"></a>|-----------|---------|</span>
+<span id="cb33-84"><a href="#cb33-84" aria-hidden="true" tabindex="-1"></a>| Schwarz   | Waffe   |</span>
+<span id="cb33-85"><a href="#cb33-85" aria-hidden="true" tabindex="-1"></a>| Weiß      | Waffe   |</span>
+<span id="cb33-86"><a href="#cb33-86" aria-hidden="true" tabindex="-1"></a>| Schwarz   | Telefon |</span>
+<span id="cb33-87"><a href="#cb33-87" aria-hidden="true" tabindex="-1"></a>| Weiß      | Telefon |</span>
+<span id="cb33-88"><a href="#cb33-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-89"><a href="#cb33-89" aria-hidden="true" tabindex="-1"></a>Es müssen nun für jede dieser Outcome Kategorien Gleichungen für die unterschiedlichen Pfade definiert werden, welche zu den jeweiligen "Hits" und "Misses" führen ("+" bzw. "-"auf der Abbildung). Zusätzlichmüssen insgesamt 4 Parameter definiert werden. A und C jeweils für schwarze und weiße Hautfarbe, um Unterschiede in den Parametern, die auf die Hautfarbe zurückgehen, identifizieren zu können:\</span>
+<span id="cb33-90"><a href="#cb33-90" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-91"><a href="#cb33-91" aria-hidden="true" tabindex="-1"></a><span class="al">![](PD_Payne2001.png)</span></span>
+<span id="cb33-92"><a href="#cb33-92" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-93"><a href="#cb33-93" aria-hidden="true" tabindex="-1"></a>Für <span class="in">`MPTinR`</span> können die Gleichungen in einem einfachen "String" definiert werden. Hier ist die erste Gleichung für die Kategorie "White/ Phone" bereits eingetragen. In der Kategorie "White/Phone" führt der Pfad $$c$$ und der Pfad $$(1-c) \cdot a$$ zu einem "Hit".</span>
+<span id="cb33-94"><a href="#cb33-94" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-95"><a href="#cb33-95" aria-hidden="true" tabindex="-1"></a>Im Gegensatz dazu führt $$(1-c) \cdot (1-a)$$ zu einem Miss. Tragt immer zunüchst die Gleichung für einen Hit und dann die Gleichungen für einen Miss ein. Da zwischen Pfaden die Wahrscheinlichkeiten addiert werden können, ist also die Gesamtgleichung eines "Hits" für die Kategorie "White/Phone":</span>
+<span id="cb33-96"><a href="#cb33-96" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-97"><a href="#cb33-97" aria-hidden="true" tabindex="-1"></a>$$c + (1-c) \cdot a$$ und für einen Miss</span>
+<span id="cb33-98"><a href="#cb33-98" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-99"><a href="#cb33-99" aria-hidden="true" tabindex="-1"></a>$$ (1-c) \cdot (1-a)$$</span>
+<span id="cb33-100"><a href="#cb33-100" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-101"><a href="#cb33-101" aria-hidden="true" tabindex="-1"></a>da es nur einen Pfad zu einem "Miss" gibt ! Vervollständigt nun die Gleichungen für die restlichen Kategorien. Denkt daran das Ihr die Parameter für die schwarze und weiße Hautfarbe unterschiedlich benennt!\</span>
+<span id="cb33-102"><a href="#cb33-102" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-105"><a href="#cb33-105" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-106"><a href="#cb33-106" aria-hidden="true" tabindex="-1"></a><span class="co"># Parameters for Black and White Skin Color! </span></span>
+<span id="cb33-107"><a href="#cb33-107" aria-hidden="true" tabindex="-1"></a><span class="co"># c_w = c white, a_w = a white c_b = black, a_b = a black</span></span>
+<span id="cb33-108"><a href="#cb33-108" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-109"><a href="#cb33-109" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-110"><a href="#cb33-110" aria-hidden="true" tabindex="-1"></a>pd <span class="ot">&lt;-</span> <span class="st">"</span></span>
+<span id="cb33-111"><a href="#cb33-111" aria-hidden="true" tabindex="-1"></a><span class="st"># WT</span></span>
+<span id="cb33-112"><a href="#cb33-112" aria-hidden="true" tabindex="-1"></a><span class="st">c_w+(1-c_w)*a_w</span></span>
+<span id="cb33-113"><a href="#cb33-113" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_w)*(1-a_w)</span></span>
+<span id="cb33-114"><a href="#cb33-114" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-115"><a href="#cb33-115" aria-hidden="true" tabindex="-1"></a><span class="st"># WG</span></span>
+<span id="cb33-116"><a href="#cb33-116" aria-hidden="true" tabindex="-1"></a><span class="st">c_w + (1-c_w)*(1-a_w)</span></span>
+<span id="cb33-117"><a href="#cb33-117" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_w) * a_w</span></span>
+<span id="cb33-118"><a href="#cb33-118" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-119"><a href="#cb33-119" aria-hidden="true" tabindex="-1"></a><span class="st"># BT</span></span>
+<span id="cb33-120"><a href="#cb33-120" aria-hidden="true" tabindex="-1"></a><span class="st">c_b + (1-c_b)*(1-a_b)</span></span>
+<span id="cb33-121"><a href="#cb33-121" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_b) * a_b</span></span>
+<span id="cb33-122"><a href="#cb33-122" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-123"><a href="#cb33-123" aria-hidden="true" tabindex="-1"></a><span class="st"># BG</span></span>
+<span id="cb33-124"><a href="#cb33-124" aria-hidden="true" tabindex="-1"></a><span class="st">c_b+(1-c_b)*a_b</span></span>
+<span id="cb33-125"><a href="#cb33-125" aria-hidden="true" tabindex="-1"></a><span class="st">(1-c_b)*(1-a_b)</span></span>
+<span id="cb33-126"><a href="#cb33-126" aria-hidden="true" tabindex="-1"></a><span class="st">"</span></span>
+<span id="cb33-127"><a href="#cb33-127" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-128"><a href="#cb33-128" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-129"><a href="#cb33-129" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-130"><a href="#cb33-130" aria-hidden="true" tabindex="-1"></a>Wenn ihr die Gleichungen alle definiert habt, könnt ihr das Modell mit <span class="in">`MPTinR`</span> auf Korrektheit überprüfen lassen:\</span>
+<span id="cb33-131"><a href="#cb33-131" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-134"><a href="#cb33-134" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-135"><a href="#cb33-135" aria-hidden="true" tabindex="-1"></a><span class="fu">check.mpt</span>(<span class="fu">textConnection</span>(pd))</span>
+<span id="cb33-136"><a href="#cb33-136" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-137"><a href="#cb33-137" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-138"><a href="#cb33-138" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-139"><a href="#cb33-139" aria-hidden="true" tabindex="-1"></a>Wir sehen hier einen Test ob alle Wahrscheinlichkeiten sich zu 1 addieren, die Anzahl der Bäume, der gesamten und unabhängigen Kategorien, sowie der Parameter. In den Daten müssen immer exakt so viele Kategorien vorhanden sein, wie im Modell definiert ! Zusätzlich darf die Anzahl Parameter nicht größer sein, als die Anzahl der unabhängigen Kategorien - ansonsten ist das Modell nicht identifizierbar - das beudeut das mehr unbekannte als bekannte Größen vorhanden sind - die Gleichungen sind nicht lösbar.</span>
+<span id="cb33-140"><a href="#cb33-140" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-141"><a href="#cb33-141" aria-hidden="true" tabindex="-1"></a><span class="fu">## Data Dredging</span></span>
+<span id="cb33-142"><a href="#cb33-142" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-143"><a href="#cb33-143" aria-hidden="true" tabindex="-1"></a>Um die Daten von Frenken et al. zu Modellieren, müssen die Daten zunächst in ein anderes Format gebracht und umkodiert werden - in "Hit" und "Miss" für jede Kategorie. Dies kann wie folgt mit <span class="in">`mutate()`</span>,<span class="in">`case_when()`</span> und <span class="in">`pivot_wider()`</span> getan werden:</span>
+<span id="cb33-144"><a href="#cb33-144" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-147"><a href="#cb33-147" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-148"><a href="#cb33-148" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: true</span></span>
+<span id="cb33-149"><a href="#cb33-149" aria-hidden="true" tabindex="-1"></a><span class="co">#| output: true</span></span>
+<span id="cb33-150"><a href="#cb33-150" aria-hidden="true" tabindex="-1"></a><span class="co">#| warning: false</span></span>
+<span id="cb33-151"><a href="#cb33-151" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-152"><a href="#cb33-152" aria-hidden="true" tabindex="-1"></a><span class="co"># Define Edge Correction function</span></span>
+<span id="cb33-153"><a href="#cb33-153" aria-hidden="true" tabindex="-1"></a>edge_correct <span class="ot">&lt;-</span> <span class="cf">function</span>(x){</span>
+<span id="cb33-154"><a href="#cb33-154" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">=</span> <span class="fu">ifelse</span>(x<span class="sc">==</span><span class="dv">0</span>, x<span class="sc">+</span><span class="dv">1</span>,x)</span>
+<span id="cb33-155"><a href="#cb33-155" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(x)</span>
+<span id="cb33-156"><a href="#cb33-156" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-157"><a href="#cb33-157" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-158"><a href="#cb33-158" aria-hidden="true" tabindex="-1"></a><span class="co"># Recode Data from Frenken et al.</span></span>
+<span id="cb33-159"><a href="#cb33-159" aria-hidden="true" tabindex="-1"></a><span class="co"># Umkodieren der Daten hin zu Accuracy </span></span>
+<span id="cb33-160"><a href="#cb33-160" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-161"><a href="#cb33-161" aria-hidden="true" tabindex="-1"></a><span class="co"># In den Daten sind die Antworten nicht nach Accuracy, sondern nach response codiert (response coding). Daher müssen wir die Daten vorher umkodieren, damit die Accuracy codiert wird. Dies können wir mit case_when tun. Kodiert nun den Datensatz wie folgt neu in dem ihr einen neue Spalte "ACC" erzeugt, die in Abhängigkeit von "stimulus" erzeugt wird:</span></span>
+<span id="cb33-162"><a href="#cb33-162" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-163"><a href="#cb33-163" aria-hidden="true" tabindex="-1"></a><span class="co"># Wenn Stimulus = gun ist, dann ist response 0 korrekt - also 1 </span></span>
+<span id="cb33-164"><a href="#cb33-164" aria-hidden="true" tabindex="-1"></a><span class="co"># Wenn Stimulus = gun ist, dann ist response 1 inkorrekt - also 0</span></span>
+<span id="cb33-165"><a href="#cb33-165" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-166"><a href="#cb33-166" aria-hidden="true" tabindex="-1"></a><span class="co"># Bei Phone stimmt die zuordnung zufällig, da 1 bedeutet nicht zu schiessen. Ist aber nicht immer der Fall ! Trotzdem müssen wir die Zuordnung eintragen, damit für alle elemente in der Spalte ACC ein Wert steht!</span></span>
+<span id="cb33-167"><a href="#cb33-167" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-168"><a href="#cb33-168" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> Study_2_dm <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="at">ACC=</span> <span class="fu">case_when</span>(stimulus <span class="sc">==</span> <span class="st">"gun"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb33-169"><a href="#cb33-169" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"gun"</span> <span class="sc">&amp;</span> response <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span><span class="dv">0</span>,</span>
+<span id="cb33-170"><a href="#cb33-170" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"phone"</span> <span class="sc">&amp;</span> response <span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="dv">1</span>,</span>
+<span id="cb33-171"><a href="#cb33-171" aria-hidden="true" tabindex="-1"></a>                                                 stimulus <span class="sc">==</span> <span class="st">"phone"</span> <span class="sc">&amp;</span> response <span class="sc">==</span> <span class="dv">0</span> <span class="sc">~</span> <span class="dv">0</span>))</span>
+<span id="cb33-172"><a href="#cb33-172" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-173"><a href="#cb33-173" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-174"><a href="#cb33-174" aria-hidden="true" tabindex="-1"></a><span class="co"># Berechnung der hits und misses und Auszählen der Trials jeder VP den jeweiligen Bedingungen </span></span>
+<span id="cb33-175"><a href="#cb33-175" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">group_by</span>(subj_idx,stim) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">hits =</span> <span class="fu">sum</span>(ACC), <span class="at">ntrials=</span><span class="fu">n</span>(), <span class="at">miss=</span>ntrials<span class="sc">-</span>hits)</span>
+<span id="cb33-176"><a href="#cb33-176" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-177"><a href="#cb33-177" aria-hidden="true" tabindex="-1"></a><span class="co"># Transformieren zum Wide Format für MPTinR</span></span>
+<span id="cb33-178"><a href="#cb33-178" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">pivot_wider</span>(.,<span class="at">names_from =</span> <span class="fu">c</span>(<span class="st">"stim"</span>),<span class="at">values_from =</span> <span class="fu">c</span>(<span class="st">"hits"</span>,<span class="st">"miss"</span>),<span class="at">values_fill =</span> F,<span class="at">id_cols=</span><span class="st">"subj_idx"</span>) </span>
+<span id="cb33-179"><a href="#cb33-179" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-180"><a href="#cb33-180" aria-hidden="true" tabindex="-1"></a><span class="co"># Anpassung der Reihenfolge der Daten analog zu den Modellgleichungen.</span></span>
+<span id="cb33-181"><a href="#cb33-181" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">relocate</span>(subj_idx,hits_wp,miss_wp,hits_wg,miss_wg,hits_bp,miss_bp,hits_bg,miss_bg) </span>
+<span id="cb33-182"><a href="#cb33-182" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-183"><a href="#cb33-183" aria-hidden="true" tabindex="-1"></a><span class="co"># Anwenden einer Edge-Correction, um die Nullbeobactungen in der "miss" Kategorie zu eleminieren</span></span>
+<span id="cb33-184"><a href="#cb33-184" aria-hidden="true" tabindex="-1"></a>freq_dat <span class="ot">&lt;-</span> freq_dat <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">starts_with</span>(<span class="st">"miss"</span>), <span class="sc">~</span> <span class="fu">edge_correct</span>(.)))</span>
+<span id="cb33-185"><a href="#cb33-185" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-186"><a href="#cb33-186" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-187"><a href="#cb33-187" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(freq_dat)</span>
+<span id="cb33-188"><a href="#cb33-188" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-189"><a href="#cb33-189" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-190"><a href="#cb33-190" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-191"><a href="#cb33-191" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-192"><a href="#cb33-192" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-193"><a href="#cb33-193" aria-hidden="true" tabindex="-1"></a><span class="fu">## Fit the Model</span></span>
+<span id="cb33-194"><a href="#cb33-194" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-195"><a href="#cb33-195" aria-hidden="true" tabindex="-1"></a>Zum fitten des Modells müssen die Daten für <span class="in">`MPTinR`</span> in der gleichen Reihenfolge angeordnet sein, wie auch die Gleichungen definiert sind! ***Dies solltet ihr immer überprüfen, bevor ein Modell gefittet wird.***</span>
+<span id="cb33-196"><a href="#cb33-196" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-197"><a href="#cb33-197" aria-hidden="true" tabindex="-1"></a>Nun kann das Modell mit dem Befehl <span class="in">`fit.mpt`</span> geschätzt werden. Dabei müssen wir die genauen Spalten unseres Dataframes <span class="in">`freq_dat`</span> angeben, da eine Spalte <span class="in">`subj_idx`</span> im Dataframe enthalten ist, die keine Häufigkeiten enthält. Die <span class="in">`fit.mpt`</span> Funktion nimmt allerdings nur Daten an, die die gleiche Anzahl an Spalten aufweisen, wie im Modell definierten gesamten Kategorien vorhanden sind. Andernfalls wird eine Fehlermeldung ausgegeben. Da im Dataframe insgesamt 9 Spalten vorhanden sind, muss also die erste Spalte ausgelassen werden. Dies kann einfach mit der Auswahl der Spalten mit dem Zugriff <span class="in">`[Zeilen,Spalten]`</span> geschehen. Als <span class="in">`model.filename`</span> wird der String übergeben in dem die Gleichungen definiert wurden. Dazu wird erneut <span class="in">`textConnection()`</span> verwendet. Das Argument <span class="in">`n.optim`</span> definiert die Anzahl der Optimierungsdurchläufe, wird dieses Argument nicht abgegeben, werden standardmäßig 5 Optimierungsdurchläufe durchgeführt.</span>
+<span id="cb33-198"><a href="#cb33-198" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-201"><a href="#cb33-201" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-202"><a href="#cb33-202" aria-hidden="true" tabindex="-1"></a><span class="co"># Fit Process Disassociaton Model </span></span>
+<span id="cb33-203"><a href="#cb33-203" aria-hidden="true" tabindex="-1"></a>fit <span class="ot">&lt;-</span> <span class="fu">fit.mpt</span>(freq_dat[,<span class="dv">2</span><span class="sc">:</span><span class="dv">9</span>],<span class="at">model.filename =</span> <span class="fu">textConnection</span>(pd),<span class="at">n.optim =</span> <span class="dv">10</span>)</span>
+<span id="cb33-204"><a href="#cb33-204" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-205"><a href="#cb33-205" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-206"><a href="#cb33-206" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-207"><a href="#cb33-207" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-208"><a href="#cb33-208" aria-hidden="true" tabindex="-1"></a>Nun können verschiedene Informationen mit Hilfe des <span class="in">`$`</span> Operator aus dem <span class="in">`fit`</span> Objekt ausgegeben werden, hierzu benutzen wir den <span class="in">`$`</span> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):\</span>
+<span id="cb33-209"><a href="#cb33-209" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-212"><a href="#cb33-212" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-213"><a href="#cb33-213" aria-hidden="true" tabindex="-1"></a><span class="co"># Speichern der Parameter in einen neuen Dataframe</span></span>
+<span id="cb33-214"><a href="#cb33-214" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-215"><a href="#cb33-215" aria-hidden="true" tabindex="-1"></a>theta_mean <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>mean[<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>,<span class="dv">1</span>]</span>
+<span id="cb33-216"><a href="#cb33-216" aria-hidden="true" tabindex="-1"></a>theta_aggregated <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>aggregated</span>
+<span id="cb33-217"><a href="#cb33-217" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-218"><a href="#cb33-218" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_aggregated)</span>
+<span id="cb33-219"><a href="#cb33-219" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-220"><a href="#cb33-220" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-221"><a href="#cb33-221" aria-hidden="true" tabindex="-1"></a>Wir sehen das es wohl einen signifikanten Unterschied zwischen der Hautfarbe bei dem Control Parameter ***c*** auf aggregierter Ebene geben könnte. Auf dem Parameter ***a***, welcher automatisierte, von Stereotypen getriebenen Prozesse abbildet, zeigt sich hingegen eine Überlappung der Konfidenzintervalle. Um zu prüfen ob es einen signifikanten Unterschied auf individuellem Level gibt, müssen wir die individuellen Parameter der einzelnen Versuchspersonen heranziehen. Zünachst müssen diese aus dem <span class="in">`fit`</span> Objekt in einen Dataframe überführt werden:</span>
+<span id="cb33-222"><a href="#cb33-222" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-225"><a href="#cb33-225" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-226"><a href="#cb33-226" aria-hidden="true" tabindex="-1"></a><span class="co"># Erstellen einer Matrix für die Parameter</span></span>
+<span id="cb33-227"><a href="#cb33-227" aria-hidden="true" tabindex="-1"></a>theta_subj <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>,<span class="at">nrow=</span><span class="fu">nrow</span>(freq_dat),<span class="at">ncol=</span><span class="dv">4</span>)</span>
+<span id="cb33-228"><a href="#cb33-228" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(theta_subj) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"a_b"</span>,<span class="st">"a_w"</span>,<span class="st">"c_b"</span>,<span class="st">"c_w"</span>)</span>
+<span id="cb33-229"><a href="#cb33-229" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-230"><a href="#cb33-230" aria-hidden="true" tabindex="-1"></a><span class="co"># Loopen über alle individuellen Parameter, nur die Punktschätzer werden gespeichert</span></span>
+<span id="cb33-231"><a href="#cb33-231" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span><span class="fu">nrow</span>(freq_dat)){</span>
+<span id="cb33-232"><a href="#cb33-232" aria-hidden="true" tabindex="-1"></a>  theta_subj[i,] <span class="ot">&lt;-</span> fit<span class="sc">$</span>parameters<span class="sc">$</span>individual[,<span class="dv">1</span>,i]</span>
+<span id="cb33-233"><a href="#cb33-233" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb33-234"><a href="#cb33-234" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-235"><a href="#cb33-235" aria-hidden="true" tabindex="-1"></a><span class="co"># Nun lassen wir uns die ersten 10 Zeilen ausgeben, um uns das Ergebnis anzusehen</span></span>
+<span id="cb33-236"><a href="#cb33-236" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(theta_subj,<span class="dv">10</span>)</span>
+<span id="cb33-237"><a href="#cb33-237" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-238"><a href="#cb33-238" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-239"><a href="#cb33-239" aria-hidden="true" tabindex="-1"></a><span class="fu">## Analyse</span></span>
+<span id="cb33-240"><a href="#cb33-240" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-241"><a href="#cb33-241" aria-hidden="true" tabindex="-1"></a>Jetzt können wir mit Hilfe eines paired t-tests und der <span class="in">`t.test()`</span> Funktion (wir vergleichen die Parameter innerhalb von Personen zwischen den experimentellen Bedinungen) analysieren, ob es einen signifikanten Unterschied auf individueller ebene gibt. Die <span class="in">`t-test()`</span> Funktion nimmt als Argument jeweils die zwei Spalten, die verglichen werden sollen. Wir müssen also für die beiden Parameter $a$ und $c$ jeweils einen t-test rechnen, der beide Gruppen vergleicht. Wir setzen zusätzlich das Argument <span class="in">`paired=TRUE`</span>, da es sich um einen paired t-test handelt und das Argument <span class="in">`var.equal=T`</span>, da wir annehmen das die Varianz in beiden Gruppen gleich ist:</span>
+<span id="cb33-242"><a href="#cb33-242" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-245"><a href="#cb33-245" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-246"><a href="#cb33-246" aria-hidden="true" tabindex="-1"></a><span class="co"># t-test für beide Parameter </span></span>
+<span id="cb33-247"><a href="#cb33-247" aria-hidden="true" tabindex="-1"></a>theta_a_comp <span class="ot">&lt;-</span><span class="fu">t.test</span>(theta_subj[,<span class="st">"a_b"</span>],theta_subj[,<span class="st">"a_w"</span>],</span>
+<span id="cb33-248"><a href="#cb33-248" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> T,</span>
+<span id="cb33-249"><a href="#cb33-249" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> T)</span>
+<span id="cb33-250"><a href="#cb33-250" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-251"><a href="#cb33-251" aria-hidden="true" tabindex="-1"></a>theta_c_comp <span class="ot">&lt;-</span><span class="fu">t.test</span>(theta_subj[,<span class="st">"c_b"</span>],theta_subj[,<span class="st">"c_w"</span>],</span>
+<span id="cb33-252"><a href="#cb33-252" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired =</span> T,</span>
+<span id="cb33-253"><a href="#cb33-253" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> T)</span>
+<span id="cb33-254"><a href="#cb33-254" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-255"><a href="#cb33-255" aria-hidden="true" tabindex="-1"></a><span class="co"># Ergebnis ausgeben</span></span>
+<span id="cb33-256"><a href="#cb33-256" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_a_comp)</span>
+<span id="cb33-257"><a href="#cb33-257" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(theta_c_comp)</span>
+<span id="cb33-258"><a href="#cb33-258" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-259"><a href="#cb33-259" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-260"><a href="#cb33-260" aria-hidden="true" tabindex="-1"></a>Wir sehen auf beiden Parametern einen signifikanten Unterschied ! Nun können wir mit dem Package <span class="in">`effectsize`</span> <span class="in">`Cohen's d`</span> berechnen, um die Größe des Effekts zu interpretieren. Dazu nutzen wir den Befehl <span class="in">`cohens_d()`</span> und übergeben dem Befehl als Argument lediglich das Objekt <span class="in">`theta_a_comp`</span> und <span class="in">`theta_c_comp`</span>, in dem wir die Test gespeichert haben, sowie die Information das es sich um einen gepaarten t-test handelt:\</span>
+<span id="cb33-261"><a href="#cb33-261" aria-hidden="true" tabindex="-1"></a>\</span>
+<span id="cb33-262"><a href="#cb33-262" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-265"><a href="#cb33-265" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-266"><a href="#cb33-266" aria-hidden="true" tabindex="-1"></a><span class="co"># verbose = F bedeutet nur, dass wir uns keine Warnungen etc. ausgeben lassen. </span></span>
+<span id="cb33-267"><a href="#cb33-267" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(theta_a_comp,<span class="at">paired =</span> T,<span class="at">verbose =</span> F)</span>
+<span id="cb33-268"><a href="#cb33-268" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-269"><a href="#cb33-269" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-272"><a href="#cb33-272" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-273"><a href="#cb33-273" aria-hidden="true" tabindex="-1"></a>effectsize<span class="sc">::</span><span class="fu">cohens_d</span>(theta_c_comp,<span class="at">paired =</span> T,<span class="at">verbose =</span> F)</span>
+<span id="cb33-274"><a href="#cb33-274" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-275"><a href="#cb33-275" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-276"><a href="#cb33-276" aria-hidden="true" tabindex="-1"></a>Wir sehen hier, das der Effekt auf den Parameter $a$, welcher die automatisierte, stereotypische Verarbeitung abbildet, zwischen den Gruppen substanziell ist und einem kleinen bis mittleren Effekt entspricht. Für den $c$ Parameter, welcher die kontrollierte Verarbeitung abbildet, ist dieser Effekt kleiner und entspricht einem kleinen Effekt nach Cohen.</span>
+<span id="cb33-277"><a href="#cb33-277" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-278"><a href="#cb33-278" aria-hidden="true" tabindex="-1"></a>Dies entspricht unseren Überlegungen und auch den Ergebnissen des Diffusionsmodells, dass es bei stereotyp-beladenen Entscheidungen in diesem Fall zum einen eine höhere kontrollierte Verarbeitung gibt (Personen wissen, dass es Stereotype gibt und versuchen sie zu vermeiden) und zum anderen, dass es jedoch häufiger passiert, das diese Prozesse scheitern und die automatisierte stereotype Verarbeitung einsetzt.\</span>
+<span id="cb33-279"><a href="#cb33-279" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-280"><a href="#cb33-280" aria-hidden="true" tabindex="-1"></a><span class="fu">## Modelfit und Identifizierbarkeit</span></span>
+<span id="cb33-281"><a href="#cb33-281" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-282"><a href="#cb33-282" aria-hidden="true" tabindex="-1"></a><span class="in">`MPTinR`</span> gibt uns auch eine Reihe von Indikatoren zur Bestimmung des Modelfits aus. Auf diese kann wie folgt zugegriffen werden</span>
+<span id="cb33-283"><a href="#cb33-283" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-286"><a href="#cb33-286" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-287"><a href="#cb33-287" aria-hidden="true" tabindex="-1"></a>model_fit <span class="ot">&lt;-</span> fit<span class="sc">$</span>goodness.of.fit<span class="sc">$</span>aggregated</span>
+<span id="cb33-288"><a href="#cb33-288" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-289"><a href="#cb33-289" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span>
+<span id="cb33-290"><a href="#cb33-290" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-291"><a href="#cb33-291" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-292"><a href="#cb33-292" aria-hidden="true" tabindex="-1"></a>Die für den Modelfit wichtige Statistik ist die G²-Statistik. G² wird in der Schätzung der MPT Modelle als Diskrepanzfunktion minimiert und bildet das Äquivalent zur Maximierung der Likelihood-Funktion bei kontinuierlichen Daten:</span>
+<span id="cb33-293"><a href="#cb33-293" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-294"><a href="#cb33-294" aria-hidden="true" tabindex="-1"></a>$$G^2(\theta)=-2 \sum_{i=1}^J n_j \ln \left(\frac{n_j}{N \cdot p_j(\theta)}\right)$$</span>
+<span id="cb33-295"><a href="#cb33-295" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-296"><a href="#cb33-296" aria-hidden="true" tabindex="-1"></a>Es wird hier die Abweichung zwischen beobachteten ($n_j$) und reproduzierten Häufigkeiten gegeben der geschätzten Parameter ($N \cdot p_j(\theta)$) berechnet. G² kann zur Berechnung des Modelfits herangezogen werden, als auch zum Modellvergleich. Es kann die Nullhypothese geprüft werden, ob die beobachteten Daten gegeben der geschätzten Wahrscheinlichkeiten plausibel sind, da G² $\chi^2$ verteilt mit den Freiheitsgraden</span>
+<span id="cb33-297"><a href="#cb33-297" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-298"><a href="#cb33-298" aria-hidden="true" tabindex="-1"></a>$$d f=\sum_{k=1}^K\left(J_k-1\right)-S $$ ist. Hierbei ist $K$ die Anzahl der unterschiedlichen Kategorien (hier 4, Hautfarbe x Objekt) und $J_k$ die Möglichen Outcomes für die jeweilige Kategorie $k$ (hier jeweils 2, Hits und Misses). $S$ bezeichnet die Anzahl der Parameter die wir frei schätzen (hier 4). Laut Formel ergeben sich also folgende Freiheitsgrade</span>
+<span id="cb33-299"><a href="#cb33-299" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-300"><a href="#cb33-300" aria-hidden="true" tabindex="-1"></a>$$\sum_{k=1}^4\left(2-1\right)-4 = 0 $$ Dies bedeutet, das unsere Modell perfekt identifiziert ist ! Ein Modell muss immer die Bedingung erfüllen, dass es mindestens soviele Freiheitsgerade wie Parameter besitzt:</span>
+<span id="cb33-301"><a href="#cb33-301" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-302"><a href="#cb33-302" aria-hidden="true" tabindex="-1"></a>$$S \leq \sum_{k=1}^K\left(J_k-1\right)$$ Ansonsten ist nicht identifiziert und kann nicht geschätzt werden. In unserem Fall ist das Modell also perfekt identifiziert, daher wird genaugenommen nichts geschätzt, sondern die Wahrscheinlichkeiten berechnet. Ist ein Modell nicht identifiziert, können Parameter fixiert oder gleichgesetzt werden, um die Anzahl der Freiheitsgerade zu erhöhen.</span>
+<span id="cb33-303"><a href="#cb33-303" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-304"><a href="#cb33-304" aria-hidden="true" tabindex="-1"></a>In unserem Fall ergibt sich also eine nicht-signifikante Teststatistik für G², mit einem p-Wert von 1 und einem G² von faktisch 0. Daher können wir die Nullhypothese, dass die Daten unter den geschätzten Wahrscheinlichkeiten plausibel sind, nicht ablehnen.</span>
+<span id="cb33-305"><a href="#cb33-305" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-308"><a href="#cb33-308" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-309"><a href="#cb33-309" aria-hidden="true" tabindex="-1"></a>model_fit</span>
+<span id="cb33-310"><a href="#cb33-310" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-311"><a href="#cb33-311" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-312"><a href="#cb33-312" aria-hidden="true" tabindex="-1"></a>Dies bedeutet das Modell fittet perfekt, was an der eindeutigen Identifizierung des Modells liegt, da</span>
+<span id="cb33-313"><a href="#cb33-313" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-314"><a href="#cb33-314" aria-hidden="true" tabindex="-1"></a>$$df = S$$ gilt.</span>
+<span id="cb33-315"><a href="#cb33-315" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-316"><a href="#cb33-316" aria-hidden="true" tabindex="-1"></a><span class="fu">## Grafische Darstellung des Modelfits</span></span>
+<span id="cb33-317"><a href="#cb33-317" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-318"><a href="#cb33-318" aria-hidden="true" tabindex="-1"></a>Der Modelfit kann auch grafisch dargestellt werden. Entweder mit der Funktion <span class="in">`prediction.plot()`</span>, dieser stellt die Abweichung zwsichen beobachten und geschätzten Häufigkeiten dar. Ich habe hier ein limit von -1 eins bis 1 gesetzt, dar die Abweichengen in den Bäumen 3 und 4 so gering sind, das sie auf der 14 Potenz dargestellt wurden. Eine Abweichung von 0 bedeutet, es liegt ein perfekter Fit für diese Kategorien vor, in unserem Fall jeweils die Outcomes Hits (1) und Misses (2).</span>
+<span id="cb33-319"><a href="#cb33-319" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-322"><a href="#cb33-322" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-323"><a href="#cb33-323" aria-hidden="true" tabindex="-1"></a>MPTinR<span class="sc">::</span><span class="fu">prediction.plot</span>(fit,<span class="at">model.filename =</span> <span class="fu">textConnection</span>(pd),<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="sc">-</span><span class="dv">1</span>))</span>
+<span id="cb33-324"><a href="#cb33-324" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-325"><a href="#cb33-325" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-326"><a href="#cb33-326" aria-hidden="true" tabindex="-1"></a>Eine weitere Möglichkeit den Modelfit grafisch darzustellen ist, die beobachteten und die durch das Model reproduzierten Daten in einem Scatterplot gegeneinander zu plotten und die Korrelation zu berechnen. Dies haben wir bereits in der Übung zu <span class="in">`ggplot`</span> getan. <span class="in">`MPTinR`</span> gibt uns praktischerweise direkt die beobachteten und reproduzierten Daten im fit-Objekt mit aus, sodass wir diese direkt in <span class="in">`ggplot`</span> angeben können. Diese können folgendermaßen abgerufen werden:</span>
+<span id="cb33-327"><a href="#cb33-327" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-330"><a href="#cb33-330" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-331"><a href="#cb33-331" aria-hidden="true" tabindex="-1"></a>observed<span class="ot">&lt;-</span> fit<span class="sc">$</span>data<span class="sc">$</span>observed<span class="sc">$</span>individual </span>
+<span id="cb33-332"><a href="#cb33-332" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-333"><a href="#cb33-333" aria-hidden="true" tabindex="-1"></a>predicted <span class="ot">&lt;-</span>fit<span class="sc">$</span>data<span class="sc">$</span>predicted<span class="sc">$</span>individual </span>
+<span id="cb33-334"><a href="#cb33-334" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-335"><a href="#cb33-335" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-336"><a href="#cb33-336" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-337"><a href="#cb33-337" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-340"><a href="#cb33-340" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-341"><a href="#cb33-341" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping=</span> <span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted)) <span class="sc">+</span></span>
+<span id="cb33-342"><a href="#cb33-342" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">width =</span> <span class="dv">1</span>,<span class="at">height =</span> <span class="dv">1</span>, <span class="at">color=</span><span class="st">"red"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span>  </span>
+<span id="cb33-343"><a href="#cb33-343" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>,<span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb33-344"><a href="#cb33-344" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>,<span class="at">cor.coef.name =</span> <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb33-345"><a href="#cb33-345" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Observed Data"</span>, <span class="at">x=</span><span class="st">"Predicted Data"</span>,<span class="at">title =</span> <span class="st">"Fit of Process Disassociation Model"</span>) <span class="sc">+</span> </span>
+<span id="cb33-346"><a href="#cb33-346" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb33-347"><a href="#cb33-347" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-348"><a href="#cb33-348" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-349"><a href="#cb33-349" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb33-350"><a href="#cb33-350" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-351"><a href="#cb33-351" aria-hidden="true" tabindex="-1"></a>Schritt für Schritt:</span>
+<span id="cb33-352"><a href="#cb33-352" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-353"><a href="#cb33-353" aria-hidden="true" tabindex="-1"></a><span class="ss">1.  </span><span class="in">`ggplot(mapping = aes(x=observed, y=predicted))`</span> Hier geben wir an, was auf der x und auf der y Achse geplottet werden soll</span>
+<span id="cb33-354"><a href="#cb33-354" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-355"><a href="#cb33-355" aria-hidden="true" tabindex="-1"></a><span class="ss">2.  </span><span class="in">`geom_jitter(width = 2,height = 2, color="red", alpha=0.2)`</span> In diesem Fall nehme ich statt geom_point(), geom_jitter() da ansonsten die Punkte alle auf einer Linie liegen würden!</span>
+<span id="cb33-356"><a href="#cb33-356" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-357"><a href="#cb33-357" aria-hidden="true" tabindex="-1"></a><span class="ss">3.  </span><span class="in">`geom_abline(slope = 1,intercept = 0)`</span> Hier füge ich eine Linie ein, die den Ursprung 0 und die Steigung 1 hat - das entspricht dem theoretische perfekten Fit</span>
+<span id="cb33-358"><a href="#cb33-358" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-359"><a href="#cb33-359" aria-hidden="true" tabindex="-1"></a><span class="ss">4.  </span><span class="in">`stat_cor(method = "pearson", label.x = 3, label.y = 30,cor.coef.name = "r")`</span> Dies ist aus dem Paket ggpubR das wir bereits in der ggplot Übung angesprochen hatten. <span class="in">`stat_cor`</span> fügt die Korrelation zwischen den geplotteten Variablen ein. Dabei sind die <span class="in">`label.`</span> Befehle die\</span>
+<span id="cb33-360"><a href="#cb33-360" aria-hidden="true" tabindex="-1"></a>    Koordinaten, wo genau die Korrelation stehen muss.</span>
+<span id="cb33-361"><a href="#cb33-361" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-362"><a href="#cb33-362" aria-hidden="true" tabindex="-1"></a><span class="ss">5.  </span><span class="in">`labs(y="Observed Data", x="Predicted Data",title = "Fit of Process Disassociation Model")`</span> Einfügen der Achsenbeschriftung und des Titels</span>
+<span id="cb33-363"><a href="#cb33-363" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-364"><a href="#cb33-364" aria-hidden="true" tabindex="-1"></a><span class="ss">6.  </span><span class="in">`theme_bw()`</span> schöner Theme für den Plot.</span>
+<span id="cb33-365"><a href="#cb33-365" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-366"><a href="#cb33-366" aria-hidden="true" tabindex="-1"></a>Zum Verständnis, würden wir <span class="in">`geom_point`</span> in diesem Fall verwenden, sähe der Plot folgendermaßen aus:</span>
+<span id="cb33-367"><a href="#cb33-367" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-370"><a href="#cb33-370" aria-hidden="true" tabindex="-1"></a><span class="in">```{r}</span></span>
+<span id="cb33-371"><a href="#cb33-371" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="at">mapping =</span> <span class="fu">aes</span>(<span class="at">x=</span>observed, <span class="at">y=</span>predicted)) <span class="sc">+</span></span>
+<span id="cb33-372"><a href="#cb33-372" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">color=</span><span class="st">"red"</span>, <span class="at">alpha=</span><span class="fl">0.2</span>) <span class="sc">+</span>  </span>
+<span id="cb33-373"><a href="#cb33-373" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">slope =</span> <span class="dv">1</span>,<span class="at">intercept =</span> <span class="dv">0</span>) <span class="sc">+</span> </span>
+<span id="cb33-374"><a href="#cb33-374" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_cor</span>(<span class="at">method =</span> <span class="st">"pearson"</span>, <span class="at">label.x =</span> <span class="dv">3</span>, <span class="at">label.y =</span> <span class="dv">30</span>,<span class="at">cor.coef.name =</span> <span class="st">"r"</span>) <span class="sc">+</span> </span>
+<span id="cb33-375"><a href="#cb33-375" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">y=</span><span class="st">"Observed Data"</span>, <span class="at">x=</span><span class="st">"Predicted Data"</span>,<span class="at">title =</span> <span class="st">"Fit of Process Disassociation Model"</span>) <span class="sc">+</span> </span>
+<span id="cb33-376"><a href="#cb33-376" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() </span>
+<span id="cb33-377"><a href="#cb33-377" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-378"><a href="#cb33-378" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-379"><a href="#cb33-379" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+</code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div></div></div></div></div>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">© Copyright 2022-2023, authors of <a href="https://github.com/JoseAlanis/amdstatsem">Lehre@AMD</a></div>   
+    <div class="nav-footer-center">
+      &nbsp;
+    </div>
+    <div class="nav-footer-right">This page is built with 💛️ and <a href="https://quarto.org/">Quarto</a>.</div>
+  </div>
+</footer>
+
+
+
+</body></html>
