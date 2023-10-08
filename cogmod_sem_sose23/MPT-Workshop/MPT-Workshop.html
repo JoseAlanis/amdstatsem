@@ -644,9 +644,9 @@ $parameters
 <pre><code>Presenting the best result out of 10 minimization runs.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Model fitting begins at 2023-10-01 00:43:52.991486"
-[1] "Model fitting stopped at 2023-10-01 00:43:58.358032"
-Time difference of 5.366546 secs</code></pre>
+<pre><code>[1] "Model fitting begins at 2023-10-08 00:42:05.663149"
+[1] "Model fitting stopped at 2023-10-08 00:42:11.211371"
+Time difference of 5.548222 secs</code></pre>
 </div>
 </div>
 <p>Nun können verschiedene Informationen mit Hilfe des <code>$</code> Operator aus dem <code>fit</code> Objekt ausgegeben werden, hierzu benutzen wir den <code>$</code> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):<br>
@@ -790,8 +790,8 @@ mean difference
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Log.Likelihood G.Squared df p.value
-1      -3895.856         0  0       1</code></pre>
+<pre><code>  Log.Likelihood    G.Squared df p.value
+1      -3895.856 9.094947e-13  0       0</code></pre>
 </div>
 </div>
 <p>Die für den Modelfit wichtige Statistik ist die G²-Statistik. G² wird in der Schätzung der MPT Modelle als Diskrepanzfunktion minimiert und bildet das Äquivalent zur Maximierung der Likelihood-Funktion bei kontinuierlichen Daten:</p>
@@ -807,8 +807,8 @@ mean difference
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>model_fit</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Log.Likelihood G.Squared df p.value
-1      -3895.856         0  0       1</code></pre>
+<pre><code>  Log.Likelihood    G.Squared df p.value
+1      -3895.856 9.094947e-13  0       0</code></pre>
 </div>
 </div>
 <p>Dies bedeutet das Modell fittet perfekt, was an der eindeutigen Identifizierung des Modells liegt, da</p>
