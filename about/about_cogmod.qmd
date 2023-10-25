@@ -46,22 +46,21 @@ D-55122 Mainz\
 
 ### Fahrplan
 
-| Datum      | Thema                                                               | Slides | Literatur |
-|------------|---------------------------------------------------------------------|----------|-------------|-------------|
-| 25.10.2023 | Organisation und Ablauf                                             |          |             |-------------|
-| 08.11.2023 | Einführung: Grundlagen der Modellierung                              |          |             |-------------|
-| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |          |             |-------------|
-| 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |          |             |-------------|
-| 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |          |             |-------------|
-| 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |          |             |-------------|
-| 13.12.2023 | Multinomial Processing Tree Models (Theorie)                         |          |             |-------------|
-| 20.12.2023 | **Anwendung von MPT Modellen (R-Sitzung)**                           |          |             |-------------|
-| 10.01.2024 | Drift Diffusion Models (Theorie)                                     |          |             |-------------|
-| 17.01.2024 | **Drift Diffusion Models (Anwendung)**                               |          |             |-------------|
-| 24.01.2023 | Mixture Models (Theorie)                                             |          |             |-------------|
-| 31.01.2024 | **Mixture Models (Anwendung)**                                       |          |             |-------------|
-| 07.02.2024 | Puffersitzung                                                        |          |             |-------------|
-                                                                                       |-------------|
+| Datum      | Thema                                                               | Slides | Literatur | Scripts |
+|------------|---------------------------------------------------------------------|--------|----------|---------|
+| 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P)       |          |         |
+| 08.11.2023 | Einführung: Grundlagen der Modellierung                              |        |    [![](../images/paperpile.png){width="30," height="30"}](https://paperpile.com/shared/lH0wBI)          |         |
+| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |          |         |
+| 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |          |         |
+| 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |          |         |
+| 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |          |         |
+| 13.12.2023 | Multinomial Processing Tree Models (Theorie)                         |        |          |         |
+| 20.12.2023 | **Anwendung von MPT Modellen (R-Sitzung)**                           |        |          |         |
+| 10.01.2024 | Drift Diffusion Models (Theorie)                                     |        |          |         |
+| 17.01.2024 | **Drift Diffusion Models (Anwendung)**                               |        |          |         |
+| 24.01.2023 | Mixture Models (Theorie)                                             |        |          |         |
+| 31.01.2024 | **Mixture Models (Anwendung)**                                       |        |          |         |
+| 07.02.2024 | Puffersitzung                                                        |        |          |         |
 
 ## Begleitendes Tutorium
 
