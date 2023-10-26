@@ -6,7 +6,7 @@ image: ../images/logo_modeling.png
 author: "Jan Göttmann"
 date: '`r format(Sys.Date(), "%B %d, %Y")`'
 date-format: "D MMMM YYYY"
-categories: ["SoSe 2023"]
+categories: ["WiSe 2023 / 2024"]
 engine: knitr
 ---
 
@@ -33,7 +33,7 @@ D-55122 Mainz\
 ## Allgemeine Materialien für das Seminar
 
 -   Wichtige Informationen werden auf dem Teams Channel des Seminars veröffentlicht:
-    -   [Beitrittslink zum Teams Channel](https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85)
+    -   [Beitrittslink zum Teams Channel](https://teams.microsoft.com/l/team/19%3aFSXxxJYaizbw6Qc6xHsKPJUmvE_9BztlIerMDJA8RNU1%40thread.tacv2/conversations?groupId=b0203a36-e36a-41d8-8816-d5d1ec7cf968&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85)
     -   Kursmaterialien wie Literatur, R-Skripte und Präsentationen finden Sie hier auf unserer [Website](https://josealanis.github.io/amdstatsem/)
         -   **Wann**: Mittwochs von **12:15** - **13:45** Uhr (25.10.23 - Mo. 07.02.24).
         -   **Wo**: Raum 01-211 ([Kleiner Hörsaal](https://maps.uni-mainz.de/leaflets/room/E7986DDE-BBDC-46C7-BB1E-02B3B8CDE79E)) im Psychologischen Institut (Binger Str.)
