@@ -30,8 +30,7 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<link href="../cogmod_sem_sose23/ML_Workshop.html" rel="next">
-<link href="../about/about_jan.html" rel="prev">
+<link href="../mlm_seminar_sose23/lineare_regression_parameters.html" rel="prev">
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
 <script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -64,6 +63,8 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
 </head>
 
@@ -76,7 +77,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/Termin1.html">Termin 1: Organisation</a></li><li class="breadcrumb-item"><a href="../cogmod_sem_sose23/Termin1.html">Zusammenfassung</a></li></ol></nav>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Seminar kognitive Modellierung</li><li class="breadcrumb-item"><a href="../about/about_cogmod.html">Allgemeine Informationen</a></li><li class="breadcrumb-item"><a href="../about/about_cogmod.html">Kursinhalt und Tutorium</a></li></ol></nav>
       <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Seitenleiste umschalten" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
       </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -153,174 +154,17 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true">
  <span class="menu-text">Allgemeine Informationen</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Abschnitt umschalten">
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="true" aria-label="Abschnitt umschalten">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
       </div>
-      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="../about/about_jan.html" class="sidebar-item-text sidebar-link">
+  <a href="../about/about_cogmod.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Kursinhalt und Tutorium</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
- <span class="menu-text">Termin 1: Organisation</span></a>
-          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth2 show">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../cogmod_sem_sose23/Termin1.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Zusammenfassung</span></a>
-  </div>
-</li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
- <span class="menu-text">Termin 2: Einführung I</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Zusammenfassung</span>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
- <span class="menu-text">Termin 3: Einführung II</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Zusammenfassung</span>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
- <span class="menu-text">Termin 4: Parameterschätzung I</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Zusammenfassung</span>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
- <span class="menu-text">Termin 5: Parameterschätzung II: Maximum Likelihood</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Zusammenfassung</span>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="https://slides.com/gman_science/lecture-4-parameter-estimation-ii?token=myvvodNZ" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Slides</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
- <span class="menu-text">Termin 6: Hands on MLE in R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../cogmod_sem_sose23/ML_Workshop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">ML Workshop</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
- <span class="menu-text">Termin 7: Advanced R</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../cogmod_sem_sose23/R-Scripts/Advanced R/Advanced_R_SS23.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Advanced Workshop for dplyr</span></a>
-  </div>
-</li>
-      </ul>
-  </li>
-          <li class="sidebar-item sidebar-item-section">
-      <div class="sidebar-item-container"> 
-            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false">
- <span class="menu-text">Termin 8 &amp; 9: Multinomial Processing Tree Models</span></a>
-          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="false" aria-label="Abschnitt umschalten">
-            <i class="bi bi-chevron-right ms-2"></i>
-          </a> 
-      </div>
-      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth2 ">  
-          <li class="sidebar-item">
- <span class="menu-text">Slides</span>
-  </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="../cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">MPT Workshop</span></a>
   </div>
 </li>
       </ul>
@@ -337,12 +181,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Auf dieser Seite</h2>
    
   <ul>
-  <li><a href="#anwesenheit" id="toc-anwesenheit" class="nav-link active" data-scroll-target="#anwesenheit">Anwesenheit</a></li>
-  <li><a href="#studienleistung" id="toc-studienleistung" class="nav-link" data-scroll-target="#studienleistung">Studienleistung</a></li>
-  <li><a href="#teams-channel" id="toc-teams-channel" class="nav-link" data-scroll-target="#teams-channel">Teams Channel <img src="../images/teams_logo.png" height="30"></a>
+  <li><a href="#willkommen" id="toc-willkommen" class="nav-link active" data-scroll-target="#willkommen">Willkommen !</a></li>
+  <li><a href="#seminarleitung" id="toc-seminarleitung" class="nav-link" data-scroll-target="#seminarleitung">Seminarleitung</a></li>
+  <li><a href="#organisatorisches-und-wichtige-infos" id="toc-organisatorisches-und-wichtige-infos" class="nav-link" data-scroll-target="#organisatorisches-und-wichtige-infos">Organisatorisches und wichtige Infos</a>
+  <ul class="collapse">
+  <li><a href="#allgemeine-materialien-für-das-seminar" id="toc-allgemeine-materialien-für-das-seminar" class="nav-link" data-scroll-target="#allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</a></li>
+  <li><a href="#inhalt-des-seminars" id="toc-inhalt-des-seminars" class="nav-link" data-scroll-target="#inhalt-des-seminars">Inhalt des Seminars</a>
   <ul class="collapse">
   <li><a href="#fahrplan" id="toc-fahrplan" class="nav-link" data-scroll-target="#fahrplan">Fahrplan</a></li>
-  <li><a href="#fahrplan-1" id="toc-fahrplan-1" class="nav-link" data-scroll-target="#fahrplan-1">Fahrplan</a></li>
+  </ul></li>
+  <li><a href="#begleitendes-tutorium" id="toc-begleitendes-tutorium" class="nav-link" data-scroll-target="#begleitendes-tutorium">Begleitendes Tutorium</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -353,9 +201,9 @@ ul.task-list li input[type="checkbox"] {
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Seminar <strong>Fortgeschrittene statistische Methoden II</strong> (3)</h1>
-<p class="subtitle lead">Termin 1: Organisation</p>
+<p class="subtitle lead">Kognitive Modellierung</p>
   <div class="quarto-categories">
-    <div class="quarto-category">SoSe 2023</div>
+    <div class="quarto-category">WiSe 2023 / 2024</div>
   </div>
   </div>
 
@@ -373,7 +221,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Veröffentlichungsdatum</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">22 Oktober 2023</p>
+      <p class="date">26 Oktober 2023</p>
     </div>
   </div>
   
@@ -383,118 +231,164 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
-<section id="anwesenheit" class="level2">
-<h2 class="anchored" data-anchor-id="anwesenheit">Anwesenheit</h2>
-<p>Prinzipiell besteht keine Anwesenheitspflicht im Seminar, allerdings rate ich dringend zur regelmäßigen Teilnahme ! Für meine eigene Übersicht wird eine Anwesenheitsliste geführt!</p>
+<section id="willkommen" class="level1">
+<h1>Willkommen !</h1>
+<p><span class="math display">\[\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
+\frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
+\frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
+\beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)\]</span></p>
+<p>Hier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software.</p>
 </section>
-<section id="studienleistung" class="level2">
-<h2 class="anchored" data-anchor-id="studienleistung">Studienleistung</h2>
-<p>Die Studienleistung für das Seminar besteht in der wöchentlichen Abgabe von Aufgaben, die sich auf den behandelten Stoff beziehen. Die Aufgaben werden über <strong>Assignments</strong> in Teams abgegeben und sind jeweils bis Montags 12:00 Uhr vor dem jeweilig nächsten Seminar fällig. Am Ende des Semesters wird dann ein Portfolio mit allen Aufgaben abgegeben, was die Gesamtstudienleistung darstellt. Es müssen zum bestehen <strong>alle</strong> Aufgaben eingereicht werden !</p>
-<p>Die Aufgaben werden mit fortschreitendem Semester anspruchsvoller und können folgendes umfassen:</p>
+<section id="seminarleitung" class="level1">
+<h1>Seminarleitung</h1>
+<p><a href="https://methoden.amd.psychologie.uni-mainz.de/goettmann/">Jan Göttmann</a><br>
+<a href="https://methoden.amd.psychologie.uni-mainz.de/">Abteilung für Analyse und Modellierung komplexer Daten</a><br>
+Psychologisches Institut<br>
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255<br>
+D-55122 Mainz<br>
+<a href="jan.goettmann@uni-mainz.de">jan.goettmann at uni-mainz.de</a></p>
+</section>
+<section id="organisatorisches-und-wichtige-infos" class="level1">
+<h1>Organisatorisches und wichtige Infos</h1>
+<section id="allgemeine-materialien-für-das-seminar" class="level2">
+<h2 class="anchored" data-anchor-id="allgemeine-materialien-für-das-seminar">Allgemeine Materialien für das Seminar</h2>
 <ul>
-<li>Fragen zum Stoff</li>
-<li>Programmieraufgaben in R</li>
-<li>Datenanalyse und Modellierung mit R</li>
+<li>Wichtige Informationen werden auf dem Teams Channel des Seminars veröffentlicht:
+<ul>
+<li><a href="https://teams.microsoft.com/l/team/19%3aFSXxxJYaizbw6Qc6xHsKPJUmvE_9BztlIerMDJA8RNU1%40thread.tacv2/conversations?groupId=b0203a36-e36a-41d8-8816-d5d1ec7cf968&amp;tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85">Beitrittslink zum Teams Channel</a></li>
+<li>Kursmaterialien wie Literatur, R-Skripte und Präsentationen finden Sie hier auf unserer <a href="https://josealanis.github.io/amdstatsem/">Website</a>
+<ul>
+<li><strong>Wann</strong>: Mittwochs von <strong>12:15</strong> - <strong>13:45</strong> Uhr (25.10.23 - Mo. 07.02.24).</li>
+<li><strong>Wo</strong>: Raum 01-211 (<a href="https://maps.uni-mainz.de/leaflets/room/E7986DDE-BBDC-46C7-BB1E-02B3B8CDE79E">Kleiner Hörsaal</a>) im Psychologischen Institut (Binger Str.)</li>
+</ul></li>
+</ul></li>
 </ul>
 </section>
-<section id="teams-channel" class="level2">
-<h2 class="anchored" data-anchor-id="teams-channel">Teams Channel <a href="https://teams.microsoft.com/l/team/19%3ayOZU87vQEyXc9WwiR_jODk4Ksh9X_VU8N0N4bFOpWRg1%40thread.tacv2/conversations?groupId=7d8d81c8-8b2e-4b0a-8cf6-eb9b658699be&amp;tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85"><img src="../images/teams_logo.png" height="30"></a></h2>
-<p>Wir werden ausschließlich mit Teams und dieser Website arbeiten ! Alle wichtigen Ankündigungen werden im Teams Channel gemacht, daher ist es wichtig regelemäßig dort hineinzuschauen. Auf dieser Website werden kurze Zusammenfassungen und weitere Materialien (Slides, Literatur, Skripte und Videos) für die Seminareinheiten zur Verfügung gestellt, sodass ihr alles aus einer Hand nacharbeiten könnt.</p>
+<section id="inhalt-des-seminars" class="level2">
+<h2 class="anchored" data-anchor-id="inhalt-des-seminars">Inhalt des Seminars</h2>
+<div class="justify">
+<p><strong>Mathematische Modelle</strong> kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.</p>
+</div>
 <section id="fahrplan" class="level3">
 <h3 class="anchored" data-anchor-id="fahrplan">Fahrplan</h3>
-</section>
-<section id="fahrplan-1" class="level3">
-<h3 class="anchored" data-anchor-id="fahrplan-1">Fahrplan</h3>
 <table class="table">
 <thead>
 <tr class="header">
-<th>KW</th>
-<th>Thema Seminar</th>
-<th>Link</th>
-<th>Materialien</th>
+<th>Datum</th>
+<th>Thema</th>
+<th>Slides</th>
+<th>Literatur</th>
+<th>Scripts</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>16</td>
+<td>25.10.2023</td>
 <td>Organisation und Ablauf</td>
-<td><a href="../cogmod_sem_sose23/Termin1.html">Zusammenfassung</a></td>
 <td><a href="https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P"><img src="../images/slides.png" height="30"></a></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>17</td>
-<td>Einführung I: Grundlagen der Modellierung</td>
+<td>08.11.2023</td>
+<td>Einführung: Grundlagen der Modellierung</td>
 <td></td>
-<td><a href="https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o"><img src="../images/slides.png" height="30"></a> <a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a></td>
+<td><a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>19</td>
+<td>15.11.2023</td>
 <td>Einführung II: Grundlagen der Modellierung</td>
 <td></td>
-<td><a href="https://slides.com/gman_science/lecture-2-introduction-ii?token=DXdrtkfF"><img src="../images/slides.png" height="30"></a> <a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a> <a href="../cogmod_sem_sose23/R-Scripts/power_law.R"><img src="../images/r_logo.png" height="30"></a></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>20</td>
+<td>22.11.2023</td>
 <td>Parameterschätzung I: Diskrepanzfunktionen &amp; Schätzalgorithmen</td>
 <td></td>
-<td><a href="https://slides.com/gman_science/lecture-3-parameter-estimation?token=4oPahfz8"><img src="../images/slides.png" height="30"></a> <a href="https://paperpile.com/shared/lH0wBI"><img src="../images/paperpile.png" height="30"></a> <a href="../cogmod_sem_sose23/R-Scripts/error_space.R"><img src="../images/r_logo.png" height="30"></a></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>21</td>
+<td>29.11.2023</td>
 <td>Parameterschätzung II: Maximum Likelihood &amp; Beyond</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="even">
-<td>23</td>
+<td>06.12.2023</td>
 <td>Parameterschätzung III: Hands On in R Parameter Estimation</td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>24</td>
-<td>Advanced R for Cognitive Modeling</td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>25</td>
+<td>13.12.2023</td>
 <td>Multinomial Processing Tree Models (Theorie)</td>
 <td></td>
 <td></td>
+<td></td>
+</tr>
+<tr class="even">
+<td>20.12.2023</td>
+<td><strong>Anwendung von MPT Modellen (R-Sitzung)</strong></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
-<td>26</td>
-<td>Anwendung von MPT Modellen (R-Sitzung)</td>
+<td>10.01.2024</td>
+<td>Drift Diffusion Models (Theorie)</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>27</td>
-<td>Drift Diffusion Models (Theory)</td>
+<td>17.01.2024</td>
+<td><strong>Drift Diffusion Models (Anwendung)</strong></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>28</td>
-<td>Memory Measurement Model (M3)</td>
+<td>24.01.2023</td>
+<td>Mixture Models (Theorie)</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>29</td>
-<td>Anwendung des M3 Modells</td>
+<td>31.01.2024</td>
+<td><strong>Mixture Models (Anwendung)</strong></td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="odd">
-<td>30</td>
-<td>Abgabe des kompletten Portfolios</td>
+<td>07.02.2024</td>
+<td>Puffersitzung</td>
+<td></td>
 <td></td>
 <td></td>
 </tr>
 </tbody>
 </table>
+</section>
+</section>
+<section id="begleitendes-tutorium" class="level2">
+<h2 class="anchored" data-anchor-id="begleitendes-tutorium">Begleitendes Tutorium</h2>
+<div class="justify">
+<p>Das Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.</p>
+<p>Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr.&nbsp;Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.</p>
+<p>Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:</p>
+</div>
+<div class="customIndent">
+<ul>
+<li><a href="https://amd-lab.github.io/R-Kurs-Buch/"><strong>R-Kurs-Buch</strong></a> von der Abteilung Analyse und Modellierung komplexer Daten.</li>
+</ul>
+</div>
 
 
 </section>
@@ -851,14 +745,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="../about/about_jan.html" class="pagination-link">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Kursinhalt und Tutorium</span>
+      <a href="../mlm_seminar_sose23/lineare_regression_parameters.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">4. Parameterschätzung</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="../cogmod_sem_sose23/ML_Workshop.html" class="pagination-link">
-        <span class="nav-page-text">ML Workshop</span> <i class="bi bi-arrow-right-short"></i>
-      </a>
   </div>
 </nav>
 </div> <!-- /content -->
