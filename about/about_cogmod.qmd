@@ -1,0 +1,77 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (3)"
+lang: de
+subtitle: "Kognitive Modellierung"
+image: ../images/logo_modeling.png
+author: "Jan Göttmann"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["WiSe 2023 / 2024"]
+engine: knitr
+---
+
+# Willkommen !
+
+$$\text{Wiener}(y|\alpha, \tau, \beta, \delta) =
+\frac{\alpha^3}{(y-\tau)^{3/2}} \exp \! \left(- \delta \alpha \beta -
+\frac{\delta^2(y-\tau)}{2}\right) \sum_{k = - \infty}^{\infty} (2k +
+\beta) \phi \! \left(\frac{2k \alpha + \beta}{\sqrt{y - \tau}}\right)$$
+
+Hier finden Sie alle nötigen Informationen zum Seminar, sowie alle Skripte, Aufgaben und Links zur notwendigen Software.
+
+# Seminarleitung
+
+[Jan Göttmann](https://methoden.amd.psychologie.uni-mainz.de/goettmann/)\
+[Abteilung für Analyse und Modellierung komplexer Daten](https://methoden.amd.psychologie.uni-mainz.de/)\
+Psychologisches Institut\
+Johannes Gutenberg-Universität Mainz Wallstraße 3, Raum 06-255\
+D-55122 Mainz\
+[jan.goettmann at uni-mainz.de](jan.goettmann@uni-mainz.de)
+
+# Organisatorisches und wichtige Infos
+
+## Allgemeine Materialien für das Seminar
+
+-   Wichtige Informationen werden auf dem Teams Channel des Seminars veröffentlicht:
+    -   [Beitrittslink zum Teams Channel](https://teams.microsoft.com/l/team/19%3aFSXxxJYaizbw6Qc6xHsKPJUmvE_9BztlIerMDJA8RNU1%40thread.tacv2/conversations?groupId=b0203a36-e36a-41d8-8816-d5d1ec7cf968&tenantId=51aa2b30-c9fa-40db-b91a-3a53a8a08d85)
+    -   Kursmaterialien wie Literatur, R-Skripte und Präsentationen finden Sie hier auf unserer [Website](https://josealanis.github.io/amdstatsem/)
+        -   **Wann**: Mittwochs von **12:15** - **13:45** Uhr (25.10.23 - Mo. 07.02.24).
+        -   **Wo**: Raum 01-211 ([Kleiner Hörsaal](https://maps.uni-mainz.de/leaflets/room/E7986DDE-BBDC-46C7-BB1E-02B3B8CDE79E)) im Psychologischen Institut (Binger Str.)
+
+## Inhalt des Seminars
+
+::: justify
+**Mathematische Modelle** kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.
+:::
+
+### Fahrplan
+
+| Datum      | Thema                                                               | Slides | Literatur | Scripts |
+|------------|---------------------------------------------------------------------|--------|----------|---------|
+| 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P)       |          |         |
+| 08.11.2023 | Einführung: Grundlagen der Modellierung                              |        |    [![](../images/paperpile.png){width="30," height="30"}](https://paperpile.com/shared/lH0wBI)          |         |
+| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |          |         |
+| 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |          |         |
+| 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |          |         |
+| 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |          |         |
+| 13.12.2023 | Multinomial Processing Tree Models (Theorie)                         |        |          |         |
+| 20.12.2023 | **Anwendung von MPT Modellen (R-Sitzung)**                           |        |          |         |
+| 10.01.2024 | Drift Diffusion Models (Theorie)                                     |        |          |         |
+| 17.01.2024 | **Drift Diffusion Models (Anwendung)**                               |        |          |         |
+| 24.01.2023 | Mixture Models (Theorie)                                             |        |          |         |
+| 31.01.2024 | **Mixture Models (Anwendung)**                                       |        |          |         |
+| 07.02.2024 | Puffersitzung                                                        |        |          |         |
+
+## Begleitendes Tutorium
+
+::: justify
+Das Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.
+
+Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr. Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.
+
+Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
+:::
+
+::: customIndent
+-   [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
+:::
