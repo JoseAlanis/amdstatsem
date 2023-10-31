@@ -69,7 +69,8 @@ Unter dem Paperpile Repository finden Sie die relevante Literatur für jede Semi
 |------------|---------------------------------------------------------------------|--------|---------|
 | 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P) |         |
 | 08.11.2023 | Einführung: Grundlagen der Modellierung                              |        |         |
-| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |         |
+| 15.11.2023 | Einführung II: Grundlagen der Modellierunseff 14306614
+g                           |        |         |
 | 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |         |
 | 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |         |
 | 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |         |
@@ -93,4 +94,3 @@ Das Seminar findet in Absprache mit der R-Übung statt. In der Übung werden die
 Daten.
 - [**R for Datascience**](https://r4ds.had.co.nz/) von Hadley Wickham.
 - [**R Cheatsheets**](https://rstudio.github.io/cheatsheets/) für alle wichtigen Packages und Basisfunktionen.
-:::

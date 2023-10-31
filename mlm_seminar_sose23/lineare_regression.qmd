@@ -45,7 +45,7 @@ Gehen wir davon aus, dass wir die Veränderung im Meeresspiegel, die durch die A
 :::
 
 ::: customIndent
-- *"Der Meeresspiegel ist seit 1993 gestiegen"*, oder *"Der Meeresspiegel steigt seit 1993 um mehrere Millimeter"*.
+-   *"Der Meeresspiegel ist seit 1993 gestiegen"*, oder *"Der Meeresspiegel steigt seit 1993 um mehrere Millimeter"*.
 :::
 
 ::: justify
@@ -74,7 +74,7 @@ meeresspiegel %>%
 
 ```
 
-:::justify
+::: justify
 Nun können wir die Abweichung im Meeresspiegel genauer Beschreiben:
 :::
 
@@ -105,12 +105,11 @@ lin_reg <- lm(
               formula = 1 +  Anstieg ~ Jahr)
 ```
 
-Mit `summary()` können wir uns die Ergebnisse der Regression anzeigen lassen: 
+Mit `summary()` können wir uns die Ergebnisse der Regression anzeigen lassen:
 
 ```{r}
 summary(lin_reg)
 ```
-
 
 ::: customIndent
 -   Wie kommen diese Zahlen zustande?
