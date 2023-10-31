@@ -44,34 +44,53 @@ D-55122 Mainz\
 **Mathematische Modelle** kognitiver Prozesse sind ein machtvolles Werkzeug, um spezifische kognitive Prozesse wie beispielsweise Verarbeitungsgeschwindigkeit, exekutive Funktionen oder Arbeitsgedächtniskapazität genauer abzubilden. Die mathematische Formalisierung dieser Prozesse ermöglicht es, verbale Theorien in empirisch testbare Modelle zu überführen, die eine Ableitung und Überprüfung spezifischer Hypothesen und Vorhersagen über bspw. experimentelle Effekte ermöglichen. Ein Beispiel für ein sehr erfolgreich angewandtes Modell in der kognitiven Forschung ist das Diffusionsmodell, welches die Verarbeitungsgeschwindigkeit von einfachen Wahlreaktionszeitaufgaben modelliert. Das Seminar wird einen Überblick über die theoretischen Grundlagen und gängigen Modelle zur mathematischen Modellierung verschiedener Arbeitsgedächtnisprozesse geben. Im praktischen Teil des Seminars werden Anhand unterschiedlicher kognitiver Modelle wie des Diffusionsmodells die Modellimplementierung in R, die Schätzung anhand empirischer Daten sowie die Bewertung und Interpretation der geschätzten Modellparameter eingeübt.
 :::
 
-### Fahrplan
 
-| Datum      | Thema                                                               | Slides | Literatur | Scripts |
-|------------|---------------------------------------------------------------------|--------|----------|---------|
-| 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P)       |          |         |
-| 08.11.2023 | Einführung: Grundlagen der Modellierung                              |        |    [![](../images/paperpile.png){width="30," height="30"}](https://paperpile.com/shared/lH0wBI)          |         |
-| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |          |         |
-| 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |          |         |
-| 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |          |         |
-| 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |          |         |
-| 13.12.2023 | Multinomial Processing Tree Models (Theorie)                         |        |          |         |
-| 20.12.2023 | **Anwendung von MPT Modellen (R-Sitzung)**                           |        |          |         |
-| 10.01.2024 | Drift Diffusion Models (Theorie)                                     |        |          |         |
-| 17.01.2024 | **Drift Diffusion Models (Anwendung)**                               |        |          |         |
-| 24.01.2023 | Mixture Models (Theorie)                                             |        |          |         |
-| 31.01.2024 | **Mixture Models (Anwendung)**                                       |        |          |         |
-| 07.02.2024 | Puffersitzung                                                        |        |          |         |
+## Literatur 
 
-## Begleitendes Tutorium
+::: columns
+::: {.column width="15%"}
+
+[![Klick on it!](../images/paperpile.png){width="90," height="90"}](https://paperpile.com/shared/lH0wBI)
+
+:::
+
+::: {.column width="85%"}
+
+Unter dem Paperpile Repository finden Sie die relevante Literatur für jede Seminareinheit. Unter Termin 1 finden Sie das Lehrbuch *Computational modeling of cognition and behavior*, an welchem sich die Seminarinhalte orientieren. Dort können Sie die Seminareinheiten nachlesen und vertiefen. Zusätzlich gibt es zu jedem Termin weiterführende und vertiefende Literatur, wie bspw. Tutorial-Paper zu unterschiedlichen Modellarten oder R-Paketen. 
+
+:::
+:::
+
+
+
+## Fahrplan
+
+| Datum      | Thema                                                               | Slides | Scripts |
+|------------|---------------------------------------------------------------------|--------|---------|
+| 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P) |         |
+| 08.11.2023 | Einführung: Grundlagen der Modellierung                              |        |         |
+| 15.11.2023 | Einführung II: Grundlagen der Modellierunseff 14306614
+g                           |        |         |
+| 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |         |
+| 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |         |
+| 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |         |
+| 13.12.2023 | Multinomial Processing Tree Models (Theorie)                         |        |         |
+| 20.12.2023 | **Anwendung von MPT Modellen (R-Sitzung)**                           |        |         |
+| 10.01.2024 | Drift Diffusion Models (Theorie)                                     |        |         |
+| 17.01.2024 | **Drift Diffusion Models (Anwendung)**                               |        |         |
+| 24.01.2023 | Mixture Models (Theorie)                                             |        |         |
+| 31.01.2024 | **Mixture Models (Anwendung)**                                       |        |         |
+| 07.02.2024 | Puffersitzung                                                        |        |         |
+
+
+## Begleitende Übung
 
 ::: justify
-Das Seminar wird von einem Tutorium (Softwarekurs) begleitet. Im Tutorium werden Sie die Grundlagen des Statistiksoftware und Programmiersprache R. Sie werden in dem Umgang mit Daten geschult und werden verschiedene Techniken zur Datenaufbereitung erlernen und einüben. Dieser Teil des Tutoriums findet im ersten Teil des Semesters statt. Sie sollten für eines der beiden Tutorien angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden.
-
-Im zweiten Teil des Semesters findet ein vertiefendes Tutorium statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie dieses Tutorium entweder bei Hr. Alanis oder Fr. Hülsemann.Die Termine für die Tutorien ändern sich nicht. Sie müssen das Tutorium nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wir auf den Inhalten der bisherigen Tutorien aufbauen.
-
-Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
+Das Seminar findet in Absprache mit der R-Übung statt. In der Übung werden die Grundlagend Programmiersprache R vermittelt. Sie werden im Umgang mit Daten geschult und verschiedene Techniken zur Datenaufbereitung erlernen. Dieser Teil der Übung findet im ersten Teil des Semesters statt. Sie sollten für eine der beiden Übungen angemeldet sein, entweder am Montag oder am Mittwoch. Besuchen das Tutorium! Erfahrungsgemäß können viele Fragen und Startschwierigkeiten im Umgang mit R im Tutorium gut aufgefangen und gelöst werden. Im zweiten Teil des Semesters findet eine zweite, vertiefende Übungen statt. Dieses baut auf den Grundkenntnissen, die Sie im ersten Teil des Semesters erlernt haben werden, auf. Im zweiten Teil des Semesters besuchen Sie diese Übung entweder bei Hr. Alanis oder Fr. Hülsemann. Die Termine für die Übungen ändern sich nicht. Sie müssen die Übung nicht wechseln, alle R Inhalte die spezifisch für das Seminar sind, werden an einem Termin im Seminar behandelt und vertieft. Dieser Termin wird auf den Inhalten der bisherigen Tutorien aufbauen. Wir haben eine Reihe von Materialien zusammengestellt, um Ihnen den Einstieg in die Programmiersprache R zur erleichtern. Diese können Sie unter dem folgenden Link erreichen:
 :::
 
 ::: customIndent
--   [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer Daten.
-:::
+-   [**R-Kurs-Buch**](https://amd-lab.github.io/R-Kurs-Buch/) von der Abteilung Analyse und Modellierung komplexer
+Daten.
+- [**R for Datascience**](https://r4ds.had.co.nz/) von Hadley Wickham.
+- [**R Cheatsheets**](https://rstudio.github.io/cheatsheets/) für alle wichtigen Packages und Basisfunktionen.
