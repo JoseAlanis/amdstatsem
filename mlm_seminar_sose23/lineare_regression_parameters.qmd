@@ -1,0 +1,301 @@
+---
+title: "Seminar **Fortgeschrittene statistische Methoden II** (1)"
+lang: de
+subtitle: "Termin 4: Parameterschätzung Multi-Level Modelle"
+image: "https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main/images/mlm_fig.png"
+author: "José C. García Alanis"
+date: '`r format(Sys.Date(), "%B %d, %Y")`'
+date-format: "D MMMM YYYY"
+categories: ["SoSe 2023"]
+engine: knitr
+---
+
+# Parameterschätzung
+
+## Bezug zur vorherigen Stunde
+
+In den letzten Sitzungen haben wir uns mit der einfachen linearen Regression befasst. Dabei haben wir uns erst einmal dafür entschieden, eine Regression ohne Berücksichtigung der verschiedenen Subgruppen in den Daten zu berechnen.
+
+Mit einem Prädiktor ($x_{1}$ ), lautet die Formel der Regression:
+
+$$
+\widehat{y}_{m} = b_{0} + b_{1} \cdot x_{m1}
+$$ {#eq-linreg}
+
+Sie liefert uns zwei Parameter \$b\_{0} und $b_{1}$.
+
+-   $b_{0} =$ $y$-Achsenabschnitt, Konstante, oder Interzept:
+    -   Der Wert von $y$ bei einer Ausprägung von 0 in $x$.
+-   $b_{1} =$ Regressionsgewicht des Prädiktors oder die Steigung der Regressionsgerade.
+    -   Interpretation: die Steigung der Geraden lässt erkennen, um wie viele Einheiten $y$ zunimmt, wenn $x$ um eine Einheit zunimmt.
+
+Um die "Interpretierbarkeit" der Parameter (vorallem die des Interzepts.
+
+Wir haben ebenfalls über "Zentrierung" gesprochen. Wenn wir eine Variable an ihren Mittelwert zentrieren, ziehen wir den Mittelwert der Variable von allen Werten (d.h. alle Beobachtungen) der Variable ab. Zentrierung definiert das Minimum und Maximum der Variable neu. Der Mittelwert einer am Mittelwert zentrierten Variable ist nun gleich Null. Wir können Zentrierung als eine "Daten-Vorverarbeitungsstrategie" betrachten, die die "Interpretierbarkeit" der Parameter (vor allem die des Intercepts) in einem linearen Modell steigert.
+
+Betrachten wir z.B. die folgende Abbildung:
+
+```{r, echo = FALSE, warning = FALSE, message = FALSE}
+urlRemote <- 'https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main'
+fpathData <- '/data/schulunlust.txt'
+# die Daten können mit diesem Befehl geladen werden
+schulunlust <- read.table(
+  file=paste0(urlRemote, fpathData),
+  header = TRUE, 
+  dec = ',')
+
+# Helfer-Funktion
+lm_eqn <- function(df, formula){
+  m <- lm(formula = formula, data = df)
+  eq <- substitute(italic(y) == a +~~b %.% italic(x)*~~","~~italic(r)^2~"="~r2, 
+                   list(a = format(unname(coef(m)[1]), digits = 3),
+                        b = format(unname(coef(m)[2]), digits = 3),
+                        r2 = format(summary(m)$r.squared, digits = 3)))
+  as.character(as.expression(eq));
+}
+
+# legen wir das "Design" für ggplot fest
+require(ggplot2)
+theme_set(
+  theme_linedraw() +
+    theme(panel.grid = element_line(color = 'gray80'),
+          panel.border = element_blank(),
+          axis.title.x = element_text(size = 14),
+          axis.title.y = element_text(size = 14),
+          axis.text.x = element_text(size = 12),
+          axis.text.y = element_text(size = 12),
+          strip.background = element_rect(fill = "white", color = NA),
+          strip.text =  element_text(color = 'black'))
+)
+```
+
+```{r, fig.width=10.0, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
+require(dplyr)
+data <- schulunlust %>%
+  filter(klasse_nr <= 5)
+
+df <- data.frame(x1 = 22, x2 = 15, y1 = 36, y2 = 40)
+
+require(ggplot2)
+plt <- ggplot(data = data, aes(x = unlust, y = leistung)) +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(15, 30)) +
+  labs(x = 'Schulunlust (nicht zentriert)', 
+       y = 'Schulische Leistung') +
+  geom_smooth(method = 'lm', formula = 'y ~ x',
+              se = FALSE, fullrange = TRUE) +
+  geom_curve(
+    aes(x = x1, y = y1, xend = x2, yend = y2),
+    data = df,
+    arrow = arrow(length = unit(0.03, "npc")),
+    curvature = -0.2
+  ) +
+  annotate(geom = 'label',
+           x = 25, y = 38, 
+           label = lm_eqn(data, 'leistung ~ unlust'),
+           parse = TRUE, fill = "white") +
+  annotate("rect", 
+           xmin = 23.7, xmax = 26.1,
+           ymin = 36, ymax = 40,
+           alpha = .2, color = 'blue')
+
+
+data_znt <- data %>%
+  mutate(ur_unlust = unlust,
+       unlust = unlust - mean(unlust))
+
+df <- data.frame(x1 = -2.8, x2 = 0, y1 = 7, y2 = 21)
+plt_znt <- ggplot(data = data_znt, aes(x = unlust, y = leistung)) +
+  geom_point() +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust (zentriert)', 
+       y = 'Schulische Leistung') +
+  geom_smooth(method = 'lm', formula = 'y ~ x',
+              se = FALSE, fullrange = TRUE) +
+  geom_curve(
+    aes(x = x1, y = y1, xend = x2, yend = y2),
+    data = df,
+    arrow = arrow(length = unit(0.03, "npc")),
+    curvature = -0.2
+  ) +
+  geom_segment(aes(x =0, xend = 0, y = -Inf, yend = Inf),
+               color = 'black', alpha = 0.5,
+               linewidth = rel(0.25), linetype = 'dotted') +
+  annotate(geom = 'label', x = 0, y = 5, 
+           label = lm_eqn(data_znt, 'leistung ~ unlust'),
+           parse = TRUE, fill = "white") +
+  annotate("rect", 
+           xmin = -1.2, xmax = 1.12,
+           ymin = 3, ymax = 7,
+           alpha = .2, color = 'blue')
+
+require(patchwork)
+plt + plt_znt
+
+```
+
+Dargestellt sind die Ergebnisse zweier Regressionen. Beide Regressionen beschreiben den Zusammenhang zwischen `Schulunlust` und `Schulleistung`. Die linke Seite der Abbildung zeigt die Ergebnisse der Regression ohne Zentrierung von `Schulunlust` und die rechte Seite mit Zentrierung. Ein Unterschied ist, dass die Spannweite der zentrierten Daten ein anderer ist. Personen, die einen negativen Wert in der zeitrierten Schulunlust-Variable haben, befinden sich unterhalb des Mittelwert der Gesamtstichprobe. Personen mit positiven Werten befinden sich darüber. Ein weiterer Unterschied fällt auf, wenn wir die Intercepts der Modelle betrachten. Das Interzept auf der rechten Seite liegt inmitten der Verteilung (auf dem Mittelwert, welcher nach Zentrierung gleich Null ist). Zentrierung kann uns also helfen, das Interzept in einem für uns interpretierbaren Bereich "zu holen".
+
+## Berücksichtigung von Subgruppen
+
+Gehen wir nun zu einem Beispiel über, das die Subgruppen in den Daten berücksichtigt. Dafür benötigen wir die folgenden Daten:
+
+```{r, warning = FALSE, message = FALSE}
+# die Daten können mit diesem Befehl geladen werden
+urlRemote <- 'https://raw.githubusercontent.com/JoseAlanis/amdstatsem/main'
+fpathData <- '/data/schulunlust.txt'
+data_schulleistung <- read.table(paste0(urlRemote, fpathData),
+                          header = TRUE, dec = ',')
+
+# wir werden nur die ersten 5 klassen benutzen
+# wir können die Daten dieser Klassen mit
+# `dplyr`filtern
+require(dplyr)
+data_schulleistung <- data_schulleistung %>%
+  filter(klasse_nr <= 5) %>%
+  # ebenfalls werden wir die variable `unlust`
+  # zentrieren
+  mutate(unlust_c = unlust - mean(unlust))
+```
+
+Diese Daten sind identisch mit den Daten der obigen Abbildung.
+
+### Aufgabe 1
+
+-   Erster Schritt:
+    -   Berechnen wir erst einmal eine Gesamt-Regression, ohne die Subgruppen (die einzelnen Klassen) in den Daten zu berücksichtigen.
+    -   Zur Erinnerung: Der R-Befehl, um eine lineare Regression zu berechnen lautet `lm(fomula, data)`
+-   Zweiter Schritt:
+    -   Berechnen wir 5 verschiedene Regressionen, eine für jede Klasse.
+    -   Tipp: Sie können die Daten der einzelnen Klassen mit `dplyr()` filtern.
+        -   z.B.: `klasse_1 <- data_schulleistung %>% filter(klasse_nr == 1)`
+        -   Danach können Sie die Regression mit `lm()` berechnen.
+-   Schreiben Sie $b_{0}$ und $b_{1}$ für alle Regressionen auf und vergleichen Sie.
+
+#### Ergebnisse
+
+Die Ergebnisse sollten mit der folgenden Abbildung kompatibel sein.
+
+```{r, fig.width = 10, echo = FALSE, warning = FALSE, message = FALSE, fig.align='center'}
+klasse_1 <- data_znt %>%
+  filter(klasse_nr == 1)
+klasse_2 <- data_znt %>%
+  filter(klasse_nr == 2)
+klasse_3 <- data_znt %>%
+  filter(klasse_nr == 3)
+klasse_4 <- data_znt %>%
+  filter(klasse_nr == 4)
+klasse_5 <- data_znt %>%
+  filter(klasse_nr == 5)
+
+k1 <- ggplot(data = klasse_1, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'magenta') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_1$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_1, 'leistung ~ unlust'), parse = TRUE)
+
+k2 <- ggplot(data = klasse_2, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'cyan') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_2$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_2, 'leistung ~ unlust'), parse = TRUE)
+
+k3 <- ggplot(data = klasse_3, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'red') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_3$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_3, 'leistung ~ unlust'), parse = TRUE)
+
+k4 <- ggplot(data = klasse_4, aes(x = unlust, y = leistung)) +
+  geom_point(color = 'green') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_4$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_4, 'leistung ~ unlust'), parse = TRUE)
+
+k5 <- ggplot(data = klasse_5, aes(x = unlust, y = leistung)) +
+geom_point(color = 'purple') +
+  scale_y_continuous(limits = c(0, 40)) +
+  scale_x_continuous(limits = c(-7, 7)) +
+  labs(x = 'Schulunlust', 
+       y = 'Schulische Leistung',
+       title = paste('Klasse', unique(klasse_5$klasse_nr))) +
+  geom_smooth(method = 'lm', se = FALSE, fullrange= TRUE) +
+  geom_text(x = 25, y = 38, 
+            label = lm_eqn(klasse_5, 'leistung ~ unlust'), parse = TRUE)
+
+k1 + k2 + k3 + k4 + k5 +
+  plot_layout(ncol = 5)
+```
+
+```{r, echo=FALSE}
+klassen <- 1:5
+b0 <- NULL
+b1 <- NULL
+for (klasse in klassen) {
+  reg <- lm(data = filter(data_schulleistung, klasse_nr == klasse),
+            formula = leistung ~ unlust_c)
+  b0 <- c(b0, summary(reg)$coefficients[1])
+  b1 <- c(b1, summary(reg)$coefficients[2])
+}
+
+mod_all <- lm(data = data_schulleistung, formula = leistung ~ unlust_c)
+b0_all <- rep(summary(mod_all)$coefficients[1], 5)
+b1_all <- rep(summary(mod_all)$coefficients[2], 5)
+```
+
+```{r, echo=FALSE, message=FALSE}
+require(rempsyc)
+
+fun <- function(x) {
+  formatC(x, format = "f", digits = 3)
+}
+
+nice_table(data.frame(Model = 1:5, beta_0 = b0, beta_1 = b1),
+           col.format.custom = 2:3, format.custom = "fun",
+           title = 'Regressionsparameter für das jeweilige "Klassenmodell"',
+           note = "1 = Klasse 1; 2 = Klasse 2; etc.",
+           width = 0.5)
+```
+
+### Aufgabe 2
+
+Vergleichen Sie nun die Ergebnisse der einzelnen Regressionen mit den Ergebnissen eines "Gesamtregressionsmodells" (ein Modell über alle Klassen hinweg).
+
+Hier sind die Ergebnisse:
+
+```{r}
+ges_mod <- lm(data = data_schulleistung,
+              leistung ~  unlust_c)
+
+ges_df <- data.frame(model = 'gesamt',
+                     beta_0 = summary(ges_mod)$coefficients[1],
+                     beta_1 = summary(ges_mod)$coefficients[2])
+
+nice_table(ges_df,
+           col.format.custom = 2:3, format.custom = "fun",
+           title = 'Regressionsparameter für das "Gesamtmodell"',
+           width = 0.5)
+```
+
