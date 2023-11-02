@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/JoseAlanis/amdstatsem/about/about_MLM_sose23.html</loc>
-    <lastmod>2023-10-31T15:52:17.086Z</lastmod>
-  </url>
-  <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/index.html</loc>
-    <lastmod>2023-10-31T15:52:15.006Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/lineare_regression_parameters.html</loc>
-    <lastmod>2023-10-31T15:52:12.374Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/hierarchische_daten.html</loc>
-    <lastmod>2023-10-31T15:52:05.286Z</lastmod>
+    <lastmod>2023-11-02T08:56:22.531Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/lineare_regression.html</loc>
-    <lastmod>2023-10-31T15:52:14.534Z</lastmod>
+    <lastmod>2023-11-02T08:56:19.859Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/about/about_cogmod.html</loc>
-    <lastmod>2023-10-31T15:52:16.062Z</lastmod>
+    <lastmod>2023-11-02T08:56:06.631Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JoseAlanis/amdstatsem/about/about_MLM_sose23.html</loc>
+    <lastmod>2023-11-02T08:56:03.343Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/lineare_regression_parameters.html</loc>
+    <lastmod>2023-11-02T08:56:16.899Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/hierarchische_daten.html</loc>
+    <lastmod>2023-11-02T08:56:21.879Z</lastmod>
   </url>
 </urlset>
