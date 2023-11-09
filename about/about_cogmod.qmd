@@ -70,7 +70,6 @@ Unter dem Paperpile Repository finden Sie die relevante Literatur für jede Semi
 | 25.10.2023 | Organisation und Ablauf                                             | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P) |         |
 | 08.11.2023 | Einführung: Grundlagen der Modellierung                              |[![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-why-models?token=r4ID0G6o)     |         |
 | 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |         |
-| 15.11.2023 | Einführung II: Grundlagen der Modellierung                           |        |         |
 | 22.11.2023 | Parameterschätzung I: Diskrepanzfunktionen & Schätzalgorithmen       |        |         |
 | 29.11.2023 | Parameterschätzung II: Maximum Likelihood & Beyond                   |        |         |
 | 06.12.2023 | Parameterschätzung III: Hands On in R Parameter Estimation           |        |         |
