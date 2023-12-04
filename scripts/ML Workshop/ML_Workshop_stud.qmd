@@ -135,11 +135,11 @@ Um nun die `optim()` zu nutzen im iterativ Parameter nach MLE zu schätzen und d
 ```{r}
 
 # Unsere Gleichung
-ll_low <- -100/2 * log(2*pi*sigma^2) - 1/(2*sigma^2) * sum((iq - low_iq)^2) 
-print(ll_low)
-# dnorm() aus R
-ll_dnorm <- sum(dnorm(x = iq,mean=low_iq,sd=sigma,log = T))
-print(ll_dnorm)
+# ll_low <- -100/2 * log(2*pi*sigma^2) - 1/(2*sigma^2) * sum((iq - low_iq)^2) 
+# print(ll_low)
+# # dnorm() aus R
+# ll_dnorm <- sum(dnorm(x = iq,mean=low_iq,sd=sigma,log = T))
+# print(ll_dnorm)
 ```
 
 Eure Aufgabe ist es nun, eine Funktion zu definieren, die sie aufsummierte log-likelihood ausgibt, wenn Ihr Parameterwerte eingebt. Dazu nutzt ihr die folgende Funktionen aus R:
@@ -191,20 +191,20 @@ vektor[3]
 
 ### YOUR CODE HERE 
 
-MLE <- function(Daten, theta) 
-{
-  mu <- theta[1]
-  sigma <- theta[2]
-  
-  LL <- -2*(sum(dnorm(Daten,mean=mu,sd=sigma,log = T)))
-  
-  return(LL)
-  
-}
-
-# Test your function with different values for theta
-theta <- c(80,20)
-MLE(iq,theta)
+# MLE <- function(Daten, theta) 
+# {
+#   mu <- theta[1]
+#   sigma <- theta[2]
+#   
+#   LL <- -2*(sum(dnorm(Daten,mean=mu,sd=sigma,log = T)))
+#   
+#   return(LL)
+#   
+# }
+# 
+# # Test your function with different values for theta
+# theta <- c(80,20)
+# MLE(iq,theta)
 
 
 ```
@@ -226,14 +226,14 @@ Optimiert nun die definierte Funktion mit `optim()` und speichert die Ergebnisse
 # YOUR CODE HERE....
 # fit <- optim() 
 
-fit$par
-
-# Biased Fit Example 
-
-iq_pop <- rnorm(1000,mean=100,sd=15)
-iq_bias <- sample(iq_pop,25)
-
-mean(iq_bias)
+# fit$par
+# 
+# # Biased Fit Example 
+# 
+# iq_pop <- rnorm(1000,mean=100,sd=15)
+# iq_bias <- sample(iq_pop,25)
+# 
+# mean(iq_bias)
 
 # Fitting Sample
 # fit <- optim() # YOUR CODE HERE....
