@@ -58,6 +58,7 @@ Unter dem Paperpile Repository finden Sie die relevante Literatur für jede Semi
 
 ## Fahrplan
 
+
 | Datum      | Thema                                                          | Slides                                                                                                                                 | Scripts                                                                                         |
 |------------|----------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------|
 | 25.10.2023 | Organisation und Ablauf                                        | [![](../images/slides.png){width="30," height="30"}](https://slides.com/gman_science/introduction-organisation?token=4Pkkol6P)         |                                                                                                 |
@@ -73,6 +74,7 @@ Unter dem Paperpile Repository finden Sie die relevante Literatur für jede Semi
 | 24.01.2023 | Mixture Models (Theorie)                                       |                                                                                                                                        |                                                                                                 |
 | 31.01.2024 | **Mixture Models (Anwendung)**                                 |                                                                                                                                        |                                                                                                 |
 | 07.02.2024 | Puffersitzung                                                  |                                                                                                                                        |                                                                                                 |
+
 
 ## Begleitende Übung
 
