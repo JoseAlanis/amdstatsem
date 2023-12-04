@@ -2,38 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/index.html</loc>
-    <lastmod>2023-12-03T00:44:26.531Z</lastmod>
+    <lastmod>2023-12-04T12:44:26.149Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/about/about_MLM_sose23.html</loc>
-    <lastmod>2023-12-03T00:44:25.247Z</lastmod>
+    <lastmod>2023-12-04T12:44:24.833Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/scripts/cogmod/R-Scripts/Advanced R/Advanced_R.html</loc>
-    <lastmod>2023-12-03T00:44:21.535Z</lastmod>
+    <lastmod>2023-12-04T12:44:21.137Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JoseAlanis/amdstatsem/scripts/ML Workshop/ML_Workshop_stud.html</loc>
+    <lastmod>2023-12-04T12:44:15.853Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/lineare_regression.html</loc>
-    <lastmod>2023-12-03T00:44:16.187Z</lastmod>
+    <lastmod>2023-12-04T12:44:12.165Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/lineare_regression_parameters.html</loc>
-    <lastmod>2023-12-03T00:44:12.607Z</lastmod>
+    <lastmod>2023-12-04T12:44:08.745Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/mlm_seminar_sose23/hierarchische_daten.html</loc>
-    <lastmod>2023-12-03T00:44:14.371Z</lastmod>
+    <lastmod>2023-12-04T12:44:10.509Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/JoseAlanis/amdstatsem/scripts/ML Workshop/ML_Workshop.html</loc>
+    <lastmod>2023-12-04T12:44:14.053Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/scripts/cogmod/R-Scripts/Advanced R/Advanced_R_stud.html</loc>
-    <lastmod>2023-12-03T00:44:18.839Z</lastmod>
+    <lastmod>2023-12-04T12:44:18.493Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/scripts/cogmod/R-Scripts/Advanced R/Advanced_R_SS23.html</loc>
-    <lastmod>2023-12-03T00:44:24.351Z</lastmod>
+    <lastmod>2023-12-04T12:44:23.961Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/JoseAlanis/amdstatsem/about/about_cogmod.html</loc>
-    <lastmod>2023-12-03T00:44:26.147Z</lastmod>
+    <lastmod>2023-12-04T12:44:25.765Z</lastmod>
   </url>
 </urlset>
