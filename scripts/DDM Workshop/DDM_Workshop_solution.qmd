@@ -1,0 +1,615 @@
+---
+title: "Workshop Diffusion-Modeling"
+author: "Jan Göttmann"
+format: html
+editor: visual
+lang: de
+toc: true
+number-sections: true
+number-depth: 3
+theme: simplex 
+---
+
+```{r Setup, include=FALSE}
+# Libraries
+
+library(tidyverse)
+library(afex)
+library(emmeans)
+library(effectsize)
+library(papaja)
+library(ggsci)
+library(grid)
+library(reshape2)
+library(ggpubr)
+
+
+
+
+function.aic <- function(k,LL) {
+  aic <- (2*(LL)) + (2*k)
+  m <- mean(aic)
+  print(m)
+  return(aic)
+}
+function.bic <- function(k,M,LL){
+  bic <- 2*(LL) + (k *log(M))
+  
+  m <- mean(bic)
+  print(m)
+  return(bic)
+}
+
+# AIC Weight Fuction - note that with the same equation, BIC-weights can be calculated as well from BIC values (see Wagenmakers & Farrel, 2004)
+
+aic.weight <- function(d_aics) 
+{
+  rLL <- exp(-d_aics/2)
+  aic_weight <- rLL / sum(exp(-d_aics/2))
+  return(aic_weight)
+  print(aic_weight)
+}
+
+
+# Read in Data 
+
+dm_final <-  read_csv("Data/Study_2_dm.csv", 
+     col_types = cols(...1 = col_skip(), 
+     stimulus = col_factor(levels = c("gun","phone")), 
+     response = col_integer(), 
+     condition = col_factor(levels = c("black","white"))))
+
+
+# Format Data 
+
+dm_final <- dm_final %>% select(subj_idx,condition,stimulus,response,rt) %>%
+  rename(ID = subj_idx,
+         skin_color=condition,
+         object=stimulus)
+```
+
+# Einführung
+
+Heute werden wir uns mit der praktischen Anwendung des Drift-Diffusion Models (DDM) beschäftigen. Hierzu werden wir die Modellierung von [Frenken et al. (2022)](https://psyarxiv.com/eagwt/) replizieren. Diese haben das DDM dazu verwendet, um die dem "Shooter-Bias" zu Grunde liegenden kognitiven Prozessen zu untersuchen. Hierzu werden wir [fast-dm30](https://www.psychologie.uni-heidelberg.de/ae/meth/fast-dm/index.html) (Voss & Voss, 2007) nutzen, welches es ermöglicht das DDM mit Hilfe der ML-Diskrepanzfunktion zu schätzen. Ihr findet `fast-dm` auch im Teams Ordner des heutigen Termins.
+
+## Der Shooter - Bias
+
+Wie schon in der letzten Sitzung vorgestellt handelt es sich beim beim First Person Shooter Task (FPST) um ein Paradigma, mit dem Stereotype und deren Auswirkungen auf Entscheidungen untersucht werden können. Hierbei werden üblicherweise verschiedene Ethnien (z.B. schwarze oder weiße Personen), entweder mit einer Waffe (threat) oder einem ungefährlichem Objekt (z.B. Telefon, harmless) gezeigt. Die Versuchspersonen werden instruiert unabhängig von der Hautdfarbe so schnell und korrekt wie möglich auf bewaffnete Ziele zu schiessen. Im Gegensatz dazu soll nicht auf unbewaffnete Ziele geschossen werden.
+
+![First Person Shooter Task Paradigm](Images/FPST.jpg){fig-align="center"}
+
+Üblichweise findet man einen sog. Racial Bias, da die typischerweise Reaktionzeiten kürzer für bewaffnete, und länger für unbewaffnete Schwarze sind. Zudem zeigen Befunde, dass bei Schwarzen die Schwelle zum Schuss generell geringer ist, also eher liberaler entschieden wird (z.B. mehr inkorrekte Entscheidungen bei Schwarzen). Es gibt also eine signifikante Interaktion zwischen der Hautfarbe / Ethnie und dem tragen einer Waffe auf die Reaktionszeiten. Dies zeigt sich vorallem in Laienstichproben, wohingegen in Stichproben von Polizeibeamten die Befunde nicht ganz eindeutig sind.
+
+## Hypothesen
+
+Frenken et al. (2022) nehmen an, dass dieser Racial-Bias möglichweise durch drei unterschiedliche Mechanismen zustande kommt, die sich durch das Diffusionsmodell trennen lassen.\
+\
+Erstens durch sog. frequency stereotypes, also der Annahme, dass Schwarze beispielsweise häufiger Waffen tragen oder eine Gefahr darstellen. Dies führt in der Folge zu einer gesteigerten Bereitschaft zu Schießen. Es besteht also ein Bias in Richtung der Entscheidung zu Schießen, da eine implizite Korrelation von Schwarzen und Waffen oder Gefahren angenommen wird. Diese frequency hypothesis würde sich im FPST in einem Bias des Startpunktes z des Diffusionsmodelles auswirken, da schon eine a priori Tendenz zum Schießen bei schwarzen Targets besteht, unabhängig vom Objekt (threat vs. harmless).
+
+Zweitens, durch die typicality hypothesis welche animmt, dass Schwarze auf einem konzeptuellen Level typischerweise als gefährlicher wahrgenommen werden. Hierbei wird die Waffe selbst und die schwarze Person unabhängig voneinander als Gefahr wahrgenommen. Dies führt zu einer Aktivierung sich überlappender konzeptueller kognitiver Cluster. Sind diese kongruent, so wird die Aufnahme von relevanten Informationen beschleunigt. Bei inkongruenten Clustern wird diese verlangsamt. Dies hätte keinen Einfluss auf einen a priori Bias, sondern direkt auf die Akkumulation taskrelevanter Informationen. Dies würde sich im Diffusionsmodell auf die Driftrate v auswirken. Hier würde man einen signifikanten Interaktionseffekt zwischen Hautfarbe und Objekt auf die Driftrate v erwarten.
+
+Drittens könnte der Effekt auch durch einen response execution bias erklärt werden. Hier würden sich Stereotype auf die nicht entscheidungsrelevanten Prozesse, wie die Motorreaktion, auswirken und möglichweise die Vorbereitung dieser Reaktionen initiieren. Dies könnten zum Beispiel ein festerer Druck auf den Trigger der Waffe beim Anblick einer schwarzen Person sein. Dieser Effekt würde sich als Interaktion von Hautfarbe und Objekt auf der non-decision time t0 des DDMs zeigen, da anzunehmen ist, dass eine Waffe die gleichen Prozesse initiiert.
+
+## Generelles Vorgehen
+
+Bei Diffusionmodellierungen empfiehlt sich meist die folgende Vorgehensweise, um ein komplettes Bild der Daten zu erhalten:
+
+1.  Analyse und Interpretation der Reaktionszeiten und Fehlerraten
+2.  Erstellen von einzelnen .dat - files für `fast-dm`
+3.  Spezifizieren der control-file (Modellspezifikation) für fast-dm
+4.  Modellschätzung
+5.  Ergebnisdatensatz für die Analyse säubern und vorbereiten
+6.  Modellvergleich mit dem Baseline-Modell
+7.  Analyse und Interpretation der Modellparameter des Modelles
+
+Im heutigen Workshop werden wir in dieser Reihenfolge vorgehen. Zu jedem Schritt werdet ihr Code entweder selbst schreiben, oder ergänzen müssen. Wir werden zu einzelnen Punkten auch offene Fragen und Interpretationen diskutieren.
+
+# Analyse und Interpretation der Reaktionszeiten und Fehlerraten
+
+Zunächst werden wir uns die deskriptiven Daten der Reaktionszeiten und Fehlerraten aus dem Datensatz ansehen, um abzuschätzen welche Effekte auf behavioraler Ebene zu finden sind. Es sei hier angemerkt, dass ich die exakten Werte aus dem Paper mit dem DM-Datensatz nicht reproduzieren konnte - die Effekte sind die zwar die gleichen, allerdings in leicht unterschiedlicher Ausprägung. Das liegt wahrscheinlich an unterschiedlichen Datensätzen die hierzu verwendet wurden, die zwar online zugänglich sind, aber die nicht ausreichend kommentiert waren um die exakten Analysen nachzuvollziehen.
+
+## Deskriptive Analyse der Fehlleraten und Reaktionszeiten
+
+Hier seht ihr ein Balkendiagramm der Fehlerraten aus den unterschiedlichen Bedinungen:\
+\
+![Fehlleraten nach Bedingungen](Images/error_rates_shooter.png)\
+
+Erstellt nun einen Datensatz `desc_rt` mit den mittleren Reaktionszeiten für jede Bedingungskonstellation von Hautfarbe und Objekt. Plottet anschließend die Werte in einem Barplot analog zu den Fehlerraten für die jeweiligen Bedingungskombinationen. Dazu kann `geom_bar()` verwendet werden.
+
+## Deskriptive Analyse der Reaktionszeiten
+
+```{r descriptive RT, message=F, warning=F}
+# Create summary dataset
+# YOUR CODE HERE
+desc_rt <- dm_final %>% group_by(skin_color,object) %>% 
+  summarise(meanRT = mean(rt))
+# Create Bar Plot 
+# RT 
+
+ggplot(desc_rt,aes(x=factor(object,levels = c("phone","gun")),y=meanRT,fill=factor(skin_color,levels = c("white","black")))) + 
+  geom_bar(stat="identity", position = position_dodge())+ 
+  scale_y_continuous(breaks = waiver()) + theme_apa() + scale_fill_d3(name="Skin Color") +
+  geom_errorbar(aes(ymin=meanRT - 1.96*se(meanRT),ymax=meanRT+1.96*se(meanRT),width=0.2),position = position_dodge(0.75)) + 
+  labs(x="Object",y="mean Reaction Time [ms]")
+
+# Illustration of Interaction effect. 
+fit_rt<-aov_ez(data = dm_final, id = "ID", within = c("skin_color","object"), dv = "rt")
+
+means <- emmeans(fit_rt, specs = ~skin_color*object)
+
+pairs(means)
+
+```
+
+Zeigen die Reaktionszeit und Fehllerraten den erwarteten "Shooter-Bias" und wie äußert sich\
+dieser?
+
+# Diffusion Modelling
+
+Nun modellieren wir die Daten mit dem Drift Diffusion Model (DDM). Die Autoren haben in der Studie ein volles DDM gefittet, um zu bewerten, welche Prozesse den behavioralen Reaktionszeits- und Fehlerratenmuster zu Grunde liegen. Aus den unterschiedlichen Effektmustern auf die geschätzten Parameter leiten die Autoren Evidenz für oder gegen die oben genannten Hypothesen ab.
+
+## Vorbereitung von fast-dm
+
+### Erstellen von einzelnen .dat - files für fast-dm
+
+`Fast-dm` benötigt zum schätzen der Parameter eine Datei für jede einzelne VP, die alle Trialdaten für diese VP enthält. Um dies zu tun, nutzen wir `dplyr` um zunächst die nötigen Informationen aus dem Datensatz zu extrahieren und diese dann in einer neuen Datei für jede einzelnen Versuchperson zu speichern . Dazu können wir die Funktion `group_split(subject)` in `dplyr` nutzen, die für jede Beobachtung einen eigenen Datensatz erstellt und dann alle einzeln in einem Listenobjekt speichert.
+
+```{r Prepare data for fast-dm, eval=FALSE}
+# Funktioniert nur, wenn ihr dm_final in entsprechender Struktur erstellt habt! 
+
+vp_list <- dm_final %>% 
+  select("ID","skin_color", "object", "response", "rt") %>% 
+  group_split(ID) 
+mapply(write.table, vp_list, row.names = FALSE ,
+       col.names=FALSE,USE.NAMES = TRUE,
+       file=paste0(seq(1:length(unique(dm_final$ID))), '.dat'))
+```
+
+### Spezifizieren der Control-File in fast-dm
+
+Bevor wir das Modell nun fitten können, müssen wir ein controle-file erstellen, die das Modell spezifiziert das gefittet werden soll. Das umfasst die Definition der
+
+-   freien Parameter
+-   fixierten Parameter
+-   Schätzmethode (Diskrepanzfuntion)
+-   Datenformat
+-   VP - Datenfiles
+-   Outputfiles
+-   precision (wichtiger Parameter, default Wert ist 3, sollte aber mindestens auf 4 stehen !)
+
+Für die Diskrepanzfunktion können neben Maximum-Likelihood (ML) auch Chi-Square oder Kolmogorov-Smirnov gewählt werden. Diese haben andere statistische Eigenschaften, erfordern jedoch mehr Trials. Generell wird ML bei wenigen Trials als Schätzmethode empfohlen, zudem ermöglicht ML die Berechnung der unterschiedlichen Informationskriterien zur Bewertung des relativen Modelfits (Akaike Information Criterion, Bayesian Information Criterion).
+
+Folgender Code dient für euch als Vorlage, zum erstellen einer Control-File, wenn ihr die entsprechenden Modifikationen vorgenommen habt, könnt ihr hiermit die Datei in eurem Working Directory erstellen!
+
+```{r eval=FALSE}
+cat(c(
+  "precision ",3, "\n", #Precision of Parameter Estimation 
+  "method ", "", "\n", # Optimization Criterion (Maximum Likelihood)
+  "set ", "\n",
+  "set", "\n",
+  "set", "\n",
+  "set", "\n",#Fixation of Parameters to fixed values
+  "depends ","\n",
+  "depends " ,"\n",
+  "depends  ","\n",
+  "depends " ,"\n",
+  "format ", "\n",
+  "load *.dat", "\n",
+  "log ", "\n"),
+  file=paste("shooter_dm.ctl",sep=""), sep="", fill=F)
+
+cat(c(
+  "precision ", 3, "\n", #Precision of Parameter Estimation 
+  "method ", "ml", "\n", # Optimization Criterion (Maximum Likelihood)
+  "set ", "\n",
+  "set ", "\n",
+  "set ", "\n",
+  "set", "\n",#Fixation of Parameters to fixed values
+# Vary over which conditions (one line for each parameter)
+  "format ", "\n",
+  "load *.dat", "\n",
+  "log ", "\n"),
+  file=paste("shooter_dm_baseline.ctl",sep=""), sep="", fill=F)
+```
+
+Bitte schaut euch die unten stehende Tabelle an und sepzifiziert zwei Modelle:
+
+1.  Ein Modell, welches die Parameter über unterschiedliche experimentelle Manipulationen variieren lässt:
+
+-   Schätzen der Drift-Rate (v) und non-decision time in Abhängigkeit von Hautfarbe & Objekt
+-   Schätzen des Startpunktes (z) und der threshold separation (a) in Abhängigkeit der Hautfarbe
+-   Fixiert die parameter szr, sv, d, p auf 0
+-   speichert die Ergebnisse in der Datei "shooter_dm.txt"
+-   speichtert die ctl-Datei unter "shooter_dm.ctl"
+
+2.  Ein Modell, welches die Parameter unabhängig von den experimentellen Manipulationen schätzt. Dies entspricht einem Modell, welches keine Effekte der Manipulationen annimmt und die Parameter unabhängig von diesen schätzt. Tip: Hier müssen im Vergleich zum vollen Modell nur Zeilen weggelassen werden.
+
+-   speichtert die ctl-Datei unter `shooter_dm.ctl`
+-   speichert die Ergebnisse in der Datei `shooter_dm_baseline.txt`
+
+Hier findet ihr nochmals eine Erläuterung der unterschiedlichen Optionen, die in der `.ctl` file gesetzt werden müssen:
+
+![Control File Spezifikationen](Images/ctloptions.png)
+
+## Modellschätzung
+
+Wenn alles korrekt spezifiziert ist, können wir die Modelle nun schätzen. Hierzu müssen die einzelnen .dat- files der Versuchpersonen im Working Directory sein. Ist das der Fall, könnt ihr `fast-dm30.2` wie folgt aus über die R-Console aufrufen:
+
+```{r eval=FALSE}
+# Run fast-dm and estimate parameters
+# Check fast-dm directory beforehand
+
+# Windows
+# system("./fast-dm30.2/fast-dm shooter_dm.ctl")
+# system("./fast-dm30.2/fast-dm shooter_dm_baseline.ctl")
+
+#MacOS
+system("./fast-dm-mac/fast-dm shooter_dm.ctl")
+system("./fast-dm-mac/fast-dm shooter_dm_baseline.ctl")
+```
+
+Funktioniert alles, solltet einen solchen Output in der Konsole sehen:
+
+```{r eval=FALSE}
+ a, 0.5, v_3, t0, 0, 0, 0, st0, 0 (72+0 samples)
+  ... -LL = 118.706
+  ... -LL = 113.164
+  ... -LL = 113.163
+  -> a = 2.270632
+  -> v_7 = 1.066865
+  -> t0 = 0.212743
+  -> st0 = 0.000081
+  -> v_5 = 1.484960
+  -> v_3 = 2.230094
+dataset 26.dat:
+  a, 0.5, v_7, t0, 0, 0, 0, st0, 0 (50+17 samples)
+  a, 0.5, v_3, t0, 0, 0, 0, st0, 0 (69+3 samples)
+  a, 0.5, v_5, t0, 0, 0, 0, st0, 0 (66+3 samples)
+  ... -LL = 147.232
+  ... -LL = 137.997
+  ... -LL = 137.997
+  -> a = 2.065754
+  -> v_7 = 0.421251
+  -> t0 = 0.188052
+  -> st0 = 0.000299
+  -> v_3 = 2.409830
+  -> v_5 = 1.633827
+
+```
+
+# Datenauswertung und Interpretation
+
+Zunächst laden wir die Ergebnisse beider Modelle ein und verschaffen uns einen ersten Überblick:
+
+```{r include=TRUE,message=FALSE,warning=FALSE}
+# Read in Estimated Parameters 
+shooter_dm_baseline<-read.table("shooter_baseline.txt",header = T)
+shooter_dm<-read_table("shooter_est.txt")
+```
+
+```{r}
+head(shooter_dm_baseline)
+head(shooter_dm)
+```
+
+## Modellvergleich mit dem Baseline-Modell
+
+Bevor wir mit der Anaylse beginnen, müssen wir zunächst prüfen, ob das Modell dass die Parameter über die experimentallen Bedingungen variiert, einen besseren Fit aufweißt, als das Baseline-Modell. Dieses Vorgehen dient hier als "Sanity-Check". Solltet ihr mehrere Modelle gegeneinander testen, ist das Vorgehen das gleiche !
+
+Bei explorativem Vorgehen sollten immer mehrere Modelle, die unterschiedliche Parameter variieren lassen, geschätzt und gegenübergestellt werden (model comparison approach). Geht man so vor, berechnet man den relativen Modelfit. Dieser wird üblicherweise mit dem Akaike- (AIC) und Baysian Information Criterium (BIC) berechnet (Akaike,1974; Schwarz, 1978).
+
+Wenn hypothesengeleitet ein bestimmtes Modell angenommen und nur dieses gefittet wird, dann berechnet man den absoluten Modelfit, indem man Daten aus den geschätzen Parametern simuliert und diese mit den emprischen Daten korreliert. Das haben die Autoren getan, ich habe mich hier aber dazu entschieden, einen relativen Modelfit zu berechnen, um euch dieses - sehr häufige - Vorgehen zu erläutern.
+
+Wichtig beim relativen Modelfit ist, dass es stets auch ein Baseline-Modell gibt, in dem alle Parameter frei geschätzt werden. Dies dient als Referenzmodell, welches annimmt, das die experimentellen Manipulationen keinen Effekt auf die Parameter haben. Ich stelle euch hier Funktionen bereit, mit denen AIC & BIC berechnet werden können. Diese liefern relative Werte über -grob gesagt- den Informationsverlust eurer Modelle und sind dimensionslose Werte, welche nur im Vergleich mit anderen Modellen interpretiert werden können.
+
+Wie wir schon in der Sitzung über Parameterschätzung besprochen haben, kann die maximierte Likelihoodfunktion in die Deviance die Abweichung des Modelles zu den Daten transformiert werden:
+
+$$ Deviance = -2 \cdot LL $$
+
+Der AIC und der BIC quantifizieren nun diese Abweichung, indem sie die Komplexität des Modelles (Anzahl der Parameter k), sowie die Stichprobengröße (N; nur BIC) mit in die Gleichung einbeziehen:
+
+$$ AIC = -2 \cdot LL + 2 \cdot k$$ $$BIC = -2 \cdot LL + k \cdot log(N)$$
+
+Der BIC zieht also in Betracht, dass die Größe der Stichprobe den Fit künstlich erhöht und korrigiert daher für die Stichprobengröße im Strafterm. Über beide Kennwerte können später AIC / BIC - Weights (Wagenmakers & Farell, 2004) berechnet werden:
+
+$$
+w_{i}(AIC) = \frac{exp\{-\frac{1}{2}\Delta_i(AIC)\}}{\sum_{k=1}^K exp\{-\frac{1}{2}\Delta_k(AIC)\}}$$
+
+mit deren Hilfe auch eine Evidence-Ratio berechnet werden kann (hier mit Zahlen Beispielen):
+
+$$ Evidence Ratio_{A/B} = \frac{w_A(AIC)}{w_B(AIC)} = \frac{.61}{.22} \approx 2.7 $$
+
+Die berechneten AIC/BIC-Weights können auch mit Hilfe von Luces Choice Rule zu Wahrscheinlichkeiten normalisiert werden. Es kann also für jedes Modell zusätzlich zur Evidence Ratio die Wahrscheinlichkeit der Gültigkeit über die jeweiligen Konkurrenzmodelle berechnet werden:
+
+$$ p_{A/B} = \frac{w_{A}(AIC)}{w_{A}(AIC) + w_{B}(AIC)} = \frac{.61}{.61 + .22} \approx .73$$
+
+Fast-dm bietet aber auch die Möglichkeit, aus den geschätzten Modellen Reaktionszeitverteilungen für korrekte und inkorrekte Trials zu simulieren. Diese werden dann pro Quantil (meist für das 1. Quantil) mit den empirischen Reaktionszeiten korreliert und bilden ein Maß für den absoluten Modelfit. Wir werden uns die Berechnung des absoluten Modelfits in einer anderen Sitzung genauer ansehen!
+
+Nun extrahieren wir aus dem Datensatz die Werte für die LogLikelihood (LL). Dabei ist zu beachten, dass `fast-dm` immer bereits die negative logLikelihood ausgibt, wir müssen diese also nicht mehr flektieren.
+
+```{r Modelfit, eval=TRUE, message=FALSE, warnings = FALSE}
+
+# Evaluate Fit
+
+# Conducted Trials for every ID
+
+nTrials <- dm_final %>% 
+  group_by(ID) %>% 
+  summarise(nTrials = n()) %>% 
+  rename(dataset=ID)
+
+model_a <- shooter_dm_baseline %>%
+  group_by(dataset) %>% 
+  select(fit) %>% 
+  inner_join(nTrials,by= "dataset") %>% 
+  mutate(Model = "Model A")
+
+model_b <- shooter_dm %>% 
+  group_by(dataset) %>% 
+  select(fit) %>% 
+  inner_join(nTrials,by= "dataset") %>%
+  mutate(Model = "Model B")
+
+```
+
+Ergänzt nun den unten stehenden Code, um zunächst den AIC zu berechnen, nutzt dazu die bereits vorhanden Funktionen. Um den AIC zu berechnen, muss die Anzahl der geschätzten Parameter im Modell herangezogen werden. Dazu müsst ihr auszählen, wie viele unterschiedliche Parameter pro Person geschätzt werden. Diese ergeben sich aus der Anzahl der Bedingungen, sowie der pro Bedingung variierten Parameter.
+
+Beispiel: In Bedingung A (2-Level) werden 3 Parameter variiert. Das heisst alle 3 Parameter werden über die 2-level der Bedinungen A geschätzt, was insgesamt 6 freie Parameter ergibt !
+
+Wie viele Parameter werden also im "Baseline" Model und im "Restricted" Model frei geschätzt?
+
+```{r}
+
+# Extract -LL from results - fast-dm saves always the negative LogLikelihood 
+
+LL_A <- model_a %>% 
+  select(dataset,Model,fit,nTrials)
+
+LL_B <- model_b %>% 
+  select(dataset,Model,fit,nTrials)
+
+# Remove subjects which did not converge in model b -  Manche Subjects sind im komplexeren Modell nicht konvergiert, das zu wenig Daten vorhanden waren. Diese müssen wir aus dem Datensatz entfehrnen, damit beide gleich groß sind.
+
+LL_A <- model_a %>% 
+  filter(dataset %in% LL_B$dataset)
+
+# Modelltests  ----
+# Calculating AIC for each Model 
+# Settings (k= Number of est. Parameters, M = Number of Observations)
+#           Baseline Model A: k = ?, M = Conducted Trials, LL = negative Likelihood-Values for each Person
+#           Restricted Model B (v,t0,a,zr): k = ?, M = Conducted Trials, LL = negative Likelihood-Values for each Person
+
+A_AIC <- function.aic(k=4,
+                      LL_A$fit) 
+B_AIC <- function.aic(k=12,
+                      LL_B$fit)
+
+
+AIC <- cbind(A_AIC,B_AIC)
+
+
+# Melt AIC
+
+Model_AICs<-melt(AIC, id.vars = c("dataset", "nTrials"),
+                 varnames = c("ID","Model"), 
+                 value.name = "AIC") 
+Model_AICs$Model <- as.character(Model_AICs$Model)
+Model_AICs <-Model_AICs %>% 
+  mutate(Model=stringr::str_remove(Model, pattern = "_AIC"))
+
+```
+
+Aus den berechneten AICs könnenw wir nun die Unterschiede der Modelle bezüglich des AIC berechnen. Dies ist der sogennante $\Delta$AIC-Wert, dieser kann dann zu Berechnung der jeweiligen AIC-weights genutzt werden. Hierzu muss der *mittlere* Fit nach Modell, sowie der $\Delta$AIC als neue Spalte berechnet werden. Hierzu muss das "kleinere" vom größeren Modell abgezogen wird. Nutzt hierfür `dplyr` (mit `summarise()` & `mutate()`)! Berechnet anschließend mit Hilfe der `aic.weight()` Funktion das jeweilige AIC-weight beider Modelle!
+
+Anschließend könnt ihr mit Hilfe der berechneten Weights sowohl die relative Evidenz, als auch die Wahrscheinlichkeit der Modelle (gegeben aller anderen Modelle) berechnen, orientiert euch hierfür an den oben stehenden Formeln!
+
+```{r eval=TRUE}
+# Berechnet nun den dAIC und dBIC 
+
+dAIC<-Model_AICs %>% group_by(Model) %>%
+  summarise(AIC = mean(AIC)) %>% 
+  mutate(dAIC =  AIC - min(AIC))
+
+
+# Calculate AIC and BIC weights
+aic_weights <- aic.weight(d_aics = dAIC$dAIC) #Vector of dAIC
+
+# Calculate Relative Evidence of Model B over Model A 
+# (hint: do not round)
+
+aic_weights[2] / aic_weights[1]
+
+# Calulate the probability of Model B over Model A   
+# Probability Model B over Model A 
+
+aic_weights[2] / sum(aic_weights)
+```
+
+Welches Modell fittet besser ?
+
+### Ergebnisdatensatz für die Analyse säubern und vorbereiten
+
+Nun müssen wir die Daten aus fast-dm zunächst säubern und in ein tidy-Format bringen. Hierzu erfordert es einige fortgeschrittener `dplyr`-Funktionen, daher werden wir dies Zeile für Zeile zusammen durchgehen:
+
+```{r eval=TRUE}
+# Tidy Up Results for Analysis
+# Select only parameter estimates
+
+# Recode Driftrate to positive only
+shooter_est_v_t0<- shooter_dm %>%
+  select(dataset, starts_with(c("t0", "v"))) %>% 
+  mutate(v_black_gun = case_when(v_black_gun < 0 ~ v_black_gun * -1,
+                                 TRUE ~ v_black_gun),
+         v_white_gun = case_when(v_white_gun < 0 ~ v_white_gun * -1,
+                                 TRUE ~ v_white_gun))
+
+# Create different Datasets for zr & a and t0 & v 
+# and bring in long format for analysis
+
+shooter_est_z_a <- shooter_dm %>%
+  select(dataset, starts_with(c("z", "a")))
+
+theta_col_obj<-pivot_longer(shooter_est_v_t0, 
+             cols = starts_with(c("t0","v")),
+             names_to =c("theta","color","object"),
+             values_to = "estimate",
+             names_sep = "_")
+
+theta_col <- pivot_longer(shooter_est_z_a, 
+                          cols = starts_with(c("z","a")),
+                          names_to =c("theta","color"),
+                          values_to = "estimate", names_sep = "_")
+
+```
+
+## Varianzanalysen und Kontraste
+
+Nun führen wir Varianzanalysen durch, um die Effekte der experimentellen Manipulationen auf die Parameter zu prüfen. Hierzu müssen wir zunächst für jeden Parameter einen eigenen Datensatz erstellen. Nutzt hierzu dplyr, um aus den Datensätzen `theta_col` und `theta_col_obj` neue Datzensätze zu erstellen.
+
+Dann nutzen wir das Paket `afex` um ANOVAs zu berechnen, hierzu habe ich euch den Code bereits geschrieben. Welche Effekte und welche Interpretationen lassen sich aus den Ergebnissen ableiten ? Welche Hypothese der Autoren wird hierdurch bestätigt, welche widerlegt?
+
+Erstellt dann aus den neuen Datensätzen zusätzliche summary-Datensätze, in welchen ihr je nach Parameter und experimenteller Manipulation die entsprechenden Mittelwerte und Standardfehler berechnet.
+
+```{r eval=TRUE, message=F, warning=F}
+# Run ANOVA with afex to check group differences and estimate marginal means from results
+# Create Datasets for every Parameter.
+# Sample Size
+Subject = unique(length(shooter_dm$dataset))
+
+
+aov_zr <- filter(theta_col, theta=="zr")
+aov_a <- filter(theta_col, theta=="a")
+aov_t0 <- filter(theta_col_obj, theta=="t0")
+aov_v <- filter(theta_col_obj, theta=="v")
+
+zr_result <-afex::aov_ez(id = "dataset",dv ="estimate",data = aov_zr, within = "color")
+# Estimate means and calculate pairwise contrasts
+means_zr<-emmeans(zr_result,specs = "color")
+pairs(means_zr,reverse = T)
+
+# Create Summary Dataset
+summary_z <- aov_zr %>% group_by(color) %>% 
+  summarise(mean_z = mean(estimate)-0.5, 
+            sd_z = sd(estimate),
+            se_z = sd_z/sqrt(Subject))
+
+a_result <- afex::aov_ez(id = "dataset",
+                         dv ="estimate",
+                         data = aov_a, within = "color")
+
+# # Estimate means and calculate pairwise contrasts
+means_a<-emmeans(a_result,specs = "color")
+pairs(means_a,reverse = T)
+
+
+# # Create Summary Dataset
+summary_a <- aov_a %>% group_by(color) %>% 
+  summarise(mean_a = mean(estimate), 
+            sd_a = sd(estimate),
+            se_a = sd_a/sqrt(Subject))
+
+t0_result <- afex::aov_ez(id = "dataset",
+                          dv ="estimate",
+                          data = aov_t0, 
+                          within = c("color","object"), 
+                          fun_aggregate = mean)
+
+# Estimate means and calculate pairwise contrasts
+means_t0<-emmeans(t0_result,specs=c("color","object"))
+pairs(means_t0,reverse = T,adjust="holm")
+
+# Create Summary Dataset
+
+summary_t0 <- aov_t0 %>% group_by(color,object) %>% 
+  summarise(mean_t0 = mean(estimate), 
+            sd_t0 = sd(estimate),
+            se_t0 = sd_t0/sqrt(Subject))
+
+
+v_result <- afex::aov_ez(id = "dataset",
+                         dv ="estimate",
+                         data = aov_v,
+                         within = c("color","object"), 
+                         fun_aggregate = mean)
+
+# Estimate means and calculate pairwise contrasts
+means_v<-emmeans(v_result,specs=c("color","object"))
+pairs(means_v,reverse = T,adjust="holm")
+
+# Create Summary Dataset
+summary_v <- aov_v %>% group_by(color,object) %>% 
+  summarise(mean_v = mean(estimate), 
+            sd_v = sd(estimate),
+            se_v = sd_v/sqrt(Subject))
+
+```
+
+## Plotten der Ergebnisse und Interpretation
+
+Im letzten Schritt bietet es sich an, die Ergebnisse mit Hilfe von ggplot zu visualisieren. Verwendet hierzu die von euch erstellten summary-Datensätze. Nutz hierzu wieder `ggplot` und `geom_bar()`, sowie `geom_errorbar()`. Erstellt für jeden Parameter einen eigenen Plot. Ihr könnt alle Plots in einem Grid zu einem Plot zusammenführen, wenn ihr aus dem Package `gridExtra` den Befehl `grid.arrange(),` verwendet.
+
+Beschriftet die Plots, als würden sie in einer Publikation erscheinen (keine Variablennamen aus R, Legede, gut erkennbare Farben etc.)
+
+```{r, message=F, warning=F}
+
+# For z
+z <- ggplot(summary_z,aes(x=factor(color,levels = c("white","black")),y=mean_z,fill=color)) + 
+  scale_y_continuous(breaks = seq(-0.2,0.2,0.05), limits = c(-0.2,0.2)) + 
+  geom_bar(stat="identity",width=0.4, position = position_dodge(0.4)) + 
+  scale_fill_d3(name="Skin Color") + theme_apa() +     geom_errorbar(aes(ymin=mean_z-1.96*se_z,ymax=mean_z+1.96*se_z,width=0.1),position=position_dodge(0.4)) + 
+  labs(title = "Effect of skin color on starting bias z", 
+       x= "Skin Color", y="Estimated deviation from 0.5 of z") +theme(legend.position = "none") 
+
+
+# For a
+a <- ggplot(summary_a,aes(x=factor(color,levels = c("white","black")),y=mean_a,fill=color)) + 
+  geom_bar(stat="identity",width=0.4) + scale_fill_d3(name="Skin Color")+ theme_apa() + 
+  geom_errorbar(aes(ymin=mean_a-1.96*se_a,ymax=mean_a+1.96*se_a, group=color, width=0.1))+ 
+  labs(title = "Effect of skin color on threshold separation a",  x= "Skin Color",
+       y="Estimated marginal mean for a")+
+  theme(legend.position = "none")
+
+# For t0
+t0 <- ggplot(summary_t0,aes(x=factor(object,levels = c("phone","gun")),y=mean_t0,fill=factor(color,levels = c("white","black")))) + geom_bar(stat="identity",width=0.4, position = position_dodge()) + 
+  scale_fill_d3(name="Skin Color") + theme_apa() + 
+  geom_errorbar(aes(ymin=mean_t0-1.96*se_t0,ymax=mean_t0+1.96*se_t0,width=0.1),
+                position=position_dodge(0.4)) +
+  labs(title = "Effect of skin color and object on non-decision time t0", x= "Object",
+       y="Estimated Marginal mean for t0")
+
+
+
+# For v
+v <-ggplot(summary_v,aes(x=factor(object,levels = c("phone","gun")),y=mean_v,fill=factor(color,levels = c("white","black"))))  + geom_bar(stat="identity",width=0.4, position = position_dodge()) + 
+  scale_fill_d3(name="Skin Color") + theme_apa() + 
+  geom_errorbar(aes(ymin=mean_v-1.96*se_v,ymax=mean_v+1.96*se_v,width=0.1),position=position_dodge(0.4))  + 
+  labs(title = "Effect of skin color and object on drift rate v", x= "Object", 
+       y="Estimated Marginal mean for v")
+
+```
+
+```{r fig.width=12, fig.height=8}
+# Arrange Grid with gridExtra
+
+ggarrange(a,z,v,t0, ncol=2, nrow=2, common.legend = TRUE, legend="bottom")
+```
+
+# Interpretation & Diskussion
+
+Wenn man die Ergebnisse der Modellierungen in betracht zieht, würdet ihr zu dem Schluss kommen, dass wir die Ergebnisse aus der zweiten Studie von Frenken et al. (2022) repliziert haben ? Welche Kritikpunkte hättet ihr an der Interpretation der Modellierung und / oder der Befunde ? Setzt euch kurz in Gruppen von 2-3 Leuten zusammen und diskutiert folgende Punkte:
+
+1.  Wie könnte weitere Forschung in Bezug auf das Diffusionsmodell zu diesem Thema aussehen?
+
+2.  Welche Kritikpunkte habt ihr an der Studie von Frenken et al. (2022) ?
+
+3.  Welche Interventionsmöglichkeiten ergeben sich aus den Ergebnissen der Studie ?
+
+# Literatur
+
+Frenken, M., Hemmerich, W., Izydorczyk, D., Scharf, S., & Imhoff, R. (2022). Cognitive processes behind the shooter bias: Dissecting response bias, motor preparation and information accumulation. Journal of Experimental Social Psychology, **98**, 104230.
+
+Voss, A., Voss, J. Fast-dm: A free program for efficient diffusion model analysis. Behavior Research Methods, **39**, 767--775 (2007). https://doi.org/10.3758/BF03192967
+
+Voss, A., Voss, J., & Lerche, V. (2015). Assessing cognitive processes with diffusion model analyses: A tutorial based on fast-dm-30. Frontiers in psychology, **6**, 336.
+
+Wagenmakers, E.-J., & Farrell, S. (2004). AIC model selection using akaike weights. Psychonomic Bulletin & Review, **11**(1), 192--196.https://doi.org/10.3758/BF03206482

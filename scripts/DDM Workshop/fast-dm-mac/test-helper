@@ -1,0 +1,43 @@
+#! /usr/bin/env python2.7
+
+import sys
+from math import sqrt
+
+def read_file(name):
+    res = {}
+    for l in open(name):
+        ww = l.split()
+        if l[0] == "#" or len(ww) != 3 or ww[0] == "method" or ww[1] != "=":
+            continue
+        res[ww[0]] = float(ww[2])
+    return res
+
+target = read_file(sys.argv[1])
+keys = set(target.keys())
+
+samples = []
+for name in sys.argv[2:]:
+    data = read_file(name)
+    keys &= set(data.keys())
+    samples.append(data)
+
+error = False
+for k in keys:
+    xx = [ data[k] for data in samples ]
+    if len(set(xx)) == 1:
+        continue
+
+    n = len(xx)
+    mean = sum(xx)/n
+    var = sum((x-mean)**2 for x in xx)/n
+    sd = sqrt(var)
+
+    if mean-2*sd <= target[k] <= mean+2*sd:
+        print "%s: %g in %g+-%g  -->  ok"%(k, target[k], mean, 2*sd)
+    else:
+        print "%s: %g not in %g+-%g  -->  fail"%(k, target[k], mean, 2*sd)
+        error = True
+
+if error:
+    print >>sys.stderr, "some tests failed"
+    raise SystemExit(1)

@@ -1,0 +1,5 @@
+pde.o: pde.c /usr/include/stdc-predef.h fast-dm.h \
+ /usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h
+/usr/include/stdc-predef.h:
+fast-dm.h:
+/usr/lib/gcc/x86_64-linux-gnu/10/include/stddef.h:

@@ -1,0 +1,29 @@
+#! /bin/bash
+
+if [ -x ./construct-samples ]; then
+    CS=./construct-samples
+elif d=$(dirname $0); [ -x $d/construct-samples ]; then
+    CS=$d/construct-samples
+else
+    CS=construct-samples
+fi
+
+if [ $# -gt 0 ]; then
+    name=$1
+    shift
+else
+    name=test
+fi
+
+$CS -o "$name.%03d.in" -i $name.info "$@"
+rm -f $name.ctl
+while read a b c; do
+    if [ ${a:0:1} = "s" -a $c == 0 ]; then
+	echo set $a 0 >>$name.ctl
+    fi
+done <$name.info
+cat - >>$name.ctl <<EOF
+format RESPONSE TIME
+load "$name.*.in"
+save "$name.*.out"
+EOF

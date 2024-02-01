@@ -1,0 +1,74 @@
+#! /bin/bash
+
+set -e
+
+keepfail=false
+
+while getopts ":k" OPT; do
+    case "$OPT" in
+	k)
+	    keepfail=true
+	    ;;
+	\?)
+	    echo "error: invalid option \"-$OPTARG\"" 1>&2
+	    exit 1
+	    ;;
+    esac
+done
+
+######################################################################
+# set up the test environment
+
+builddir=$(pwd)
+if [ -n "$srcdir" ]; then
+    srcdir=$(cd $srcdir; pwd)
+else
+    srcdir=$builddir
+fi
+
+# set up the test directory
+DIR=`mktemp -d -t fdXXXXXX` || exit 1
+fail=false
+cd "$DIR"
+
+echo "working directory: $DIR"
+echo
+
+ln -s $srcdir/test-generate .
+ln -s $builddir/fast-dm .
+ln -s $builddir/construct-samples .
+ln -s $srcdir/test-helper .
+
+######################################################################
+# run the tests
+
+function runtest() {
+    ./test-generate test "$@"
+    ./fast-dm test.ctl
+    if ! ./test-helper test.info test*.out; then
+	fail=true
+    fi
+    rm -f test.*
+}
+
+runtest -r -N 10
+runtest -r -a 2 -z 0.8 -N 10
+#runtest -r -Z 0.2 -n 500 -N 10
+#runtest -r -V 0.2 -n 200 -N 10
+#runtest -r -T 0.1 -N 10
+
+######################################################################
+# clean up and exit
+
+cd ..
+
+if [ $fail != false ]; then
+    echo "error: some test failed" 1>&2
+    exit 1
+fi
+
+if [ $fail = false -o $keepfail=false ]; then
+    rm -rf "$DIR"
+elif [ $fail != false ]; then
+    echo "scratch files kept in derectory $DIR" 1>&2
+fi
