@@ -93,7 +93,7 @@ website:
                 text: "Slides"
               - href: scripts/mpt-workshop/mpt-workshop.qmd
                 text: "MPT Workshop"
-               
+              
 format:
   html:
     theme:
