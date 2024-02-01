@@ -83,13 +83,19 @@ website:
             contents:
               - href: scripts/ML Workshop/ML_Workshop.qmd
                 text: "ML Workshop"
+          - section: "Advanced dpylr"
+            contents:
+              - href: scripts/advanced-r/advanced-r.qmd
+                text: "Workshop: Advanced Data wrangling with dplyr"    
           - section: "Workshop: Diffusion Modeling"
             contents:
+              - href: https://slides.com/gman_science/lecture-9-sequential-sampling-models?token=kWrKjlPk
+                text: "Slides"
               - href: scripts/ddm-workshop/DDM_Workshop_solution.qmd
                 text: "Workshop Diffusion Modeling"      
-          - section: "Termin 8 & 9: Multinomial Processing Tree Models"
+          - section: "Workshop: Multinomial Processing Tree Models"
             contents:
-              - href:
+              - href: https://slides.com/gman_science/lecture-6-mpt-models?token=X53S4VIK
                 text: "Slides"
               - href: scripts/mpt-workshop/mpt-workshop.qmd
                 text: "MPT Workshop"

@@ -10,9 +10,15 @@ number-depth: 3
 theme: simplex 
 ---
 
-```         
-{{< video https://youtu.be/mfmueqgQN4s?si=M-aFfqlmOQtnMfzK >}}
-```
+
+::: {#fig-mpt}
+
+{{< video https://youtu.be/mfmueqgQN4s?si=vDoopUMcdT8MODLw >}}
+
+Step by Step Tutorial für den MPT-Workshop
+
+:::
+
 
 ## Einführung
 
@@ -255,11 +261,14 @@ Dies entspricht unseren Überlegungen und auch den Ergebnissen des Diffusionsmod
 `MPTinR` gibt uns auch eine Reihe von Indikatoren zur Bestimmung des Modelfits aus. Auf diese kann wie folgt zugegriffen werden
 
 ```{r}
+
+# Modelfit abspeichern
 model_fit <- fit$goodness.of.fit$aggregated
-
-fit$goodness.of.fit$individual
+# Ansehen des individuellen Modelfits
+head(fit$goodness.of.fit$individual,10)
+# Summierter Fit
 fit$goodness.of.fit$sum
-
+# Gesamtmodelfit (wird immer im Text angegben)
 print(model_fit)
 ```
 
@@ -271,10 +280,14 @@ Es wird hier die Abweichung zwischen beobachteten ($n_j$) und reproduzierten Hä
 
 $$d f=\sum_{k=1}^K\left(J_k-1\right)-S $$ ist. Hierbei ist $K$ die Anzahl der unterschiedlichen Kategorien (hier 4, Hautfarbe x Objekt) und $J_k$ die möglichen Outcomes für die jeweilige Kategorie $k$ (hier jeweils 2, Hits und Misses). $S$ bezeichnet die Anzahl der Parameter die wir frei schätzen (hier 4). Laut Formel ergeben sich also folgende Freiheitsgrade
 
-$$\sum_{k=1}^4\left(2-1\right)-4 = 0 $$ Dies bedeutet, das unsere Modell perfekt identifiziert ist ! Ein Modell muss immer die Bedingung erfüllen, dass es mindestens soviele Freiheitsgerade wie Parameter besitzt:
 
-$$S \leq \sum_{k=1}^K\left(J_k-1\right)$$ Ansonsten ist nicht identifiziert und kann nicht geschätzt werden. In unserem Fall ist das Modell also perfekt identifiziert, daher wird genaugenommen nichts geschätzt, sondern die Wahrscheinlichkeiten berechnet. Ist ein Modell nicht identifiziert, können Parameter fixiert oder gleichgesetzt werden, um die Anzahl der Freiheitsgerade zu erhöhen.
+$$\sum_{k=1}^4\left(2-1\right)-4 = 0 $$
 
+Dies bedeutet, das unsere Modell perfekt identifiziert ist ! Ein Modell muss immer die Bedingung erfüllen, dass es mindestens soviele Freiheitsgerade wie Parameter besitzt:
+
+$$S \leq \sum_{k=1}^K\left(J_k-1\right)$$
+
+Ansonsten ist nicht identifiziert und kann nicht geschätzt werden. In unserem Fall ist das Modell also perfekt identifiziert, daher wird genaugenommen nichts geschätzt, sondern die Wahrscheinlichkeiten berechnet. Ist ein Modell nicht identifiziert, können Parameter fixiert oder gleichgesetzt werden, um die Anzahl der Freiheitsgerade zu erhöhen.
 In unserem Fall ergibt sich also eine nicht-signifikante Teststatistik für G², mit einem p-Wert von 1 und einem G² von faktisch 0. Daher können wir die Nullhypothese, dass die Daten unter den geschätzten Wahrscheinlichkeiten plausibel sind, nicht ablehnen.
 
 ```{r}
@@ -283,7 +296,7 @@ model_fit
 
 Dies bedeutet das Modell fittet perfekt, was an der eindeutigen Identifizierung des Modells liegt, da
 
-$$df = S$$ gilt.
+$$df = S$$ gilt. Wir können hier also die Parameter berechnen. Normalerweise sollte es immer Freiheitsgrade geben, dies könnte Beispielsweise mit einem komplexeren Modell erreicht werden (z.B. mit mehr Parametern).
 
 ## Grafische Darstellung des Modelfits
 
@@ -300,6 +313,13 @@ observed<- fit$data$observed$individual
 
 predicted <-fit$data$predicted$individual 
 
+```
+
+Damit können wir dann direkt eine Korrellationsmatrix erstellen:\
+\
+
+```{r}
+cor(observed,predicted)
 ```
 
 ```{r}
