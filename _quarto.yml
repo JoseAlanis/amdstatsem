@@ -87,12 +87,12 @@ website:
             contents:
               - href: scripts/ddm-workshop/DDM_Workshop_solution.qmd
                 text: "Workshop Diffusion Modeling"      
-          # - section: "Termin 8 & 9: Multinomial Processing Tree Models"
-          #   contents:
-          #     - href: 
-          #       text: "Slides"
-          #     - href: cogmod_sem_sose23/MPT-Workshop/MPT-Workshop.qmd
-          #       text: "MPT Workshop"   
+          - section: "Termin 8 & 9: Multinomial Processing Tree Models"
+            contents:
+              - href:
+                text: "Slides"
+              - href: scripts/mpt-workshop/mpt-workshop.qmd
+                text: "MPT Workshop"
                
 format:
   html:
