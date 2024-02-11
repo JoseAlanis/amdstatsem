@@ -584,9 +584,9 @@ $parameters
 <pre><code>Presenting the best result out of 10 minimization runs.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Model fitting begins at 2024-02-04 00:43:08.68215"
-[1] "Model fitting stopped at 2024-02-04 00:43:13.079921"
-Time difference of 4.39777 secs</code></pre>
+<pre><code>[1] "Model fitting begins at 2024-02-11 00:41:40.444403"
+[1] "Model fitting stopped at 2024-02-11 00:41:44.651984"
+Time difference of 4.207581 secs</code></pre>
 </div>
 </div>
 <p>Nun können verschiedene Informationen mit Hilfe des <code>$</code> Operator aus dem <code>fit</code> Objekt ausgegeben werden, hierzu benutzen wir den <code>$</code> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):<br>
@@ -712,21 +712,21 @@ mean difference
 <div class="cell-output cell-output-stdout">
 <pre><code>   Log.Likelihood     G.Squared df p.value
 1       -34.12942  0.000000e+00  0       1
-2       -24.34660 -1.421085e-14  0       1
+2       -24.34660 -7.105427e-15  0       1
 3       -16.25804  0.000000e+00  0       1
 4       -17.59374 -7.105427e-15  0       1
 5       -34.75840  0.000000e+00  0       1
 6       -25.31044  0.000000e+00  0       1
-7       -20.27958 -7.105427e-15  0       1
+7       -20.27958  0.000000e+00  0       1
 8       -39.81650 -1.421085e-14  0       1
-9       -22.50232  0.000000e+00  0       1
+9       -22.50232 -7.105427e-15  0       1
 10      -30.00681 -7.105427e-15  0       1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summierter Fit</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>goodness.of.fit<span class="sc">$</span>sum</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Log.Likelihood     G.Squared df p.value
-1      -3528.429 -5.258016e-13  0       1</code></pre>
+1      -3528.429 -5.293543e-13  0       1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtmodelfit (wird immer im Text angegben)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
