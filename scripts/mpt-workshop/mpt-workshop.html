@@ -584,9 +584,9 @@ $parameters
 <pre><code>Presenting the best result out of 10 minimization runs.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Model fitting begins at 2024-02-25 00:43:35.407589"
-[1] "Model fitting stopped at 2024-02-25 00:43:40.055626"
-Time difference of 4.648037 secs</code></pre>
+<pre><code>[1] "Model fitting begins at 2024-03-03 00:41:59.777806"
+[1] "Model fitting stopped at 2024-03-03 00:42:04.105653"
+Time difference of 4.327847 secs</code></pre>
 </div>
 </div>
 <p>Nun können verschiedene Informationen mit Hilfe des <code>$</code> Operator aus dem <code>fit</code> Objekt ausgegeben werden, hierzu benutzen wir den <code>$</code> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):<br>
@@ -712,7 +712,7 @@ mean difference
 <div class="cell-output cell-output-stdout">
 <pre><code>   Log.Likelihood     G.Squared df p.value
 1       -34.12942  0.000000e+00  0       1
-2       -24.34660 -1.421085e-14  0       1
+2       -24.34660 -7.105427e-15  0       1
 3       -16.25804  0.000000e+00  0       1
 4       -17.59374 -7.105427e-15  0       1
 5       -34.75840  0.000000e+00  0       1
@@ -720,13 +720,13 @@ mean difference
 7       -20.27958  0.000000e+00  0       1
 8       -39.81650  0.000000e+00  0       1
 9       -22.50232 -7.105427e-15  0       1
-10      -30.00681 -7.105427e-15  0       1</code></pre>
+10      -30.00681  0.000000e+00  0       1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Summierter Fit</span></span>
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>goodness.of.fit<span class="sc">$</span>sum</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Log.Likelihood     G.Squared df p.value
-1      -3528.429 -4.760636e-13  0       1</code></pre>
+1      -3528.429 -4.689582e-13  0       1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtmodelfit (wird immer im Text angegben)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -786,7 +786,7 @@ miss_wg -0.08907613  0.2897716 -0.26177232  1.00000000 -0.04378506  0.4128029
 hits_bp  0.38012618 -0.2585228 -0.04594584 -0.04378506  1.00000000 -0.2525995
 miss_bp -0.21029684  0.4867141 -0.20790165  0.41280286 -0.25259949  1.0000000
 hits_bg  0.09289815 -0.2397399  0.03873533 -0.19819066  0.07890132 -0.3150341
-miss_bg -0.24401067  0.4790734 -0.38629078  0.17119394 -0.21022623  0.5079492
+miss_bg -0.24401067  0.4790734 -0.38629078  0.17119393 -0.21022623  0.5079492
                [,7]       [,8]
 hits_wp  0.09289815 -0.2440107
 miss_wp -0.23973993  0.4790734
