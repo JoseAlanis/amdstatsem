@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="de" xml:lang="de"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.550">
+<meta name="generator" content="quarto-1.4.551">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -407,7 +407,7 @@ Abbildung&nbsp;1: Step by Step Tutorial für den MPT-Workshop
 <p>Wie schon in der letzten Sitzung vorgestellt handelt es sich beim beim First Person Shooter Task (FPST) um ein Paradigma, mit dem Stereotype und deren Auswirkungen auf Entscheidungen untersucht werden können. Hierbei werden üblicherweise verschiedene Ethnien (z.B. schwarze oder weiße Personen), entweder mit einer Waffe (threat) oder einem ungefährlichem Objekt (z.B. Telefon, harmless) gezeigt. Die Versuchspersonen werden instruiert unabhängig von der Hautdfarbe so schnell und korrekt wie möglich auf bewaffnete Ziele zu schiessen. Im Gegensatz dazu soll nicht auf unbewaffnete Ziele geschossen werden.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="image-1891641700.png" class="img-fluid quarto-figure quarto-figure-center figure-img"></p>
+<p><img src="image-1891641700.png" class="img-fluid figure-img"></p>
 <figcaption>Verschiedene Paradigmen des FPST</figcaption>
 </figure>
 </div>
@@ -584,9 +584,9 @@ $parameters
 <pre><code>Presenting the best result out of 10 minimization runs.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
-<pre><code>[1] "Model fitting begins at 2024-03-03 00:41:59.777806"
-[1] "Model fitting stopped at 2024-03-03 00:42:04.105653"
-Time difference of 4.327847 secs</code></pre>
+<pre><code>[1] "Model fitting begins at 2024-03-10 00:43:11.501465"
+[1] "Model fitting stopped at 2024-03-10 00:43:15.851589"
+Time difference of 4.350124 secs</code></pre>
 </div>
 </div>
 <p>Nun können verschiedene Informationen mit Hilfe des <code>$</code> Operator aus dem <code>fit</code> Objekt ausgegeben werden, hierzu benutzen wir den <code>$</code> Operator. Zunächst sehen wir uns den Mittelwert der unterschiedlichen individuellen Parameter nach Gruppen/Bäumen an, sowie die Parameter für die aggregierten Daten (also für die aufsummierten Hits und Misses über alle Personen):<br>
@@ -713,11 +713,11 @@ mean difference
 <pre><code>   Log.Likelihood     G.Squared df p.value
 1       -34.12942  0.000000e+00  0       1
 2       -24.34660 -7.105427e-15  0       1
-3       -16.25804  0.000000e+00  0       1
+3       -16.25804 -7.105427e-15  0       1
 4       -17.59374 -7.105427e-15  0       1
 5       -34.75840  0.000000e+00  0       1
 6       -25.31044 -7.105427e-15  0       1
-7       -20.27958  0.000000e+00  0       1
+7       -20.27958 -7.105427e-15  0       1
 8       -39.81650  0.000000e+00  0       1
 9       -22.50232 -7.105427e-15  0       1
 10      -30.00681  0.000000e+00  0       1</code></pre>
@@ -726,13 +726,13 @@ mean difference
 <span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>fit<span class="sc">$</span>goodness.of.fit<span class="sc">$</span>sum</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Log.Likelihood     G.Squared df p.value
-1      -3528.429 -4.689582e-13  0       1</code></pre>
+1      -3528.429 -4.902745e-13  0       1</code></pre>
 </div>
 <div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Gesamtmodelfit (wird immer im Text angegben)</span></span>
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">print</span>(model_fit)</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Log.Likelihood G.Squared df p.value
-1      -3895.856         0  0       1</code></pre>
+<pre><code>  Log.Likelihood     G.Squared df p.value
+1      -3895.856 -9.094947e-13  0       1</code></pre>
 </div>
 </div>
 <p>Die für den Modelfit wichtige Statistik ist die G²-Statistik. G² wird in der Schätzung der MPT Modelle als Diskrepanzfunktion minimiert und bildet das Äquivalent zur Maximierung der Likelihood-Funktion bei kontinuierlichen Daten:</p>
@@ -746,8 +746,8 @@ mean difference
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>model_fit</span></code><button title="In die Zwischenablage kopieren" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>  Log.Likelihood G.Squared df p.value
-1      -3895.856         0  0       1</code></pre>
+<pre><code>  Log.Likelihood     G.Squared df p.value
+1      -3895.856 -9.094947e-13  0       1</code></pre>
 </div>
 </div>
 <p>Dies bedeutet das Modell fittet perfekt, was an der eindeutigen Identifizierung des Modells liegt, da</p>
@@ -786,7 +786,7 @@ miss_wg -0.08907613  0.2897716 -0.26177232  1.00000000 -0.04378506  0.4128029
 hits_bp  0.38012618 -0.2585228 -0.04594584 -0.04378506  1.00000000 -0.2525995
 miss_bp -0.21029684  0.4867141 -0.20790165  0.41280286 -0.25259949  1.0000000
 hits_bg  0.09289815 -0.2397399  0.03873533 -0.19819066  0.07890132 -0.3150341
-miss_bg -0.24401067  0.4790734 -0.38629078  0.17119393 -0.21022623  0.5079492
+miss_bg -0.24401067  0.4790734 -0.38629078  0.17119394 -0.21022623  0.5079492
                [,7]       [,8]
 hits_wp  0.09289815 -0.2440107
 miss_wp -0.23973993  0.4790734
@@ -1088,6 +1088,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     // clear code selection
     e.clearSelection();
   });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp("https:\/\/github\.com\/JoseAlanis\/amdstatsem");
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
   function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
     const config = {
       allowHTML: true,
@@ -1122,7 +1140,11 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);
-      return note.innerHTML;
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
     });
   }
   const xrefs = window.document.querySelectorAll('a.quarto-xref');
